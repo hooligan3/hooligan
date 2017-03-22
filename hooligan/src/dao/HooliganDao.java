@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import util.JdbcUtil;
+import vo.Customer;
+import vo.Notice;
 import vo.Product;
 
 public class HooliganDao {
@@ -35,8 +37,8 @@ public class HooliganDao {
 		}return null;
 		
 	}
-	//!!!!!!!!!!!!!!!!!!!!!!硫붿씤酉곌��졇�삱嫄�!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//踰좎뒪�듃�긽�뭹媛��졇�삤湲�
+	//!!!!!!!!!!!!!!!!!!!!!!메인뷰가져올거!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//베스트상품가져오기
 	public ArrayList<Product> bestProduct(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -54,7 +56,7 @@ public class HooliganDao {
 		}
 		return null;
 	}
-	//理쒖떊�긽�뭹媛��졇�삤湲�
+	//최신상품가져오기
 	public ArrayList<Product> newProduct(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -72,7 +74,7 @@ public class HooliganDao {
 		}
 		return null;
 	}
-	//硫붿씤泥ロ솕硫� 利먭꺼李얘린 媛��옣�넂�� �긽�뭹戮묎린 �긽�뭹踰덊샇�슦�꽑
+	//메인첫화면 즐겨찾기 가장높은 상품뽑기 상품번호우선
 	public int bookmarkBest(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -106,4 +108,62 @@ public class HooliganDao {
 		
 	}
 	
+
+/* 공지 게시판 */
+
+// 공지사항 작성
+public int insertNotice(Connection conn,Notice notice){
+	PreparedStatement pstmt=null;
+	
+	try {
+		pstmt=conn.prepareStatement(noticeSql.insertNotice);
+		pstmt.setInt(1,notice.getNoticeArticleNo());
+		pstmt.setString(2,notice.getTitle());
+		pstmt.setString(3, notice.getContent());
+		pstmt.setDate(4, notice.getNoticeDate());
+		return  pstmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally{
+		JdbcUtil.close(pstmt, null);
+	}return -1;
+	
+}
+//공지사항 수정
+public int updateNotice(Connection conn,Notice notice){
+	PreparedStatement pstmt = null;
+			try {
+				pstmt=conn.prepareStatement(noticeSql.insertNotice);
+				pstmt.setString(1,notice.getTitle());
+				pstmt.setString(2,notice.getContent());
+				pstmt.setInt(3, notice.getNoticeArticleNo());
+				return	pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				JdbcUtil.close(pstmt, null);
+			}return -1;
+}
+//공지사항 삭제
+public int deleteNotice(Connection conn,int noticeArticleNo){
+	PreparedStatement pstmt = null;
+	try {
+		pstmt=conn.prepareStatement(noticeSql.deleteNotice);
+		
+		pstmt.setInt(1, noticeArticleNo);
+		return pstmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally{
+		JdbcUtil.close(pstmt, null);
+	}return -1;
+}
+
+public int insertCustomer(Connection conn,Customer customer){
+		PreparedStatement pstmt =null;
+		ResultSet rs = null;
+		
+}
+
+
 }

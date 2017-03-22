@@ -3,7 +3,7 @@ package dao;
 public interface customerSql {
 	/* 회원*/
 	//회원가입
-	public String customerInsert= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,tell,ssn1,ssn2,email)values(?,?,?,?,?,?,?,?)";
+	public String insertCustomer= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,tell,ssn1,ssn2,email)values(?,?,?,?,?,?,?,?)";
 
 	//아이디 중복 확인
 	public String customerIdDuplication ="select count(*) from coustomer where customer_id=?"; 
