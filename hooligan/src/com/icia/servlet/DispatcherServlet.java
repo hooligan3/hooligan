@@ -13,8 +13,7 @@ import com.icia.service.HooliganService;
 import di.AnnotationRunner;
 import di.ModelAndView;
 
-
-@WebServlet({"/customer/*", "/main/*","/admin/*","/employee/*","/product/*"})
+@WebServlet({"/employee/*", "/main/*","/customer/*"})
 public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {

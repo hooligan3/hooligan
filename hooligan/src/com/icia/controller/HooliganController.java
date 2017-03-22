@@ -12,14 +12,15 @@ public class HooliganController {
 	public static ModelAndView main(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
-		mav.setView("/UandMe/Main.jsp");
+		mav.setView("/Main.jsp");
 	return mav;
 	}
 	@RequestMapping(value="/customer/login",method="GET")
 	public static ModelAndView loginStart(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
-		
-		
+		mav.setView("/Login.jsp");
 		return mav;
+		
+	
 	}
 }
