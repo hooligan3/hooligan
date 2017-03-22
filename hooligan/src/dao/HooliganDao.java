@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
-
 import util.JdbcUtil;
 import vo.Product;
 
@@ -37,8 +35,8 @@ public class HooliganDao {
 		}return null;
 		
 	}
-	//!!!!!!!!!!!!!!!!!!!!!!메인뷰가져올거!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//베스트상품가져오기
+	//!!!!!!!!!!!!!!!!!!!!!!硫붿씤酉곌��졇�삱嫄�!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//踰좎뒪�듃�긽�뭹媛��졇�삤湲�
 	public ArrayList<Product> bestProduct(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -56,7 +54,7 @@ public class HooliganDao {
 		}
 		return null;
 	}
-	//최신상품가져오기
+	//理쒖떊�긽�뭹媛��졇�삤湲�
 	public ArrayList<Product> newProduct(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -74,7 +72,7 @@ public class HooliganDao {
 		}
 		return null;
 	}
-	//메인첫화면 즐겨찾기 가장높은 상품뽑기 상품번호우선
+	//硫붿씤泥ロ솕硫� 利먭꺼李얘린 媛��옣�넂�� �긽�뭹戮묎린 �긽�뭹踰덊샇�슦�꽑
 	public int bookmarkBest(Connection conn){
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
