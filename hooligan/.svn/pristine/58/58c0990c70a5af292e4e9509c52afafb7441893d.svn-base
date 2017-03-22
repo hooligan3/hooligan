@@ -1,0 +1,15 @@
+package controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import di.ModelAndView;
+import service.HooliganService;
+
+public class HooliganController {
+	
+	public static ModelAndView main(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+	return mav;
+	}
+}

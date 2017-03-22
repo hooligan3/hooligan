@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="manager_reset.css" rel="stylesheet" />
+    <link href="manager.css?ver=5" rel="stylesheet" />
+    <link href="customer_list.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrap">
+        <header id="header">
+            <h1><a href="manager_index.html"><img class="main_logo_img" src="images/logo.png" alt="로고" /></a></h1>
+            <p>Manager</p>
+        </header>
+        <!--==============헤더와 본문 영역 구분===============-->
+        <div id="header_blank"></div>
+        <!--==============헤더와 본문 영역 구분===============-->
+        <div id="container">
+            <nav class="main_gnb">
+                <ul>
+                    <li><a href="confirm_waiting_company.html">승인대기중인 개인사업자</a></li>
+                    <hr />
+                    <li><a href="company_list.html">개인사업자 조회</a></li>
+                    <hr />
+                    <li><a href="customer_list.html">회원 조회</a></li>
+                    <hr />
+                    <li><a href="brand_list.html">브랜드 조회</a></li>
+                    <hr />
+                    <li><a href="sales_history.html">매출 내역</a></li>
+                    <hr />
+                </ul>
+            </nav>
+            <section class="main_section">
+                <h2>회원조회</h2>
+                <div class="article">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>직원이름</th>
+                                <th>아이디</th>
+                                <th>이메일</th>
+                                <th>연락처</th>
+                                <th>등급</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>A</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>A</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>B</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>B</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>C</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>C</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>D</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>D</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td>D</td>
+                            <td><button>삭제하기</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
