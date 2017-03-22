@@ -10,13 +10,13 @@ import javax.servlet.http.*;
 import vo.Customer;
 
 
-@WebFilter("/*")
+@WebFilter("/hooligan/*")
 public class LoginFilter implements Filter {
 	// 로그인 없이 접근할 수 있는 경로를 지정
 	private ArrayList<String> whiteList = new ArrayList<>();
     public LoginFilter() {
-    	whiteList.add("/hooligan/index.html");
-    	whiteList.add("/hooligan/login_form.html");
+    	whiteList.add("/hooligan/Main.jsp");
+    	whiteList.add("/hooligan/Login.jsp");
     	
     	
     }
