@@ -1,12 +1,111 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>개인회원가입</title>
 
-</body>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <!-- Custom style -->
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    	$(function(){
+    		var a =  /^[a-zA-Z0-9]{5,15}$/;	//아이디 기준
+    		var b ="AAA";
+    		$("#id").on("blur",function(){
+
+    			if(a.test($("#id").val())==false){
+					$("#idchecked").html("아이디는 대소문자 및 숫자 5~15의 길이 입니다")
+				}
+    			else{
+    				$("#idchecked").html("")
+    			}
+    		})
+    	})
+    </script>
+    <style>
+    	#ssn1, #ssn2{
+    		display: inline-block;
+    	}
+    </style>
+  </head>
+  <body>
+      <article class="container">
+          <div class="page-header">
+              <h1>UandMe 개인 회원가입</h1>
+          </div>
+          <div class="col-md-6 col-md-offset-3">
+              <form role="form">
+                  <div class="form-group">
+                      <label for="InputEmail">아이디</label>
+                      <input type="text" class="form-control" id="id" placeholder="아이디" name="id">
+                      <p id="idchecked"></p>
+                  </div>
+                  <div class="form-group">
+                      <label for="InputPassword1">비밀번호</label>
+                      <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                  </div>
+                  <div class="form-group">
+                      <label for="InputPassword2">비밀번호 확인</label>
+                      <input type="password" class="form-control" id="password2" placeholder="비밀번호 확인"name="password2">
+                  </div>
+                  <div class="form-group">
+                      <label for="username">이름</label>
+                      <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+                  </div>
+                  <div class="form-group">
+                      <label for="ssn">주민번호</label><br>
+                      <input type="text" class="form-control" id="ssn1" placeholder="앞자리" style="width:213px">
+                      -
+                       <input type="text" class="form-control" id="ssn2" placeholder="뒷자리" style="width:213px">
+                  </div>
+                  <div class="form-group">
+                      <label for="phone_number">전화번호</label>
+                      <input type="text" class="form-control" id="phone_number" placeholder="전화번호를 입력해주세요">
+                  </div>
+                  <div class="form-group">
+                      <label for="address">주소</label>
+                      <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요">
+                  </div>
+                  <div class="form-group">
+                      <label for="email">이메일</label>
+                      <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요">
+                  </div>
+                  <div class="form-group">
+                      <label>약관 동의</label>
+                      <div data-toggle="buttons">
+                          <label class="btn btn-primary active">
+                              <span class="fa fa-check"></span>
+                              <input id="agree" type="checkbox" autocomplete="off" checked>
+                          </label>
+                          <a href="#">이용약관</a>에 동의합니다.
+                      </div>
+                  </div>
+                  <div class="form-group text-center">
+                      <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
+                      <button class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+                  </div>
+              </form>
+          </div>
+      </article>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
