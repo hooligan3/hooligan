@@ -13,7 +13,7 @@ public class HooliganService {
 	private HooliganDao dao;
 	public HooliganService(HooliganDao dao) {
 		this.dao = dao;
-	public ArrayList<HashMap<String , Object>> Best(HttpServletRequest req){
+	public ArrayList<HashMap<String , Object>> mainView(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
 		
 	}
