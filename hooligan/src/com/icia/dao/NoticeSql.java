@@ -1,6 +1,6 @@
 package com.icia.dao;
 
-public interface noticeSql {
+public interface NoticeSql {
 	// 자유게시판
 		public String insertFreeBoard = " insert into free_board values(?,?,?,?,?,?)" ;
 		// 자유게시판글 작성

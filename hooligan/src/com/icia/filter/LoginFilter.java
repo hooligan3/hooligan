@@ -31,7 +31,7 @@ public class LoginFilter implements Filter {
 		HttpSession session = req.getSession();
 		String uri = req.getRequestURI();
 		String go = uri;
-		Customer user = (Customer)session.getAttribute("user");
+		Customer user = (Customer)session.getAttribute("customer");
 		// 화이트리스트에 없는 로그인이 필요한 경로에 접근했고 로그인이 안된 경우
 		if((!whiteList.contains(uri)) && user==null) {
 			System.out.println("로그인 안됨");

@@ -121,7 +121,7 @@ public int insertNotice(Connection conn,Notice notice){
 	PreparedStatement pstmt=null;
 	
 	try {
-		pstmt=conn.prepareStatement(noticeSql.insertNotice);
+		pstmt=conn.prepareStatement(NoticeSql.insertNotice);
 		pstmt.setInt(1,notice.getNoticeArticleNo());
 		pstmt.setString(2,notice.getTitle());
 		pstmt.setString(3, notice.getContent());
@@ -138,7 +138,7 @@ public int insertNotice(Connection conn,Notice notice){
 public int updateNotice(Connection conn,Notice notice){
 	PreparedStatement pstmt = null;
 			try {
-				pstmt=conn.prepareStatement(noticeSql.insertNotice);
+				pstmt=conn.prepareStatement(NoticeSql.insertNotice);
 				pstmt.setString(1,notice.getTitle());
 				pstmt.setString(2,notice.getContent());
 				pstmt.setInt(3, notice.getNoticeArticleNo());
@@ -153,7 +153,7 @@ public int updateNotice(Connection conn,Notice notice){
 public int deleteNotice(Connection conn,int noticeArticleNo){
 	PreparedStatement pstmt = null;
 	try {
-		pstmt=conn.prepareStatement(noticeSql.deleteNotice);
+		pstmt=conn.prepareStatement(NoticeSql.deleteNotice);
 		
 		pstmt.setInt(1, noticeArticleNo);
 		return pstmt.executeUpdate();
@@ -165,12 +165,13 @@ public int deleteNotice(Connection conn,int noticeArticleNo){
 }
 /*     회원       */
 //회원로그인
-public Customer customerLogin(Connection conn,HashMap<String, String> customer){
+public Customer customerLogin(Connection conn,HashMap<String, String>customer){
+	System.out.println(customer.get("customer_id"));
 	PreparedStatement pstmt=null;
 	ResultSet rs=null;
 	Customer c=new Customer();
 	try {
-		pstmt=conn.prepareStatement(customerSql.loginCustomer);
+		pstmt=conn.prepareStatement(CustomerSql.loginCustomer);
 		 pstmt.setString(1, customer.get("customer_id"));
 		 pstmt.setString(2, customer.get("customer_pwd"));
 		 rs = pstmt.executeQuery();
@@ -188,7 +189,8 @@ public Customer customerLogin(Connection conn,HashMap<String, String> customer){
 			 c.setPoint(rs.getInt("point"));
 			 c.setGradeNo(rs.getInt("grade_no"));
 			 c.setGradeName(rs.getString("grade_name"));
-			 c.setRate(rs.getFloat("rate"));
+			 c.setRate(rs.getFloat("discount_rate"));
+			 System.out.println(c.toString());
 			 return c;
 			 
 		 }
@@ -208,7 +210,7 @@ public Customer customerLogin(Connection conn,HashMap<String, String> customer){
 public int insertCustomer(Connection conn,Customer customer){
 	PreparedStatement pstmt = null;
 	try {
-		pstmt=conn.prepareStatement(customerSql.insertCustomer);
+		pstmt=conn.prepareStatement(CustomerSql.insertCustomer);
 		pstmt.setString(1, customer.getCustomerId());
 		pstmt.setString(2, customer.getCustomerPwd());
 		pstmt.setString(3, customer.getCustomerName());
@@ -231,7 +233,7 @@ public int doubleIdCheck(Connection conn,String customerId){
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try{
-		pstmt = conn.prepareStatement(customerSql.doubleIdCheck);
+		pstmt = conn.prepareStatement(CustomerSql.doubleIdCheck);
 		pstmt.setString(1,customerId);
 		pstmt.executeQuery();
 		if(rs.next()){
@@ -249,7 +251,7 @@ public int selectById(Connection conn,String customerName,int ssn1,int ssn2){
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try{
-		pstmt = conn.prepareStatement(customerSql.selectById);
+		pstmt = conn.prepareStatement(CustomerSql.selectById);
 		pstmt.setString(1,customerName);
 		pstmt.setInt(2, ssn1);
 		pstmt.setInt(3, ssn2);
@@ -269,7 +271,7 @@ public int selectByPwd(Connection conn,String customerId,int ssn1,int ssn2){
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try{
-		pstmt = conn.prepareStatement(customerSql.selectByPwd);
+		pstmt = conn.prepareStatement(CustomerSql.selectByPwd);
 		pstmt.setString(1,customerId);
 		pstmt.setInt(2, ssn1);
 		pstmt.setInt(3, ssn2);
@@ -288,7 +290,7 @@ public int selectByPwd(Connection conn,String customerId,int ssn1,int ssn2){
 public int deleteCustomer(Connection conn,String customerPwd){
 	PreparedStatement pstmt = null;
 	try {
-		pstmt=conn.prepareStatement(noticeSql.deleteNotice);
+		pstmt=conn.prepareStatement(NoticeSql.deleteNotice);
 		
 		pstmt.setString(1, customerPwd);
 		return pstmt.executeUpdate();
@@ -303,7 +305,7 @@ public int deleteCustomer(Connection conn,String customerPwd){
 public int updateCustomer(Connection conn,Customer customer){
 	PreparedStatement pstmt = null;
 	try {
-		pstmt=conn.prepareStatement(customerSql.deleteCustomer);
+		pstmt=conn.prepareStatement(CustomerSql.deleteCustomer);
 		pstmt.setString(1,customer.getCustomerPwd());
 		pstmt.setString(2,customer.getCustomerName());
 		pstmt.setInt(3, customer.getPostalNo());
@@ -322,7 +324,7 @@ public int login(Connection conn,Customer customer){
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	try {
-		pstmt = conn.prepareStatement(customerSql.loginCustomer);
+		pstmt = conn.prepareStatement(CustomerSql.loginCustomer);
 		pstmt.setString(1,customer.getCustomerId());
 		pstmt.setString(2,customer.getCustomerPwd());
 		rs = pstmt.executeQuery();
@@ -343,7 +345,7 @@ public int login(Connection conn,Customer customer){
 public int bookmarkInsert(Connection conn,Bookmark bookmark){
 	PreparedStatement pstmt = null;
 	try{
-		pstmt = conn.prepareStatement(customerSql.bookmarkInsert);
+		pstmt = conn.prepareStatement(CustomerSql.bookmarkInsert);
 		pstmt.setString(1, bookmark.getCustomerId());
 		pstmt.setInt(2, bookmark.getProductNo());
 		
@@ -371,7 +373,7 @@ public ArrayList<Brand> brandAllList(Connection conn){
 	ResultSet rs = null;
 	ArrayList<Brand> list = new ArrayList<>();
 	try {
-		pstmt = conn.prepareStatement(customerSql.brandAll);
+		pstmt = conn.prepareStatement(CustomerSql.brandAll);
 		rs = pstmt.executeQuery();
 		while(rs.next())
 			list.add(makeBrand(rs));
@@ -390,7 +392,7 @@ public int insertInquiryAticle(Connection conn,InquiryBoard inquiryBoard){
 	PreparedStatement pstmt=null;
 	
 	try {
-		pstmt=conn.prepareStatement(customerSql.insertInquiryAticle);
+		pstmt=conn.prepareStatement(CustomerSql.insertInquiryAticle);
 		pstmt.setInt(1,inquiryBoard.getInquiryNo());
 		pstmt.setString(2,inquiryBoard.getTitle());
 		pstmt.setString(3,inquiryBoard.getContent());
@@ -407,7 +409,7 @@ public int insertInquiryAticle(Connection conn,InquiryBoard inquiryBoard){
 public int updateInquiryAticle(Connection conn,InquiryBoard inquiryBoard){
 	PreparedStatement pstmt = null;
 			try {
-				pstmt=conn.prepareStatement(customerSql.updateInquiryAticle);
+				pstmt=conn.prepareStatement(CustomerSql.updateInquiryAticle);
 				pstmt.setString(1,inquiryBoard.getTitle());
 				pstmt.setString(2,inquiryBoard.getContent());
 				pstmt.setInt(3, inquiryBoard.getInquiryNo());
@@ -422,7 +424,7 @@ public int updateInquiryAticle(Connection conn,InquiryBoard inquiryBoard){
 public int deleteInquiryAticle(Connection conn,InquiryBoard inquiryBoard){
 	PreparedStatement pstmt = null;
 	try {
-		pstmt=conn.prepareStatement(customerSql.deleteInquiryAticle);
+		pstmt=conn.prepareStatement(CustomerSql.deleteInquiryAticle);
 		
 		pstmt.setInt(1, inquiryBoard.getInquiryNo() );
 		return pstmt.executeUpdate();

@@ -1,6 +1,6 @@
 package com.icia.dao;
 
-public interface customerSql {
+public interface CustomerSql {
 	// 회원
 		//회원가입
 		public String insertCustomer= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,tell,ssn1,ssn2,email)values(?,?,?,?,?,?,?,?)";

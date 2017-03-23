@@ -32,12 +32,13 @@ public class MainController {
 	@RequestMapping(value="/main/login",method="POST")
 	public static ModelAndView loginEnd(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
+		System.out.println("로그인나아아아ㅏ");
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		mav.setView("/Main.jsp");
 		Customer customer = service.customerLogin(req);
 		  if (customer.getCustomerId()== null) {
 		   System.out.println("아이디나 비밀번호 확인필요");
-		   mav.setView("/members/login.jsp");
+		   mav.setView("/main/login");
 		  } else {
 		   System.out.println("로그인 성공");
 		   HttpSession session = req.getSession();
@@ -45,7 +46,7 @@ public class MainController {
 		   System.out.println("go:" + go);
 		   session.removeAttribute("destination");
 		   if (go == null)
-		    go = "/hooligan/main/login";
+		    go = "/hooligan/main/index";
 		   session.setAttribute("customer", customer);
 		   mav.setView(go);
 		   mav.setRedirect();
