@@ -2,7 +2,7 @@ package com.icia.dao;
 
 public interface EmpSql {
 	// 직원 회원가입
-		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, tell, ssn1, ssn2, email) values (?,?,?,?,?,?,?,?,? )";
+		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, tell, ssn1, ssn2, email,active) values (?,?,?,?,?,?,?,?,?,?)";
 		
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(seq_employee.nextval,?,?,?)";
@@ -14,16 +14,16 @@ public interface EmpSql {
 		public String insertBrandImg = "insert into brand_image values(?,?);";
 		
 		//로그인
-		public String login = "select count(*) from customer where employee_id=? and employee_pwd=?";
+		public String employeelogin = "select count(*) from employee where employee_id=? and employee_pwd=?";
 		
 		//직원 주소 조회
 		public String selecAddressOfEmployee = "select postal_no, address from employee where employee_id=?";
 		
 		//아이디 중복 확인
-		public String confirmId= "select count(*) from customer where employee_id=?";
+		public String doubleIdCheck= "select count(*) from employee where employee_id=?";
 		
 		//아이디 찾기
-		public String findIdOfEmployee ="select employee_id from employee where employee_ssn1=? and employee_ssn2=?";
+		public String employeeSelectById ="select employee_id from employee where employee_ssn1=? and employee_ssn2=?";
 		
 		//비밀번호 찾기
 		public String findPwdOfEmployee="select employee_pwd from employee where employee_id=? and employee_ssn1=? and employee_ssn2=?";
