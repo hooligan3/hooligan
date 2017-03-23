@@ -21,6 +21,7 @@ public class HooliganDao {
 	// 회원가입 Insert
 	public int insertCustomer(Connection conn, Customer customer) {
 		PreparedStatement pstmt = null;
+		System.out.println("여기 까지들어왓냐시발");
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.insertCustomer);
 			pstmt.setString(1, customer.getCustomerId());
@@ -32,9 +33,7 @@ public class HooliganDao {
 			pstmt.setString(7, customer.getSsn1());
 			pstmt.setString(8, customer.getSsn2());
 			pstmt.setString(9, customer.getEmail());
-			pstmt.setInt(10, 0); // 포인트0
-			pstmt.setInt(11, 1); // 등급코드 1
-			
+	
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -3,7 +3,7 @@ package com.icia.dao;
 public interface CustomerSql {
 	// 회원
 		//회원가입
-		public String insertCustomer= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,tell,ssn1,ssn2,email,point,grade_no)values(?,?,?,?,?,?,?,?,?,?)";
+		public String insertCustomer= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,address,tell,ssn1,ssn2,email,point1,grade_no)values(?,?,?,?,?,?,?,?,?,0,1)";
 
 		//아이디 중복 확인
 		public String doubleIdCheck ="select count(*) from coustomer where customer_id=?"; 

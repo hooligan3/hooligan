@@ -50,41 +50,46 @@
               <h1>U&Me 개인 회원가입</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
-              <form role="form">
+              <form  action="/hooligan/customer/register" method="post">
                   <div class="form-group">
                       <label for="InputEmail">아이디</label>
-                      <input type="text" class="form-control" id="id" placeholder="아이디" name="id">
+                      <input type="text" class="form-control" name="id" placeholder="아이디" name="id">
                       <p id="idchecked"></p>
                   </div>
                   <div class="form-group">
                       <label for="InputPassword1">비밀번호</label>
-                      <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
+                      <input type="password" class="form-control" name="password" placeholder="비밀번호" name="password">
                   </div>
                   <div class="form-group">
                       <label for="InputPassword2">비밀번호 확인</label>
-                      <input type="password" class="form-control" id="password2" placeholder="비밀번호 확인"name="password2">
+                      <input type="password" class="form-control" name="password2" placeholder="비밀번호 확인"name="password2">
                   </div>
                   <div class="form-group">
                       <label for="username">이름</label>
-                      <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+                      <input type="text" class="form-control" name="username" placeholder="이름을 입력해 주세요">
                   </div>
                   <div class="form-group">
                       <label for="ssn">주민번호</label><br>
-                      <input type="text" class="form-control" id="ssn1" placeholder="앞자리" style="width:213px">
+                      <input type="text" class="form-control" name="ssn1" placeholder="앞자리" style="width:213px">
                       -
-                       <input type="text" class="form-control" id="ssn2" placeholder="뒷자리" style="width:213px">
-                  </div>
+                       <input type="text" class="form-control" name="ssn2" placeholder="뒷자리" style="width:213px">
+               
                   <div class="form-group">
                       <label for="phone_number">전화번호</label>
-                      <input type="text" class="form-control" id="phone_number" placeholder="전화번호를 입력해주세요">
+                      <input type="text" class="form-control" name="phone_number" placeholder="전화번호를 입력해주세요">
+                  </div>
+                     </div>
+                                  <div class="form-group">
+                      <label for="postal_number">우편번호</label>
+                      <input type="text" class="form-control" name="postal_number" placeholder="우편번호를입력하시오">
                   </div>
                   <div class="form-group">
                       <label for="address">주소</label>
-                      <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요">
+                      <input type="text" class="form-control" name="address" placeholder="주소를 입력해주세요">
                   </div>
                   <div class="form-group">
                       <label for="email">이메일</label>
-                      <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요">
+                      <input type="text" class="form-control" name="email" placeholder="이메일을 입력해주세요">
                   </div>
                   <div class="form-group">
                       <label>약관 동의</label>
@@ -97,8 +102,8 @@
                       </div>
                   </div>
                   <div class="form-group text-center">
-                      <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
-                      <button class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+                      <button type="submit" class="btn btn-info">회원가입</button>
+                      <button class="btn btn-warning">가입취소</i></button>
                   </div>
               </form>
           </div>
