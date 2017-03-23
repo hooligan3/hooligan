@@ -1,23 +1,19 @@
 package di;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.logging.Logger;
+import java.io.*;
+import java.lang.reflect.*;
+import java.net.*;
+import java.util.*;
 
 import javax.servlet.http.*;
 
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
+
+import ch.qos.logback.core.net.*;
 
 public class AnnotationRunner {
 	private static ArrayList<HashMap<String, Object>> mapping = new ArrayList<HashMap<String, Object>>();
-	private static Logger logger = (Logger) LoggerFactory.getLogger(AnnotationRunner.class);
+	private static Logger logger = LoggerFactory.getLogger(AnnotationRunner.class);
 	public static void getRequestMapping(String path, String packageName) {
 		String pName = packageName.replaceAll("[.]", "\\\\");
 		// 패키지 이름의 .을 /로 바꾸면 경로가 된다

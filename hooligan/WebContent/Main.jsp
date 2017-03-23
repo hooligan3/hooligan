@@ -12,15 +12,15 @@
     <meta name="description" content="">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexslider.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/hooligan/css/style.css">
+    <link rel="stylesheet" href="/hooligan/css/flexslider.css"/>
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="/hooligan/css/animate.css"/>
 
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="hidden-xs col-lg-7 col-sm-5 top-info">
                         <span><a href="/hooligan/Login.jsp" style="color:white">로그인</a></span>
-                        <span class="hidden-sm"><a href="/hooligan/SelectRegister.jsp" style="color:white">회원가입</a></span>
+                        <span class="hidden-sm"><a href="/hooligan/main/selectRegister" style="color:white">회원가입</a></span>
                     </div>
                     <div class="col-lg-5 col-sm-7 top-info clearfix">
                         <ul>
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="images/logo.png"/></a></h1>
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
                         </div>
                     </div>
   <!-- =====================메인 메뉴(우측상단) 시작============================= -->
@@ -164,7 +164,7 @@
 
                                 <a href="product.html" class="slider-read FromLeft">구매하기</a>
                             </div>
-                            <div class="flex_caption2 FromRight"><img src="images/헛개수.png" alt="Alternate Text" /></div>
+                            <div class="flex_caption2 FromRight"><img src="/hooligan/images/헛개수.png" alt="Alternate Text" /></div>
                         </div>
                     </li>
 
@@ -178,7 +178,7 @@
                                 <a href="product.html" class="slider-read FromLeft">구매하기</a>
 
                             </div>
-                            <div class="flex_caption2 FromBottom"><img src="images/컴퓨터.png" alt="Alternate Text" /></div>
+                            <div class="flex_caption2 FromBottom"><img src="/hooligan/images/컴퓨터.png" alt="Alternate Text" /></div>
                         </div>
                     </li>
                     <li class="slide3">
@@ -191,7 +191,7 @@
                                 <a href="product.html" class="slider-read FromLeft">구매하기</a>
 
                             </div>
-                            <div class="flex_caption2 FromRight"><img src="images/옵티머스.png" alt="Alternate Text" /></div>
+                            <div class="flex_caption2 FromRight"><img src="/hooligan/images/옵티머스.png" alt="Alternate Text" /></div>
                         </div>
                     </li>
             </div>
@@ -228,11 +228,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_1.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_1.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -240,11 +240,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_2.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_2.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -252,34 +252,22 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_3.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_3.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
                                 </div>
                         </li>
 
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_4.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_4.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_5.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -287,11 +275,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_6.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_5.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -299,11 +287,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_7.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_6.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -311,11 +299,23 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_8.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_7.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                </div>
+                            </figure>
+                        </li>
+
+                        <!-- Recent Work Item -->
+                        <li class="col-sm-3 col-md-3 col-lg-3">
+                            <figure class="touching effect-bubba">
+                                <img src="/hooligan/images/portfolio/portfolio_8.png" alt="" class="img-responsive">
+
+                                <div class="option">
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -349,11 +349,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_1.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_1.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -361,34 +361,22 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_2.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_2.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
                                 </div>
                         </li>
 
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_3.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_3.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_4.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -396,11 +384,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_5.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_4.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -408,11 +396,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_6.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_5.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -420,11 +408,23 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_7.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_6.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
+                                </div>
+                            </figure>
+                        </li>
+
+                        <!-- Recent Work Item -->
+                        <li class="col-sm-3 col-md-3 col-lg-3">
+                            <figure class="/hooligan/touching effect-bubba">
+                                <img src="/hooligan/images/portfolio/portfolio_7.png" alt="" class="img-responsive">
+
+                                <div class="option">
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -432,11 +432,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_8.png" alt="" class="img-responsive">
+                                <img src="/hooligan/images/portfolio/portfolio_8.png" alt="" class="img-responsive">
 
                                 <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
                                 </div>
                             </figure>
                         </li>
@@ -463,27 +463,27 @@
             <!--<h2 class="center">Testimonials</h2>-->
 <!-- end : Parallax with Testimonial -->
 
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
-<script src="js/retina-1.1.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-<script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+<script src="/hooligan/js/bootstrap.min.js"></script>
+<script src="/hooligan/js/jquery.easing.1.3.js"></script>
+<script src="/hooligan/js/retina-1.1.0.min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
 <!--
 <script src="js/jquery.fractionslider.js" type="text/javascript" charset="utf-8"></script>
 -->
-<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-<script type="text/javascript" src="js/jflickrfeed.js"></script>
-<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="js/swipe.js"></script>
-<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="/hooligan/js/jquery.flexslider-min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="/hooligan/js/main.js"></script>
     <script>
         $('.flexslider.top_slider').flexslider({
             animation: "fade",
@@ -496,7 +496,7 @@
 
     <!-- WARNING: Wow.js doesn't work in IE 9 or less -->
     <!--[if gte IE 9 | !IE ]><!-->
-        <script type="text/javascript" src="js/wow.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/wow.min.js"></script>
         <script>
             // WOW Animation
             new WOW().init();
