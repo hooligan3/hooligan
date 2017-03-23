@@ -1,4 +1,4 @@
-package vo;
+package com.icia.vo;
 
 import lombok.Data;
 
