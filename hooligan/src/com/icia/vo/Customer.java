@@ -16,5 +16,6 @@ public class Customer {
 	private int point;
 	private int gradeNo;
 	private Grade customerGrade;
+	private float rate;
 	
 }

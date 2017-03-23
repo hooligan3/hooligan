@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.icia.dao.HooliganDao;
 import com.icia.util.JdbcUtil;
+import com.icia.vo.Customer;
 
 public class HooliganService {
 	private HooliganDao dao;
@@ -21,6 +22,10 @@ public class HooliganService {
 	public int employeeRegisterEnd(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
 		return 0;
+	}
+	public Customer customerLogin(HttpServletRequest req) {
+		
+		return null;
 	}
 }
 

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.icia.util.JdbcUtil;
 import com.icia.vo.Bookmark;
@@ -163,7 +164,28 @@ public int deleteNotice(Connection conn,int noticeArticleNo){
 	}return -1;
 }
 /*     회원       */
-
+//회원로그인
+public Customer customerLogin(Connection conn,HashMap<String, String> customer){
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	Customer c=new Customer();
+	try {
+		pstmt=conn.prepareStatement(customerSql.loginCustomer);
+		 pstmt.setString(1, customer.get("customer_id"));
+		 pstmt.setString(2, customer.get("customer_pwd"));
+		 rs = pstmt.executeQuery();
+		 if(rs.next()){
+			 
+		 }
+		   
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
+}
 //회원가입
 public int insertCustomer(Connection conn,Customer customer){
 	PreparedStatement pstmt = null;

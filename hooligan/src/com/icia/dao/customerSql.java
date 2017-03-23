@@ -20,8 +20,8 @@ public interface customerSql {
 		//회원 정보수정
 		public String updateCustomer ="update customer set CUSTOMER_PWD=?,CUSTOMER_NAME=?,POSTAL_NO=?,ADDRESS=?,tell=?,email=?";
 		//로그인
-		public String loginCustomer="select count(*) from CUSTOMER where CUSTOMER_ID=? and CUSTOMER_PWD=?"; 
-
+		public String loginCustomer="select c.*,g.grade_name,g.discount_rate from customer c,grade g where c.grade_no=g.grade_no and c.customer_id=? and c.customer_pwd=?";
+		//로그인
 		
 		//즐겨 찾기 조회
 		//즐겨찾기 수 가져오기
