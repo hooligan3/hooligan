@@ -18,5 +18,9 @@ public class HooliganService {
 		
 		return null;
 	}
+	public int employeeRegisterEnd(HttpServletRequest req){
+		Connection conn=JdbcUtil.getConnection();
+		return 0;
+	}
 }
 

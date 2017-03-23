@@ -18,10 +18,10 @@ public class LoginFilter implements Filter {
     	
     	whiteList.add("/hooligan/indexdddd.html");
     	whiteList.add("/hooligan/main/index");
-    	whiteList.add("/hooligan/customer/login");
-    
-    	
-    	
+    	whiteList.add("/hooligan/main/login");
+    	whiteList.add("/hooligan/main/selectRegister");
+    	whiteList.add("/hooligan/customer/register");
+    	whiteList.add("/hooligan/employee/register");
     }
 	public void destroy() {
 	}
@@ -38,7 +38,7 @@ public class LoginFilter implements Filter {
 			// 예를 들어 /board/view를 요청했는데 로그인이 안된 경우
 			// 로그인을 한 다음 /board/view로 다시 이동해야 한다
 			// 따라서 로그인 후 다시 이동할 주소를 세션에 저장한 다음 로그인으로 이동
-			go = "/hooligan/customer/login";
+			go = "/hooligan/main/login";
 			session.setAttribute("destination", uri);
 			if(req.getParameter("bunho")!=null)
 				session.setAttribute("bunho", req.getParameter("bunho"));

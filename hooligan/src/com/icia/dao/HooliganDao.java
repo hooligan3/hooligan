@@ -162,6 +162,7 @@ public int deleteNotice(Connection conn,int noticeArticleNo){
 public int insertCustomer(Connection conn,Customer customer){
 		PreparedStatement pstmt =null;
 		ResultSet rs = null;
+		return 0;
 		
 }
 

@@ -13,12 +13,12 @@
     <meta name="description" content="">
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/hooligan/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,7 +59,7 @@
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
+                            <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                     <!-- Navigation
@@ -121,26 +121,26 @@
                                         <li>
                                             <a href="#">Portfolio Classic</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="portfolio_2.html">Portfolio 2</a></li>
-                                                <li><a href="portfolio_3.html">Portfolio 3</a></li>
-                                                <li><a href="portfolio_4.html">Portfolio 4</a></li>
+                                                <li><a href="/hooligan/portfolio_2.html">Portfolio 2</a></li>
+                                                <li><a href="/hooligan/portfolio_3.html">Portfolio 3</a></li>
+                                                <li><a href="/hooligan/portfolio_4.html">Portfolio 4</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="portfolio_masonry_3.html">Portfolio Masnory</a>
+                                            <a href="/hooligan/portfolio_masonry_3.html">Portfolio Masnory</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="portfolio_masonry_2.html">Masonry portfolio 2</a></li>
-                                                <li><a href="portfolio_masonry_3.html">Masonry portfolio 3</a></li>
-                                                <li><a href="portfolio_masonry_4.html">Masonry portfolio 4</a></li>
+                                                <li><a href="/hooligan/portfolio_masonry_2.html">Masonry portfolio 2</a></li>
+                                                <li><a href="/hooligan/portfolio_masonry_3.html">Masonry portfolio 3</a></li>
+                                                <li><a href="/hooligan/portfolio_masonry_4.html">Masonry portfolio 4</a></li>
                                             </ul>
                                         </li>
 
                                         <li>
-                                            <a href="portfolio_single.html">Portfolio Single</a>
+                                            <a href="/hooligan/portfolio_single.html">Portfolio Single</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="portfolio_single.html">Portfolio Single 1</a></li>
-                                                <li><a href="portfolio_single_2.html">Portfolio Single 2</a></li>
-                                                <li><a href="portfolio_single_3.html">Portfolio Single 3</a></li>
+                                                <li><a href="/hooligan/portfolio_single.html">Portfolio Single 1</a></li>
+                                                <li><a href="/hooligan/portfolio_single_2.html">Portfolio Single 2</a></li>
+                                                <li><a href="/hooligan/portfolio_single_3.html">Portfolio Single 3</a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -189,24 +189,24 @@
         </section>
         <!--end wrapper-->
 
-        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/retina-1.1.0.min.js"></script>
-        <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-        <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-        <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-        <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-        <script type="text/javascript" src="js/jflickrfeed.js"></script>
-        <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-        <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-        <script type="text/javascript" src="js/swipe.js"></script>
-        <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
-        <script type="text/javascript" src="js/jquery.validate.js"></script>
-        <script type="text/javascript" src="js/view.contact.js"></script>
-        <script type="text/javascript" src="js/jquery.gmap.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+        <script src="/hooligan/js/bootstrap.min.js"></script>
+        <script src="/hooligan/js/jquery.easing.1.3.js"></script>
+        <script src="/hooligan/js/retina-1.1.0.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+        <script type="text/javascript" src="/hooligan/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+        <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.validate.js"></script>
+        <script type="text/javascript" src="/hooligan/js/view.contact.js"></script>
+        <script type="text/javascript" src="/hooligan/js/jquery.gmap.js"></script>
 
-        <script src="js/main.js"></script>
+        <script src="/hooligan/js/main.js"></script>
 </body>
 </html>

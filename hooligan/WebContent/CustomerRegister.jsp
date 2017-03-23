@@ -10,11 +10,11 @@
     <title>개인회원가입</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/hooligan/css/bootstrap.min.css" rel="stylesheet">
     <!-- font awesome -->
-    <link rel="stylesheet" href="css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/hooligan/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
     <!-- Custom style -->
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/hooligan/css/style.css" media="screen" title="no title" charset="utf-8">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,7 +47,7 @@
   <body>
       <article class="container">
           <div class="page-header">
-              <h1>UandMe 개인 회원가입</h1>
+              <h1>U&Me 개인 회원가입</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
               <form role="form">
@@ -106,6 +106,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/hooligan/js/bootstrap.min.js"></script>
   </body>
 </html>

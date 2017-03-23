@@ -31,8 +31,8 @@
         <hr />
     </header>
     <section>
-        <a href="/hooligan/CustomerRegister.jsp"><img src="images/signup_personal.png" alt="개인 회원가입" /></a>
-        <a href="/hooligan/EmployeeRegister.jsp"><img src="images/signup_company.png" alt="기업 회원가입" /></a>
+        <a href="/hooligan/customer/register"><img src="/hooligan/images/signup_personal.png" alt="개인 회원가입" /></a>
+        <a href="/hooligan/employee/register"><img src="/hooligan/images/signup_company.png" alt="기업 회원가입" /></a>
     </section>
 </body>
 </html>
