@@ -176,12 +176,30 @@ public Customer customerLogin(Connection conn,HashMap<String, String> customer){
 		 rs = pstmt.executeQuery();
 		 if(rs.next()){
 			 
+			 c.setCustomerId(rs.getString("customer_id"));
+			 c.setCustomerPwd(rs.getString("customer_pwd"));
+			 c.setCustomerName(rs.getString("customer_name"));
+			 c.setPostalNo(rs.getInt("postal_no"));
+			 c.setAddress(rs.getString("address"));
+			 c.setTell(rs.getInt("tell"));
+			 c.setSsn1(rs.getInt("ssn1"));
+			 c.setSsn2(rs.getInt("ssn2"));
+			 c.setEmail(rs.getString("email"));
+			 c.setPoint(rs.getInt("point"));
+			 c.setGradeNo(rs.getInt("grade_no"));
+			 c.setGradeName(rs.getString("grade_name"));
+			 c.setRate(rs.getFloat("rate"));
+			 return c;
+			 
 		 }
 		   
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+	}finally{
+		JdbcUtil.close(pstmt, rs);
 	}
+	return null;
 	
 	
 	

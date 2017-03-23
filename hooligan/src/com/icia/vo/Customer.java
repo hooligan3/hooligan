@@ -15,7 +15,7 @@ public class Customer {
 	private String email;
 	private int point;
 	private int gradeNo;
-	private Grade customerGrade;
+	private String gradeName;
 	private float rate;
 	
 }
