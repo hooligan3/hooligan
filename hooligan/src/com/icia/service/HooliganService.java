@@ -24,8 +24,15 @@ public class HooliganService {
 		return 0;
 	}
 	public Customer customerLogin(HttpServletRequest req) {
-		
-		return null;
+		Connection conn = JdbcUtil.getConnection();
+		  HashMap<String, String> customer = new HashMap<>();
+		  customer.put("customer_id", req.getParameter("customer_id"));
+		  customer.put("customer_pwd", req.getParameter("customer_pwd"));
+		  Customer result = null; 
+		  result = dao.customerLogin(conn, customer);
+		  JdbcUtil.close(conn);
+		  return result;
 	}
+	
 }
 

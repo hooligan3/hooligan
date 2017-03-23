@@ -29,13 +29,13 @@ public class MainController {
 		return mav;
 	}
 	//로그인하기
-	//@RequestMapping(value="/main/login",method="POST")
+	@RequestMapping(value="/main/login",method="POST")
 	public static ModelAndView loginEnd(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		mav.setView("/Main.jsp");
-		Customer member = service.customerLogin(req);
-		  if (member.getCustomerId()== null) {
+		Customer customer = service.customerLogin(req);
+		  if (customer.getCustomerId()== null) {
 		   System.out.println("아이디나 비밀번호 확인필요");
 		   mav.setView("/members/login.jsp");
 		  } else {
@@ -46,7 +46,7 @@ public class MainController {
 		   session.removeAttribute("destination");
 		   if (go == null)
 		    go = "/hooligan/main/login";
-		   session.setAttribute("member", member);
+		   session.setAttribute("customer", customer);
 		   mav.setView(go);
 		   mav.setRedirect();
 		  }
