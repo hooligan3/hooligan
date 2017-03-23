@@ -173,7 +173,7 @@
                     <div class="dividerHeading">
                         <h4><span>로그인</span></h4>
                     </div>
-                    <form id="contactForm" action="" novalidate="novalidate" method="post">
+                    <form  action="/hooligan/main/login"  novalidate="novalidate" method="post">
                         <div class="row">
                             <div class="form-group">
                                 <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="아이디를 입력해주세요" value="" placeholder="아이디">

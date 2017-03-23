@@ -26,10 +26,13 @@ public class HooliganService {
 	public Customer customerLogin(HttpServletRequest req) {
 		Connection conn = JdbcUtil.getConnection();
 		  HashMap<String, String> customer = new HashMap<>();
-		  customer.put("customer_id", req.getParameter("customer_id"));
-		  customer.put("customer_pwd", req.getParameter("customer_pwd"));
+		
+		  customer.put("customer_id", req.getParameter("id"));
+		  customer.put("customer_pwd", req.getParameter("password"));
+		  System.out.println("아이디는:"+req.getParameter("id")+"비밀번호는:"+req.getParameter("password"));
 		  Customer result = null; 
 		  result = dao.customerLogin(conn, customer);
+		  System.out.println("결과값은"+result);
 		  JdbcUtil.close(conn);
 		  return result;
 	}

@@ -1,6 +1,6 @@
 package com.icia.dao;
 
-public interface empSql {
+public interface EmpSql {
 	// 직원 회원가입
 		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, tell, ssn1, ssn2, email) values (?,?,?,?,?,?,?,?,? )";
 		
