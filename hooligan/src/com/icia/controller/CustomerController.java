@@ -97,7 +97,10 @@ public class CustomerController {
 	public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
-		String result=service.customerUpdateEnd(req);
+		Customer customer=service.customerUpdateEnd(req);
+		 HttpSession session = req.getSession();
+		 session.removeAttribute("customer");
+		 session.setAttribute("customer", customer);
 		mav.setView("/hooligan/main/index");
 		mav.setRedirect();
 		return mav;

@@ -236,7 +236,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
-							<form action="/customer/update" method="POST">
+							<form action="/hooligan/customer/update" method="POST">
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -263,8 +263,8 @@
 										<tr><td><input type="text"  name="customer_pwd" value="<%=customer.getCustomerPwd() %>"></td></tr>
 										<tr><td><input type="text" name="email"  value="<%=customer.getEmail()%>"></td></tr>
 										<tr><td><input type="text" name="tell" value="<%=customer.getTell() %>"></td></tr>
-										<tr>	<td><input type="hidden" name="customer_id" value="<%=customer.getCustomerName()%>"></td>
-											<td><input type="hidden" name="customer_name" value="<%=customer.getCustomerId()%>"></td>
+										<tr>	<td><input type="hidden" name="customer_id" value="<%=customer.getCustomerId()%>"></td>
+											<td><input type="hidden" name="customer_name" value="<%=customer.getCustomerName()%>"></td>
 											<td><input type="hidden" name="ss1" value="<%=customer.getSsn1()%>"></td>
 											<td><input type="hidden" name="ss1" value="<%=customer.getSsn2()%>"></td></tr>
 									</tbody>
