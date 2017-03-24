@@ -90,9 +90,6 @@ public class CustomerController {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		HttpSession sesstion=req.getSession();
-		Customer c=(Customer)sesstion.getAttribute("customer");
-		String customerId=c.getCustomerId();
-		mav.addObject("result", service.customerUpdateStart(req, customerId));
 		mav.setView("/CustomerUpdate.jsp");
 		return mav;
 	}
@@ -101,7 +98,7 @@ public class CustomerController {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		String result=service.customerUpdateEnd(req);
-		mav.setView("/hooligan/customer/update");
+		mav.setView("/hooligan/main/index");
 		mav.setRedirect();
 		return mav;
 	}

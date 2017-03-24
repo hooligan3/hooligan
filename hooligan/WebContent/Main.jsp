@@ -38,7 +38,7 @@
                     <div class="hidden-xs col-lg-7 col-sm-5 top-info">
                         <span><a href="/hooligan/customer/login" style="color:white">로그인</a></span>
                         <span class="hidden-sm"><a href="/hooligan/main/selectRegister" style="color:white">회원가입</a></span>
-                        <span class="hidden-sm"><a href="#" style="color:white">마이페이지</a></span>
+                        <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
                         <span class="hidden-sm"><a href="#" style="color:white">로그아웃</a></span>
                     </div>
                     <div class="col-lg-5 col-sm-7 top-info clearfix">
