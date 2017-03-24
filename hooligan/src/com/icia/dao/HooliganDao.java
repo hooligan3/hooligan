@@ -12,6 +12,8 @@ import com.icia.vo.Bookmark;
 import com.icia.vo.Brand;
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
+import com.icia.vo.FreeBoard;
+import com.icia.vo.FreeReple;
 import com.icia.vo.InquiryBoard;
 import com.icia.vo.Notice;
 import com.icia.vo.Product;
@@ -40,15 +42,16 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	public Customer updateCustomerStart(Connection conn,String customerId){
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
+
+	public Customer updateCustomerStart(Connection conn, String customerId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
-			pstmt=conn.prepareStatement(CustomerSql.updateCustomerStart);
+			pstmt = conn.prepareStatement(CustomerSql.updateCustomerStart);
 			pstmt.setString(1, customerId);
-			rs=pstmt.executeQuery();
-			Customer c=new Customer();
-			if(rs.next()){
+			rs = pstmt.executeQuery();
+			Customer c = new Customer();
+			if (rs.next()) {
 				c.setAddress(rs.getString("address"));
 				c.setCustomerId(rs.getString("customer_id"));
 				c.setCustomerName(rs.getString("customer_name"));
@@ -63,12 +66,14 @@ public class HooliganDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			JdbcUtil.close(pstmt, rs);
-		}return null;
-		
+		}
+		return null;
+
 	}
-	// 회원정보 수정 Update
+
+	// 고객정보 수정 Update
 	public int updateCustomerEnd(Connection conn, Customer customer) {
 		PreparedStatement pstmt = null;
 		try {
@@ -88,7 +93,8 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	// 고객회원탈퇴 Delete
+
+	// 고객탈퇴 Delete
 	public int deleteCustomer(Connection conn, String customerPwd) {
 		PreparedStatement pstmt = null;
 		try {
@@ -102,7 +108,8 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	// 회원로그인 CustomerLogin
+
+	// 고객로그인 CustomerLogin
 	public Customer customerLogin(Connection conn, HashMap<String, String> customer) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -112,7 +119,7 @@ public class HooliganDao {
 			pstmt.setString(1, customer.get("customer_id"));
 			pstmt.setString(2, customer.get("customer_pwd"));
 			rs = pstmt.executeQuery();
-			if (rs.next()){
+			if (rs.next()) {
 				c.setCustomerId(rs.getString("customer_id"));
 				c.setCustomerPwd(rs.getString("customer_pwd"));
 				c.setCustomerName(rs.getString("customer_name"));
@@ -136,7 +143,8 @@ public class HooliganDao {
 		}
 		return null;
 	}
-	// 아이디 중복 체크 DoubleIdCheck
+
+	// 고객 아이디 중복 체크 DoubleIdCheck
 	public int customerDoubleIdCheck(Connection conn, String customerId) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -154,8 +162,9 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	// 회원 아이디 찾기 CustomerSelectById
-	public int customerSelectById(Connection conn,HashMap<String,String> customer ) {
+
+	// 고객 아이디 찾기 CustomerSelectById
+	public int customerSelectById(Connection conn, HashMap<String, String> customer) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -174,8 +183,9 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	// 회원 비밀번호 찾기 CustomerSelectByPwd
-	public int customerSelectByPwd(Connection conn, HashMap<String,String> customer) {
+
+	// 고객 비밀번호 찾기 CustomerSelectByPwd
+	public int customerSelectByPwd(Connection conn, HashMap<String, String> customer) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -195,157 +205,163 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	/////////////////////////////////////////////////////////////////////////////
-	
-	// 직원   회원가입 InsertEmployee
-		public int insertEmployee(Connection conn,Employee employee) {
-			PreparedStatement pstmt = null;
-			try {
-				pstmt = conn.prepareStatement(EmpSql.insertEmployee);
-				pstmt.setString(1, employee.getEmployeeId());
-				pstmt.setString(2, employee.getEmployeePwd());
-				pstmt.setString(3, employee.getEname());
-				pstmt.setInt(4, employee.getPostalNo());
-				pstmt.setString(5, employee.getAddress());
-				pstmt.setString(6, employee.getEmail());
-				pstmt.setString(7, employee.getSsn1());
-				pstmt.setString(8, employee.getSsn2());
-				pstmt.setInt(9, employee.getTell());
-				pstmt.setInt(10,0);// 0 이면 비활성화 1이면 활성화
-				return pstmt.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, null);
-			}
-			return -1;
-		}
-		// 직원정보 수정 UpdateEmployee
-		public int updateEmployee(Connection conn,Employee employee) {
-			PreparedStatement pstmt = null;
-			try {
-				pstmt = conn.prepareStatement(EmpSql.updateEmployee);
-				pstmt.setString(1, employee.getEmployeePwd());
-				pstmt.setInt(2, employee.getPostalNo());
-				pstmt.setString(3, employee.getAddress());
-				pstmt.setString(4, employee.getEmail());
-				pstmt.setInt(5, employee.getTell());
-				pstmt.setString(6,employee.getEmployeeId());
-				return pstmt.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, null);
-			}
-			return -1;
-		}
-		// 직원탈퇴 DeleteEmployee
-		public int deleteEmployee(Connection conn, String employeePwd) {
-			PreparedStatement pstmt = null;
-			try {
-				pstmt = conn.prepareStatement(EmpSql.deleteEmployee);
-				pstmt.setString(1, employeePwd);
-				return pstmt.executeUpdate();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, null);
-			}
-			return -1;
-		}
-		// 직원로그인  EmployeeLogin
-		public Employee EmployeeLogin(Connection conn, HashMap<String, String> employee) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			Employee emp = new Employee();
-			try {
-				pstmt = conn.prepareStatement(EmpSql.employeelogin);
-				pstmt.setString(1, employee.get("employee_id"));
-				pstmt.setString(2, employee.get("employee_pwd"));
-				rs = pstmt.executeQuery();
-				if (rs.next()){
-					emp.setEmployeeId(rs.getString("employee_id"));
-					emp.setEmployeePwd(rs.getString("employee_pwd"));
-					emp.setEname(rs.getString("ename"));
-					emp.setPostalNo(rs.getInt("postal_no"));
-					emp.setAddress(rs.getString("address"));
-					emp.setEmail(rs.getString("email"));
-					emp.setSsn1(rs.getString("ssn1"));
-					emp.setSsn2(rs.getString("ssn2"));
-					emp.setTell(rs.getInt("tell"));
-					emp.setActive(rs.getInt("active"));
-					emp.setBrandNo(rs.getInt("brand_no"));
-					
-					return emp;
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, rs);
-			}
-			return null;
-		}
-		
-		// 아이디 중복 체크 EmployeeDoubleIdCheck
-		public int employeeDoubleIdCheck(Connection conn, String employeeId) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				pstmt = conn.prepareStatement(EmpSql.doubleIdCheck);
-				pstmt.setString(1, employeeId);
-				pstmt.executeQuery();
-				if (rs.next()) {
-					return rs.getInt(1);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, rs);
-			}
-			return -1;
-		}
-		// 회원 아이디 찾기 SelectById
-		public int employeeSelectById(Connection conn,HashMap<String,String> employee ) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				pstmt = conn.prepareStatement(EmpSql.employeeSelectById);
-				pstmt.setString(1, employee.get("ename"));
-				pstmt.setString(2, employee.get("ssn1"));
-				pstmt.setString(3, employee.get("ssn2"));
-				pstmt.executeQuery();
-				if (rs.next()) {
-					return rs.getInt(1);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, rs);
-			}
-			return -1;
-		}
-		// 회원 비밀번호 찾기 SelectByPwd
-		public int selectByPwd(Connection conn, HashMap<String,String> customer) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				pstmt = conn.prepareStatement(CustomerSql.selectByPwd);
-				pstmt.setString(1, customer.get("customer_id"));
-				pstmt.setString(2, customer.get("customer_ssn1"));
-				pstmt.setString(3, customer.get("customer_ssn2"));
-				pstmt.executeQuery();
-				if (rs.next()) {
-					return rs.getInt(1);
-				}
+	//////////////////////////////////////////////////////////////////////////////////
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				JdbcUtil.close(pstmt, rs);
-			}
-			return -1;
+	// 직원 회원가입 InsertEmployee
+	public int insertEmployee(Connection conn, Employee employee) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(EmpSql.insertEmployee);
+			pstmt.setString(1, employee.getEmployeeId());
+			pstmt.setString(2, employee.getEmployeePwd());
+			pstmt.setString(3, employee.getEname());
+			pstmt.setInt(4, employee.getPostalNo());
+			pstmt.setString(5, employee.getAddress());
+			pstmt.setString(6, employee.getEmail());
+			pstmt.setString(7, employee.getSsn1());
+			pstmt.setString(8, employee.getSsn2());
+			pstmt.setInt(9, employee.getTell());
+			pstmt.setInt(10, 0);// 0 이면 비활성화 1이면 활성화
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
 		}
-	////
+		return -1;
+	}
+
+	// 직원정보 수정 UpdateEmployee
+	public int updateEmployee(Connection conn, Employee employee) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(EmpSql.updateEmployee);
+			pstmt.setString(1, employee.getEmployeePwd());
+			pstmt.setInt(2, employee.getPostalNo());
+			pstmt.setString(3, employee.getAddress());
+			pstmt.setString(4, employee.getEmail());
+			pstmt.setInt(5, employee.getTell());
+			pstmt.setString(6, employee.getEmployeeId());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+	}
+
+	// 직원탈퇴 DeleteEmployee
+	public int deleteEmployee(Connection conn, String employeePwd) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(EmpSql.deleteEmployee);
+			pstmt.setString(1, employeePwd);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+	}
+
+	// 직원로그인 EmployeeLogin
+	public Employee EmployeeLogin(Connection conn, HashMap<String, String> employee) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Employee emp = new Employee();
+		try {
+			pstmt = conn.prepareStatement(EmpSql.employeelogin);
+			pstmt.setString(1, employee.get("employee_id"));
+			pstmt.setString(2, employee.get("employee_pwd"));
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				emp.setEmployeeId(rs.getString("employee_id"));
+				emp.setEmployeePwd(rs.getString("employee_pwd"));
+				emp.setEname(rs.getString("ename"));
+				emp.setPostalNo(rs.getInt("postal_no"));
+				emp.setAddress(rs.getString("address"));
+				emp.setEmail(rs.getString("email"));
+				emp.setSsn1(rs.getString("ssn1"));
+				emp.setSsn2(rs.getString("ssn2"));
+				emp.setTell(rs.getInt("tell"));
+				emp.setActive(rs.getInt("active"));
+				emp.setBrandNo(rs.getInt("brand_no"));
+
+				return emp;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, rs);
+		}
+		return null;
+	}
+
+	// 아이디 중복 체크 EmployeeDoubleIdCheck
+	public int employeeDoubleIdCheck(Connection conn, String employeeId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(EmpSql.doubleIdCheck);
+			pstmt.setString(1, employeeId);
+			pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, rs);
+		}
+		return -1;
+	}
+
+	// 회원 아이디 찾기 SelectById
+	public int employeeSelectById(Connection conn, HashMap<String, String> employee) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(EmpSql.employeeSelectById);
+			pstmt.setString(1, employee.get("ename"));
+			pstmt.setString(2, employee.get("ssn1"));
+			pstmt.setString(3, employee.get("ssn2"));
+			pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, rs);
+		}
+		return -1;
+	}
+
+	// 회원 비밀번호 찾기 SelectByPwd
+	public int selectByPwd(Connection conn, HashMap<String, String> customer) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(CustomerSql.selectByPwd);
+			pstmt.setString(1, customer.get("customer_id"));
+			pstmt.setString(2, customer.get("customer_ssn1"));
+			pstmt.setString(3, customer.get("customer_ssn2"));
+			pstmt.executeQuery();
+			if (rs.next()) {
+				return rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, rs);
+		}
+		return -1;
+	}
+
+	/////////////////////////////////////////////////////////////////////////////////////
 	public Product makeProduct(ResultSet rs) {
 		Product pro = new Product();
 		try {
@@ -449,7 +465,7 @@ public class HooliganDao {
 		return null;
 
 	}
-
+	///////////////////////////////////////////////////////////////////////////////////
 	/* 공지 게시판 */
 
 	// 공지사항 작성
@@ -504,7 +520,118 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	/* 회원 */
+	//////////////////////////////////////////////////////////////////////
+	// 자유게시판
+
+	// 자유게시판 작성
+	public int insertFreeBoard(Connection conn, FreeBoard freeBoard) {
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.insertFreeBoard);
+			pstmt.setInt(1, freeBoard.getArticleNo());
+			pstmt.setString(2, freeBoard.getTitle());
+			pstmt.setInt(3, freeBoard.getHits());
+			pstmt.setString(4, freeBoard.getContent());
+			pstmt.setDate(5, freeBoard.getArticleDate());
+			pstmt.setString(6, freeBoard.getCustomerId());
+
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+
+	}
+
+	// 자유게시판 수정
+	public int updateFreeBoard(Connection conn, FreeBoard freeBoard) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.updateFreeBoard);
+			pstmt.setString(1, freeBoard.getTitle());
+			pstmt.setString(2, freeBoard.getContent());
+			pstmt.setInt(3, freeBoard.getArticleNo());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+	}
+
+	// 자유게시판 삭제
+	public int deleteFreeBoard(Connection conn, int articleNo) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.deleteFreeBoard);
+
+			pstmt.setInt(1, articleNo);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+	}
+	// 자유게시판 댓글 작성
+		public int insertFreeReple(Connection conn, FreeReple freeReple) {
+			PreparedStatement pstmt = null;
+			
+			try {
+				pstmt = conn.prepareStatement(NoticeSql.insertFreeReple);
+				pstmt.setInt(1, freeReple.getFreeRepleNo());
+				pstmt.setInt(2, freeReple.getArticleNo());
+				pstmt.setString(3, freeReple.getContent());
+				pstmt.setDate(4, freeReple.getRepleDate());
+
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt, null);
+			}
+			return -1;
+
+		}
+
+		// 자유게시판  댓글 수정
+		public int updateFreeReple(Connection conn, FreeReple freeReple) {
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = conn.prepareStatement(NoticeSql.updateFreeReple);
+				pstmt.setString(1, freeReple.getContent());
+				pstmt.setInt(2, freeReple.getFreeRepleNo());
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt, null);
+			}
+			return -1;
+		}
+
+		// 자유게시판 댓글 삭제
+		public int deleteFreeReple(Connection conn, int freeRepleNo ) {
+			PreparedStatement pstmt = null;
+			try {
+				pstmt = conn.prepareStatement(NoticeSql.deleteFreeReple);
+
+				pstmt.setInt(1, freeRepleNo);
+				return pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt, null);
+			}
+			return -1;
+		}
+		
+	///////////////////////////////////////////////////////////////////////
 
 	/* 즐겨찾기 */
 	/* 즐겨 찾기 조회 --------잠시 생각생각 헿---------금맹 */
