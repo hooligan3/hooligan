@@ -17,8 +17,8 @@ public class Product {
 	private Date closingDate;
 	private int orderState;
 	private int typeNo;
-	private String employeeId;
 	private int brandNo;
+	private String employeeId;
 	private String imgPath;
 	
 	

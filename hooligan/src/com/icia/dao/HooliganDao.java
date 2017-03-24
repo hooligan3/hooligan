@@ -18,10 +18,9 @@ import com.icia.vo.Product;
 
 public class HooliganDao {
 
-	// 회원가입 Insert
+	// 고객 회원가입 Insert
 	public int insertCustomer(Connection conn, Customer customer) {
 		PreparedStatement pstmt = null;
-		System.out.println("여기 까지들어왓냐시발");
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.insertCustomer);
 			pstmt.setString(1, customer.getCustomerId());
@@ -33,7 +32,6 @@ public class HooliganDao {
 			pstmt.setString(7, customer.getSsn1());
 			pstmt.setString(8, customer.getSsn2());
 			pstmt.setString(9, customer.getEmail());
-	
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,7 +88,7 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-	// 회원탈퇴 Delete
+	// 고객회원탈퇴 Delete
 	public int deleteCustomer(Connection conn, String customerPwd) {
 		PreparedStatement pstmt = null;
 		try {
@@ -127,7 +125,7 @@ public class HooliganDao {
 				c.setPoint(rs.getInt("point"));
 				c.setGradeNo(rs.getInt("grade_no"));
 				c.setGradeName(rs.getString("grade_name"));
-				c.setRate(rs.getFloat("discount_rate"));
+				c.setDiscountRate(rs.getFloat("discount_rate"));
 				System.out.println(c.toString());
 				return c;
 			}
