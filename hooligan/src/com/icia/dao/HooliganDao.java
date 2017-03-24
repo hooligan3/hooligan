@@ -129,11 +129,12 @@ public class HooliganDao {
 	}
 	
 	// 고객회원탈퇴 Delete
-	public int deleteCustomer(Connection conn, String customerPwd) {
+	public int deleteCustomer(Connection conn, HashMap<String, String>map ) {
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = conn.prepareStatement(NoticeSql.deleteNotice);
-			pstmt.setString(1, customerPwd);
+			pstmt = conn.prepareStatement(CustomerSql.deleteCustomer);
+			pstmt.setString(1,map.get("customer_id"));
+			pstmt.setString(2, map.get("customer_pwd"));
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

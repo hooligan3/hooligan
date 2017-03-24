@@ -69,6 +69,18 @@ public class HooliganService {
 		return c;
 		
 	}
+	public int customerDelete(HttpServletRequest req, String customer_id) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap<String, String> map=new HashMap<>();
+		System.out.println("고객의 아이디는:"+customer_id);
+		map.put("customer_id", customer_id);
+		map.put("customer_pwd", req.getParameter("customer_pwd"));
+		System.out.println("고객의 비밀번호는:"+req.getParameter("customer_pwd"));
+		int result=dao.deleteCustomer(conn, map);
+		JdbcUtil.close(conn);
+		return result;
+		
+	}
 	
 }
 

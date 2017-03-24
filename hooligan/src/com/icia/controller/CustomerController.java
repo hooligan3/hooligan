@@ -115,4 +115,18 @@ public class CustomerController {
 		mav.setView("/CustomerDelete.jsp");
 		return mav;
 	}
+	@RequestMapping(value="/customer/delete",method="POST")
+	public static ModelAndView customerDeleteEnd(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		HttpSession session=req.getSession();
+		Customer c=(Customer)session.getAttribute("customer");
+		String customer_id=c.getCustomerId();
+		int result=service.customerDelete(req,customer_id);
+		if(result==1) session.removeAttribute("customer");
+		else mav.addObject("result", "비밀번호를 확인하시오");
+		mav.setView("/hooligan/main/index");
+		mav.setRedirect();
+		return mav;
+	}
 }

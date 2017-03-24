@@ -15,7 +15,7 @@ public interface CustomerSql {
 		public String selectByPwd="select customer_pwd from customer where customer_id=? and ssn1=? and ssn2=?"; 
 
 		//회원 탈퇴
-		public String deleteCustomer="delete from customer where customer_pwd=?"; //exrd한번확인 employee_pwd 였음
+		public String deleteCustomer="delete from customer where customer_id=? and customer_pwd=?"; //exrd한번확인 employee_pwd 였음
 		//회원 정보수정시작(아이디로 회원정보가져오기)
 		public String updateCustomerStart="select customer.* from customer where customer_id=?";
 		//회원 정보수정

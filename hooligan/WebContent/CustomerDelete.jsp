@@ -227,7 +227,7 @@
 							
 							<div class="well well-lg"><h3><i class="fa fa-gear"></i>    탈퇴 하기</h3>
 							
-							<form action="/hooligan/customer/update" method="post">
+							<form action="/hooligan/customer/delete" method="post">
 							
 								
 									
@@ -235,7 +235,7 @@
 									
 									<div class="col-lg-6 col-md-6 col-sm-6">
 									<h2>회원 비밀번호 입력</h2><br>
-									<input type="text" class="form-control" placeholder="비밀번호를 입력하시오"> 
+									<input type="password" name="customer_pwd" class="form-control"  placeholder="비밀번호를 입력하시오"> 
 									<button class="btn btn-default btn-lg btn-block" type="submit">
 									
 							<i class="fa fa-rocket"></i> 탈퇴하기</button>
