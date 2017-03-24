@@ -119,7 +119,7 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-								<li ><a
+								<li class="active"><a
 									href="/Java/project/html_semi/WebContent/UandMe/product.html">브랜드</a>
 
 								</li>
@@ -226,141 +226,59 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    내 등록상품 조회</h3>
+							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 수정하기</h3>
 						
 							<form action="update" method="post">
 							
-							<div class="col-lg-12 col-md-12 col-sm-12">
-							
-							
-							
-							<table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>상품등록일</th>
-						<th>상품명</th>
-						<th>주문 상태</th>
-						<th>마감 종료일</th>
-						<th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                       <td>2014/11/11</td>
-						<td><a href="#">침대</a></td>
-						<td>주문성공</td>
-						<td>2014/11/11</td>
-						<td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>2</td>
-                        <td>The Godfather</td>
-                        <td>1972</td>
-                        <td>9.2</td>
-                        <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>The Godfather: Part II</td>
-                        <td>1974</td>
-                        <td>9.0</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Pulp Fiction</td>
-                        <td>1994</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    </tbody>
-                </table>
-							
-							
-							
-							
-							
+							<div class="col-lg-3 col-md-3 col-sm-3">
+							<table>
+								<tbody>
+									
+									<tr><td>상품명</td></tr>	
+									<tr><td>가격</td></tr>
+									<tr><td>최소수량</td></tr>
+									<tr><td>최대수량</td></tr>
+									<tr><td>상품 내용</td></tr>
+
+									
+								</tbody>
+							</table>
 							</div>
 							
-							
+							<div class="col-lg-3 col-md-3 col-sm-3">
+								<table>
+									<tbody>
+										<tr><td><input type="text" ></td></tr>
+										<tr><td><input type="text" ></td></tr>
+										<tr><td><input type="text" ></td></tr>
+										<tr><td><input type="text" ></td></tr>
+										<tr><td><textarea rows="4" cols="3" style="width:180px;"></textarea></td></tr>
+										
+									</tbody>
+								</table>
+							</div>
+							<div class="col-lg-2 col-md-2 col-sm-2">
+							<table>
+									<tbody>
+
+										<tr><td>상품 이미지</td></tr>
+										<tr><td>제품 상세 이미지</td></tr>
+
+									</tbody>
+								</table>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3">
+								<table>
+									<tbody>
+										<tr><td><input type="file" ></td></tr>
+										<tr><td><input type="file" ></td></tr>
+										
+										</tbody>
+								</table>
+								<br><br><br><br><br><br><br><br><br>
+								<button class="btn btn-default btn-lg btn-block" type="button"> 
+							<i class="fa fa-rocket"></i> 상품 수정하기</button>
+							</div>
                             
 							</form>
 							
