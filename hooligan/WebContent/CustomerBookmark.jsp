@@ -93,28 +93,24 @@
 							</h1>
 						</div>
 					</div>
-					<!-- Navigation
-                    ================================================== -->
-					<div
-						class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container"
-						role="navigation">
-						<!--  <div class="container">-->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li ><a
-									href="">브랜드</a>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
+                        <!--  <div class="container">-->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="product.html">브랜드</a>
 
-								</li>
+                                </li>
 
-								<li><a href="#">의류</a>
+                                <li><a href="#">의류</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="elements.html">점퍼</a></li>
                                         <li><a href="columns.html"> 코트</a></li>
@@ -125,7 +121,7 @@
                                     </ul>
                                 </li>
 
-								<li><a href="#" >수제품</a>
+                                <li><a href="#" >수제품</a>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a href="about.html">악세사라</a>
@@ -140,7 +136,7 @@
                                     </ul>
                                 </li>
 
-								<li><a href="#">식품</a>
+                                <li><a href="#">식품</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">과일</a>
        
@@ -171,15 +167,23 @@
                            
                                         </li>
                                         
+                                        
                                     </ul>
+                                     <li><a href="#">게시판</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="elements.html">자유 게시판</a></li>
+                                        <li><a href="columns.html"> 문의 게시판</a></li>
+                                        <li><a href="typography.html">공지 사항</a></li>
+            
                                 </li>
-									</ul></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">
