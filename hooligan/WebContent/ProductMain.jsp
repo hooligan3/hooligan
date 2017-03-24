@@ -177,9 +177,9 @@
 						<!--Project Details Page-->
 						<div class="porDetCarousel">
 							<div class="carousel-content">
-								<img class="carousel-item" src="images/portfolio/portfolio_slider1.png" alt="">
-								<img class="carousel-item" src="images/portfolio/portfolio_slider2.png" alt="">
-								<img class="carousel-item" src="images/portfolio/portfolio_slider3.png" alt="">
+								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider1.png" alt="">
+								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider2.png" alt="">
+								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider3.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -251,11 +251,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_1.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_1.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -267,11 +267,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_2.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_2.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -283,11 +283,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_3.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_3.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -299,11 +299,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_4.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_4.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -315,11 +315,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_5.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_5.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -331,11 +331,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_6.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_6.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -347,11 +347,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_7.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_7.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -363,11 +363,11 @@
                             <!-- Recent Work Item -->
                             <li class="col-sm-3 col-md-3 col-lg-3">
                                 <figure class="touching effect-bubba">
-                                    <img src="images/portfolio/portfolio_8.png" alt="" class="img-responsive">
+                                    <img src="/hooligan/images/portfolio/portfolio_8.png" alt="" class="img-responsive">
 
                                     <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
+                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
+                                        <a href="/hooligan/images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
                                     </div>
                                     <figcaption class="item-description">
                                         <h5>Touch and Swipe</h5>
@@ -385,20 +385,20 @@
 	
 	
 	
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-    <script type="text/javascript" src="js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+    <script src="/hooligan/js/bootstrap.min.js"></script>
+    <script src="/hooligan/js/jquery.easing.1.3.js"></script>
+    <script src="/hooligan/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="/hooligan/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
 	<script type="text/javascript">
@@ -514,7 +514,7 @@
 			});
 		});
 	</script>
-	<script src="js/main.js"></script>
+	<script src="/hooligan/js/main.js"></script>
 	
 	<!-- Start Style Switcher -->
 	<div class="switcher"></div>

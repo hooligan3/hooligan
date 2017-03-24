@@ -449,7 +449,7 @@
                         <div class="item responsive">
                             <figure class="touching effect-bubba">
                             <!-- 상품 이미지 표시 -->
-                                <img src="images/11111.jpg" alt="" class="img-responsive">
+                                <img src="/hooligan/images/11111.jpg" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
@@ -682,20 +682,20 @@
 </section>
                         
                       
-                    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
-                    <script src="js/jquery.easing.1.3.js"></script>
-                    <script src="js/retina-1.1.0.min.js"></script>
-                    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-                    <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-                    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-                    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-                    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-                    <script type="text/javascript" src="js/jflickrfeed.js"></script>
-                    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-                    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-                    <script type="text/javascript" src="js/swipe.js"></script>
-                    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+                    <script src="/hooligan/js/bootstrap.min.js"></script>
+                    <script src="/hooligan/js/jquery.easing.1.3.js"></script>
+                    <script src="/hooligan/js/retina-1.1.0.min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+                    <script type="text/javascript" src="/hooligan/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+                    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+                    <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 					
 
                     <script type="text/javascript">
@@ -865,6 +865,6 @@
         $(window).smartresize(isotope);
     }(jQuery));
 </script>
-                    <script src="js/main.js"></script>
+                    <script src="/hooligan/js/main.js"></script>
 </body>
 </html>
