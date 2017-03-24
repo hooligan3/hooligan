@@ -1,3 +1,4 @@
+<%@page import="com.icia.vo.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,6 +7,7 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 <head>
+<%Customer customer=(Customer)session.getAttribute("customer"); %>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,9 +16,7 @@
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<script>
-	var result = <%=request.getAttribute("result")%>;
-</script>
+
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
@@ -80,7 +80,7 @@
 					<div class="col-lg-5 col-sm-7 top-info clearfix">
 						<ul>
 							<li>
-								<form class="search-bar">
+								<form class="search-bar" >
 									<label for="search" class="search-label">
 										<button class="search-button">
 											<i class="fa fa-search"></i>
@@ -103,7 +103,7 @@
 						<div id="logo">
 							<h1>
 								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
@@ -236,7 +236,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
-							<form action="update" method="post">
+							<form action="/customer/update" method="POST">
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -256,12 +256,17 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td>명철,수민,금명,희경,복민</td></tr>
-										<tr><td>qhrals8</td></tr>
-										<tr><td>941111-*******</td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
+								
+										<tr><td><%=customer.getCustomerName() %></td></tr>
+										<tr><td><%=customer.getCustomerId() %></td></tr>
+										<tr><td><%=customer.getSsn1() %>-<%=customer.getSsn2() %></td></tr>
+										<tr><td><input type="text"  name="customer_pwd" value="<%=customer.getCustomerPwd() %>"></td></tr>
+										<tr><td><input type="text" name="email"  value="<%=customer.getEmail()%>"></td></tr>
+										<tr><td><input type="text" name="tell" value="<%=customer.getTell() %>"></td></tr>
+										<tr>	<td><input type="hidden" name="customer_id" value="<%=customer.getCustomerName()%>"></td>
+											<td><input type="hidden" name="customer_name" value="<%=customer.getCustomerId()%>"></td>
+											<td><input type="hidden" name="ss1" value="<%=customer.getSsn1()%>"></td>
+											<td><input type="hidden" name="ss1" value="<%=customer.getSsn2()%>"></td></tr>
 									</tbody>
 								</table>
 							</div>
@@ -282,14 +287,14 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td>xxxxx 포인트(p)</td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
+										<tr><td><%=customer.getPoint() %></td></tr>
+										<tr><td><input type="text"  name="postal_no" value="<%=customer.getPostalNo() %>"></td></tr>
+										<tr><td><input type="text"  name="address" value="<%=customer.getAddress() %>"></td></tr>
 									</tbody>
 								</table>
 							
 							<br><br><br><br>
-							<button class="btn btn-default btn-lg btn-block" type="button"> 
+							<button class="btn btn-default btn-lg btn-block" type="submit"> 
 							<i class="fa fa-rocket"></i> 수정하기</button>
                             </div>
                             
@@ -308,24 +313,24 @@
 			
 
 
-					<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-					<script src="js/bootstrap.min.js"></script>
-					<script src="js/jquery.easing.1.3.js"></script>
-					<script src="js/retina-1.1.0.min.js"></script>
-					<script type="text/javascript" src="js/jquery.cookie.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+					<script src="/hooligan/js/bootstrap.min.js"></script>
+					<script src="/hooligan/js/jquery.easing.1.3.js"></script>
+					<script src="/hooligan/js/retina-1.1.0.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script>
 					<!-- jQuery cookie -->
-					<script type="text/javascript" src="js/styleswitch.js"></script>
+					<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script>
 					<!-- Style Colors Switcher -->
-					<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.smartmenus.bootstrap.min.js"></script>
-					<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-					<script type="text/javascript" src="js/jflickrfeed.js"></script>
+						src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.magnific-popup.min.js"></script>
-					<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-					<script type="text/javascript" src="js/swipe.js"></script>
-					<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+						src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
 					<script type="text/javascript">
@@ -577,6 +582,6 @@
 													});
 										});
 					</script>
-					<script src="js/main.js"></script>
+					<script src="/hooligan/js/main.js"></script>
 </body>
 </html>

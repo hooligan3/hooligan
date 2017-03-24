@@ -42,10 +42,10 @@ public class HooliganDao {
 		}
 		return -1;
 	}
-
-	public Customer updateCustomerStart(Connection conn, String customerId) {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	//회원업데이트 정보가져오기
+	public Customer updateCustomerStart(Connection conn,String customerId){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.updateCustomerStart);
 			pstmt.setString(1, customerId);
@@ -129,7 +129,7 @@ public class HooliganDao {
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
 				c.setEmail(rs.getString("email"));
-				c.setPoint(rs.getInt("point"));
+				c.setPoint(rs.getInt("point1"));
 				c.setGradeNo(rs.getInt("grade_no"));
 				c.setGradeName(rs.getString("grade_name"));
 				c.setDiscountRate(rs.getFloat("discount_rate"));

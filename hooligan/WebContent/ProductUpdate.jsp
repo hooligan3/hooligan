@@ -215,7 +215,7 @@
             <br><br>
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
-							<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
 									<a href="/hooligan/EmployeeUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
@@ -238,7 +238,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 판매 등록</h3>
+							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 수정하기</h3>
 						
 							<form action="update" method="post">
 							
@@ -247,12 +247,11 @@
 								<tbody>
 									
 									<tr><td>상품명</td></tr>	
-									<tr><td>상품 종류</td></tr>
+									<tr><td>가격</td></tr>
 									<tr><td>최소수량</td></tr>
 									<tr><td>최대수량</td></tr>
-									<tr><td>마감일</td></tr>
-									<tr><td>판매 가격</td></tr>
 									<tr><td>상품 내용</td></tr>
+
 									
 								</tbody>
 							</table>
@@ -261,8 +260,6 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="text" ></td></tr>
@@ -292,7 +289,7 @@
 								</table>
 								<br><br><br><br><br><br><br><br><br>
 								<button class="btn btn-default btn-lg btn-block" type="button"> 
-							<i class="fa fa-rocket"></i> 상품 등록하기</button>
+							<i class="fa fa-rocket"></i> 상품 수정하기</button>
 							</div>
                             
 							</form>
