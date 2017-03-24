@@ -66,6 +66,7 @@ public class CustomerController {
 		  return mav;
 
 	}
+	//회원등록하기
 	@RequestMapping(value="/customer/register",method="GET")
 	public static ModelAndView customerRegisterStart(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
@@ -85,6 +86,7 @@ public class CustomerController {
 		  return mav;
 
 	}
+	//회원업데이트
 	@RequestMapping(value="/customer/update",method="GET")
 	public static ModelAndView customerUpdateStart(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -93,6 +95,7 @@ public class CustomerController {
 		mav.setView("/CustomerUpdate.jsp");
 		return mav;
 	}
+	
 	@RequestMapping(value="/customer/update",method="POST")
 	public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -103,6 +106,13 @@ public class CustomerController {
 		 session.setAttribute("customer", customer);
 		mav.setView("/hooligan/main/index");
 		mav.setRedirect();
+		return mav;
+	}
+	//회원삭제하기
+	@RequestMapping(value="/customer/delete",method="GET")
+	public static ModelAndView customerDeleteStart(HttpServletRequest req){
+		ModelAndView mav=new ModelAndView();
+		mav.setView("/CustomerDelete.jsp");
 		return mav;
 	}
 }

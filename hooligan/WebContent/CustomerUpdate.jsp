@@ -216,19 +216,19 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/customer/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerBookmark.jsp" class="btn btn-block btn-default">내 즐겨찾기</a>
+									<a href="/hooligan/customer/bookmark" class="btn btn-block btn-default">내 즐겨찾기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerOrder.jsp" class="btn btn-block btn-default">주문 내역</a>
+									<a href="/hooligan/customer/order" class="btn btn-block btn-default">주문 내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/customer/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
