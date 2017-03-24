@@ -138,9 +138,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
                                     </ul>
                                 </li>
+                                 <li><a href="#">게시판</a>
+                                    <ul class="dropdown-menu">
+                                    
+                                    <li><a href="#"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>

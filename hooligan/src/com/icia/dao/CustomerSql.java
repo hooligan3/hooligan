@@ -16,9 +16,10 @@ public interface CustomerSql {
 
 		//회원 탈퇴
 		public String deleteCustomer="delete from customer where customer_pwd=?"; //exrd한번확인 employee_pwd 였음
-
+		//회원 정보수정시작(아이디로 회원정보가져오기)
+		public String updateCustomerStart="select customer.* from customer where customer_id=?";
 		//회원 정보수정
-		public String updateCustomer ="update customer set CUSTOMER_PWD=?,CUSTOMER_NAME=?,POSTAL_NO=?,ADDRESS=?,tell=?,email=?";
+		public String updateCustomer ="update customer set CUSTOMER_PWD=?,CUSTOMER_NAME=?,POSTAL_NO=?,ADDRESS=?,tell=?,email=? where customer_id=?";
 		//로그인
 		public String loginCustomer="select c.*,g.grade_name,g.discount_rate from customer c,grade g where c.grade_no=g.grade_no and c.customer_id=? and c.customer_pwd=?";
 		//로그인

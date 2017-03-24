@@ -40,8 +40,36 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	public Customer updateCustomerStart(Connection conn,String customerId){
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+			pstmt=conn.prepareStatement(CustomerSql.updateCustomerStart);
+			pstmt.setString(1, customerId);
+			rs=pstmt.executeQuery();
+			Customer c=new Customer();
+			if(rs.next()){
+				c.setAddress(rs.getString("address"));
+				c.setCustomerId(rs.getString("customer_id"));
+				c.setCustomerName(rs.getString("customer_name"));
+				c.setCustomerPwd(rs.getString("customer_pwd"));
+				c.setEmail(rs.getString(rs.getString("email")));
+				c.setGradeNo(rs.getInt("grade_no"));
+				c.setPostalNo(rs.getInt("postal_no"));
+				c.setSsn1(rs.getString("ssn1"));
+				c.setSsn2(rs.getString("ssn2"));
+				c.setTell(rs.getInt("tell"));
+				return c;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+		
+	}
 	// 회원정보 수정 Update
-	public int updateCustomer(Connection conn, Customer customer) {
+	public int updateCustomerEnd(Connection conn, Customer customer) {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.updateCustomer);
@@ -51,6 +79,7 @@ public class HooliganDao {
 			pstmt.setString(4, customer.getAddress());
 			pstmt.setInt(5, customer.getTell());
 			pstmt.setString(6, customer.getEmail());
+			pstmt.setString(7, customer.getCustomerId());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

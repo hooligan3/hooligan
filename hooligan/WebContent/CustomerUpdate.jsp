@@ -6,13 +6,17 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Portfolio Single - Edge Responsive Multipurpose Template</title>
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<script>
+	var result = <%=request.getAttribute("result")%>;
+</script>
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
