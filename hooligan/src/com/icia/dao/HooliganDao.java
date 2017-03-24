@@ -94,7 +94,41 @@ public class HooliganDao {
 		return -1;
 	}
 
-	// 고객탈퇴 Delete
+	//업데이트할때 세션얻어오기
+	public Customer customerUpdateSession(Connection conn, String customer_id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Customer c = new Customer();
+		try {
+			pstmt = conn.prepareStatement(CustomerSql.updateSesstionCustomer);
+			pstmt.setString(1, customer_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()){
+				c.setCustomerId(rs.getString("customer_id"));
+				c.setCustomerPwd(rs.getString("customer_pwd"));
+				c.setCustomerName(rs.getString("customer_name"));
+				c.setPostalNo(rs.getInt("postal_no"));
+				c.setAddress(rs.getString("address"));
+				c.setTell(rs.getInt("tell"));
+				c.setSsn1(rs.getString("ssn1"));
+				c.setSsn2(rs.getString("ssn2"));
+				c.setEmail(rs.getString("email"));
+				c.setPoint(rs.getInt("point1"));
+				c.setGradeNo(rs.getInt("grade_no"));
+				c.setGradeName(rs.getString("grade_name"));
+				c.setDiscountRate(rs.getFloat("discount_rate"));
+				System.out.println(c.toString());
+				return c;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, rs);
+		}
+		return null;
+	}
+	
+	// 고객회원탈퇴 Delete
 	public int deleteCustomer(Connection conn, String customerPwd) {
 		PreparedStatement pstmt = null;
 		try {

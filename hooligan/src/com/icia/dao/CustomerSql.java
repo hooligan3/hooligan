@@ -22,7 +22,8 @@ public interface CustomerSql {
 		public String updateCustomer ="update customer set CUSTOMER_PWD=?,CUSTOMER_NAME=?,POSTAL_NO=?,ADDRESS=?,tell=?,email=? where customer_id=?";
 		//로그인
 		public String loginCustomer="select c.*,g.grade_name,g.discount_rate from customer c,grade g where c.grade_no=g.grade_no and c.customer_id=? and c.customer_pwd=?";
-		//로그인
+		//업데이트세션얻기
+		public String updateSesstionCustomer="select c.*,g.grade_name,g.discount_rate from customer c,grade g where c.grade_no=g.grade_no and c.customer_id=?";
 		
 		//즐겨 찾기 조회
 		//즐겨찾기 수 가져오기

@@ -60,14 +60,13 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(map);
 	}
-	public String customerUpdateEnd(HttpServletRequest req){
+	public Customer customerUpdateEnd(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
 		Customer customer=MappingUtil.makeUpdateCustomer(req);
-		int result=dao.updateCustomerEnd(conn, customer);
-		HashMap<String,Object> map=new HashMap<>();
-		map.put("result",result);
-		JsonObject ob=new JsonObject();
-		return new Gson().toJson(map);
+		dao.updateCustomerEnd(conn, customer);
+		Customer c=dao.customerUpdateSession(conn, customer.getCustomerId());
+		JdbcUtil.close(conn);
+		return c;
 		
 	}
 	
