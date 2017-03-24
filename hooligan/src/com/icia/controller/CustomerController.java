@@ -1,7 +1,23 @@
 package com.icia.controller;
 
+import java.io.IOException;
+import java.net.URI;
+import java.security.Principal;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.CloseReason;
+import javax.websocket.Extension;
+import javax.websocket.MessageHandler;
+import javax.websocket.Session;
+import javax.websocket.WebSocketContainer;
+import javax.websocket.MessageHandler.Partial;
+import javax.websocket.MessageHandler.Whole;
+import javax.websocket.RemoteEndpoint.Async;
+import javax.websocket.RemoteEndpoint.Basic;
 
 import com.icia.service.HooliganService;
 import com.icia.vo.Customer;
@@ -68,5 +84,25 @@ public class CustomerController {
 		  mav.setRedirect();
 		  return mav;
 
+	}
+	@RequestMapping(value="/customer/update",method="GET")
+	public static ModelAndView customerUpdateStart(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		HttpSession sesstion=req.getSession();
+		Customer c=(Customer)sesstion.getAttribute("customer");
+		String customerId=c.getCustomerId();
+		mav.addObject("result", service.customerUpdateStart(req, customerId));
+		mav.setView("/CustomerUpdate.jsp");
+		return mav;
+	}
+	@RequestMapping(value="/customer/update",method="POST")
+	public static ModelAndView customerUpdateEnd(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		String result=service.customerUpdateEnd(req);
+		mav.setView("/hooligan/customer/update");
+		mav.setRedirect();
+		return mav;
 	}
 }

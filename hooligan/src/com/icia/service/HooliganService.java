@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.icia.dao.HooliganDao;
 import com.icia.util.JdbcUtil;
 import com.icia.util.MappingUtil;
@@ -47,6 +50,25 @@ public class HooliganService {
 		 return result;
 	
 
+	}
+	public String customerUpdateStart(HttpServletRequest req, String customerId) {
+		Connection conn=JdbcUtil.getConnection();
+		Customer customer=dao.updateCustomerStart(conn,customerId);
+		JsonObject ob=new JsonObject();
+		HashMap<String,Object>map=new HashMap<>();
+		map.put("customer",customer);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	public String customerUpdateEnd(HttpServletRequest req){
+		Connection conn=JdbcUtil.getConnection();
+		Customer customer=MappingUtil.makeUpdateCustomer(req);
+		int result=dao.updateCustomerEnd(conn, customer);
+		HashMap<String,Object> map=new HashMap<>();
+		map.put("result",result);
+		JsonObject ob=new JsonObject();
+		return new Gson().toJson(map);
+		
 	}
 	
 }
