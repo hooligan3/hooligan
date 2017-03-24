@@ -13,7 +13,7 @@ public class Employee {
 	private String email;
 	private String ssn1;
 	private String ssn2;
-	private int tell;
+	private String tell;
 	private int active;
 	private int brandNo;
 }

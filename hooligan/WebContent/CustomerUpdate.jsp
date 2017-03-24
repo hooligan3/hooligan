@@ -74,7 +74,7 @@
 				<div class="row">
 					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
 						<span><a href="#" style="color: white">로그인</a></span> <span
-							class="hidden-sm"><a href="resistration.html"
+							class="hidden-sm"><a href="/hooligan/main/index"
 							style="color: white">회원가입</a></span>
 					</div>
 					<div class="col-lg-5 col-sm-7 top-info clearfix">
@@ -102,7 +102,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
+								<a href="/hooligan/main/index"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
@@ -266,7 +266,10 @@
 										<tr>	<td><input type="hidden" name="customer_id" value="<%=customer.getCustomerId()%>"></td>
 											<td><input type="hidden" name="customer_name" value="<%=customer.getCustomerName()%>"></td>
 											<td><input type="hidden" name="ss1" value="<%=customer.getSsn1()%>"></td>
-											<td><input type="hidden" name="ss1" value="<%=customer.getSsn2()%>"></td></tr>
+											<td><input type="hidden" name="ss1" value="<%=customer.getSsn2()%>"></td>
+											<td><input type="hidden" name="point" value="<%=customer.getPoint() %>"></td>
+										
+											</tr>
 									</tbody>
 								</table>
 							</div>

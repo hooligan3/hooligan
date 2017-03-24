@@ -17,7 +17,7 @@ public class MappingUtil {
 		customer.setPoint(0);
 		customer.setSsn1(req.getParameter("ssn1"));
 		customer.setSsn2(req.getParameter("ssn2"));
-		customer.setTell(Integer.parseInt(req.getParameter("phone_number")));
+		customer.setTell(req.getParameter("phone_number"));
 		return customer;
 	}
 	public static Customer	makeUpdateCustomer(HttpServletRequest req){
@@ -27,11 +27,10 @@ public class MappingUtil {
 		customer.setCustomerName(req.getParameter("customer_name"));
 		customer.setCustomerPwd(req.getParameter("customer_pwd"));
 		customer.setEmail(req.getParameter("email"));
-		
 		customer.setPostalNo(Integer.parseInt(req.getParameter("postal_no")));
 		customer.setSsn1(req.getParameter("ssn1"));
 		customer.setSsn2(req.getParameter("ssn2"));
-		customer.setTell(Integer.parseInt(req.getParameter("tell")));
+		customer.setTell(req.getParameter("tell"));
 		return customer;
 	}
 }

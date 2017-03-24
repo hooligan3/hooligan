@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
 						<span><a href="#" style="color: white">로그인</a></span> <span
-							class="hidden-sm"><a href="resistration.html"
+							class="hidden-sm"><a href="/hooligan/customer/regiser"
 							style="color: white">회원가입</a></span>
 					</div>
 					<div class="col-lg-5 col-sm-7 top-info clearfix">
@@ -88,8 +88,8 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img
+									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
@@ -206,19 +206,19 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-								<a href="/hooligan/CustomerUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+								<a href="/hooligan/customer/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerBookmark.jsp" class="btn btn-block btn-default">내 즐겨찾기</a>
+									<a href="/hooligan/customer/bookmark" class="btn btn-block btn-default">내 즐겨찾기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerOrder.jsp" class="btn btn-block btn-default">주문 내역</a>
+									<a href="/hooligan/customer/order" class="btn btn-block btn-default">주문 내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/customer/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
@@ -261,24 +261,24 @@
 			
 
 
-					<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-					<script src="js/bootstrap.min.js"></script>
-					<script src="js/jquery.easing.1.3.js"></script>
-					<script src="js/retina-1.1.0.min.js"></script>
-					<script type="text/javascript" src="js/jquery.cookie.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+					<script src="/hooligan/js/bootstrap.min.js"></script>
+					<script src="/hooligan/js/jquery.easing.1.3.js"></script>
+					<script src="/hooligan/js/retina-1.1.0.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script>
 					<!-- jQuery cookie -->
-					<script type="text/javascript" src="js/styleswitch.js"></script>
+					<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script>
 					<!-- Style Colors Switcher -->
-					<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.smartmenus.bootstrap.min.js"></script>
-					<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-					<script type="text/javascript" src="js/jflickrfeed.js"></script>
+						src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.magnific-popup.min.js"></script>
-					<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-					<script type="text/javascript" src="js/swipe.js"></script>
-					<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+						src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
 					<script type="text/javascript">
@@ -530,6 +530,6 @@
 													});
 										});
 					</script>
-					<script src="js/main.js"></script>
+					<script src="/hooligan/js/main.js"></script>
 </body>
 </html>

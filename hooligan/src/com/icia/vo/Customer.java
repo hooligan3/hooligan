@@ -9,7 +9,7 @@ public class Customer {
 	private String customerName;
 	private int postalNo;
 	private String address;
-	private int tell;
+	private String tell;
 	private String ssn1;
 	private String ssn2;
 	private String email;

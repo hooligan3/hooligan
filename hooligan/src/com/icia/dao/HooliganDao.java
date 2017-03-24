@@ -30,7 +30,7 @@ public class HooliganDao {
 			pstmt.setString(3, customer.getCustomerName());
 			pstmt.setInt(4, customer.getPostalNo());
 			pstmt.setString(5, customer.getAddress());
-			pstmt.setInt(6, customer.getTell());
+			pstmt.setString(6, customer.getTell());
 			pstmt.setString(7, customer.getSsn1());
 			pstmt.setString(8, customer.getSsn2());
 			pstmt.setString(9, customer.getEmail());
@@ -61,7 +61,7 @@ public class HooliganDao {
 				c.setPostalNo(rs.getInt("postal_no"));
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
-				c.setTell(rs.getInt("tell"));
+				c.setTell(rs.getString("tell"));
 				return c;
 			}
 		} catch (SQLException e) {
@@ -82,7 +82,7 @@ public class HooliganDao {
 			pstmt.setString(2, customer.getCustomerName());
 			pstmt.setInt(3, customer.getPostalNo());
 			pstmt.setString(4, customer.getAddress());
-			pstmt.setInt(5, customer.getTell());
+			pstmt.setString(5, customer.getTell());
 			pstmt.setString(6, customer.getEmail());
 			pstmt.setString(7, customer.getCustomerId());
 			return pstmt.executeUpdate();
@@ -109,7 +109,7 @@ public class HooliganDao {
 				c.setCustomerName(rs.getString("customer_name"));
 				c.setPostalNo(rs.getInt("postal_no"));
 				c.setAddress(rs.getString("address"));
-				c.setTell(rs.getInt("tell"));
+				c.setTell(rs.getString("tell"));
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
 				c.setEmail(rs.getString("email"));
@@ -159,7 +159,7 @@ public class HooliganDao {
 				c.setCustomerName(rs.getString("customer_name"));
 				c.setPostalNo(rs.getInt("postal_no"));
 				c.setAddress(rs.getString("address"));
-				c.setTell(rs.getInt("tell"));
+				c.setTell(rs.getString("tell"));
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
 				c.setEmail(rs.getString("email"));
@@ -254,7 +254,7 @@ public class HooliganDao {
 			pstmt.setString(6, employee.getEmail());
 			pstmt.setString(7, employee.getSsn1());
 			pstmt.setString(8, employee.getSsn2());
-			pstmt.setInt(9, employee.getTell());
+			pstmt.setString(9, employee.getTell());
 			pstmt.setInt(10, 0);// 0 이면 비활성화 1이면 활성화
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -274,7 +274,7 @@ public class HooliganDao {
 			pstmt.setInt(2, employee.getPostalNo());
 			pstmt.setString(3, employee.getAddress());
 			pstmt.setString(4, employee.getEmail());
-			pstmt.setInt(5, employee.getTell());
+			pstmt.setString(5, employee.getTell());
 			pstmt.setString(6, employee.getEmployeeId());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -319,7 +319,7 @@ public class HooliganDao {
 				emp.setEmail(rs.getString("email"));
 				emp.setSsn1(rs.getString("ssn1"));
 				emp.setSsn2(rs.getString("ssn2"));
-				emp.setTell(rs.getInt("tell"));
+				emp.setTell(rs.getString("tell"));
 				emp.setActive(rs.getInt("active"));
 				emp.setBrandNo(rs.getInt("brand_no"));
 
