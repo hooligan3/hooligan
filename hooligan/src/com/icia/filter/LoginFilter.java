@@ -10,7 +10,7 @@ import javax.servlet.http.*;
 import com.icia.vo.Customer;
 
 
-@WebFilter({"/*"  })
+@WebFilter({"/customer/*,/admin/*,/product/*,/employee/*"  })
 public class LoginFilter implements Filter {
 	// 로그인 없이 접근할 수 있는 경로를 지정
 	private ArrayList<String> whiteList = new ArrayList<>();
