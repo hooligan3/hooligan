@@ -22,6 +22,8 @@ public class LoginFilter implements Filter {
     	whiteList.add("/hooligan/main/selectRegister");
     	whiteList.add("/hooligan/customer/register");
     	whiteList.add("/hooligan/employee/register");
+     	whiteList.add("/hooligan/customer/searchId");
+    	///hooligan/customer/searchId
     }
 	public void destroy() {
 	}

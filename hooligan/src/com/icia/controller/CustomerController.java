@@ -147,20 +147,20 @@ public class CustomerController {
 		return mav;
 	}
 	//회원아이디 찾기폼으로
-	@RequestMapping(value="customer/seachId",method="GET")
+	@RequestMapping(value="/customer/searchId",method="GET")
 	public static ModelAndView customerSeachIdStart(HttpServletRequest req){
 	ModelAndView mav=new ModelAndView();
-	mav.setView("/CustomerSeachId.jsp");
+	mav.setView("/CustomerSearchId.jsp");
 	return mav;
 	}
 	//회원아이디 찾기
-	@RequestMapping(value="customer/seachId",method="POST")
+	@RequestMapping(value="/customer/searchId",method="AJAX")
 	public static ModelAndView customerSeachIdEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("result", service.customerSeachId(req));
-		mav.setView("/hooligan/customer/seachId");
-		mav.setRedirect();
+		mav.setView("/hooligan/customer/searchId");
+	
 		return mav;
 	}
 }

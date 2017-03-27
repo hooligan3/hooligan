@@ -205,13 +205,17 @@ public class HooliganDao {
 	public String customerSeachId(Connection conn, HashMap<String, String> map) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.selectById);
-			pstmt.setString(1, map.get("ssn1"));
-			pstmt.setString(2, map.get("ssn2"));
-			pstmt.executeQuery();
+		pstmt.setString(1, map.get("ssn1"));
+		pstmt.setString(2, map.get("ssn2"));
+		rs=	pstmt.executeQuery();
 			if (rs.next()) {
+				System.out.println(rs.getString("customer_id"));
 				return rs.getString("customer_id");
+				
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

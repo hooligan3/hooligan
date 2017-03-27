@@ -106,8 +106,11 @@ public class HooliganService {
 		return 0;
 	}
 	public Object customerSeachId(HttpServletRequest req) {
+		System.out.println("들어왓냐이년아");
 		Connection conn=JdbcUtil.getConnection();
 		HashMap<String, String> map=new HashMap<>();
+	
+		System.out.println("두번쨰"+req.getParameter("ssn1"));
 		map.put("ssn1", req.getParameter("ssn1"));
 		map.put("ssn2", req.getParameter("ssn2"));
 		String customerId=dao.customerSeachId(conn,map);
