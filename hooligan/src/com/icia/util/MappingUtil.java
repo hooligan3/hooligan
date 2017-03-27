@@ -3,6 +3,7 @@ package com.icia.util;
 import javax.servlet.http.HttpServletRequest;
 
 import com.icia.vo.Customer;
+import com.icia.vo.Employee;
 
 public class MappingUtil {
 	public static Customer	makeCustomer(HttpServletRequest req){
@@ -32,5 +33,25 @@ public class MappingUtil {
 		customer.setSsn2(req.getParameter("ssn2"));
 		customer.setTell(req.getParameter("tell"));
 		return customer;
+	}
+	public static Employee makeEmployee(HttpServletRequest req, int maxBrand) {
+		Employee e=new Employee();
+		e.setActive(1);
+		e.setAddress(req.getParameter("address"));
+		e.setBrandNo(maxBrand+1);
+		e.setEmail(req.getParameter("email"));
+		e.setEmployeeId(req.getParameter("employee_id"));
+		e.setEmployeePwd(req.getParameter("employee_pwd"));
+		e.setEname(req.getParameter("employee_name"));
+		e.setPoint1(0);
+		e.setPostalNo(Integer.parseInt(req.getParameter("postal_no")));
+		e.setSsn1(req.getParameter("ssn1"));
+		e.setSsn2(req.getParameter("ssn2"));
+		e.setTell(req.getParameter("tell"));
+		return e;
+		
+		
+		
+		return null;
 	}
 }

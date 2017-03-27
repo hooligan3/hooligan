@@ -912,6 +912,21 @@ public class HooliganDao {
 				}
 				return -1;
 			}
+			public int maxBrandNo(Connection conn) {
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				pstmt=conn.prepareStatement(EmpSql.maxBrandNo);
+				rs=pstmt.executeQuery();
+				if(rs.next()){
+					return rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+				return 0;
+			}
 	
 	
 }
