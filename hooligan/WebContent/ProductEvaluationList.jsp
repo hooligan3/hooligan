@@ -11,12 +11,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/hooligan/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -162,7 +162,7 @@
                     <nav id="breadcrumbs">
                         <ul>
 
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/hooligan/index.html">Home</a></li>
                             <li>상품평가</li>
                         </ul>
                     </nav>

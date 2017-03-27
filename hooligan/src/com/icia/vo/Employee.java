@@ -10,10 +10,11 @@ public class Employee {
 	private String ename;
 	private int postalNo;
 	private String address;
-	private String email;
 	private String ssn1;
 	private String ssn2;
+	private String email;
 	private String tell;
 	private int active;
+	private int point;
 	private int brandNo;
 }

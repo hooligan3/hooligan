@@ -18,7 +18,7 @@ public interface NoticeSql {
 		// 공지게시판
 		public String insertNotice = "insert into notice values(?,?,?,?)";
 		// 공지사항 작성
-		public String updateNotice = "update notice set title=?, content=? where notice_articele_no=?";
+		public String updateNotice = "update notice set title=?, content=? where notice_article_no=?";
 		// 공지사항 수정
 		public String deleteNotice = "delete from notice where notice_article_no=?";
 		// 공지사항 삭제

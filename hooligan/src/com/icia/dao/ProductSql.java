@@ -8,6 +8,7 @@ public interface ProductSql {
 	//상품종류별검색
 	public String searchOfKind="select rnum,t2.* from(select rownum rnum,t1.* from(select p.*,m.* from product p,main_image m where p.product_no=m.product_no and p.type_no=?)t1)t2 where rnum between ? and ?";
 	//브랜드의종류별검색
+	
 	//1.최신
 	public String searchOfRecentOfBrandOfKind="select rnum,t2.* from(select rownum rnum,t1.* from(select p.*,m.* from product p,main_image m where p.product_no=m.product_no and p.type_no=? and brand_no=? order by p.REGISTRATION_DATE desc)t1)t2 where rnum between ? and ?";
 	//2.베스트

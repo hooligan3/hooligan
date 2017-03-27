@@ -545,6 +545,6 @@
 													});
 										});
 					</script>
-					<script src="js/main.js"></script>
+					<script src="/hooligan/js/main.js"></script>
 </body>
 </html>
