@@ -28,38 +28,43 @@
 </head>
 <body>
     <!--헤더 시작-->
-    <header id="header">
+   <header id="header">
+        <!-- ===============================헤더 시작================================ -->
+       
         <div class="header-top">
             <div class="container">
                 <div class="row">
                     <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                        <span><a href="#" style="color:white">로그인</a></span>
-                        <span class="hidden-sm"><a href="/hooligan/main/selectRegister" style="color:white">회원가입</a></span>
+                        
+               
+                        <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
+                        <span class="hidden-sm"><a href="#" style="color:white">로그아웃</a></span>
                     </div>
                     <div class="col-lg-5 col-sm-7 top-info clearfix">
                         <ul>
                             <li>
                                 <form class="search-bar">
                                     <label for="search" class="search-label">
-                                        <button class="search-button"><i class="fa fa-search"></i></button>
-                                        <!-- Fix the break-row-bug
-                                        -->
-                                        <input type="text" id="search" class="search-input" />
+                                        <button class="search-button"><i class="fa fa-search"></i></button><!-- Fix the break-row-bug
+                                        --><input type="text" id="search" class="search-input" />
                                     </label>
                                 </form>
                             </li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
+   
+   
         <div id="menu-bar">
             <div class="container">
                 <div class="row">
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
+                            <h1><a href="#"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                     <!-- Navigation
@@ -142,6 +147,17 @@
                                     
                                 </ul>
                             </li>
+                             <li><a href="#">게시판</a>
+                                    <ul class="dropdown-menu">
+                                    
+                                    <li><a href="#"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
+                                    </li>
                         </ul>
                     </div>
                 </div>

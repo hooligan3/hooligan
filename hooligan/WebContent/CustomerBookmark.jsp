@@ -53,6 +53,7 @@
 </script>
 </head>
 <body>
+<%@ include file="header/MainHeader.jsp" %>
 	<!--Start Header-->
 	<header id="header">
 		<div class="header-top">
