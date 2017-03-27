@@ -294,11 +294,12 @@ public class HooliganDao {
 	}
 
 	// 직원탈퇴 DeleteEmployee
-	public int deleteEmployee(Connection conn, String employeePwd) {
+	public int deleteEmployee(Connection conn, HashMap<String,String> map) {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(EmpSql.deleteEmployee);
-			pstmt.setString(1, employeePwd);
+			pstmt.setString(1,map.get("employee_id"));
+			pstmt.setString(2, map.get("employee_pwd"));
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
