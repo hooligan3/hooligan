@@ -19,7 +19,7 @@
 <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css"
 	media="screen" data-name="skins">
 <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
-
+ 
 <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css"
 	media="screen" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -225,7 +225,7 @@
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							
-							<div class="well well-lg"><h3><i class="fa fa-heart"></i>    내 즐겨찾기</h3>
+							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-heart"></i>    내 즐겨찾기</h3>
 							
 							<form action="update" method="post">
 							
@@ -276,24 +276,24 @@
 			
 
 
-					<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-					<script src="js/bootstrap.min.js"></script>
-					<script src="js/jquery.easing.1.3.js"></script>
-					<script src="js/retina-1.1.0.min.js"></script>
-					<script type="text/javascript" src="js/jquery.cookie.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+					<script src="/hooligan/js/bootstrap.min.js"></script>
+					<script src="/hooligan/js/jquery.easing.1.3.js"></script>
+					<script src="/hooligan/js/retina-1.1.0.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script>
 					<!-- jQuery cookie -->
-					<script type="text/javascript" src="js/styleswitch.js"></script>
+					<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script>
 					<!-- Style Colors Switcher -->
-					<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.smartmenus.bootstrap.min.js"></script>
-					<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-					<script type="text/javascript" src="js/jflickrfeed.js"></script>
+						src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
 					<script type="text/javascript"
-						src="js/jquery.magnific-popup.min.js"></script>
-					<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-					<script type="text/javascript" src="js/swipe.js"></script>
-					<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+						src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+					<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+					<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
 					<script type="text/javascript">

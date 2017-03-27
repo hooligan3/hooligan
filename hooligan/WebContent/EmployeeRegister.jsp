@@ -52,10 +52,18 @@
                       <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
                   </div>
                   <div class="form-group">
-                      <label for="ssn">주민번호</label><br>
-                      <input type="text" class="form-control" id="ssn1" placeholder="앞자리" style="width:213px">
-                      -
-                       <input type="text" class="form-control" id="ssn2" placeholder="뒷자리" style="width:213px">
+                  	 <label for="ssn">주민번호</label><br>
+                  	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;">
+                  	 	<input type="text" class="form-control" id="ssn1" placeholder="앞자리" >
+                  	 </div>
+                  	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;"> 
+                  	 	
+                  	 	<input type="text" class="form-control" id="ssn2" placeholder="뒷자리" >
+                  	 </div>
+                     
+                      
+                      
+                      
                   </div>
                   <div class="form-group">
                       <label for="phone_number">전화번호</label>
@@ -70,34 +78,7 @@
                       <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요">
                   </div>
                   <hr />
-                  <div class="form-group">
-                      <label for="brand_name">브랜드명</label>
-                      <input type="text" class="form-control" id="brand_name" placeholder="이메일을 입력해주세요">
-                  </div>
-                  <div class="form-group">
-                      <label for="company_phone_number">회사연락처</label>
-                      <input type="text" class="form-control" id="company_phone_number" placeholder="이메일을 입력해주세요">
-                  </div>
-                  <div class="form-group">
-                      <label for="logo">로고등록</label>
-                      <input type="file" class="form-control" id="logo">
-                  </div>
-                  <div class="form-group">
-                      <label for="description">브랜드 소개</label>
-                      <textarea rows="4" cols="50"></textarea>
-                  </div>
-                   <div class="form-group">
-                      <label for="brand_name">미리보기 상품 명</label>
-                      <input type="text" class="form-control" id="brand_name" placeholder="이름을 입력해주세요">
-                  </div>
-                  <div class="form-group">
-                      <label for="logo">미리보기 상품 이미지 등록</label>
-                      <input type="file" class="form-control" id="logo">
-                  </div>
-                     <div class="form-group">
-                      <label for="description">미리보기 상품 소개</label>
-                      <textarea rows="4" cols="50"></textarea>
-                  </div>
+                 
                   
                   <div class="form-group">
                       <label>약관 동의</label>
@@ -110,7 +91,7 @@
                       </div>
                   </div>
                   <div class="form-group text-center">
-                      <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
+                      <button type="submit" class="btn btn-info">다음 단계<i class="fa fa-check spaceLeft"></i></button>
                       <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
                   </div>
               </form>

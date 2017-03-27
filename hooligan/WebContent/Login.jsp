@@ -64,93 +64,91 @@
                     </div>
                     <!-- Navigation
                     ================================================== -->
-                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
-                        <!--  <div class="container">-->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="index.html">브랜드</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="index_2.html">브랜드1</a></li>
-                                        <li><a href="index_3.html">브랜드2</a></li>
-                                        <li><a href="index_4.html">브랜드3</a></li>
-                                        <li><a href="index_5.html">브랜드4</a></li>
-                                    </ul>
-                                </li>
+                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
+                    <!--  <div class="container">-->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
 
-                                <li>
-                                    <a href="#">의류</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="elements.html">Elements</a></li>
-                                        <li><a href="columns.html">Columns</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
-                                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                        <li><a href="icons.html">Icons</a></li>
-                                    </ul>
-                                </li>
 
-                                <li>
-                                    <a href="#">수제품</a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="about.html">About</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="about.html">About Us 1</a></li>
-                                                <li><a href="about-2.html">About Us 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="sidebar-right.html">Right Sidebar</a></li>
-                                        <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                                        <li><a href="404-page.html">404 Page</a></li>
-                                    </ul>
-                                </li>
+                            <li><a href="#" ><span class="data-hover" data-hover="brand">브랜드</span></a>
+                               
+                            </li>
 
-                                <li>
-                                    <a href="#">식품</a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Portfolio Classic</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/hooligan/portfolio_2.html">Portfolio 2</a></li>
-                                                <li><a href="/hooligan/portfolio_3.html">Portfolio 3</a></li>
-                                                <li><a href="/hooligan/portfolio_4.html">Portfolio 4</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="/hooligan/portfolio_masonry_3.html">Portfolio Masnory</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/hooligan/portfolio_masonry_2.html">Masonry portfolio 2</a></li>
-                                                <li><a href="/hooligan/portfolio_masonry_3.html">Masonry portfolio 3</a></li>
-                                                <li><a href="/hooligan/portfolio_masonry_4.html">Masonry portfolio 4</a></li>
-                                            </ul>
-                                        </li>
+                            <li ><a href="#"><span class="data-hover" data-hover="dress"> 의류</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">점퍼</a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#">코트</a>
+                                       
+                                    </li>
 
-                                        <li>
-                                            <a href="/hooligan/portfolio_single.html">Portfolio Single</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/hooligan/portfolio_single.html">Portfolio Single 1</a></li>
-                                                <li><a href="/hooligan/portfolio_single_2.html">Portfolio Single 2</a></li>
-                                                <li><a href="/hooligan/portfolio_single_3.html">Portfolio Single 3</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                    <li class="active">
+                                        <a href="#">니트</a>
+                                        
+                                    </li>
+                                     <li>
+                                        <a href="#">정장</a>
+                                       
+                                    </li>
+                                     <li>
+                                        <a href="#">티셔츠</a>
+                                       
+                                    </li>
+                                     <li>
+                                        <a href="#">팬츠</a>
+                                       
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#"><span class="data-hover" data-hover="hand">수제품</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">악세사리</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">케이스</a></li>
+                                            <li><a href="#">브로치</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="active">
+                                        <a href="#">잡화</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">가방</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#"> <span class="data-hover" data-hover="contact">식품</span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">과일</a></li>
+                                    <li><a href="#">견과</a></li>
+                                    <li><a href="#">음료</a></li>
+                                    <li class="active"><a href="#" >과자</a></li>
+                                    <li><a href="#">유제품</a></li>
+                                    <li><a href="#">냉동식품</a></li>
+                                    <li><a href="#">통조림</a></li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</header>
         <!--헤더 끝 -->
         <!--start wrapper-->
         <section class="wrapper">
@@ -178,7 +176,18 @@
                             <div class="form-group">
                                 <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="아이디를 입력해주세요" value="" placeholder="아이디">
                                 <input type="password" id="password" name="password" class="form-control" maxlength="100" data-msg-required="비밀번호를 입력해주세요" value="" placeholder="비밀번호">
-                                <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="로그인">
+                            	 <div class="col-lg-4 col-md-4 col-sm-4">
+                                
+                                <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="로그인" style="text-align:left;">
+                                
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8" style="text-align: right;">
+                                
+                                <input type="button" class="btn btn-default btn-lg" value="아이디 찾기" style="color:white;">
+                                <input type="button" class="btn btn-default btn-lg" value="비밀번호 찾기"style="color:white;">
+                                
+                                </div>
+                            
                             </div>
                         </div>
                     </form>
