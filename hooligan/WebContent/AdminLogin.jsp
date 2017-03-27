@@ -157,7 +157,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="page_title">
-                                <h2>직원 로그인</h2>
+                                <h2>관리자 로그인</h2>
                             </div>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="dividerHeading">
-                        <h4><span>직원 로그인</span></h4>
+                        <h4><span>관리자</span></h4>
                     </div>
                     <form  action="/hooligan/customer/login"  novalidate="novalidate" method="post">
                         <div class="row">
