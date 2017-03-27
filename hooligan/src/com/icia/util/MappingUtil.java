@@ -14,7 +14,7 @@ public class MappingUtil {
 		customer.setEmail(req.getParameter("email"));
 		customer.setGradeNo(1);
 		customer.setPostalNo(Integer.parseInt(req.getParameter("postal_number")));
-		customer.setPoint(0);
+		customer.setPoint1(0);
 		customer.setSsn1(req.getParameter("ssn1"));
 		customer.setSsn2(req.getParameter("ssn2"));
 		customer.setTell(req.getParameter("phone_number"));
