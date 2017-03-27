@@ -183,8 +183,8 @@
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8" style="text-align: right;">
                                 
-                                <input type="button" class="btn btn-default btn-lg" value="아이디 찾기" style="color:white;">
-                                <input type="button" class="btn btn-default btn-lg" value="비밀번호 찾기"style="color:white;">
+                                <a href="#"><input type="button" class="btn btn-default btn-lg" value="아이디 찾기" style="color:white;"></a>
+                                <a href="#"><input type="button" class="btn btn-default btn-lg" value="비밀번호 찾기"style="color:white;"></a>
                                 
                                 </div>
                             
