@@ -2,7 +2,7 @@ package com.icia.dao;
 
 public interface EmpSql {
 	// 직원 회원가입
-		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,?,seq_brand_no.nextval,?)";
+		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,seq_brand_no.nextval,?)";
 		
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(seq_employee.nextval,?,?,?)";

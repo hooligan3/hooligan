@@ -13,7 +13,7 @@ public class Customer {
 	private String ssn1;
 	private String ssn2;
 	private String email;
-	private int point;
+	private int point1;
 	private int gradeNo;
 	private String gradeName;
 	private float discountRate;

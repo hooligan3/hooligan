@@ -116,7 +116,7 @@ public class HooliganDao {
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
 				c.setEmail(rs.getString("email"));
-				c.setPoint(rs.getInt("point1"));
+				c.setPoint1(rs.getInt("point1"));
 				c.setGradeNo(rs.getInt("grade_no"));
 				c.setGradeName(rs.getString("grade_name"));
 				c.setDiscountRate(rs.getFloat("discount_rate"));
@@ -167,7 +167,7 @@ public class HooliganDao {
 				c.setSsn1(rs.getString("ssn1"));
 				c.setSsn2(rs.getString("ssn2"));
 				c.setEmail(rs.getString("email"));
-				c.setPoint(rs.getInt("point1"));
+				c.setPoint1(rs.getInt("point1"));
 				c.setGradeNo(rs.getInt("grade_no"));
 				c.setGradeName(rs.getString("grade_name"));
 				c.setDiscountRate(rs.getFloat("discount_rate"));
@@ -324,12 +324,13 @@ public class HooliganDao {
 				emp.setEname(rs.getString("ename"));
 				emp.setPostalNo(rs.getInt("postal_no"));
 				emp.setAddress(rs.getString("address"));
-				emp.setEmail(rs.getString("email"));
 				emp.setSsn1(rs.getString("ssn1"));
 				emp.setSsn2(rs.getString("ssn2"));
+				emp.setEmail(rs.getString("email"));
 				emp.setTell(rs.getString("tell"));
 				emp.setActive(rs.getInt("active"));
 				emp.setBrandNo(rs.getInt("brand_no"));
+				emp.setPoint1(rs.getInt("point1"));
 
 				return emp;
 			}
