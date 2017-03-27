@@ -1,3 +1,4 @@
+<%@page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,6 +6,7 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
  <!--<![endif]-->
+
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,40 +28,31 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+ <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+	$("#sumin").on("click",function(){
+		
+	$.ajax({
+		type:"POST",
+		url:"/hooligan/customer/searchId",
+		data:{ssn1:$("#ssn1").val(),ssn2:$("#ssn2").val()},
+		success:function(date){
+			alert(date.result);
+		}
+	});
+	});
+	});
+	</script>
+
 <body>
     <!--Start Header-->
-    <header id="header">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                        <span><a href="#" style="color:white">로그인</a></span>
-                        <span class="hidden-sm"><a href="resistration.html" style="color:white">회원가입</a></span>
-                    </div>
-                    <div class="col-lg-5 col-sm-7 top-info clearfix">
-                        <ul>
-                            <li>
-                                <form class="search-bar">
-                                    <label for="search" class="search-label">
-                                        <button class="search-button"><i class="fa fa-search"></i></button>
-                                        <!-- Fix the break-row-bug
-                                        -->
-                                        <input type="text" id="search" class="search-input" />
-                                    </label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="menu-bar">
-            <div class="container">
-                <div class="row">
+<%@ include file="header/MainHeader.jsp" %>
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                        <!-- =====================메인 메뉴(우측상단) 시작============================= -->
@@ -175,15 +168,15 @@
                         <h4><span>아이디 찾기</span></h4>
                         
                     </div>
-                    <form id="contactForm" action="" novalidate="novalidate" method="post">
+                  
                         <div class="row">
                             <div class="form-group">
                             	<div class="col-lg-6 col-md-6 col-sm-6">
-                            		 <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="주민등록번호 앞자리" value="" placeholder="주민번호 앞자리-">
+                            		 <input type="text"  id="ssn1"  name="ssn1" class="form-control" maxlength="100" data-msg-required="주민등록번호 앞자리"  placeholder="주민번호 앞자리">
                             	</div>
                             	
                             	<div class="col-lg-6 col-md-6 col-sm-6">
-                            		 <input type="password" id="password" name="password" class="form-control" maxlength="100" data-msg-required="주민등록번호 뒷자리" value="" placeholder="-주민번호 뒷자리">
+                            		 <input type="password"  id="ssn2"  name="ssn2" class="form-control" maxlength="100" data-msg-required="주민등록번호 뒷자리" placeholder="주민번호 뒷자리">
                             	</div>
                                
                                
@@ -191,13 +184,13 @@
                                 
                                  <div class="col-lg-4 col-md-4 col-sm-4">
                                 <br>
-                               <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="아이디 찾기" style="text-align:left;">
+                               <button  id="sumin"   style="text-align:left;">아이디찾기</button>
                                 
-                                <searchId.html/div>
+                           
                                 
                             </div>
                         </div>
-                    </form>
+               
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4">
                 </div>

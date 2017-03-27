@@ -13,6 +13,7 @@ import com.icia.dao.HooliganDao;
 import com.icia.util.JdbcUtil;
 import com.icia.util.MappingUtil;
 import com.icia.vo.Customer;
+import com.icia.vo.Employee;
 
 public class HooliganService {
 	private HooliganDao dao;
@@ -23,11 +24,7 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return null;
 	}
-	public int employeeRegisterEnd(HttpServletRequest req){
-		Connection conn=JdbcUtil.getConnection();
-		JdbcUtil.close(conn);
-		return 0;
-	}
+
 	//고객로그인하기
 	public Customer customerLogin(HttpServletRequest req) {
 		Connection conn = JdbcUtil.getConnection();
@@ -42,6 +39,7 @@ public class HooliganService {
 		  JdbcUtil.close(conn);
 		  return result;
 	}
+	//고객등록
 	public int customerInsert(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
 		System.out.println("여기까지왓다매");
@@ -49,8 +47,8 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		 return result;
 	
-
 	}
+	//고객업데이트 시작
 	public String customerUpdateStart(HttpServletRequest req, String customerId) {
 		Connection conn=JdbcUtil.getConnection();
 		Customer customer=dao.updateCustomerStart(conn,customerId);
@@ -60,6 +58,7 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(map);
 	}
+	//고객업데이트하기
 	public Customer customerUpdateEnd(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
 		Customer customer=MappingUtil.makeUpdateCustomer(req);
@@ -81,6 +80,42 @@ public class HooliganService {
 		return result;
 		
 	}
+	//!!!!!!!!!!!!!!!여기까지 회원!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//직원로그인하기
+	public Employee EmployeeLogin(HttpServletRequest req) {
+		Connection conn = JdbcUtil.getConnection();
+		  HashMap<String, String> employee = new HashMap<>();
+		  employee.put("employee_id", req.getParameter("employee_id"));
+		  employee.put("employee_pwd", req.getParameter("employee_pwd"));
+		  System.out.println("아이디는:"+req.getParameter("employee_id")+"비밀번호는:"+req.getParameter("employee_pwd"));
+		  Customer result = null; 
+		  if(null!=dao.EmployeeLogin(conn, employee))
+			 return  dao.EmployeeLogin(conn, employee);
+		  System.out.println("결과값은"+result);
+		  JdbcUtil.close(conn);
+		  return null;
 	
+	}
+
+	public int employeeRegisterEnd(HttpServletRequest req){
+		Connection conn=JdbcUtil.getConnection();
+		System.out.println("여기까지왓다매");
+		int maxBrand=dao.maxBrandNo(conn);
+		int result=dao.insertEmployee(conn, MappingUtil.makeEmployee(req,maxBrand));
+		JdbcUtil.close(conn);
+		return 0;
+	}
+	public Object customerSeachId(HttpServletRequest req) {
+		System.out.println("들어왓냐이년아");
+		Connection conn=JdbcUtil.getConnection();
+		HashMap<String, String> map=new HashMap<>();
+	
+		System.out.println("두번쨰"+req.getParameter("ssn1"));
+		map.put("ssn1", req.getParameter("ssn1"));
+		map.put("ssn2", req.getParameter("ssn2"));
+		String customerId=dao.customerSeachId(conn,map);
+		JdbcUtil.close(conn);
+		return customerId;
+	}
 }
 

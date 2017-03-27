@@ -1,8 +1,11 @@
+<%@page import="com.icia.vo.Customer"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
+<%Customer customer=(Customer)session.getAttribute("customer"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -28,6 +31,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
 <body class="home">
     <header id="header">
@@ -38,9 +42,11 @@
                 <div class="row">
                     <div class="hidden-xs col-lg-7 col-sm-5 top-info">
                         
-               
+               			 <span class="hidden-sm" style="color:white"><%=customer.getCustomerName()%> 회원님</a></span>
+               			  <span class="hidden-sm"style="color:white"><%=customer.getGradeName()%> 등급</a></span>
+               			  <span class="hidden-sm"style="color:white">포인트:<%=customer.getPoint1()%> </a></span>
                         <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
-                        <span class="hidden-sm"><a href="#" style="color:white">로그아웃</a></span>
+                        <span class="hidden-sm"><a href="/hooligan/customer/logout" style="color:white">로그아웃</a></span>
                     </div>
                     <div class="col-lg-5 col-sm-7 top-info clearfix">
                         <ul>
