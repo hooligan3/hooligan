@@ -267,7 +267,7 @@
 											<td><input type="hidden" name="customer_name" value="<%=customer.getCustomerName()%>"></td>
 											<td><input type="hidden" name="ss1" value="<%=customer.getSsn1()%>"></td>
 											<td><input type="hidden" name="ss1" value="<%=customer.getSsn2()%>"></td>
-											<td><input type="hidden" name="point" value="<%=customer.getPoint() %>"></td>
+											<td><input type="hidden" name="point" value="<%=customer.getPoint1()%>"></td>
 										
 											</tr>
 									</tbody>
@@ -290,7 +290,7 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><%=customer.getPoint() %></td></tr>
+										<tr><td><%=customer.getPoint1() %></td></tr>
 										<tr><td><input type="text"  name="postal_no" value="<%=customer.getPostalNo() %>"></td></tr>
 										<tr><td><input type="text"  name="address" value="<%=customer.getAddress() %>"></td></tr>
 									</tbody>
