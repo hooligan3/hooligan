@@ -58,7 +58,7 @@
 
 	<div class="paging">
 		<span class="link">
-			<img src="/images/pg_prv.gif" alt="이전" style="vertical-align:middle" />&nbsp; <span class="o_bd">1</span> <a href="list.html?table=pds&pg=1" class="def">2</a> <a href="list.html?table=pds&pg=2" class="def">3</a> <a href="list.html?table=pds&pg=3" class="def">4</a> <a href="list.html?table=pds&pg=4" class="def">5</a> <a href="list.html?table=pds&pg=5" class="def">6</a> <a href="list.html?table=pds&pg=6" class="def">7</a> <a href="list.html?table=pds&pg=7" class="def">8</a> <a href="list.html?table=pds&pg=8" class="def">9</a> <a href="list.html?table=pds&pg=9" class="def">10</a>  &nbsp;<a href="list.html?table=pds&pg=10"><img src="/images/pg_nxt.gif" alt="다음" style="vertical-align:middle" /></a>
+			<img src="/hooligan//images/pg_prv.gif" alt="이전" style="vertical-align:middle" />&nbsp; <span class="o_bd">1</span> <a href="list.html?table=pds&pg=1" class="def">2</a> <a href="list.html?table=pds&pg=2" class="def">3</a> <a href="list.html?table=pds&pg=3" class="def">4</a> <a href="list.html?table=pds&pg=4" class="def">5</a> <a href="list.html?table=pds&pg=5" class="def">6</a> <a href="list.html?table=pds&pg=6" class="def">7</a> <a href="list.html?table=pds&pg=7" class="def">8</a> <a href="list.html?table=pds&pg=8" class="def">9</a> <a href="list.html?table=pds&pg=9" class="def">10</a>  &nbsp;<a href="list.html?table=pds&pg=10"><img src="/images/pg_nxt.gif" alt="다음" style="vertical-align:middle" /></a>
 		</span>
 	</div>
 

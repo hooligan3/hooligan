@@ -10,8 +10,8 @@ public class Product {
 	private String productName;
 	private String productContent;
 	private int price;
-	private int minmumSize;
-	private int maxmumSize;
+	private int minimumSize;
+	private int maximumSize;
 	private int presentSize;
 	private Date registrationDate;
 	private Date closingDate;

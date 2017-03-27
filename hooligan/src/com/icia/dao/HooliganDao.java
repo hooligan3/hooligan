@@ -10,13 +10,16 @@ import java.util.HashMap;
 import com.icia.util.JdbcUtil;
 import com.icia.vo.Bookmark;
 import com.icia.vo.Brand;
+import com.icia.vo.BrandProduct;
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
 import com.icia.vo.FreeBoard;
 import com.icia.vo.FreeReple;
 import com.icia.vo.InquiryBoard;
+import com.icia.vo.InquiryReple;
 import com.icia.vo.Notice;
 import com.icia.vo.Product;
+import com.icia.vo.Type;
 
 public class HooliganDao {
 
@@ -241,7 +244,7 @@ public class HooliganDao {
 		return -1;
 	}
 	//////////////////////////////////////////////////////////////////////////////////
-
+	
 	// 직원 회원가입 InsertEmployee
 	public int insertEmployee(Connection conn, Employee employee) {
 		PreparedStatement pstmt = null;
@@ -252,11 +255,15 @@ public class HooliganDao {
 			pstmt.setString(3, employee.getEname());
 			pstmt.setInt(4, employee.getPostalNo());
 			pstmt.setString(5, employee.getAddress());
-			pstmt.setString(6, employee.getEmail());
-			pstmt.setString(7, employee.getSsn1());
-			pstmt.setString(8, employee.getSsn2());
+			pstmt.setString(6, employee.getSsn1());
+			pstmt.setString(7, employee.getSsn2());
+			pstmt.setString(8, employee.getEmail());
 			pstmt.setString(9, employee.getTell());
 			pstmt.setInt(10, 0);// 0 이면 비활성화 1이면 활성화
+			pstmt.setInt(11, employee.getBrandNo());
+			pstmt.setInt(12, 0);
+			
+			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -404,8 +411,8 @@ public class HooliganDao {
 			pro.setClosingDate(rs.getDate("closing_date"));
 			pro.setEmployeeId(rs.getString("employee_id"));
 			pro.setImgPath(rs.getString("image_path"));
-			pro.setMaxmumSize(rs.getInt("maximum_size"));
-			pro.setMinmumSize(rs.getInt("minimum_size"));
+			pro.setMaximumSize(rs.getInt("maximum_size"));
+			pro.setMinimumSize(rs.getInt("minimum_size"));
 			pro.setOrderState(rs.getInt("order_state"));
 			pro.setPresentSize(rs.getInt("present_size"));
 			pro.setPrice(rs.getInt("price"));
@@ -420,9 +427,90 @@ public class HooliganDao {
 			e.printStackTrace();
 		}
 		return null;
-
 	}
-
+	public BrandProduct makebrandKind(ResultSet rs){
+		BrandProduct bp = new BrandProduct();
+		try{
+			bp.setProductNo(rs.getInt("product_no"));
+			bp.setBrandNo(rs.getInt("brand_no"));
+			bp.setProductName(rs.getString("product_name"));
+			bp.setProductContent(rs.getString("product_content"));
+			bp.setPrice(rs.getInt("price"));
+			bp.setImagePath(rs.getString("image_path"));
+			bp.setMinimumSize(rs.getInt("minimum_size"));
+			bp.setMaximumSize(rs.getInt("maximum_size"));
+			return bp;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}return null;
+	}
+	//제품 등록
+	public int insertProduct(Connection conn,Product product){
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(ProductSql.insertProduct);
+			pstmt.setInt(1, product.getProductNo());
+			pstmt.setString(2,product.getProductName());
+			pstmt.setString(3, product.getProductContent());
+			pstmt.setInt(4, product.getPrice());
+			pstmt.setInt(5, product.getMinimumSize());
+			pstmt.setInt(6, product.getMaximumSize());
+			pstmt.setInt(7, product.getPresentSize());
+			pstmt.setDate(8, product.getRegistrationDate());
+			pstmt.setDate(9, product.getClosingDate());
+			pstmt.setInt(10,product.getOrderState());
+			pstmt.setInt(11, product.getTypeNo());
+			pstmt.setInt(12, product.getBrandNo());
+			pstmt.setString(13, product.getEmployeeId());
+			pstmt.setString(14, product.getImgPath());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return -1;
+	}
+	//제품명검색
+		public ArrayList<Product> searchOfProduct(Connection conn,Product product){
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<Product> list = new ArrayList<>();
+			try {
+				pstmt = conn.prepareStatement(ProductSql.searchOfProduct);
+				pstmt.setString(1, product.getProductName());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					list.add(makeProduct(rs));
+				}
+				return list;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt, rs);
+			}
+			return null;
+		}
+		//싱픔종류별 검색 //잘모르겠음
+		public ArrayList<Product> searchOfKind(Connection conn,Type type) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<Product> list = new ArrayList<>();
+			try {
+				pstmt = conn.prepareStatement(ProductSql.searchOfKind);
+				pstmt.setString(1, type.getTypeName());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					list.add(makeProduct(rs));
+				}
+				return list;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(pstmt, rs);
+			}
+			return null;
+		}	
 	// !!!!!!!!!!!!!!!!!!!!!!메인뷰가져올거!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	// 베스트상품가져오기
 	public ArrayList<Product> bestProduct(Connection conn) {
@@ -443,7 +531,7 @@ public class HooliganDao {
 		}
 		return null;
 	}
-
+	
 	// 최신상품가져오기
 	public ArrayList<Product> newProduct(Connection conn) {
 		PreparedStatement pstmt = null;
@@ -757,12 +845,12 @@ public class HooliganDao {
 	}
 
 	// 문의게시판 삭제
-	public int deleteInquiryAticle(Connection conn, InquiryBoard inquiryBoard) {
+	public int deleteInquiryAticle(Connection conn, int inquiryNo) {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.deleteInquiryAticle);
 
-			pstmt.setInt(1, inquiryBoard.getInquiryNo());
+			pstmt.setInt(1, inquiryNo);
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -771,4 +859,58 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	// 문의게시판 댓글 작성
+			public int insertInquiryReple(Connection conn,InquiryReple inquiryReple) {
+				PreparedStatement pstmt = null;
+				
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.insertInquiryAticleIReple);
+					pstmt.setInt(1, inquiryReple.getInquiryRepleNo());
+					pstmt.setString(2, inquiryReple.getContent());
+					pstmt.setDate(3,inquiryReple.getRepleDate());
+					pstmt.setInt(4,inquiryReple.getInquiryNo());
+
+					return pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					JdbcUtil.close(pstmt, null);
+				}
+				return -1;
+
+			}
+			
+			// 자유게시판  댓글 수정
+			public int updateInquiryReple(Connection conn, InquiryReple inquiryReple) {
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.updateInquiryAticleReple);
+					pstmt.setString(1,inquiryReple.getContent());
+					pstmt.setInt(2,inquiryReple.getInquiryRepleNo());
+					return pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					JdbcUtil.close(pstmt, null);
+				}
+				return -1;
+			}
+
+			// 자유게시판 댓글 삭제
+			public int deleteInquiryReple(Connection conn,int inquiryRepleNo ) {
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.deleteInquiryAticleReple);
+
+					pstmt.setInt(1,inquiryRepleNo);
+					return pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					JdbcUtil.close(pstmt, null);
+				}
+				return -1;
+			}
+	
+	
 }
