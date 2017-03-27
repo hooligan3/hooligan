@@ -28,35 +28,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<%@ include file="header/MainHeader.jsp" %>
 
-<body class="home">
-    <header id="header">
-        <!-- ===============================헤더 시작================================ -->
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                        <span><a href="/hooligan/customer/login" style="color:white">로그인</a></span>
-                        <span class="hidden-sm"><a href="/hooligan/main/selectRegister" style="color:white">회원가입</a></span>
-                        <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
-                        <span class="hidden-sm"><a href="#" style="color:white">로그아웃</a></span>
-                    </div>
-                    <div class="col-lg-5 col-sm-7 top-info clearfix">
-                        <ul>
-                            <li>
-                                <form class="search-bar">
-                                    <label for="search" class="search-label">
-                                        <button class="search-button"><i class="fa fa-search"></i></button><!-- Fix the break-row-bug
-                                        --><input type="text" id="search" class="search-input" />
-                                    </label>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <!--===========================헤더 끝========================================-->
 
         <div id="menu-bar">
