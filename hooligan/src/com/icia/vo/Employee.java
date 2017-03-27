@@ -15,6 +15,7 @@ public class Employee {
 	private String email;
 	private String tell;
 	private int active;
-	private int point;
 	private int brandNo;
+	private int point1;
+	
 }
