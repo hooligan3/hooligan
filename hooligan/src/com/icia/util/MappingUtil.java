@@ -50,8 +50,5 @@ public class MappingUtil {
 		e.setTell(req.getParameter("tell"));
 		return e;
 		
-		
-		
-		return null;
 	}
 }

@@ -105,5 +105,14 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return 0;
 	}
+	public Object customerSeachId(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap<String, String> map=new HashMap<>();
+		map.put("ssn1", req.getParameter("ssn1"));
+		map.put("ssn2", req.getParameter("ssn2"));
+		String customerId=dao.customerSeachId(conn,map);
+		JdbcUtil.close(conn);
+		return customerId;
+	}
 }
 

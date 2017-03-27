@@ -202,24 +202,23 @@ public class HooliganDao {
 	}
 
 	// 고객 아이디 찾기 CustomerSelectById
-	public int customerSelectById(Connection conn, HashMap<String, String> customer) {
+	public String customerSeachId(Connection conn, HashMap<String, String> map) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.selectById);
-			pstmt.setString(1, customer.get("customer_Name"));
-			pstmt.setString(2, customer.get("ssn1"));
-			pstmt.setString(3, customer.get("ssn2"));
+			pstmt.setString(1, map.get("ssn1"));
+			pstmt.setString(2, map.get("ssn2"));
 			pstmt.executeQuery();
 			if (rs.next()) {
-				return rs.getInt(1);
+				return rs.getString("customer_id");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt, rs);
 		}
-		return -1;
+		return null;
 	}
 
 	// 고객 비밀번호 찾기 CustomerSelectByPwd

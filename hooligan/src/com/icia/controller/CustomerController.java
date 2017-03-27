@@ -67,7 +67,8 @@ public class CustomerController {
 		  }
 		  return mav;
 	}
-		  @RequestMapping(value="/customer/logout",method="GET")
+	///회원로그아웃하기
+	@RequestMapping(value="/customer/logout",method="GET")
 	public static ModelAndView customerLogout(HttpServletRequest req){
 			  ModelAndView mav=new ModelAndView();
 			  HttpSession sesstion=req.getSession();
@@ -142,6 +143,23 @@ public class CustomerController {
 		if(result==1) session.removeAttribute("customer");
 		else mav.addObject("result", "비밀번호를 확인하시오");
 		mav.setView("/hooligan/main/index");
+		mav.setRedirect();
+		return mav;
+	}
+	//회원아이디 찾기폼으로
+	@RequestMapping(value="customer/seachId",method="GET")
+	public static ModelAndView customerSeachIdStart(HttpServletRequest req){
+	ModelAndView mav=new ModelAndView();
+	mav.setView("/CustomerSeachId.jsp");
+	return mav;
+	}
+	//회원아이디 찾기
+	@RequestMapping(value="customer/seachId",method="POST")
+	public static ModelAndView customerSeachIdEnd(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("result", service.customerSeachId(req));
+		mav.setView("/hooligan/customer/seachId");
 		mav.setRedirect();
 		return mav;
 	}
