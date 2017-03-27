@@ -29,7 +29,7 @@ public interface EmpSql {
 		public String findPwdOfEmployee="select employee_pwd from employee where employee_id=? and employee_ssn1=? and employee_ssn2=?";
 		
 		//직원 삭제
-		public String deleteEmployee="delete from employee where employee_id=?";
+		public String deleteEmployee="delete from employee where employee_id=? and employee_pwd=?";
 		
 		//직원 정보 수정
 		public String updateEmployee="update employee set employee_pwd=?, postal_no=?, address=?, email=?, tell=? where employee_id=?";
