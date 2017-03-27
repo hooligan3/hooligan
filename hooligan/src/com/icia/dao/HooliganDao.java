@@ -207,7 +207,7 @@ public class HooliganDao {
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.selectById);
-			pstmt.setString(1, customer.get("customer_Name"));
+			
 			pstmt.setString(2, customer.get("ssn1"));
 			pstmt.setString(3, customer.get("ssn2"));
 			pstmt.executeQuery();
