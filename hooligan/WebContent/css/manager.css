@@ -1,0 +1,63 @@
+﻿
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+*{
+    font-family: 'Jeju Gothic', serif;
+    color:black;
+}
+#wrap{
+    width:100%;
+}
+#header{
+    height:120px;
+    background:gray;
+    background:#7F6DB0;
+    color:white;
+}
+.main_logo_img{
+    margin-top:20px;
+    margin-left:50px;
+}
+#header>p{
+     margin-left:80px;
+}
+#header_blank{
+    height:25px;
+    background:#D9D9D9;
+
+}
+#container{
+    width:2000px;
+    overflow:hidden
+}
+.main_gnb {
+    float: left;
+    height:1000px;
+    border-right:1px solid #D9D9D9;
+}
+.main_gnb>ul{
+    margin:20px 40px;
+}
+.main_gnb>ul>li{
+    margin-top:10px;
+}
+.main_gnb>ul>li>a{
+    display:inline-block;
+    padding: 3px 10px;
+}
+.main_section{
+    float:left;
+    width:1000px;
+    height:700px;
+}
+.main_section>h2{
+    margin: 15px 0 0 15px;
+}
+.main_section>.article{
+    margin:15px;
+}
+.main_section>.article img{
+    margin:15px;
+    border-radius:10px;
+    -webkit-box-shadow: 5px 5px 10px 5px #121212;
+    box-shadow: 5px 5px 10px 5px #121212;
+}

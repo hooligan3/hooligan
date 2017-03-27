@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,16 +7,7 @@
     <title></title>
     <link href="/hooligan/css/manager_reset.css" rel="stylesheet" />
     <link href="/hooligan/css/manager.css" rel="stylesheet" />
-    <link href="/hooligan/css/brand_description.css" rel="stylesheet" />
-      <!-- CSS FILES -->
-    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/hooligan/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
-
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
-
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <link href="/hooligan/css/product_description.css" rel="stylesheet" />
 </head>
 <body>
     <div id="wrap">
@@ -41,19 +31,25 @@
                     <hr />
                     <li><a href="sales_history.html">매출 내역</a></li>
                     <hr />
-                    <li><a href="sales_history.html">공지사항</a></li>
-                    <hr />
                 </ul>
             </nav>
             <section class="main_section">
-                <h2>공지사항 등록</h2><br><br>
-               
-               <div style="margin-left: 33px;">
-               	제목 : <input type="text"><br><br>
-               	<div>내용</div><textarea rows="13" cols="2" style="width:700px;"></textarea>
-               </div>
-               <br>
-               <button style="margin-left: 343px; width:60px; height:30px;">등록</button>
+                <h2>제품 상세정보</h2>
+                <table height="250" width="800">
+                    <tr>
+                        <td rowspan="4"><img src="http://placehold.it/250x250" alt="제품 이미지" width="250" height="250"/></td>
+                        <td class="title">제품명</td>
+                    </tr>
+                    <tr>
+                        <td>나이키 운동화</td>
+                    </tr>
+                    <tr>
+                        <td class="title">제품 설명</td>
+                    </tr>
+                    <tr>
+                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
+                    </tr>
+                </table>
             </section>
         </div>
     </div>

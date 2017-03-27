@@ -63,8 +63,8 @@
 </script>
 </head>
 <body>
+
 	<!--Start Header-->
-	
 	<%@ include file="header/MainHeader.jsp" %>
 	
 		<div id="menu-bar">
@@ -72,14 +72,13 @@
 				<div class="row">
 					<!-- Logo / Mobile Menu -->
 					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
+						<div id="logo">z
 							<h1>
 								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
-					
 				 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
@@ -93,7 +92,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -214,7 +213,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-leaf"></i>    주문 회원 리스트 조회</h3>
+							<div class="well well-lg" style="padding-right: 50px; height:540px;"><h3><i class="fa fa-leaf"></i>    주문 회원 리스트 조회</h3>
 						
 							<form action="update" method="post">
 							
@@ -274,6 +273,46 @@
 										<td>101-101</td>
 										<td>3개</td>
                     </tr>
+                     <tr>
+                       <td>qhrals8</td>
+										<td>2016/11/11</td>
+										<td>300.000원</td>
+										<td>서울특별시 xxxxx</td>
+										<td>101-101</td>
+										<td>3개</td>
+                    </tr>
+                     <tr>
+                       <td>qhrals8</td>
+										<td>2016/11/11</td>
+										<td>300.000원</td>
+										<td>서울특별시 xxxxx</td>
+										<td>101-101</td>
+										<td>3개</td>
+                    </tr>
+                     <tr>
+                       <td>qhrals8</td>
+										<td>2016/11/11</td>
+										<td>300.000원</td>
+										<td>서울특별시 xxxxx</td>
+										<td>101-101</td>
+										<td>3개</td>
+                    </tr>
+                     <tr>
+                       <td>qhrals8</td>
+										<td>2016/11/11</td>
+										<td>300.000원</td>
+										<td>서울특별시 xxxxx</td>
+										<td>101-101</td>
+										<td>3개</td>
+                    </tr>
+                     <tr>
+                       <td>qhrals8</td>
+										<td>2016/11/11</td>
+										<td>300.000원</td>
+										<td>서울특별시 xxxxx</td>
+										<td>101-101</td>
+										<td>3개</td>
+                    </tr>
                     </tbody>
                     
                     
@@ -283,6 +322,19 @@
                     
                     
                 </table>
+                <!--페이징 시작 -->
+                <div class="col-sm-12 text-center">
+                    <ul class="pagination">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
+                    </ul>
+                </div>
+            </div> <!--페이징 끝 -->
 							
 							
 							</div>

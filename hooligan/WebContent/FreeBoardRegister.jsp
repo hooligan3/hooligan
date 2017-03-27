@@ -93,85 +93,97 @@
 							</h1>
 						</div>
 					</div>
-					<!-- Navigation
-                    ================================================== -->
-					<div
-						class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container"
-						role="navigation">
-						<!--  <div class="container">-->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li class="active"><a
-									href="/Java/project/html_semi/WebContent/UandMe/product.html">브랜드</a>
+					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
+                        <!--  <div class="container">-->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="product.html">브랜드</a>
 
-								</li>
+                                </li>
 
-								<li><a href="#">의류</a>
-									<ul class="dropdown-menu">
-										<li><a href="elements.html">Elements</a></li>
-										<li><a href="columns.html">Columns</a></li>
-										<li><a href="typography.html">Typography</a></li>
-										<li><a href="pricing-tables.html">Pricing Tables</a></li>
-										<li><a href="icons.html">Icons</a></li>
-									</ul></li>
+                                <li><a href="#">의류</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="elements.html">점퍼</a></li>
+                                        <li><a href="columns.html"> 코트</a></li>
+                                        <li><a href="typography.html">니트</a></li>
+                                        <li><a href="pricing-tables.html">정장</a></li>
+                                        <li><a href="icons.html">티셔츠</a></li>
+                                        <li><a href="icons.html">팬츠</a></li>
+                                    </ul>
+                                </li>
 
-								<li><a href="#">수제품</a>
-									<ul class="dropdown-menu">
-										<li><a href="about.html">About</a>
-											<ul class="dropdown-menu">
-												<li><a href="about.html">About Us 1</a></li>
-												<li><a href="about-2.html">About Us 2</a></li>
-											</ul></li>
-										<li><a href="services.html">Services</a></li>
-										<li><a href="faq.html">FAQ</a></li>
-										<li><a href="sidebar-right.html">Right Sidebar</a></li>
-										<li><a href="sidebar-left.html">Left Sidebar</a></li>
-										<li><a href="404-page.html">404 Page</a></li>
-									</ul></li>
+                                <li><a href="#" >수제품</a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="about.html">악세사라</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="about.html">케이스</a></li>
+                                                <li><a href="about-2.html">브로치</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="services.html">잡화</a></li>
+                                        <li><a href="faq.html">가방</a></li>
+     
+                                    </ul>
+                                </li>
 
-								<li><a href="#">식품</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Portfolio Classic</a>
-											<ul class="dropdown-menu">
-												<li><a href="portfolio_2.html">Portfolio 2</a></li>
-												<li><a href="portfolio_3.html">Portfolio 3</a></li>
-												<li><a href="portfolio_4.html">Portfolio 4</a></li>
-											</ul></li>
-										<li><a href="portfolio_masonry_3.html">Portfolio
-												Masnory</a>
-											<ul class="dropdown-menu">
-												<li><a href="portfolio_masonry_2.html">Masonry
-														portfolio 2</a></li>
-												<li><a href="portfolio_masonry_3.html">Masonry
-														portfolio 3</a></li>
-												<li><a href="portfolio_masonry_4.html">Masonry
-														portfolio 4</a></li>
-											</ul></li>
+                                <li><a href="#">식품</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">과일</a>
+       
+                                        </li>
+                                        <li>
+                                            <a href="portfolio_masonry_3.html">견과</a>
+ 
+                                        </li>
 
-										<li><a href="portfolio_single.html">Portfolio Single</a>
-											<ul class="dropdown-menu">
-												<li><a href="portfolio_single.html">Portfolio
-														Single 1</a></li>
-												<li><a href="portfolio_single_2.html">Portfolio
-														Single 2</a></li>
-												<li><a href="portfolio_single_3.html">Portfolio
-														Single 3</a></li>
-											</ul></li>
-									</ul></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                        <li>
+                                            <a href="portfolio_single.html">음료</a>
+
+                                        </li>
+                                         <li>
+                                            <a href="portfolio_single.html">과자</a>
+
+                                        </li>
+                                          <li>
+                                            <a href="portfolio_single.html">유제품</a>
+             
+                                        </li>
+                                        <li>
+                                            <a href="portfolio_single.html">냉동식품</a>
+               
+                                        </li>
+                                        <li>
+                                            <a href="portfolio_single.html">통조림</a>
+                           
+                                        </li>
+                                        
+                                        
+                                    </ul>
+                                     <li><a href="#">게시판</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="elements.html">자유 게시판</a></li>
+                                        <li><a href="columns.html"> 문의 게시판</a></li>
+                                        <li><a href="typography.html">공지 사항</a></li>
+            
+                                </li>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">
@@ -180,7 +192,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <div class="page_title">
-                           <h2>직원 마이페이지</h2>
+                           <h2>자유 게시판</h2>
                         </div>
                     </div>
                 </div>
@@ -190,132 +202,39 @@
  
            
             <div class="col-lg-12 col-md-12 col-sm-12">
-            <br><br>
-					<div class="col-lg-3 col-md-3 col-sm-3">
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage2.html" class="btn btn-block btn-default">상품 판매등록</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage3.html" class="btn btn-block btn-default">내 상품조회</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage5.html" class="btn btn-block btn-default">포인트 환급하기</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage6.html" class="btn btn-block btn-default">회원 탈퇴</a>
-								</div>
-
-							</div>
+							<br><br>
+						
 							
-							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>    포인트 환급내역 조회</h3>
+							<div class="well well-lg" style="padding-right: 50px; height: 600px;">
+							<div class="col-lg-1 col-md-1 col-sm-1">
+              		   </div>
+							<div class="col-lg-10 col-md-10 col-sm-10">
+							<h3><i class="fa fa-laptop"></i> 자유 게시판 글 작성</h3>
+								<table class="table table-striped table-hover" style="text-align: center;">
+				                    <thead>
+				                    <tr>
+										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:350px;"></th></h3>
+
+									</tr>
+                  					  </thead>
+
+              						  </table>
+	
+              		   <textarea rows="15" cols=""></textarea>
+              		   	
+              		   <div class="col-sm-12 text-center"><br>
+                  			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="취소하기">
+                  			 &nbsp;&nbsp;
+                  			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
+           				 </div>
 							
 							
-								
-									<table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-										<th>고객 아이디</th>
-										<th>환급 금액</th>
-										<th>환급 시간</th>
-									</tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									
-                   
-                    </tbody>
-
-                    
-                </table>
-									 
-									
-							   <!--페이징 시작 -->
-                <div class="col-sm-12 text-center">
-                    <ul class="pagination">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
-                </div>
-            </div> <!--페이징 끝 -->
 								
 							
 						
+                            
 							
 									
-							</div>
 							
 							
 							</div>
