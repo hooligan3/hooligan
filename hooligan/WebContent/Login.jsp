@@ -59,7 +59,7 @@
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                     <!-- Navigation
@@ -183,8 +183,8 @@
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8" style="text-align: right;">
                                 
-                                <a href="#"><input type="button" class="btn btn-default btn-lg" value="아이디 찾기" style="color:white;"></a>
-                                <a href="#"><input type="button" class="btn btn-default btn-lg" value="비밀번호 찾기"style="color:white;"></a>
+                                <a href="/hooligan/customer/searchId"><input type="button" class="btn btn-default btn-lg" value="아이디 찾기" style="color:white;"></a>
+                                <a href="/hooligan/customer/searchPwd"><input type="button" class="btn btn-default btn-lg" value="비밀번호 찾기"style="color:white;"></a>
                                 
                                 </div>
                             

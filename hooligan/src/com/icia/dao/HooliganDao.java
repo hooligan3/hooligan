@@ -189,7 +189,7 @@ public class HooliganDao {
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.doubleIdCheck);
 			pstmt.setString(1, customerId);
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -202,24 +202,29 @@ public class HooliganDao {
 	}
 
 	// 고객 아이디 찾기 CustomerSelectById
-	public int customerSelectById(Connection conn, HashMap<String, String> customer) {
+	public String customerSeachId(Connection conn, HashMap<String, String> map) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.selectById);
-			pstmt.setString(1, customer.get("customer_Name"));
-			pstmt.setString(2, customer.get("ssn1"));
-			pstmt.setString(3, customer.get("ssn2"));
-			pstmt.executeQuery();
+
+		pstmt.setString(1, map.get("ssn1"));
+		pstmt.setString(2, map.get("ssn2"));
+		rs=	pstmt.executeQuery();
+
 			if (rs.next()) {
-				return rs.getInt(1);
+				System.out.println(rs.getString("customer_id"));
+				return rs.getString("customer_id");
+				
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt, rs);
 		}
-		return -1;
+		return null;
 	}
 
 	// 고객 비밀번호 찾기 CustomerSelectByPwd
@@ -231,7 +236,7 @@ public class HooliganDao {
 			pstmt.setString(1, customer.get("customer_id"));
 			pstmt.setString(2, customer.get("ssn1"));
 			pstmt.setString(3, customer.get("ssn2"));
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -350,7 +355,7 @@ public class HooliganDao {
 		try {
 			pstmt = conn.prepareStatement(EmpSql.doubleIdCheck);
 			pstmt.setString(1, employeeId);
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -371,7 +376,7 @@ public class HooliganDao {
 			pstmt.setString(1, employee.get("ename"));
 			pstmt.setString(2, employee.get("ssn1"));
 			pstmt.setString(3, employee.get("ssn2"));
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -392,7 +397,7 @@ public class HooliganDao {
 			pstmt.setString(1, customer.get("customer_id"));
 			pstmt.setString(2, customer.get("customer_ssn1"));
 			pstmt.setString(3, customer.get("customer_ssn2"));
-			pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -912,6 +917,21 @@ public class HooliganDao {
 					JdbcUtil.close(pstmt, null);
 				}
 				return -1;
+			}
+			public int maxBrandNo(Connection conn) {
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			try {
+				pstmt=conn.prepareStatement(EmpSql.maxBrandNo);
+				rs=pstmt.executeQuery();
+				if(rs.next()){
+					return rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+				return 0;
 			}
 	
 	
