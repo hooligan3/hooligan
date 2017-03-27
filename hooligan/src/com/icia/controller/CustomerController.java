@@ -32,9 +32,11 @@ public class CustomerController {
 		public static ModelAndView loginStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
 			  HttpSession session = req.getSession();
+			  if(session.getAttribute("customer")!=null) mav.setView("/Main.jsp");
+			  else mav.setView("/Login.jsp");
 			  String go = (String) session.getAttribute("destination");
 			  System.out.println("go:" + go);
-			mav.setView("/Login.jsp");
+			
 			return mav;
 		}
 	//로그인하기
@@ -64,15 +66,28 @@ public class CustomerController {
 		   mav.setRedirect();
 		  }
 		  return mav;
-
 	}
-	//회원등록하기
+		  @RequestMapping(value="/customer/logout",method="GET")
+	public static ModelAndView customerLogout(HttpServletRequest req){
+			  ModelAndView mav=new ModelAndView();
+			  HttpSession sesstion=req.getSession();
+			  sesstion.removeAttribute("customer");
+			  mav.setView("/hooligan/main/index");
+			  mav.setRedirect();
+			 return mav;
+		  }
+	
+	//회원등록하기폼으로
 	@RequestMapping(value="/customer/register",method="GET")
 	public static ModelAndView customerRegisterStart(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
-		mav.setView("/CustomerRegister.jsp");
+		  HttpSession session = req.getSession();
+		  if(session.getAttribute("customer")!=null) mav.setView("/Main.jsp");
+		  else mav.setView("/CustomerRegister.jsp");
+	
 		return mav;
 	}
+	//회원등록하기
 	@RequestMapping(value="/customer/register",method="POST")
 	public static ModelAndView customerRegiserEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -80,7 +95,7 @@ public class CustomerController {
 		System.out.println("고객등록여기까지들어왓냐");
 		System.out.println("주소는"+req.getParameter("address"));
 		mav.addObject("result", service.customerInsert(req));
-		  String ggo = "/hooligan/main/index";
+		String ggo="/hooligan/main/index";
 		  mav.setView(ggo);
 		  mav.setRedirect();
 		  return mav;
@@ -108,13 +123,14 @@ public class CustomerController {
 		mav.setRedirect();
 		return mav;
 	}
-	//회원삭제하기
+	//회원삭제하기폼으로
 	@RequestMapping(value="/customer/delete",method="GET")
 	public static ModelAndView customerDeleteStart(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
 		mav.setView("/CustomerDelete.jsp");
 		return mav;
 	}
+	//회원삭제하기
 	@RequestMapping(value="/customer/delete",method="POST")
 	public static ModelAndView customerDeleteEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
