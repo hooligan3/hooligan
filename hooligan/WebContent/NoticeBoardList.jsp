@@ -49,7 +49,39 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	
+	var result = <%=request.getAttribute("result")%>
+	$(function(){
+		var list = result.list;
+		var pagination = result.pagination;
+		var target= $("#notice");
+		
+		$.each(list, function(index, value){
+			
+			
+			var str = "<tr><td>"+value.noticeArticleNo+"</td>";
+			str = str+"<td>"+value.title+"</td>";
+			str = str+ "<td>"+value.noticeDate+"</td></tr>";
+			target.append(str);
+		})
+		var p = $("#pagination");
+		if(pagination.prev>-1)
+			p.append("<li><a href='list?pageNo="+pagination.prev+"'>&laquo;</a></li>");
+		for(var i= pagination.startPage; i<= pagination.endpage; i++)
+			p.append("<li><a href='list?pageNo="+i+"'>"+i+"</a></li>");
+		if(pagination.next>-1)
+			p.append("<li><a href='list?pageNo="+pagination.next+"'>&raquo;</a></li>");
+	})
+				/*
+					<ul class="pagination"style="height: 20px;" id="pagination">
+                        <li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
+                    </ul>
+				*/					
 </script>
 </head>
 <body>
@@ -189,79 +221,23 @@
 										<th style="text-align: center;">글 번호</th>
 										<th style="text-align: center;">제목</th>
 										<th style="text-align: center;">등록일</th>
-										<th style="text-align: center;">조회수</th>
 									</tr>
                     </thead>
-                    <tbody>
-                    <tr>
-										<td>1</td>
-										<td><a href="#">유앤미 카페에 어서오세요  	</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-								       
-									</tr>
-                    <tr>
-										<td>2</td>
-										<td><a href="#">이벤트 세일 시작합니다</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>3</td>
-										<td><a href="#">유앤미 카페에 어서오세요?</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>4</td>
-										<td><a href="#">이벤트 세일 시작합니다</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>5</td>
-										<td><a href="#">유앤미 카페에 어서오세요~!</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                     <tr>
-										<td>6</td>
-										<td><a href="#">이벤트 세일 시작합니다 </a>	</td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-								       
-									</tr>
-                    <tr>
-										<td>7</td>
-										<td><a href="#">유앤미 카페에 어서오세요?</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>8</td>
-										<td><a href="#">이벤트 세일 시작합니다</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>9</td>
-										<td><a href="#">유앤미 카페에 어서오세요!</a> </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>10</td>
-										<td><a href="#">이벤트 세일 시작합니다</a></td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
+                    
+                    <tbody id="notice">
+                    
                     </tbody>
 
                 </table><br>
 							<div class="col-sm-12 text-right" style="height: 20px;">
 							<div class="col-sm-12 text-center" style="height: 10px;">
-                    <ul class="pagination"style="height: 20px;">
-                        <br><br><li><a href="#">&laquo;</a></li>
+							
+							
+							
+                    <br><br>
+                    
+                    <ul class="pagination"style="height: 20px;" id="pagination">
+                        <li><a href="#">&laquo;</a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
@@ -272,7 +248,7 @@
                 </div>
                 </div>
             </div>	
-				                     <!--페이징 시작 -->
+				                     
                 
             </div> 
             

@@ -10,10 +10,8 @@ import javax.websocket.Session;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.icia.dao.HooliganDao;
-import com.icia.util.JdbcUtil;
-import com.icia.util.MappingUtil;
-import com.icia.vo.Customer;
-import com.icia.vo.Employee;
+import com.icia.util.*;
+import com.icia.vo.*;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 public class HooliganService {
@@ -142,6 +140,24 @@ public class HooliganService {
 	}//고객등록3단계
 	public String employeeRegisterEnd3(HttpServletRequest req) {
 		return null;
+	}
+	//공지사항 게시글
+	public String readNotice(HttpServletRequest req){
+		Connection conn= JdbcUtil.getConnection();
+		int pageNo=1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo= Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.NoticeCount(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<Notice> list = dao.NoticeList(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		System.out.println("게시판어떻냐"+map.get(list));
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+		
+		
 	}
 }
 

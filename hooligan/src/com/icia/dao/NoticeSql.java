@@ -16,12 +16,15 @@ public interface NoticeSql {
 		// 자유게시판댓글 삭제
 		
 		// 공지게시판
-		public String insertNotice = "insert into notice values(?,?,?,?)";
+		public String insertNotice = "insert into notice values(seq_notice.nextval,?,?,sysdate)";
 		// 공지사항 작성
 		public String updateNotice = "update notice set title=?, content=? where notice_article_no=?";
 		// 공지사항 수정
 		public String deleteNotice = "delete from notice where notice_article_no=?";
 		// 공지사항 삭제
 		
+		//공지사항 게시판 리스트 보기
+		public String NoticeList = "select t2.* from (select rownum rnum, t1.* from (select notice_article_no,title,content,notice_Date from notice order by NOTICE_ARTICLE_NO) t1) t2 where rnum between ? and ?";
 		
+		public String countNotice = "select count(*) from notice";
 }
