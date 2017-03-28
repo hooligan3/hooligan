@@ -30,17 +30,17 @@
         <div id="container">
             <nav class="main_gnb">
                 <ul>
-                    <li><a href="confirm_waiting_company.html">승인대기중인 개인사업자</a></li>
+                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="company_list.html">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="customer_list.html">회원 조회</a></li>
+                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
                     <hr />
-                    <li><a href="brand_list.html">브랜드 조회</a></li>
+                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
                     <hr />
-                    <li><a href="sales_history.html">매출 내역</a></li>
+                    <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="sales_history.html">공지사항</a></li>
+                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
@@ -50,27 +50,27 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>승인대기중인 개인사업자</th>
+                                <th>승인대기중인 개인 사업자</th>
                                 <th>개인사업자 조회</th>
-                                <th>회원조회</th>
+                                <th>회원 조회</th>
                             </tr>
                         </thead>
                         <tr>
-                            <td><a href="confirm_waiting_company.html"><img src="/hooligan/images/제휴신청중.png" /></a></td>
-                            <td><a href="company_list.html"><img src="/hooligan/images/개인사업자.png" /></a></td>
-                            <td><a href="customer_list.html"><img src="/hooligan/images/회원관리.png" /></a></td>
+                            <td><a href="/hooligan/AdminWaitEmployee.jsp"><img src="/hooligan/images/제휴신청중.png" /></a></td>
+                            <td><a href="/hooligan/AdminEmployeeList.jsp"><img src="/hooligan/images/개인사업자.png" /></a></td>
+                            <td><a href="/hooligan/AdminCustomerList.jsp"><img src="/hooligan/images/회원관리.png" /></a></td>
                         </tr>
                         <thead>
                             <tr>
-                                <th>브랜드조회</th>
-                                <th>매출내역</th>
-                                <th></th>
+                                <th>브랜드 조회</th>
+                                <th>매출 내역</th>
+                                <th>공지 사항</th>
                             </tr>
                         </thead>
                         <tr>
-                            <td><a href="brand_list.html"><img src="/hooligan/images/브랜드.png" /></a></td>
-                            <td><a href="sales_history.html"><img src="/hooligan/images/매출내역.png" /></a></td>
-                            <td><a href="manager_index.html"><img src="/hooligan/images/logo2.png" /></a></td>
+                            <td><a href="/hooligan/AdminBrandList.jsp"><img src="/hooligan/images/브랜드.png" /></a></td>
+                            <td><a href="/hooligan/AdminPointSelect.jsp"><img src="/hooligan/images/매출내역.png" /></a></td>
+                            <td><a href="/hooligan/AdminNoticeList.jsp"><img src="/hooligan/images/logo2.png" /></a></td>
                         </tr>
                     </table>
                 </div>

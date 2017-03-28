@@ -26,7 +26,59 @@
     	#ssn1, #ssn2{
     		display: inline-block;
     	}
+    	
     </style>
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+		var a =  /^[a-zA-Z0-9]{5,15}$/;	//아이디
+		var b =  /^[a-zA-Z0-9]{10,20}$/;// 비밀번호
+		
+		$("#id").on("blur",function(){
+
+			if(a.test($("#id").val())==false){
+				$("#idchecked").html("아이디는 대소문자 및 숫자 5~15의 길이 입니다")
+				$("#idchecked").css("color","red")
+			}
+			else{
+				$("#idchecked").html("")
+			}
+			
+		
+			
+		})
+		$("#pwd").on("blur",function(){
+				
+				if(b.test($("#pwd").val())==false){
+					$("#pwdcheck").html("비밀번호는 대소문자 및 숫자 10~20의 길이 입니다")
+					$("#pwdcheck").css("color","red")
+				}
+				else {
+					
+					$("#pwdcheck").html("")
+				}
+				
+				if($("#pwd").val()==$("#pwd2").val()){
+					$("#pwdcheck2").html("")
+
+				}
+			
+			})
+			
+		$("#pwd2").on("blur",function(){
+				
+				if($("#pwd").val()!==$("#pwd2").val()){
+					$("#pwdcheck2").html("비밀번호를 확인해 주십시오")
+					$("#pwdcheck2").css("color","red")
+				}
+				else {
+					
+					$("#pwdcheck2").html("")
+				}
+			})
+		
+	})
+    </script>
   </head>
   <body>
       <article class="container">
@@ -35,30 +87,34 @@
           </div>
           <div class="col-md-6 col-md-offset-3">
               <form role="form">
-                  <div class="form-group">
+                   <div class="form-group">
                       <label for="InputEmail">아이디</label>
-                      <input type="text" class="form-control" id="InputEmail" placeholder="아이디">
+                      <input type="text" class="form-control" name="employee_id" placeholder="아이디" id="id">
                   </div>
+                  <p id="idchecked"></p>
                   <div class="form-group">
                       <label for="InputPassword1">비밀번호</label>
-                      <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
+                      <input type="password" class="form-control" name="employee_pwd" placeholder="비밀번호" name="password" id="pwd">
                   </div>
+                  <p id="pwdcheck"></p>
                   <div class="form-group">
                       <label for="InputPassword2">비밀번호 확인</label>
-                      <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호 확인">
+                      <input type="password" class="form-control" placeholder="비밀번호 확인"name="password2" id="pwd2">
                   </div>
+                  <p id="pwdcheck2"></p>
                   <div class="form-group">
                       <label for="username">이름</label>
-                      <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+                      <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요" name="ename">
                   </div>
+                  
                   <div class="form-group">
                   	 <label for="ssn">주민번호</label><br>
                   	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;">
-                  	 	<input type="text" class="form-control" id="ssn1" placeholder="앞자리" >
+                  	 	<input type="text" class="form-control" id="ssn1" name="ssn1" placeholder="앞자리" >
                   	 </div>
                   	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;"> 
                   	 	
-                  	 	<input type="text" class="form-control" id="ssn2" placeholder="뒷자리" >
+                  	 	<input type="text" class="form-control" id="ssn2" name="ssn2" placeholder="뒷자리" >
                   	 </div>
                      
                       
@@ -67,15 +123,15 @@
                   </div>
                   <div class="form-group">
                       <label for="phone_number">전화번호</label>
-                      <input type="text" class="form-control" id="phone_number" placeholder="전화번호를 입력해주세요">
+                      <input type="text" class="form-control" id="phone_number" name="tell" placeholder="전화번호를 입력해주세요">
                   </div>
                   <div class="form-group">
                       <label for="address">주소</label>
-                      <input type="text" class="form-control" id="address" placeholder="주소를 입력해주세요">
+                      <input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력해주세요">
                   </div>
                   <div class="form-group">
                       <label for="email">이메일</label>
-                      <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요">
+                      <input type="text" class="form-control" id="email"name="email" placeholder="이메일을 입력해주세요">
                   </div>
                   <hr />
                  

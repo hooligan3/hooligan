@@ -168,7 +168,7 @@
                                         
                                         
                                     </ul>
-                                     <li><a href="#">게시판</a>
+                                     <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="elements.html">자유 게시판</a></li>
                                         <li><a href="columns.html"> 문의 게시판</a></li>

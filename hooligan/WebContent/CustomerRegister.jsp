@@ -25,17 +25,52 @@
     <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
     	$(function(){
-    		var a =  /^[a-zA-Z0-9]{5,15}$/;	//아이디 기준
-    		var b ="AAA";
+    		var a =  /^[a-zA-Z0-9]{5,15}$/;	//아이디
+    		var b =  /^[a-zA-Z0-9]{10,20}$/;// 비밀번호
+    		
     		$("#id").on("blur",function(){
 
     			if(a.test($("#id").val())==false){
 					$("#idchecked").html("아이디는 대소문자 및 숫자 5~15의 길이 입니다")
+					$("#idchecked").css("color","red")
 				}
     			else{
     				$("#idchecked").html("")
     			}
+    			
+    		
+    			
     		})
+    		$("#pwd").on("blur",function(){
+    				
+    				if(b.test($("#pwd").val())==false){
+    					$("#pwdcheck").html("비밀번호는 대소문자 및 숫자 10~20의 길이 입니다")
+    					$("#pwdcheck").css("color","red")
+    				}
+    				else {
+    					
+    					$("#pwdcheck").html("")
+    				}
+    				
+    				if($("#pwd").val()==$("#pwd2").val()){
+    					$("#pwdcheck2").html("")
+
+    				}
+    			
+    			})
+    			
+    		$("#pwd2").on("blur",function(){
+    				
+    				if($("#pwd").val()!==$("#pwd2").val()){
+    					$("#pwdcheck2").html("비밀번호를 확인해 주십시오")
+    					$("#pwdcheck2").css("color","red")
+    				}
+    				else {
+    					
+    					$("#pwdcheck2").html("")
+    				}
+    			})
+    		
     	})
     </script>
     <style>
@@ -53,26 +88,32 @@
               <form  action="/hooligan/customer/register" method="post">
                   <div class="form-group">
                       <label for="InputEmail">아이디</label>
-                      <input type="text" class="form-control" name="id" placeholder="아이디" name="id">
-                      <p id="idchecked"></p>
+                      <input type="text" class="form-control" name="id" placeholder="아이디" id="id">
                   </div>
+                  <p id="idchecked"></p>
                   <div class="form-group">
                       <label for="InputPassword1">비밀번호</label>
-                      <input type="password" class="form-control" name="password" placeholder="비밀번호" name="password">
+                      <input type="password" class="form-control" name="password" placeholder="비밀번호" name="password" id="pwd">
                   </div>
+                  <p id="pwdcheck"></p>
                   <div class="form-group">
                       <label for="InputPassword2">비밀번호 확인</label>
-                      <input type="password" class="form-control" name="password2" placeholder="비밀번호 확인"name="password2">
+                      <input type="password" class="form-control" name="password2" placeholder="비밀번호 확인"name="password2" id="pwd2">
                   </div>
+                  <p id="pwdcheck2"></p>
                   <div class="form-group">
                       <label for="username">이름</label>
                       <input type="text" class="form-control" name="username" placeholder="이름을 입력해 주세요">
                   </div>
-                  <div class="form-group">
-                      <label for="ssn">주민번호</label><br>
-                      <input type="text" class="form-control" name="ssn1" placeholder="앞자리" style="width:213px">
-                      -
-                       <input type="text" class="form-control" name="ssn2" placeholder="뒷자리" style="width:213px">
+                 <div class="form-group">
+                  	 <label for="ssn">주민번호</label><br>
+                  	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;">
+                  	 	<input type="text" class="form-control" id="ssn1" placeholder="앞자리" >
+                  	 </div>
+                  	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;"> 
+                  	 	
+                  	 	<input type="text" class="form-control" id="ssn2" placeholder="뒷자리" >
+                  	 </div>
                
                   <div class="form-group">
                       <label for="phone_number">전화번호</label>

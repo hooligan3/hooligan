@@ -30,18 +30,18 @@
         <!--==============헤더와 본문 영역 구분===============-->
         <div id="container">
             <nav class="main_gnb">
-                <ul>
-                    <li><a href="confirm_waiting_company.html">승인대기중인 개인사업자</a></li>
+                   <ul>
+                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                    <hr/>
+                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="company_list.html">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
                     <hr />
-                    <li><a href="customer_list.html">회원 조회</a></li>
+                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
                     <hr />
-                    <li><a href="brand_list.html">브랜드 조회</a></li>
+                    <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="sales_history.html">매출 내역</a></li>
-                    <hr />
-                     <li><a href="sales_history.html">공지 사항</a></li>
+                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
@@ -128,6 +128,9 @@
                             <button>삭제</button></td>
                         </tr>
                     </table>
+                    
+                    <div style="margin-left: 100px;">
+                    
                    <!--페이징 시작 -->
                     <ul class="pagination" style="margin:0; margin-">
                         <br><br><li><a href="#">&laquo;</a></li>
@@ -139,12 +142,18 @@
                         <li><a href="#">&raquo;</a></li>  
                     </ul>
                     <br><br>&nbsp;&nbsp;&nbsp;
+                    </div>
+                    
+                    <div style="margin-left: 95px;">
                     <label for="search" class="search-label" >
                      <button class="search-button"><i class="fa fa-search"></i></button>
                       <input type="text" id="search" class="search-input" />
                      </label>
-                    
+                     &nbsp;<button><a href="/hooligan/AdminNoticeRegister.jsp">글 쓰기</a></button>
+
             </div> <!--페이징 끝 -->
+            </div>
+            
             </section>
         </div>
     </div>

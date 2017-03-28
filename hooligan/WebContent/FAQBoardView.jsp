@@ -12,7 +12,6 @@
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
@@ -93,7 +92,7 @@
 							</h1>
 						</div>
 					</div>
-					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -166,20 +165,17 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
+                                        
+                                        
                                     </ul>
-                                </li>
-                                 <li><a href="#">게시판</a>
+                                     <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#"> 공지사항</a>
-                                    </li>
-                                    
-                                    <li><a href="#">문의사항</a>
-                                    </li>
-                                    
-                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
-                                    </li>
-                                    </ul>
+                                        <li><a href="elements.html">자유 게시판</a></li>
+                                        <li><a href="columns.html"> 문의 게시판</a></li>
+                                        <li><a href="typography.html">공지 사항</a></li>
+            
+                                </li>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -187,7 +183,6 @@
             </div>
         </div>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
-
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">
@@ -196,7 +191,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <div class="page_title">
-                           <h2>직원 마이페이지</h2>
+                           <h2>문의 게시판</h2>
                         </div>
                     </div>
                 </div>
@@ -206,129 +201,111 @@
  
            
             <div class="col-lg-12 col-md-12 col-sm-12">
-            <br><br>
-					<div class="col-lg-3 col-md-3 col-sm-3">
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage2.html" class="btn btn-block btn-default">상품 판매등록</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage3.html" class="btn btn-block btn-default">내 상품조회</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage5.html" class="btn btn-block btn-default">포인트 환급하기</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage6.html" class="btn btn-block btn-default">회원 탈퇴</a>
-								</div>
-
-							</div>
+							<br><br>
+						
 							
-							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>    포인트 환급내역 조회</h3>
+							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>
 							
-							
-								
-									<table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-										<th>고객 아이디</th>
-										<th>환급 금액</th>
-										<th>환급 시간</th>
+							     문의 게시판</h3>
+              				  			<table class="table table-striped table-hover" style="text-align: center;">
+				                    <thead>
+				                    <tr >
+				                    <th style="text-align: center;">qazwsxo05 </th>
+										<th style="text-align: center;">12(상품 번호) </th>
+										<th style="text-align: center;">이 상품에 대해 문의 드립니다</th>
+										<th style="text-align: center;">2015/11/11(등록일) </th>
 									</tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									
+                  					  </thead>
                    
-                    </tbody>
 
-                    
-                </table>
-									 
-									
-							   <!--페이징 시작 -->
-                <div class="col-sm-12 text-center">
-                    <ul class="pagination">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
-                </div>
-            </div> <!--페이징 끝 -->
+              						  </table>
+              		
+              		   <div class="col-lg-1 col-md-1 col-sm-1">
+              		   </div>
+              		   
+              		   <div class="col-lg-10 col-md-10 col-sm-10">
+              		   <br>
+              		   <p style="max-height: 700px; min-height: 250px;">
+              		   제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
+							어디 브랜드가 가격대비 좋은가요?
+							추천좀 해주세요~
+								  
+						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
+							어디 브랜드가 가격대비 좋은가요?
+							추천좀 해주세요~
+								  
+						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
+							어디 브랜드가 가격대비 좋은가요?
+							추천좀 해주세요~
+								  
+						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
+							어디 브랜드가 가격대비 좋은가요?
+							추천좀 해주세요~
+							
+							</p>
+							
+							
+              		   </div>
+              		   	
+              		   <div class="col-lg-1 col-md-1 col-sm-1">
+              		   		
+              		   </div>	
+              		   
+              		   <div class="col-lg-9 col-md-9 col-sm-9">
+              		   		
+              		   </div>  
+              		   <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
+              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="수정하기">
+              		 		 &nbsp; 
+              		 		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="삭제하기">	
+              		   </div>  
+						<table class="table table-striped table-hover" style="text-align: center;">
+				                    <thead>
+				                    <tr >
+										<th style="text-align: center;"></th>
+									</tr>
+                  					  </thead>
+                   
+
+              						  </table>
+              						  
+               				 <p>댓글 목록</p>
+               				 
+               				 <!-- 댓글 -->
+               				 <table class="table table-striped table-hover" style="text-align: center;">
+				                    <tr >
+				                    	<th>lady</th>
+										<th style="text-align: right;">2017-03-10-12:35</th>
+									</tr>
+                   							<tr>
+                   								<td></td>
+                   								<td>침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~</td>
+                   							</tr>
+				                    <tr >
+				                    	<th>poip</th>
+										<th style="text-align: right;">2017-03-11-18:10</th>
+									</tr>
+                   							<tr>
+                   								<td></td>
+                   								<td>요즘은 즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~요즘은 이케아나 한샘쪽도 괜찮다고 하더라구요~괜찮다고 하괜찮다고 하더라구요~</td>
+              						 		</tr>
+              						  </table>
+              						  
+              				<!-- 댓글 -->
+             						<p>댓글 작성</p>
+             						 <div class="col-lg-11 col-md-11 col-sm-11">
+             						<textarea rows="3" cols="" ></textarea>
+             						</div>
+										&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록" style="margin-top: 10px;">
+									<br><br>
+									<br><br>
+								
+							
+							
 								
 							
 						
+                            
 							
 									
 							</div>

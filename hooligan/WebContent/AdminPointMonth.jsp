@@ -8,9 +8,8 @@
     <title></title>
     <link href="/hooligan/css/manager_reset.css" rel="stylesheet" />
     <link href="/hooligan/css/manager.css" rel="stylesheet" />
-    <link href="/hooligan/css/brand_list.css" rel="stylesheet" />
-    
-    <!-- CSS FILES -->
+    <link href="/hooligan/css/customer_list.css" rel="stylesheet" />
+     <!-- CSS FILES -->
     <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/hooligan/css/style.css">
     <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
@@ -23,7 +22,7 @@
 <body>
     <div id="wrap">
         <header id="header">
-            <h1><a href="manager_index.html"><img class="main_logo_img" src="images/logo.png" alt="로고" /></a></h1>
+            <h1><a href="manager_index.html"><img class="main_logo_img" src="/hooligan/images/logo.png" alt="로고" /></a></h1>
             <p>Manager</p>
         </header>
         <!--==============헤더와 본문 영역 구분===============-->
@@ -31,7 +30,7 @@
         <!--==============헤더와 본문 영역 구분===============-->
         <div id="container">
             <nav class="main_gnb">
-                 <ul>
+                  <ul>
                     <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
                     <hr/>
                     <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
@@ -47,92 +46,85 @@
                 </ul>
             </nav>
             <section class="main_section">
-                <h2>브랜드조회</h2>
+                <h2>한 달 총 매출 조회</h2>
                 <div class="article">
                     <table>
                         <thead>
                             <tr>
-                                <th>브랜드명</th>
-                                <th>회사 연락처</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th style="text-align: center;">결제 시간</th>
+                                <th style="text-align: center;">결제 금액</th>
+                                <th style="text-align: center;">순 이익</th>
+                                <th style="text-align: center;">총 매출</th>
+                                <th style="text-align: center;">비고</th>
                             </tr>
                         </thead>
                         <tr>
-                            <td>나이키</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2021/12/12</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>환급</td>
                         </tr>
                         <tr>
-                            <td>불가리</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2014/11/11</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>충전</td>
                         </tr>
                         <tr>
-                            <td>브라이틀링</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2021/12/12</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                             <td>xx원</td>
+                            <td>환급</td>
                         </tr>
                         <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2014/11/11</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>충전</td>
+                        </tr>
+                       <tr>
+                            <td>2021/12/12</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>환급</td>
                         </tr>
                         <tr>
-                            <td>뉴발란스</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2014/11/11</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>충전</td>
                         </tr>
                         <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2021/12/12</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                             <td>xx원</td>
+                            <td>환급</td>
                         </tr>
                         <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2014/11/11</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                             <td>xx원</td>
+                            <td>충전</td>
                         </tr>
                         <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
+                            <td>2021/12/12</td>
+                            <td>30.000원</td>
+                            <td>3000원</td>
+                            <td>xx원</td>
+                            <td>환급</td>
                         </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        
+                       
                     </table>
-                    <!--페이징 시작 -->
-                    <div style="margin-left: 135px;">
+                    <div style="margin-left: 89px;">
+                      <!--페이징 시작 -->
                     <ul class="pagination" style="margin:0; margin-">
                         <br><br><li><a href="#">&laquo;</a></li>
                         <li class="active"><a href="#">1</a></li>
@@ -150,6 +142,7 @@
                     
             </div> <!--페이징 끝 -->
             </div>
+                </div>
                 </div>
             </section>
         </div>

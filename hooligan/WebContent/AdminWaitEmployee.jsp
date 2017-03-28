@@ -9,6 +9,15 @@
     <link href="/hooligan/css/manager_reset.css" rel="stylesheet" />
     <link href="/hooligan/css/manager.css" rel="stylesheet" />
     <link href="/hooligan/css/confirm_waiting_company.css" rel="stylesheet" />
+      <!-- CSS FILES -->
+    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/hooligan/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
+
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 </head>
 <body>
     <div id="wrap">
@@ -21,16 +30,18 @@
         <!--==============헤더와 본문 영역 구분===============-->
         <div id="container">
             <nav class="main_gnb">
-                <ul>
-                    <li><a href="confirm_waiting_company.html">승인대기중인 개인사업자</a></li>
+                   <ul>
+                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                    <hr/>
+                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="company_list.html">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
                     <hr />
-                    <li><a href="customer_list.html">회원 조회</a></li>
+                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
                     <hr />
-                    <li><a href="brand_list.html">브랜드 조회</a></li>
+                    <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="sales_history.html">매출 내역</a></li>
+                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
@@ -103,7 +114,72 @@
                             <td><a href="product_description.html">지갑</a></td>
                             <td><button>승인</button><button>거절</button></td>
                         </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td><a href="brand_description.html">구찌</a></td>
+                            <td><a href="product_description.html">지갑</a></td>
+                            <td><button>승인</button><button>거절</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td><a href="brand_description.html">구찌</a></td>
+                            <td><a href="product_description.html">지갑</a></td>
+                            <td><button>승인</button><button>거절</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td><a href="brand_description.html">구찌</a></td>
+                            <td><a href="product_description.html">지갑</a></td>
+                            <td><button>승인</button><button>거절</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td><a href="brand_description.html">구찌</a></td>
+                            <td><a href="product_description.html">지갑</a></td>
+                            <td><button>승인</button><button>거절</button></td>
+                        </tr>
+                        <tr>
+                            <td>홍길동</td>
+                            <td>hong-gil-dong</td>
+                            <td>hong-gil-dong@gamil.com</td>
+                            <td>010-1234-5769</td>
+                            <td><a href="brand_description.html">구찌</a></td>
+                            <td><a href="product_description.html">지갑</a></td>
+                            <td><button>승인</button><button>거절</button></td>
+                        </tr>
                     </table>
+                     <div style="margin-left: 260px;">
+                    <!--페이징 시작 -->
+                    <ul class="pagination" style="margin:0; margin-">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>  
+                    </ul>
+                    <br><br>&nbsp;&nbsp;&nbsp;
+                    <label for="search" class="search-label" >
+                     <button class="search-button"><i class="fa fa-search"></i></button>
+                      <input type="text" id="search" class="search-input" />
+                     </label>
+                    
+            </div> <!--페이징 끝 -->
+            </div>
+                </div>
                 </div>
             </section>
         </div>

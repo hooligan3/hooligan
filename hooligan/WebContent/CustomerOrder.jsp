@@ -183,6 +183,7 @@
                 </div>
             </div>
         </div>
+        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
@@ -205,20 +206,24 @@
             <br><br>
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="#" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerBookmark.jsp" class="btn btn-block btn-default">내 즐겨찾기</a>
+									<a href="#" class="btn btn-block btn-default">주문 내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerOrder.jsp" class="btn btn-block btn-default">주문 내역</a>
+									<a href="#" class="btn btn-block btn-default">내 즐겨찾기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="#" class="btn btn-block btn-default">포인트 충전내역</a>
+								</div>
+								
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="#" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
@@ -250,12 +255,91 @@
 										<td>2014/11/11</td>
 										<td>2015/11/11</td>
                     </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
+                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>400.000원</td>
+										<td>2014/11/11</td>
+										<td>2015/11/11</td>
+                    </tr>
 
                     </tbody>
                 </table>
+                
+                </form>
 							<!-- 테이블 끝 -->
-								
-							</form></div></div></div></header>
+								<!--페이징 시작 -->
+                <div class="col-sm-12 text-center">
+                    <ul class="pagination">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
+                    </ul>
+                </div>
+            </div> <!--페이징 끝 -->
+							</div>
+							</div>
+							</div>
 							
 					
 

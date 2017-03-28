@@ -93,7 +93,7 @@
 							</h1>
 						</div>
 					</div>
-					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -166,20 +166,17 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
+                                        
+                                        
                                     </ul>
-                                </li>
-                                 <li><a href="#">게시판</a>
+                                     <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#"> 공지사항</a>
-                                    </li>
-                                    
-                                    <li><a href="#">문의사항</a>
-                                    </li>
-                                    
-                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
-                                    </li>
-                                    </ul>
+                                        <li><a href="elements.html">자유 게시판</a></li>
+                                        <li><a href="columns.html"> 문의 게시판</a></li>
+                                        <li><a href="typography.html">공지 사항</a></li>
+            
+                                </li>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -187,7 +184,6 @@
             </div>
         </div>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
-
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">
@@ -196,7 +192,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
 
                         <div class="page_title">
-                           <h2>직원 마이페이지</h2>
+                           <h2>문의 게시판</h2>
                         </div>
                     </div>
                 </div>
@@ -206,116 +202,100 @@
  
            
             <div class="col-lg-12 col-md-12 col-sm-12">
-            <br><br>
-					<div class="col-lg-3 col-md-3 col-sm-3">
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage2.html" class="btn btn-block btn-default">상품 판매등록</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage3.html" class="btn btn-block btn-default">내 상품조회</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage5.html" class="btn btn-block btn-default">포인트 환급하기</a>
-								</div>
-								
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage6.html" class="btn btn-block btn-default">회원 탈퇴</a>
-								</div>
-
-							</div>
-							
-							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>    포인트 환급내역 조회</h3>
+							<br><br>
 							
 							
-								
-									<table class="table table-striped table-hover">
+							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>     문의게시판 목록</h3>
+							
+								<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
-                    <tr>
-										<th>고객 아이디</th>
-										<th>환급 금액</th>
-										<th>환급 시간</th>
+                    <tr >
+										<th style="text-align: center;">문의 번호</th>
+										<th style="text-align: center;">상품 번호</th>
+										<th style="text-align: center;">제목</th>
+										<th style="text-align: center;">글쓴이</th>
+										<th style="text-align: center;">등록일</th>
 									</tr>
                     </thead>
                     <tbody>
                     <tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
+										<td>1</td>
+										<td>24</td>
+										<td><a href="#">옷이이뻐요~!! 	</a></td>
+										<td>qweqwe</td>
+										<td> 2017-03-05</td>
 								       
 									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
+                    <tr>
+										<td>2</td>
+										<td>244</td>
+										<td><a href="#">봄신상언제나와요?</a></td>
+										<td>asdasd </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>3</td>
+										<td>64</td>
+										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
+										<td>asdgtt </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>4</td>
+										<td>24</td>
+										<td><a href="#">유앤미여기넘좋네요! </a></td>
+										<td>ttrertert </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>5</td>
+										<td>24</td>
+										<td><a href="#">이거맛있네요~!</a></td>
+										<td>troiig</td>
+										<td> 2017-03-05</td>
+                    </tr>
+                     <tr>
+										<td>6</td>
+										<td>24</td>
+										<td><a href="#">옷이이뻐요~!! </a>	</td>
+										<td>qweqwe</td>
+										<td> 2017-03-05</td>
 								       
 									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									<tr>
-										<td>qhrals8</td>
-										<td>300.000원</td>
-										<td>2015/11/11</td>
-								       
-									</tr>
-									
-                   
+                    <tr>
+										<td>7</td>
+										<td>24</td>
+										<td><a href="#">봄신상언제나와요?</a></td>
+										<td>asdasd </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>8</td>
+										<td>24</td>
+										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
+										<td>asdgtt </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>9</td>
+										<td>24</td>
+										<td><a href="#">유앤미여기넘좋네요!</a> </td>
+										<td>ttrertert </td>
+										<td> 2017-03-05</td>
+                    </tr>
+                    <tr>
+										<td>10</td>
+										<td>24</td>
+										<td><a href="#">이거맛있네요~!</a></td>
+										<td>troiig</td>
+										<td> 2017-03-05</td>
+                    </tr>
                     </tbody>
 
-                    
-                </table>
-									 
-									
-							   <!--페이징 시작 -->
-                <div class="col-sm-12 text-center">
-                    <ul class="pagination">
+                </table><br>
+							<div class="col-sm-12 text-right" style="height: 20px;">
+							<div class="col-sm-12 text-center" style="height: 10px;">
+                    <ul class="pagination"style="height: 20px;">
                         <br><br><li><a href="#">&laquo;</a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
@@ -325,10 +305,23 @@
                         <li><a href="#">&raquo;</a></li> <br><br> <br><br>
                     </ul>
                 </div>
-            </div> <!--페이징 끝 -->
+                <br>
+                   <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기">
+                </div>
+            </div>	
+				                     <!--페이징 시작 -->
+                
+            </div> 
+            
+             
+									
+									
+							
+							
 								
 							
 						
+                            
 							
 									
 							</div>
