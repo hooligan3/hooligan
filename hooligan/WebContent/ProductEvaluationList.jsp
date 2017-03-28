@@ -32,29 +32,8 @@
 <body>
 <!--Start Header-->
 <header id="header">
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                    <span><i class="fa fa-phone"></i>Phone: (123) 456-7890</span>
-                    <span class="hidden-sm"><i class="fa fa-envelope"></i>Email: mail@example.com</span>
-                </div>
-                <div class="col-lg-5 col-sm-7 top-info clearfix">
-                    <ul>
-                        
-                        <li>
-                            <form class="search-bar">
-                                <label for="search" class="search-label">
-                                    <button class="search-button"><i class="fa fa-search"></i></button><!-- Fix the break-row-bug
-                                    --><input type="text" id="search" class="search-input" />
-                                </label>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
     <div id="menu-bar">
         <div class="container">
             <div class="row">
@@ -84,7 +63,7 @@
                                
                             </li>
 
-                            <li class="active"><a href="#"><span class="data-hover" data-hover="dress"> 의류</span></a>
+                            <li><a href="#"><span class="data-hover" data-hover="dress"> 의류</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="#">점퍼</a>

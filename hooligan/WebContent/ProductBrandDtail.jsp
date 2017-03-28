@@ -62,7 +62,176 @@
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script>
+		$(function(){
+			$("#1").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">가구사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">가구사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			
+			$("#2").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">나비사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">나구사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#3").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">다다사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">다다사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#4").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">라라사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">라라사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#5").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">마마사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">마마사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#6").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">바바사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">바바사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#7").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">사사사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">사사사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#8").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">아아사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">아아사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#9").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">자자사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">자자사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#10").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">차차사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">차차사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#11").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">카카사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">카카사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#12").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">타타사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">타타사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#13").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">라라사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">라라사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			$("#14").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">하하사랑</a></li><li><a href="#">나라사랑</a></li><li><a href="#">하하사랑</a></li><li><a href="#">나라사랑</a></li>');
+			})
+			
+			$("#a").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">aaaa</a></li><li><a href="#">aaaa</a></li><li><a href="#">aaaa</a></li><li><a href="#">aaaa</a></li>');
+			})
+			$("#b").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">bbbb</a></li><li><a href="#">bbbb</a></li><li><a href="#">bbbb</a></li><li><a href="#">bbbb</a></li>');
+			})
+			$("#c").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">cccc</a></li><li><a href="#">cccc</a></li><li><a href="#">cccc</a></li><li><a href="#">cccc</a></li>');
+			})
+			$("#d").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">dddd</a></li><li><a href="#">dddd</a></li><li><a href="#">dddd</a></li><li><a href="#">dddd</a></li>');
+			})
+			$("#e").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">eeee</a></li><li><a href="#">eeee</a></li><li><a href="#">eeee</a></li><li><a href="#">eeee</a></li>');
+			})
+			$("#f").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">ffff</a></li><li><a href="#">ffff</a></li><li><a href="#">ffff</a></li><li><a href="#">ffff</a></li>');
+			})
+			$("#g").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">gggg</a></li><li><a href="#">gggg</a></li><li><a href="#">gggg</a></li><li><a href="#">gggg</a></li>');
+			})
+			$("#h").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">hhhh</a></li><li><a href="#">hhhh</a></li><li><a href="#">hhhh</a></li><li><a href="#">hhhh</a></li>');
+			})
+			$("#i").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">iiii</a></li><li><a href="#">iiii</a></li><li><a href="#">iiii</a></li><li><a href="#">iiii</a></li>');
+			})
+			$("#j").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">jjjj</a></li><li><a href="#">jjjj</a></li><li><a href="#">jjjj</a></li><li><a href="#">jjjj</a></li>');
+			})
+			$("#k").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">kkkk</a></li><li><a href="#">kkkk</a></li><li><a href="#">kkkk</a></li><li><a href="#">kkkk</a></li>');
+			})
+			$("#l").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">llll</a></li><li><a href="#">llll</a></li><li><a href="#">llll</a></li><li><a href="#">llll</a></li>');
+			})
+			$("#m").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">mmmm</a></li><li><a href="#">mmmm</a></li><li><a href="#">mmmm</a></li><li><a href="#">mmmm</a></li>');
+			})
+			$("#n").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">nnnn</a></li><li><a href="#">nnnn</a></li><li><a href="#">nnnn</a></li><li><a href="#">nnnn</a></li>');
+			})
+			$("#o").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">oooo</a></li><li><a href="#">oooo</a></li><li><a href="#">oooo</a></li><li><a href="#">oooo</a></li>');
+			})
+			$("#p").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">pppp</a></li><li><a href="#">pppp</a></li><li><a href="#">pppp</a></li><li><a href="#">pppp</a></li>');
+			})
+			$("#q").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">qqqq</a></li><li><a href="#">qqqq</a></li><li><a href="#">qqqq</a></li><li><a href="#">qqqq</a></li>');
+			})
+			$("#r").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">rrrr</a></li><li><a href="#">rrrr</a></li><li><a href="#">rrrr</a></li><li><a href="#">rrrr</a></li>');
+			})
+			$("#s").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">ssss</a></li><li><a href="#">ssss</a></li><li><a href="#">ssss</a></li><li><a href="#">ssss</a></li>');
+			})
+			$("#t").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">tttt</a></li><li><a href="#">tttt</a></li><li><a href="#">tttt</a></li><li><a href="#">tttt</a></li>');
+			})
+			$("#u").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">uuuu</a></li><li><a href="#">uuuu</a></li><li><a href="#">uuuu</a></li><li><a href="#">uuuu</a></li>');
+			})
+			$("#v").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">vvvv</a></li><li><a href="#">vvvv</a></li><li><a href="#">vvvv</a></li><li><a href="#">vvvv</a></li>');
+			})
+			$("#w").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">wwww</a></li><li><a href="#">wwww</a></li><li><a href="#">wwww</a></li><li><a href="#">wwww</a></li>');
+			})
+			$("#x").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">xxxx</a></li><li><a href="#">xxxx</a></li><li><a href="#">xxxx</a></li><li><a href="#">xxxx</a></li>');
+			})
+			$("#y").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">yyyy</a></li><li><a href="#">yyyy</a></li><li><a href="#">yyyy</a></li><li><a href="#">yyyy</a></li>');
+			})
+			$("#z").click(function(){
+				$(".name").html(' ');
+				$(".name").append('<li><a href="#">zzzz</a></li><li><a href="#">zzzz</a></li><li><a href="#">zzzz</a></li><li><a href="#">zzzz</a></li>');
+			})
+			
+		})
 		
+		$(function(){
+			$("#jobs").append('<li role="presentation"><a href="#">침대</a></li><li role="presentation"><a href="#">가구</a></li><li role="presentation"><a href="#">책장</a></li><li role="presentation"><a href="#">소파</a></li>')
+			
+		})
 	</script>
 </head>
 <body>
@@ -80,7 +249,7 @@
                         </div>
                     </div>
                     <!-- Navigation
-                    <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                    ================================================== -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -93,76 +262,69 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li class="active">
+                                    <a href="/Java/project/html_semi/WebContent/UandMe/product.html">브랜드</a>
 
                                 </li>
 
-                                <li><a href="#">의류</a>
+                                <li>
+                                    <a href="#">의류</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">점퍼</a></li>
-                                        <li><a href="columns.html"> 코트</a></li>
-                                        <li><a href="typography.html">니트</a></li>
-                                        <li><a href="pricing-tables.html">정장</a></li>
-                                        <li><a href="icons.html">티셔츠</a></li>
-                                        <li><a href="icons.html">팬츠</a></li>
+                                        <li><a href="elements.html">Elements</a></li>
+                                        <li><a href="columns.html">Columns</a></li>
+                                        <li><a href="typography.html">Typography</a></li>
+                                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
+                                        <li><a href="icons.html">Icons</a></li>
                                     </ul>
                                 </li>
 
-                                <li><a href="#" >수제품</a>
+                                <li>
+                                    <a href="#">수제품</a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="about.html">악세사라</a>
+                                            <a href="about.html">About</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="about.html">케이스</a></li>
-                                                <li><a href="about-2.html">브로치</a></li>
+                                                <li><a href="about.html">About Us 1</a></li>
+                                                <li><a href="about-2.html">About Us 2</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="services.html">잡화</a></li>
-                                        <li><a href="faq.html">가방</a></li>
-     
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="sidebar-right.html">Right Sidebar</a></li>
+                                        <li><a href="sidebar-left.html">Left Sidebar</a></li>
+                                        <li><a href="404-page.html">404 Page</a></li>
                                     </ul>
                                 </li>
 
-                                <li class="active"><a href="#">식품</a>
+                                <li>
+                                    <a href="#">식품</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">과일</a>
-       
+                                        <li>
+                                            <a href="#">Portfolio Classic</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="portfolio_2.html">Portfolio 2</a></li>
+                                                <li><a href="portfolio_3.html">Portfolio 3</a></li>
+                                                <li><a href="portfolio_4.html">Portfolio 4</a></li>
+                                            </ul>
                                         </li>
                                         <li>
-                                            <a href="portfolio_masonry_3.html">견과</a>
- 
+                                            <a href="portfolio_masonry_3.html">Portfolio Masnory</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="portfolio_masonry_2.html">Masonry portfolio 2</a></li>
+                                                <li><a href="portfolio_masonry_3.html">Masonry portfolio 3</a></li>
+                                                <li><a href="portfolio_masonry_4.html">Masonry portfolio 4</a></li>
+                                            </ul>
                                         </li>
 
                                         <li>
-                                            <a href="portfolio_single.html">음료</a>
-
+                                            <a href="portfolio_single.html">Portfolio Single</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="portfolio_single.html">Portfolio Single 1</a></li>
+                                                <li><a href="portfolio_single_2.html">Portfolio Single 2</a></li>
+                                                <li><a href="portfolio_single_3.html">Portfolio Single 3</a></li>
+                                            </ul>
                                         </li>
-                                         <li>
-                                            <a href="portfolio_single.html">과자</a>
-
-                                        </li>
-                                          <li>
-                                            <a href="portfolio_single.html">유제품</a>
-             
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">냉동식품</a>
-               
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">통조림</a>
-                           
-                                        </li>
-                                        
-                                        
                                     </ul>
-                                     <li><a href="#">게시판</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
                                 </li>
                             </ul>
                         </div>
@@ -170,8 +332,6 @@
                 </div>
             </div>
         </div>
-        </header>
-        <!-- =====================메인 메뉴(우측상단) 끝============================= -->
         <!--End Header-->
         <!--start wrapper-->
         <section class="wrapper">
@@ -183,246 +343,133 @@
 			<section class="content portfolio_single">
 				<div class="container">
 					<div class="row sub_content">
-					
-															<!-- 인가 상품순 -->
-                <div class="carousel-intro">
-                    <div class="col-md-12">
-                        <div class="dividerHeading">
-                            <h4><span>식품 최신 상품</span></h4>
-                        </div>
-                        <div class="carousel-navi">
-                            <div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
-                            <div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
+					<div class="col-lg-2 col-sm-2"></div>
+						<div class="col-lg-8 col-sm-8">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">초성으로 검색</h3>
+								</div>
+								<div class="panel-body">
+									<button type="button" id="1" class="btn btn-xs btn-default">ㄱ</button>
+									&nbsp;
+									<button type="button" id="2" class="btn btn-xs btn-default">ㄴ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="3" class="btn btn-xs btn-default">ㄷ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="4" class="btn btn-xs btn-default">ㄹ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="5" class="btn btn-xs btn-default">ㅁ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="6" class="btn btn-xs btn-default">ㅂ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="7" class="btn btn-xs btn-default">ㅅ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="8" class="btn btn-xs btn-default">ㅇ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="9" class="btn btn-xs btn-default">ㅈ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="10" class="btn btn-xs btn-default">ㅊ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="11" class="btn btn-xs btn-default">ㅋ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="12" class="btn btn-xs btn-default">ㅌ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="13" class="btn btn-xs btn-default">ㅍ</button>
+									&nbsp;&nbsp;
+									<button type="button" id="14" class="btn btn-xs btn-default">ㅎ</button>
+									<br>
+									<br>
+									<button type="button" id="a" class="btn btn-xs btn-default">A</button>
+									&nbsp;
+									<button type="button" id="b" class="btn btn-xs btn-default">B</button>
+									&nbsp;
+									<button type="button" id="c" class="btn btn-xs btn-default">C</button>
+									&nbsp;
+									<button type="button" id="d" class="btn btn-xs btn-default">D</button>
+									&nbsp;
+									<button type="button" id="e" class="btn btn-xs btn-default">E</button>
+									&nbsp;
+									<button type="button" id="f" class="btn btn-xs btn-default">F</button>
+									&nbsp;
+									<button type="button" id="g" class="btn btn-xs btn-default">G</button>
+									&nbsp;
+									<button type="button" id="h" class="btn btn-xs btn-default">H</button>
+									&nbsp;
+									<button type="button" id="i" class="btn btn-xs btn-default">I</button>
+									&nbsp;
+									<button type="button" id="j" class="btn btn-xs btn-default">J</button>
+									&nbsp;
+									<button type="button" id="k" class="btn btn-xs btn-default">K</button>
+									&nbsp;
+									<button type="button" id="l" class="btn btn-xs btn-default">L</button>
+									&nbsp;
+									<button type="button" id="m" class="btn btn-xs btn-default">M</button>
+									&nbsp;
+									<button type="button" id="n" class="btn btn-xs btn-default">N</button>
+									&nbsp;
+									<button type="button" id="o" class="btn btn-xs btn-default">O</button>
+									&nbsp;
+									<button type="button" id="p" class="btn btn-xs btn-default">P</button>
+									&nbsp;
+									<button type="button" id="q" class="btn btn-xs btn-default">Q</button>
+									&nbsp;
+									<button type="button" id="r" class="btn btn-xs btn-default">R</button>
+									&nbsp;
+									<button type="button" id="s" class="btn btn-xs btn-default">S</button>
+									&nbsp;
+									<button type="button" id="t" class="btn btn-xs btn-default">T</button>
+									&nbsp;
+									<button type="button" id="u" class="btn btn-xs btn-default">U</button>
+									&nbsp;
+									<button type="button" id="v" class="btn btn-xs btn-default">V</button>
+									&nbsp;
+									<button type="button" id="w" class="btn btn-xs btn-default">W</button>
+									&nbsp;
+									<button type="button" id="x" class="btn btn-xs btn-default">X</button>
+									&nbsp;
+									<button type="button" id="y" class="btn btn-xs btn-default">Y</button>
+									&nbsp;
+									<button type="button" id="z" class="btn btn-xs btn-default">Z</button>
+									<br>
+									<br>
+									<div class="panel-body">
+										<ul class="name">
 
-                <div class="jcarousel recent-work-jc">
-                    <ul class="jcarousel-list">
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_1.png" alt="" class="img-responsive">
+										</ul>
+									</div>
+									<div class="col-lg-2 col-sm-2"></div>
+								</div>
 
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_2.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_3.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_4.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_5.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_6.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_7.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_8.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-                    </ul>
-        </div>
-        		<!-- 인기 상품순 -->
-        		<br>
-                <div class="carousel-intro">
-                    <div class="col-md-12">
-                        <div class="dividerHeading">
-                            <h4><span>식품 인기 상품</span></h4>
-                        </div>
-                        <div class="carousel-navi">
-                            <div id="work-prev" class="arrow-left jcarousel-prev"><i class="fa fa-angle-left"></i></div>
-                            <div id="work-next" class="arrow-right jcarousel-next"><i class="fa fa-angle-right"></i></div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-
-                <div class="jcarousel recent-work-jc">
-                    <ul class="jcarousel-list">
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_1.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_2.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_3.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_4.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_5.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_6.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_7.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-
-                        <!-- Recent Work Item -->
-                        <li class="col-sm-3 col-md-3 col-lg-3">
-                            <figure class="touching effect-bubba">
-                                <img src="images/portfolio/portfolio_8.png" alt="" class="img-responsive">
-
-                                <div class="option">
-                                    <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
-                                </div>
-                            </figure>
-                        </li>
-                    </ul>
-        </div>
-</section>
-<!-- 인기상품순 끝 -->
-</section>
-<!-- 인기상품순 끝 -->
-
-
+							</div>
+						</div>
+					</div>
 					
 					
-					<div class="col-lg-1 col-sm-1"></div>
+					<!-- 브랜드 로고 이미지 란  시작-->
 					
-		
-					
-						<div class="col-lg-10 col-sm-10">
-							
+						
+							<figure class="post_img">
+									<a href="#">
+										<img src="images/brand.jpg" alt="blog post">
+									</a>
+								</figure>
+								
+								<br><br><br><br>
+					<!-- //브랜드 로고 이미지 란 끝 -->
+                        
+                        
+                        
+                        
+                    <!--  상품 종류 표시 란(append) 시작-->
+                        
+                     <ul class="nav nav-tabs" role="tablist" id="jobs">
+     					 <li role="presentation" class="active"><a href="#">전체보기</a></li>
+      					 
+
+     				 </ul><br><br><br><br>
+                        
+                        <!--  //상품 종류 표시 란 끝(append)-->
+
                     <!--물건 표시란 시작-->
  					<div class="mixed-container masonry_wrapper">
 
@@ -443,7 +490,7 @@
                                     <p>가격 350500원</p>
                                    	 <!-- 상품 상태 표시-->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시끝 -->
                                 </figcaption>
@@ -465,7 +512,7 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
@@ -487,7 +534,7 @@
                                     
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                     
@@ -509,7 +556,7 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
@@ -530,7 +577,7 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
@@ -539,7 +586,7 @@
 
                         <div class="item">
                             <figure class="touching effect-bubba">
-                                <img src="images/77777.jpg" alt="" class="img-responsive">
+                                <img src="images/11111.jpg" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
@@ -551,7 +598,7 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
@@ -560,7 +607,7 @@
 
                         <div class="item branding">
                             <figure class="touching effect-bubba">
-                                <img src="images/77777.jpg" alt="" class="img-responsive">
+                                <img src="images/11111.jpg" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
@@ -572,7 +619,7 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
@@ -581,7 +628,7 @@
 
                         <div class="item">
                             <figure class="touching effect-bubba">
-                                <img src="images/77777.jpg" alt="" class="img-responsive">
+                                <img src="images/11111.jpg" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
@@ -593,20 +640,20 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
                             </figure>
                         </div>
-                        
+
                         <div class="item">
                             <figure class="touching effect-bubba">
-                                <img src="images/77777.jpg" alt="" class="img-responsive">
+                                <img src="images/11111.jpg" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="images/portfolio/portfolio_11.png" class="fa fa-search mfp-image"></a>
+                                    <a href="images/portfolio/full/portfolio_7.png" class="fa fa-search mfp-image"></a>
                                 </div>
                                 <figcaption class="item-description">
                                    <br><br>
@@ -614,34 +661,16 @@
                                     <p>가격 350500원</p>
                                     <!-- 상품 상태 표시 시작 -->
                                     <div class="col-sm-4 images-style-inner">
-                                    <img class="img-circle img-responsive" src="images/img-style.png" alt="">
+                                    <img class="img-circle img-responsive" src="images/주문성공공.png" alt="">
                                     </div>
                                     <!-- 상품 상태 표시 끝 -->
                                 </figcaption>
                             </figure>
                         </div>
-
-                        
-                        
 
                     </div>
                     <!--물건 표시란 시작-->
-                    
-                    
-                    
-                    
-                    
-                    
                 </div>
-									<div class="col-lg-1 col-sm-1"></div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-
-
                 
                 
                     <!--페이징 시작 -->

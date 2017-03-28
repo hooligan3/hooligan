@@ -7,7 +7,7 @@
 <html class="no-js" lang="en">
 <!--<![endif]-->
 <head>
-<%Customer customer=(Customer)session.getAttribute("customer"); %>
+<%-- <%Customer customer=(Customer)session.getAttribute("customer"); %> --%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,9 +68,13 @@
 </head>
 <body>
 	<!--Start Header-->
-<header id="header">
+	<header id="header">
+	<div>
    <%@ include file="header/MainHeader.jsp" %>
+   
  <!--end Header-->
+ 
+ <!-- 메뉴바 시작 -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -171,6 +175,7 @@
 				</div>
 			</div>
 		</div>
+		</header>
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">

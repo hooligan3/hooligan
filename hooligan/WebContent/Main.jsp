@@ -29,9 +29,10 @@
     <![endif]-->
 </head>
 <body class="home">
+<!--Start Header-->
 <header id="header">
-<%@ include file="header/MainHeader.jsp" %>
-
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
 <!--===========================헤더 끝========================================-->
 
         <div id="menu-bar">

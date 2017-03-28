@@ -63,23 +63,23 @@
 </script>
 </head>
 <body>
-
 	<!--Start Header-->
-	<%@ include file="header/MainHeader.jsp" %>
-	
+	<header id="header">
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
 					<!-- Logo / Mobile Menu -->
 					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">z
+						<div id="logo">
 							<h1>
 								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
-				 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -169,6 +169,7 @@
                 </div>
             </div>
         </div>
+        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
@@ -213,22 +214,22 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px; height:540px;"><h3><i class="fa fa-leaf"></i>    주문 회원 리스트 조회</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left:50px; height:540px;"><h3><i class="fa fa-leaf"></i>    주문 회원 리스트 조회</h3>
 						
 							<form action="update" method="post">
 							
 							<div class="col-lg-12 col-md-12 col-sm-12">
 							
 							
-							<table class="table table-striped table-hover">
+							<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
                     <tr>
-										<th>고객 아이디</th>
-										<th>주문 시간</th>
-										<th>주문 금액</th>
-										<th>우편번호</th>
-										<th>상세주소</th>
-										<th>수량</th>
+										<th style="text-align: center;">고객 아이디</th>
+										<th style="text-align: center;">주문 시간</th>
+										<th style="text-align: center;">주문 금액</th>
+										<th style="text-align: center;">우편번호</th>
+										<th style="text-align: center;">상세주소</th>
+										<th style="text-align: center;">수량</th>
 									</tr>
                     </thead>
                     <tbody>

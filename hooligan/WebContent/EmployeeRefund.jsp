@@ -65,32 +65,10 @@
 <body>
 	<!--Start Header-->
 	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span>
-							class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div>
+   <%@ include file="header/MainHeader.jsp" %>
+   </div>
+ <!--end Header-->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -193,6 +171,7 @@
                 </div>
             </div>
         </div>
+        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
@@ -238,7 +217,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    포인트 환급하기</h3>
+							<div class="well well-lg" style="height: 360px; padding-left: 50px; padding-right: 50px;"><h3><i class="fa fa-leaf"></i>    포인트 환급하기</h3>
 						
 							<form action="update" method="post">
 							
@@ -270,14 +249,14 @@
 							<div class="col-lg-1 col-md-1 col-sm-1">
 							</div>
 							<div class="col-lg-3 col-md-3 col-sm-3">
-							<br><br><br><br><br><br><br><br><br><br><br><br>
+							<br><br><br><br><br><br><br><br><br><br>
 							
 							
 							<button class="btn btn-default btn-lg btn-block" type="button"> 
 							환급내역 조회 </button>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
-							<br><br><br><br><br><br><br><br><br><br><br><br>
+							<br><br><br><br><br><br><br><br><br><br>
 							
 							
 							<button class="btn btn-default btn-lg btn-block" type="button"> 

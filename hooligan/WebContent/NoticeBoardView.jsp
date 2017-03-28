@@ -52,34 +52,10 @@
 </script>
 </head>
 <body>
-	<!--Start Header-->
-	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span
-							class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+<!--Start Header-->
+<header id="header">
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -236,14 +212,17 @@
               		   		
               		   </div>	
               		   
-              		   <div class="col-lg-9 col-md-9 col-sm-9">
-              		   		
-              		   </div>  
+              		   <div class="col-lg-11 col-md-11 col-sm-11">
+              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="이전으로">
+              		   </div> 
+              		   <br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+              		   <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="다음 글">
 						<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr >
 										<th style="text-align: center;"></th>
 									</tr>
+									
                   					  </thead>
                    
 
@@ -256,6 +235,7 @@
 							
 							
 							</div>
+							
 							
 							
 					
