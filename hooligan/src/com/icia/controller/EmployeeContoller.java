@@ -62,9 +62,9 @@ public class EmployeeContoller {
 				 return mav;
 			  }
 		
-		//직원등록하기폼으로
+		//직원등록하기 1단계폼으로
 		@RequestMapping(value="/employee/register",method="GET")
-		public static ModelAndView customerRegisterStart(HttpServletRequest req){
+		public static ModelAndView customerRegister1Start(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
 			  HttpSession session = req.getSession();
 			  if(session.getAttribute("employee")!=null) mav.setView("/main/select");
@@ -72,31 +72,75 @@ public class EmployeeContoller {
 		
 			return mav;
 		}
-		//직원등록하기
+		//직원등록하기 1단계
 		@RequestMapping(value="/employee/register",method="POST")
-		public static ModelAndView customerRegiserEnd(HttpServletRequest req){
+		public static ModelAndView customerRegister1End(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			System.out.println("고객등록여기까지들어왓냐");
-			System.out.println("주소는"+req.getParameter("address"));
-			mav.addObject("result", service.employeeRegisterEnd(req));
-			String ggo="/hooligan/main/index";
-			  mav.setView(ggo);
-			  mav.setRedirect();
+			//service.employeeRegisterEnd(req);
+			mav.setView("/hooligan/employee/register2");
+			mav.setRedirect();
+			 return mav;
+
+		}
+		//직원등록하기 2단계폼으로
+		@RequestMapping(value="/employee/register2",method="GET")
+		public static ModelAndView customerRegister2Start(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav=new ModelAndView();
+			//mav.addObject("result", service.employeeRegisterEnd(req));
+			  mav.setView("/EmployeeRegisterBrand.jsp");
 			  return mav;
 
 		}
+		//직원등록하기 2단계
+				@RequestMapping(value="/employee/register2",method="POST")
+				public static ModelAndView customerRegister2End(HttpServletRequest req){
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav=new ModelAndView();
+					//mav.addObject("result", service.employeeRegisterEnd(req));
+					
+					  mav.setView("/hooligan/employee/register3");
+					  mav.setRedirect();
+					  return mav;
+
+				}
+				//직원등록하기 3단계 폼으로
+				@RequestMapping(value="/employee/register3",method="GET")
+				public static ModelAndView customerRegister3Start(HttpServletRequest req){
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav=new ModelAndView();
+					//mav.addObject("result", service.employeeRegisterEnd(req));
+					  mav.setView("/EmployeeRegisterProduct.jsp");
+					  return mav;
+
+				}
+				//직원등록하기 3단계 가입완료
+				@RequestMapping(value="/employee/register3",method="POST")
+				public static ModelAndView customerRegister3End(HttpServletRequest req){
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav=new ModelAndView();
+			
+					mav.addObject("result", service.employeeRegisterEnd(req));
+					String ggo="/hooligan/main/index";
+					  mav.setView(ggo);
+					  mav.setRedirect();
+					  return mav;
+
+				}
+				
+		
 		//직원업데이트폼으로
-		@RequestMapping(value="/customer/update",method="GET")
+		@RequestMapping(value="/employee/update",method="GET")
 		public static ModelAndView customerUpdateStart(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
 			HttpSession sesstion=req.getSession();
-			mav.setView("/CustomerUpdate.jsp");
+			mav.setView("/EmployeeUpdate.jsp");
 			return mav;
 		}
 		//직원업데이트하기
-		@RequestMapping(value="/customer/update",method="POST")
+		@RequestMapping(value="/employee/update",method="POST")
 		public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
@@ -109,14 +153,14 @@ public class EmployeeContoller {
 			return mav;
 		}
 		//직원삭제하기폼으로
-		@RequestMapping(value="/customer/delete",method="GET")
+		@RequestMapping(value="/employee/delete",method="GET")
 		public static ModelAndView customerDeleteStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/CustomerDelete.jsp");
 			return mav;
 		}
 		//직원삭제하기
-		@RequestMapping(value="/customer/delete",method="POST")
+		@RequestMapping(value="/employee/delete",method="POST")
 		public static ModelAndView customerDeleteEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();

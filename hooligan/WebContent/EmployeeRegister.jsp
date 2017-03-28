@@ -86,7 +86,7 @@
               <h1>U&Me 개인 사업자 회원가입</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
-              <form role="form">
+              <form action="/hooligan/employee/register" method="POST">
                    <div class="form-group">
                       <label for="InputEmail">아이디</label>
                       <input type="text" class="form-control" name="employee_id" placeholder="아이디" id="id">
