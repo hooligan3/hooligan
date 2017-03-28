@@ -5,7 +5,7 @@
 <html>
 
 <head>
-<%Customer customer=(Customer)session.getAttribute("customer"); %>
+<%Customer c=(Customer)session.getAttribute("customer"); %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -40,9 +40,9 @@
                 <div class="row">
                     <div class="hidden-xs col-lg-7 col-sm-5 top-info">
                         
-               			 <span class="hidden-sm" style="color:white"><%=customer.getCustomerName()%> 회원님</a></span>
-               			  <span class="hidden-sm"style="color:white"><%=customer.getGradeName()%> 등급</a></span>
-               			  <span class="hidden-sm"style="color:white">포인트:<%=customer.getPoint1()%> </a></span>
+               			 <span class="hidden-sm" style="color:white"><%=c.getCustomerName()%> 회원님</a></span>
+               			  <span class="hidden-sm"style="color:white"><%=c.getGradeName()%> 등급</a></span>
+               			  <span class="hidden-sm"style="color:white">포인트:<%=c.getPoint1()%> </a></span>
                         <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
                         <span class="hidden-sm"><a href="/hooligan/customer/logout" style="color:white">로그아웃</a></span>
                     </div>

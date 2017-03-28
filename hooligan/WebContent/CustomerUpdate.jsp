@@ -6,8 +6,9 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
-<head>
 <%Customer customer=(Customer)session.getAttribute("customer"); %>
+<head>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -66,10 +67,9 @@
 	
 </script>
 </head>
-<body>
-	<!--Start Header-->
+<body class="home">
 <header id="header">
- <%@ include file="header/MainHeader.jsp" %>
+<%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
 		<div id="menu-bar">
 			<div class="container">
