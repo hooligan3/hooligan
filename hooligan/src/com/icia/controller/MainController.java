@@ -36,5 +36,12 @@ public class MainController {
 		mav.setView("/SelectRegister.jsp");
 		return mav;
 	}
+	//LoginSelect.jsp
+	@RequestMapping(value="/main/selectLogin",method="GET")
+	public static ModelAndView loginSelect(HttpServletRequest req){
+		ModelAndView mav=new ModelAndView();
+		mav.setView("/LoginSelect.jsp");
+		return mav;
+	}
 
 }

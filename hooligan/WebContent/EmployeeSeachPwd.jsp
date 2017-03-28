@@ -26,6 +26,29 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+	<script>
+	$(function() {
+		
+		$("#btn").on("click", function() {
+			
+			$.ajax({
+				type : "POST",
+				url : "/hooligan/customer/searchPwd",
+				data : {
+					customer_id:$("#employee_id").val(),
+					ssn1 : $("#ssn1").val(),
+					ssn2 : $("#ssn2").val()
+				},
+				success:function(response) {
+					if(response.result===undefined){
+					alert("아이디와 주민번호가 일치하지 않습니다");
+					}else alert("회원의 비밀번호는:"+response.result);
+				}
+
+			});
+		});
+	});
+</script>
 <body>
     <!--Start Header-->
     <header id="header">
@@ -179,14 +202,14 @@
                         <div class="row">
                             <div class="form-group">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                             <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="회원 아이디" value="" placeholder="회원 아이디">
+                             <input type="text" id="id" name="employee_id" class="form-control" maxlength="100" data-msg-required="회원 아이디" value="" placeholder="회원 아이디">
                             </div>
                             	<div class="col-lg-6 col-md-6 col-sm-6">
-                            		 <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="주민등록번호 앞자리" value="" placeholder="주민번호 앞자리-">
+                            		 <input type="text" id="id" name="ssn1" class="form-control" maxlength="100" data-msg-required="주민등록번호 앞자리" value="" placeholder="주민번호 앞자리">
                             	</div>
                             	
                             	<div class="col-lg-6 col-md-6 col-sm-6">
-                            		 <input type="password" id="password" name="password" class="form-control" maxlength="100" data-msg-required="주민등록번호 뒷자리" value="" placeholder="-주민번호 뒷자리">
+                            		 <input type="password" id="password" name="ssn2" class="form-control" maxlength="100" data-msg-required="주민등록번호 뒷자리" value="" placeholder="주민번호 뒷자리">
                             	</div>
                                
                                
@@ -194,7 +217,7 @@
                                 
                                  <div class="col-lg-4 col-md-4 col-sm-4">
                                 <br>
-                               <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="비밀번호 찾기" style="text-align:left;">
+                               <button id="btn" data-loading-text="Loading..." class="btn btn-default btn-lg" value="비밀번호 찾기" style="text-align:left;">비밀번호찾기</button>
                                 
                                 <searchId.html/div>
                                 
@@ -224,7 +247,7 @@
         <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
         <script type="text/javascript" src="/hooligan/js/jquery.validate.js"></script>
         <script type="text/javascript" src="/hooligan/js/view.contact.js"></script>
-        <script type="text/javascript" src="/hooligan/js/jquery.gmap.js"></script>
+        
 
         <script src="/hooligan/js/main.js"></script>
 </body>

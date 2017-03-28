@@ -15,7 +15,7 @@ public interface EmpSql {
 		public String insertBrandImg = "insert into brand_image values(?,?);";
 		
 		//로그인
-		public String employeelogin = "select count(*) from employee where employee_id=? and employee_pwd=?";
+		public String employeelogin = "select e.* from employee e where employee_id=? and employee_pwd=?";
 		
 		//직원 주소 조회
 		public String selecAddressOfEmployee = "select postal_no, address from employee where employee_id=?";

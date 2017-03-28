@@ -159,8 +159,23 @@ public class CustomerController {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("result", service.customerSeachId(req));
-		mav.setView("/hooligan/customer/searchId");
-	
+		
+		return mav;
+	}
+	//회원비밀번호 찾기폼으로
+	@RequestMapping(value="/customer/searchPwd",method="GET")
+	public static ModelAndView customerSeachPwdStart(HttpServletRequest req){
+	ModelAndView mav=new ModelAndView();
+	mav.setView("/CustomerSearchPwd.jsp");
+	return mav;
+	}
+	//회원비밀번호찾기
+	@RequestMapping(value="/customer/searchPwd",method="AJAX")
+	public static ModelAndView customerSeachIPwdEnd(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("result", service.customerSeachPwd(req));
+		
 		return mav;
 	}
 }
