@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="/hooligan/css/style.css">
     <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
     <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
-
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,10 +26,15 @@
     <![endif]-->
 </head>
 <body>
+<<<<<<< HEAD
+    <!--헤더 시작-->
+   <%@ include file="header/MainHeader.jsp" %>
+=======
   <!--Start Header-->
 	<header id="header">
 		<%@ include file="header/MainHeader.jsp" %>
 	<!-- End Header -->
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
    
    
         <div id="menu-bar">
@@ -162,11 +166,11 @@
                     <div class="dividerHeading">
                         <h4><span>직원 로그인</span></h4>
                     </div>
-                    <form  action="/hooligan/customer/login"  novalidate="novalidate" method="post">
+                    <form  action="/hooligan/employee/login"  novalidate="novalidate" method="post">
                         <div class="row">
                             <div class="form-group">
-                                <input type="text" id="id" name="id" class="form-control" maxlength="100" data-msg-required="아이디를 입력해주세요" value="" placeholder="아이디">
-                                <input type="password" id="password" name="password" class="form-control" maxlength="100" data-msg-required="비밀번호를 입력해주세요" value="" placeholder="비밀번호">
+                                <input type="text" id="id" name="employee_id" class="form-control" maxlength="100" data-msg-required="아이디를 입력해주세요"  placeholder="아이디">
+                                <input type="password" id="password" name="employee_pwd" class="form-control" maxlength="100" data-msg-required="비밀번호를 입력해주세요"  placeholder="비밀번호">
                             	 <div class="col-lg-4 col-md-4 col-sm-4">
                                 
                                 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="로그인" style="text-align:left;">
@@ -203,7 +207,7 @@
         <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
         <script type="text/javascript" src="/hooligan/js/jquery.validate.js"></script>
         <script type="text/javascript" src="/hooligan/js/view.contact.js"></script>
-        <script type="text/javascript" src="/hooligan/js/jquery.gmap.js"></script>
+   
 
         <script src="/hooligan/js/main.js"></script>
 </body>

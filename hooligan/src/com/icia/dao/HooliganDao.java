@@ -226,28 +226,29 @@ public class HooliganDao {
 		}
 		return null;
 	}
-
-	// 고객 비밀번호 찾기 CustomerSelectByPwd
-	public int customerSelectByPwd(Connection conn, HashMap<String, String> customer) {
+	//회원비밀번호찾기
+	public String customerSeachPwd(Connection conn, HashMap<String, String> map) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.selectByPwd);
-			pstmt.setString(1, customer.get("customer_id"));
-			pstmt.setString(2, customer.get("ssn1"));
-			pstmt.setString(3, customer.get("ssn2"));
+			pstmt.setString(1, map.get("customer_id"));
+			pstmt.setString(2, map.get("ssn1"));
+			pstmt.setString(3, map.get("ssn2"));
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				return rs.getInt(1);
+				return rs.getString("customer_pwd");
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt, rs);
-		}
-		return -1;
+		}return null;
 	}
+
+
+
 	//////////////////////////////////////////////////////////////////////////////////
 	
 	// 직원 회원가입 InsertEmployee
@@ -933,6 +934,6 @@ public class HooliganDao {
 			
 				return 0;
 			}
-	
+		
 	
 }

@@ -14,6 +14,7 @@ import com.icia.util.JdbcUtil;
 import com.icia.util.MappingUtil;
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 public class HooliganService {
 	private HooliganDao dao;
@@ -105,6 +106,7 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return 0;
 	}
+//아이디 찾기
 	public Object customerSeachId(HttpServletRequest req) {
 		System.out.println("들어왓냐이년아");
 		Connection conn=JdbcUtil.getConnection();
@@ -113,9 +115,26 @@ public class HooliganService {
 		System.out.println("두번쨰"+req.getParameter("ssn1"));
 		map.put("ssn1", req.getParameter("ssn1"));
 		map.put("ssn2", req.getParameter("ssn2"));
+		JsonObject ob=new JsonObject();
 		String customerId=dao.customerSeachId(conn,map);
+		ob.addProperty("result", customerId);
 		JdbcUtil.close(conn);
-		return customerId;
+		return new Gson().toJson(ob);
+	}
+	public Object customerSeachPwd(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap<String, String> map=new HashMap<>();
+	
+		
+		map.put("ssn1", req.getParameter("ssn1"));
+		map.put("ssn2", req.getParameter("ssn2"));
+		map.put("customer_id", req.getParameter("customer_id"));
+		JsonObject ob=new JsonObject();
+		String customerPwd=dao.customerSeachPwd(conn,map);
+		ob.addProperty("result", customerPwd);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+		
 	}
 }
 

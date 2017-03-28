@@ -37,7 +37,7 @@
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
+                            <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                      <!-- =====================메인 메뉴(우측상단) 시작============================= -->

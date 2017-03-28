@@ -1,6 +1,5 @@
-<%@page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -38,7 +37,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <body>
-<<<<<<< HEAD
 	<!--헤더 시작-->
 	<header id="header">
 		<div class="header-top">
@@ -95,34 +93,6 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-=======
- <!--Start Header-->
-	<header id="header">
-		<%@ include file="header/MainHeader.jsp" %>
-	<!-- End Header -->
-        <div id="menu-bar">
-            <div class="container">
-                <div class="row">
-                    <!-- Logo / Mobile Menu -->
-                    <div class="col-lg-3 col-sm-3 ">
-                        <div id="logo">
-                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
-                        </div>
-                    </div>
-                     <!-- =====================메인 메뉴(우측상단) 시작============================= -->
-                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
-                        <!--  <div class="container">-->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
 
 
 								<li><a href="#"><span class="data-hover"
@@ -179,7 +149,7 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="page_title">
-							<h2>아이디 찾기</h2>
+							<h2>비밀번호찾기</h2>
 						</div>
 					</div>
 				</div>
@@ -191,12 +161,15 @@
 			<div class="col-lg-4 col-md-4 col-sm-4">
 				<div class="dividerHeading">
 					<h4>
-						<span>아이디 찾기</span>
+						<span>비밀번호찾기</span>
 					</h4>
 				</div>
 
 				<div class="row">
 					<div class="form-group">
+					 <div class="col-lg-12 col-md-12 col-sm-12">
+                             <input type="text" id="customer_id" name="customer_id" class="form-control" maxlength="100" data-msg-required="회원 아이디" value="" placeholder="회원 아이디">
+                            </div>
 						<input type="text" id="ssn1" name="ssn1" class="form-control"
 							maxlength="100" data-msg-required="아이디를 입력해주세요" value=""
 							placeholder="주민번호앞자리"> <input type="password" id="ssn2"
@@ -255,15 +228,16 @@
 			
 			$.ajax({
 				type : "POST",
-				url : "/hooligan/customer/searchId",
+				url : "/hooligan/customer/searchPwd",
 				data : {
+					customer_id:$("#customer_id").val(),
 					ssn1 : $("#ssn1").val(),
 					ssn2 : $("#ssn2").val()
 				},
 				success:function(response) {
 					if(response.result===undefined){
-					alert("주민번호를 다시 확인하세요");
-					}else alert("회원의 아이디는"+response.result);
+					alert("아이디와 주민번호가 일치하지 않습니다");
+					}else alert("회원의 비밀번호는:"+response.result);
 				}
 
 			});
@@ -272,3 +246,4 @@
 </script>
 </body>
 </html>
+

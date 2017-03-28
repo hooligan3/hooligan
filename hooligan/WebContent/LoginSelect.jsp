@@ -71,8 +71,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
@@ -183,13 +182,13 @@
  			 </div>
  			 
  			  <div class="col-lg-4 col-md-4 col-sm-4">
- 			  	<a href="/hooligan/EmployeeLogin.jsp" class="login"><img src="/hooligan/images/직원로그인.png"></a>
+ 			  	<a href="/hooligan/employee/login" class="login"><img src="/hooligan/images/직원로그인.png"></a>
  			 </div>
  			 <div class="col-lg-1 col-md-1 col-sm-1">
  			 </div>
  			 
  			 <div class="col-lg-4 col-md-4 col-sm-4">
- 			 		<a href="/hooligan/AdminLogin.jsp" class="login"><img src="/hooligan/images/관리자로그인.png"></a>	 		
+ 			 		<a href="/hooligan/admin/login" class="login"><img src="/hooligan/images/관리자로그인.png"></a>	 		
  			 </div>
  			 
  			  <div class="col-lg-2 col-md-2 col-sm-2">

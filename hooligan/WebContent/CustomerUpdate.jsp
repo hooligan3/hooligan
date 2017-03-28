@@ -6,8 +6,14 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
+<<<<<<< HEAD
 <head>
 <%-- <%Customer customer=(Customer)session.getAttribute("customer"); %> --%>
+=======
+<%Customer customer=(Customer)session.getAttribute("customer"); %>
+<head>
+
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -66,12 +72,18 @@
 	
 </script>
 </head>
+<<<<<<< HEAD
 <body>
 	<!--Start Header-->
 	<header id="header">
 	<div>
    <%@ include file="header/MainHeader.jsp" %>
    
+=======
+<body class="home">
+<header id="header">
+<%@ include file="header/MainHeader.jsp" %>
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
  <!--end Header-->
  
  <!-- 메뉴바 시작 -->
