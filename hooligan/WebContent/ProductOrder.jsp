@@ -27,29 +27,10 @@
 <body>
 <!--Start Header-->
 <header id="header">
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                    <span><i class="fa fa-phone"></i>Phone: (123) 456-7890</span>
-                    <span class="hidden-sm"><i class="fa fa-envelope"></i>Email: mail@example.com</span>
-                </div>
-                <div class="col-lg-5 col-sm-7 top-info clearfix">
-                    <ul>
-                        
-                        <li>
-                            <form class="search-bar">
-                                <label for="search" class="search-label">
-                                    <button class="search-button"><i class="fa fa-search"></i></button><!-- Fix the break-row-bug
-                                    --><input type="text" id="search" class="search-input" />
-                                </label>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->   
+ 
+ <!--메뉴바 시작-->
     <div id="menu-bar">
         <div class="container">
             <div class="row">
@@ -59,7 +40,7 @@
                         <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt=""/></a></h1>
                     </div>
                 </div>
-                <!-- Navigation
+                <!-- 메뉴바 시작2
 ================================================== -->
                 <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                     <!--  <div class="container">-->

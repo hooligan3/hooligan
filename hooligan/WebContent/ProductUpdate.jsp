@@ -64,8 +64,10 @@
 </head>
 <body>
 	<!--Start Header-->
-	<%@ include file="header/MainHeader.jsp" %>
-	<!-- end Header -->	
+<header id="header">
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
+	
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">

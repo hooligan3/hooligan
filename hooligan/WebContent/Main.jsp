@@ -28,9 +28,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<body class="home">
+<header id="header">
 <%@ include file="header/MainHeader.jsp" %>
 
-        <!--===========================헤더 끝========================================-->
+<!--===========================헤더 끝========================================-->
 
         <div id="menu-bar">
             <div class="container">
@@ -54,7 +56,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 

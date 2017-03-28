@@ -47,15 +47,20 @@
 	</script>
 
 <body>
-    <!--Start Header-->
-<%@ include file="header/MainHeader.jsp" %>
+ <!--Start Header-->
+	<header id="header">
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
+        <div id="menu-bar">
+            <div class="container">
+                <div class="row">
                     <!-- Logo / Mobile Menu -->
                     <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png" alt="" /></a></h1>
+                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
-                       <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                     <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
