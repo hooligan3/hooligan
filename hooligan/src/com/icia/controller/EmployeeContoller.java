@@ -77,7 +77,7 @@ public class EmployeeContoller {
 		public static ModelAndView customerRegister1End(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			//service.employeeRegisterEnd(req);
+			service.employeeRegisterEnd(req);
 			mav.setView("/hooligan/employee/register2");
 			mav.setRedirect();
 			 return mav;
@@ -88,7 +88,7 @@ public class EmployeeContoller {
 		public static ModelAndView customerRegister2Start(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			//mav.addObject("result", service.employeeRegisterEnd(req));
+			 
 			  mav.setView("/EmployeeRegisterBrand.jsp");
 			  return mav;
 
@@ -98,8 +98,8 @@ public class EmployeeContoller {
 				public static ModelAndView customerRegister2End(HttpServletRequest req){
 					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 					ModelAndView mav=new ModelAndView();
-					//mav.addObject("result", service.employeeRegisterEnd(req));
 					
+					service.employeeRegisterEnd2(req);
 					  mav.setView("/hooligan/employee/register3");
 					  mav.setRedirect();
 					  return mav;
@@ -120,8 +120,7 @@ public class EmployeeContoller {
 				public static ModelAndView customerRegister3End(HttpServletRequest req){
 					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 					ModelAndView mav=new ModelAndView();
-			
-					mav.addObject("result", service.employeeRegisterEnd(req));
+				String result=service.employeeRegisterEnd3(req);
 					String ggo="/hooligan/main/index";
 					  mav.setView(ggo);
 					  mav.setRedirect();

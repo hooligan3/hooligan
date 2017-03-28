@@ -175,7 +175,6 @@ public class CustomerController {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("result", service.customerSeachPwd(req));
-		
 		return mav;
 	}
 }

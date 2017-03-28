@@ -1,6 +1,14 @@
 package com.icia.util;
 
+import java.io.File;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
@@ -50,5 +58,66 @@ public class MappingUtil {
 		e.setTell(req.getParameter("tell"));
 		return e;
 		
+	}
+	public static Employee makeEmplFromRequest(HttpServletRequest req, int beautyNo) {
+		Employee e= new Employee();
+
+		
+		java.sql.Date date = null;
+		String path = req.getServletContext().getRealPath("beautys/beautyimg");
+		DiskFileItemFactory f = new DiskFileItemFactory();
+		ServletFileUpload uploader = new ServletFileUpload(f);
+		uploader.setFileSizeMax(1024 * 1024 * 10);
+		List<FileItem> list;
+
+		try {
+			list = uploader.parseRequest((RequestContext) req);
+			for (FileItem item : list) {
+				
+				if(item.isFormField()) {
+					if(item.getFieldName().equals("orner_id")){
+						b.setBeautyId(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_pwd")){
+						b.setBeautyPwd(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_name")){
+						b.setBeautyOrnerName(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_address")){
+						b.setBeautyAddress(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("business_name")){
+						b.setBeautyName(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_no")){
+						b.setBeautyOrnerNo(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_mail")){
+						b.setBeautyMail(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_phone")){
+						b.setBeautyPhone(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("orner_active")){
+						b.setBeautyActive(Integer.parseInt(item.getString("UTF-8")));
+						if (b.getBeautyActive() == 2) {
+							java.util.Date d = new java.util.Date();
+							date = new java.sql.Date(d.getTime());
+						}
+						b.setBeautyActiveDate(date);
+					}else if(item.getFieldName().equals("orner_adminno")){
+						b.setAdminNo(Integer.parseInt(item.getString("UTF-8")));
+					}
+				}else{
+					String fileName = item.getName();
+					// System.out.println(item.getName());
+					int indexOfPoint = fileName.indexOf(".");
+					// System.out.println(fileName.indexOf("."));
+					String fName = fileName.substring(0, indexOfPoint);
+					String ext = fileName.substring(indexOfPoint + 1);
+					fileName = fName + "-" + System.nanoTime() + "." + ext;
+					item.write(new File(path + "\\" + fileName));
+					System.out.println(path + "\\" + fileName);
+					b.setBeautyPhoto(fileName);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return b;
 	}
 }
