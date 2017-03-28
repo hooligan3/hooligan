@@ -651,6 +651,51 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	//공지사항 리스트보기
+	public ArrayList<Notice> NoticeList(Connection conn, int startId, int endId){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Notice> list = new ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.NoticeList);
+			pstmt.setInt(1, startId);
+			pstmt.setInt(2, endId);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				Notice notice = new Notice();
+				notice.setTitle(rs.getString("title"));
+				notice.setContent(rs.getString("content"));
+				notice.setNoticeDate(rs.getDate("notice_date"));
+				notice.setNoticeArticleNo(rs.getInt("notice_article_no"));
+				list.add(notice);
+				
+			}return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+	}
+	//공지사항 총 게시글 갯수
+	public int NoticeCount(Connection conn){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.countNotice);
+			rs=  pstmt.executeQuery();
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+			
+		}return 0;
+		
+		
+	}
 	//////////////////////////////////////////////////////////////////////
 	// 자유게시판
 
@@ -730,7 +775,7 @@ public class HooliganDao {
 
 		}
 
-		// 자유게시판  댓글 수정
+		// 자유게시판댓글 수정
 		public int updateFreeReple(Connection conn, FreeReple freeReple) {
 			PreparedStatement pstmt = null;
 			try {
