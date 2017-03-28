@@ -64,33 +64,10 @@
 </head>
 <body>
 	<!--Start Header-->
-	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span>
-							class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+<header id="header">
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
+	
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -103,6 +80,7 @@
 							</h1>
 						</div>
 					</div>
+					
 					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
@@ -116,7 +94,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -238,7 +216,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 수정하기</h3>
+							<div class="well well-lg" style="height: 360px;"><h3><i class="fa fa-leaf"></i>    상품 수정하기</h3>
 						
 							<form action="update" method="post">
 							
@@ -287,7 +265,7 @@
 										
 										</tbody>
 								</table>
-								<br><br><br><br><br><br><br><br><br>
+								<br><br><br><br><br><br><br><br>
 								<button class="btn btn-default btn-lg btn-block" type="button"> 
 							<i class="fa fa-rocket"></i> 상품 수정하기</button>
 							</div>

@@ -38,6 +38,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <body>
+<<<<<<< HEAD
 	<!--헤더 시작-->
 	<header id="header">
 		<div class="header-top">
@@ -94,6 +95,34 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
+=======
+ <!--Start Header-->
+	<header id="header">
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
+        <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <!-- Logo / Mobile Menu -->
+                    <div class="col-lg-3 col-sm-3 ">
+                        <div id="logo">
+                            <h1><a href="index.html"><img src="images/logo.png" alt="" /></a></h1>
+                        </div>
+                    </div>
+                     <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
+                        <!--  <div class="container">-->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="product.html">브랜드</a>
 
 
 								<li><a href="#"><span class="data-hover"

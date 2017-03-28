@@ -65,32 +65,8 @@
 <body>
 	<!--Start Header-->
 	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span>
-							class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -116,7 +92,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -238,7 +214,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 판매 등록</h3>
+							<div class="well well-lg" style="height:360px; padding-left: 50px; padding-right: 30px; padding-top: 10px; padding-bottom: 20px;" ><h3><i class="fa fa-leaf"></i>    상품 판매 등록</h3>
 						
 							<form action="update" method="post">
 							
@@ -272,7 +248,7 @@
 									</tbody>
 								</table>
 							</div>
-							<div class="col-lg-2 col-md-2 col-sm-2">
+							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
 									<tbody>
 
@@ -290,8 +266,8 @@
 										
 										</tbody>
 								</table>
-								<br><br><br><br><br><br><br><br><br>
-								<button class="btn btn-default btn-lg btn-block" type="button"> 
+								<br><br><br><br><br><br><br>
+								&nbsp;&nbsp;<button class="btn btn-default btn-lg btn-block" type="button"> 
 							<i class="fa fa-rocket"></i> 상품 등록하기</button>
 							</div>
                             

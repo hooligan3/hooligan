@@ -33,8 +33,6 @@
 </head>
 
 <body>
-<body class="home">
-    <header id="header">
         <!-- ===============================헤더 시작================================ -->
        
         <div class="header-top">

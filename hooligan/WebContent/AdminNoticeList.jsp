@@ -1,12 +1,161 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="/hooligan/css/manager_reset.css" rel="stylesheet" />
+    <link href="/hooligan/css/manager.css" rel="stylesheet" />
+    <link href="/hooligan/css/confirm_waiting_company.css" rel="stylesheet" />
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/hooligan/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
+
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 </head>
 <body>
+    <div id="wrap">
+        <header id="header">
+            <h1><a href="manager_index.html"><img class="main_logo_img" src="/hooligan/images/logo.png" alt="로고" /></a></h1>
+            <p>Manager</p>
+        </header>
+        <!--==============헤더와 본문 영역 구분===============-->
+        <div id="header_blank"></div>
+        <!--==============헤더와 본문 영역 구분===============-->
+        <div id="container">
+            <nav class="main_gnb">
+                   <ul>
+                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                    <hr/>
+                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <hr />
+                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <hr />
+                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <hr />
+                    <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
+                    <hr />
+                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <hr />
+                </ul>
+            </nav>
+            <section class="main_section">
+                <h2>공지 사항</h2>
+                <div class="article">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">번호</th>
+                                <th style="text-align: center;">제목</th>
+                                <th style="text-align: center;">등록일</th>
+                                <th style="text-align: center;"></th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><a href="#"><a href="#">1</a></a></td>
+                            <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                            <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">2</a></td>
+                            <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">3</a></td>
+                           <td>깨끗한 사이트를 만듭시다
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                           <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">4</a></td>
+                           <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                           <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">5</a></td>
+                           <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">6</a></td>
+                            <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">7</a></td>
+                           <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">8</a></td>
+                             <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">9</a></td>
+                           <td>깨끗한 사이트를 만듭시다</td>
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">10</a></td>
+                           <td>깨끗한 사이트를 만듭시다
+                            <td>2014/11/11</td>
+                             <td><button>수정</button>
+                            <button>삭제</button></td>
+                        </tr>
+                    </table>
+                    
+                    <div style="margin-left: 100px;">
+                    
+                   <!--페이징 시작 -->
+                    <ul class="pagination" style="margin:0; margin-">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>  
+                    </ul>
+                    <br><br>&nbsp;&nbsp;&nbsp;
+                    </div>
+                    
+                    <div style="margin-left: 95px;">
+                    <label for="search" class="search-label" >
+                     <button class="search-button"><i class="fa fa-search"></i></button>
+                      <input type="text" id="search" class="search-input" />
+                     </label>
+                     &nbsp;<button><a href="/hooligan/AdminNoticeRegister.jsp">글 쓰기</a></button>
 
+            </div> <!--페이징 끝 -->
+            </div>
+            
+            </section>
+        </div>
+    </div>
 </body>
 </html>

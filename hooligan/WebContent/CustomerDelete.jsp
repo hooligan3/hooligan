@@ -53,34 +53,10 @@
 </script>
 </head>
 <body>
-	<!--Start Header-->
+		<!--Start Header-->
 	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span
-							class="hidden-sm"><a href="/hooligan/customer/regiser"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -106,7 +82,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -218,6 +194,10 @@
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="#" class="btn btn-block btn-default">포인트 충전 내역</a>
+								</div>
+								
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
 									<a href="/hooligan/customer/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
@@ -225,7 +205,7 @@
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							
-							<div class="well well-lg"><h3><i class="fa fa-gear"></i>    탈퇴 하기</h3>
+							<div class="well well-lg" style="height: 360px;"><h3><i class="fa fa-gear"></i>    탈퇴 하기</h3>
 							
 							<form action="/hooligan/customer/delete" method="post">
 							
@@ -236,9 +216,10 @@
 									<div class="col-lg-6 col-md-6 col-sm-6">
 									<h2>회원 비밀번호 입력</h2><br>
 									<input type="password" name="customer_pwd" class="form-control"  placeholder="비밀번호를 입력하시오"> 
+									<br>
 									<button class="btn btn-default btn-lg btn-block" type="submit">
-									
-							<i class="fa fa-rocket"></i> 탈퇴하기</button>
+										<i class="fa fa-rocket"></i> 탈퇴하기
+									</button>
 									</div>
 							
 							

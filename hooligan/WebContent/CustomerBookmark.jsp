@@ -53,35 +53,10 @@
 </script>
 </head>
 <body>
-<%@ include file="header/MainHeader.jsp" %>
 	<!--Start Header-->
 	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span
-							class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -107,7 +82,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -206,27 +181,31 @@
             <br><br>
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
-									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerBookmark.jsp" class="btn btn-block btn-default">내 즐겨찾기</a>
+									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage2.html" class="btn btn-block btn-default">주문 내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerOrder.jsp" class="btn btn-block btn-default">주문 내역</a>
+									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage3.html" class="btn btn-block btn-default">내 즐겨찾기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/CustomerDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage4.html" class="btn btn-block btn-default">포인트 충전내역</a>
+								</div>
+								
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage4.html" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-heart"></i>    내 즐겨찾기</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px;"><h3><i class="fa fa-heart"></i>    내 즐겨찾기</h3>
 							
 							<form action="update" method="post">
 							
@@ -250,12 +229,87 @@
 										<td>침대 이미지</td>
 										<td>300명</td>
 										<td>2014/11/11</td>
+				                    	</tr>
+				                    	<tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
+				                    </tr>
+				                    <tr>			
+					                    <!-- 누르면 상품 페이지로 이동 -->
+                      					<td><a href="#">침대</a></td>
+										<td>침대 이미지</td>
+										<td>300명</td>
+										<td>2014/11/11</td>
 				                    </tr>
 				
 				                    </tbody>
 				                </table>
 							<!-- 테이블 끝 -->
-							
+							  <!--페이징 시작 -->
+                <div class="col-sm-12 text-center">
+                    <ul class="pagination">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
+                    </ul>
+                </div>
+            </div> <!--페이징 끝 -->
 							
 							
 								

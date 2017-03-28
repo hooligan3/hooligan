@@ -65,31 +65,8 @@
 <body>
 	<!--Start Header-->
 	<header id="header">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="hidden-xs col-lg-7 col-sm-5 top-info">
-						<span><a href="#" style="color: white">로그인</a></span> <span class="hidden-sm"><a href="resistration.html"
-							style="color: white">회원가입</a></span>
-					</div>
-					<div class="col-lg-5 col-sm-7 top-info clearfix">
-						<ul>
-							<li>
-								<form class="search-bar">
-									<label for="search" class="search-label">
-										<button class="search-button">
-											<i class="fa fa-search"></i>
-										</button> <!-- Fix the break-row-bug
-                                        --> <input type="text"
-										id="search" class="search-input" />
-									</label>
-								</form>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<%@ include file="header/MainHeader.jsp" %>
+	<!-- End Header -->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
@@ -192,6 +169,7 @@
                 </div>
             </div>
         </div>
+        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
@@ -237,7 +215,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-leaf"></i>    내 등록상품 조회</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; height: 625px;"><h3><i class="fa fa-leaf"></i>    내 등록상품 조회</h3>
 						
 							<form action="update" method="post">
 							
@@ -362,8 +340,126 @@
 								                
 								        </td>
                     </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>The Good, the Bad and the Ugly</td>
+                        <td>1966</td>
+                        <td>8.9</td>
+                       <td>
+						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
+						<i class="fa fa-linkedin-square"></i>
+								                    	주문회원
+								         		</a>
+								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	수정
+								                </a>
+								                <a href="#" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	삭제
+								                </a>
+								                
+								        </td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>The Good, the Bad and the Ugly</td>
+                        <td>1966</td>
+                        <td>8.9</td>
+                       <td>
+						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
+						<i class="fa fa-linkedin-square"></i>
+								                    	주문회원
+								         		</a>
+								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	수정
+								                </a>
+								                <a href="#" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	삭제
+								                </a>
+								                
+								        </td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>The Good, the Bad and the Ugly</td>
+                        <td>1966</td>
+                        <td>8.9</td>
+                       <td>
+						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
+						<i class="fa fa-linkedin-square"></i>
+								                    	주문회원
+								         		</a>
+								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	수정
+								                </a>
+								                <a href="#" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	삭제
+								                </a>
+								                
+								        </td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>The Good, the Bad and the Ugly</td>
+                        <td>1966</td>
+                        <td>8.9</td>
+                       <td>
+						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
+						<i class="fa fa-linkedin-square"></i>
+								                    	주문회원
+								         		</a>
+								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	수정
+								                </a>
+								                <a href="#" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	삭제
+								                </a>
+								                
+								        </td>
+                    </tr>
+                     <tr>
+                        <td>5</td>
+                        <td>The Good, the Bad and the Ugly</td>
+                        <td>1966</td>
+                        <td>8.9</td>
+                       <td>
+						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
+						<i class="fa fa-linkedin-square"></i>
+								                    	주문회원
+								         		</a>
+								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	수정
+								                </a>
+								                <a href="#" class="btn btn-sm btn-social-facebook">
+								             <i class="fa fa-linkedin-square"></i>
+								                    	삭제
+								                </a>
+								                
+								        </td>
+                    </tr>
                     </tbody>
                 </table>
+                 <!--페이징 시작 -->
+                <div class="col-sm-12 text-center">
+                    <ul class="pagination">
+                        <br><br><li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
+                    </ul>
+                </div>
+            </div> <!--페이징 끝 -->
 							
 							
 							
