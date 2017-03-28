@@ -226,7 +226,7 @@
 							<table class="table table-striped table-hover">
                     <thead>
                     <tr>
-                        <th>상품등록일</th>
+                        <th>등록일</th>
 						<th>상품명</th>
 						<th>주문 상태</th>
 						<th>마감 종료일</th>

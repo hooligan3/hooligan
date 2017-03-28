@@ -35,29 +35,8 @@
 <body>
 <!--Start Header-->
 <header id="header">
-    <div class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="hidden-xs col-lg-7 col-sm-5 top-info">
-                    <span><i class="fa fa-phone"></i>Phone: (123) 456-7890</span>
-                    <span class="hidden-sm"><i class="fa fa-envelope"></i>Email: mail@example.com</span>
-                </div>
-                <div class="col-lg-5 col-sm-7 top-info clearfix">
-                    <ul>
-                        
-                        <li>
-                            <form class="search-bar">
-                                <label for="search" class="search-label">
-                                    <button class="search-button"><i class="fa fa-search"></i></button><!-- Fix the break-row-bug
-                                    --><input type="text" id="search" class="search-input" />
-                                </label>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@ include file="header/MainHeader.jsp" %>
+ <!--end Header-->
     <div id="menu-bar">
         <div class="container">
             <div class="row">
@@ -160,6 +139,7 @@
                 </div>
             </div>
         </div>
+        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 <!--End Header-->
 	<section class="wrapper">
@@ -185,7 +165,7 @@
     <br>
 <div class="col-lg-2 col-md-2 col-sm-2"></div>
 <div class="col-lg-8 col-md-8 col-sm-8">
-		<div class="well well-lg"><h3><i class="fa fa-leaf"></i>    상품 평가글 등록</h3>
+		<div class="well well-lg" style="padding-left: 50px; padding-top: 10px;"><h3><i class="fa fa-leaf"></i>    상품 평가글 등록</h3>
 		
 						<table>
 							<tbody>

@@ -217,12 +217,12 @@
 							
 							
 							<!-- 테이블 시작 -->
-						<table class="table table-striped table-hover">
+						<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
                     <tr>
-                       					<th>아이디</th>
-										<th>충전 금액</th>
-										<th>충전 시간</th>
+                       					<th style="text-align: center;">아이디</th>
+										<th style="text-align: center;">충전 금액</th>
+										<th style="text-align: center;">충전 시간</th>
                     </tr>
                     </thead>
                     <tbody>

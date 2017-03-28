@@ -213,14 +213,14 @@
 							
 							
 							<!-- 테이블 시작 -->
-						<table class="table table-striped table-hover">
+						<table class="table table-striped table-hover"style="text-align: center;">
                     <thead>
                     <tr>
-                       					<th>상품명</th>
-										<th>상품 이미지</th>
-										<th>총 주문금액</th>
-										<th>주문 날짜</th>
-										<th>마감 날짜</th>
+                       					<th style="text-align: center;">상품명</th>
+										<th style="text-align: center;">상품 이미지</th>
+										<th style="text-align: center;">총 주문금액</th>
+										<th style="text-align: center;">주문 날짜</th>
+										<th style="text-align: center;">마감 날짜</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -29,7 +29,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="hidden-xs col-lg-7 col-sm-5 top-info">
+                    <div class="hidden-xs col-lg-7 col-sm-5 top-info"style="text-align: left;">
                         <span><a href="/hooligan/customer/login" style="color:white">로그인</a></span>
                         <span class="hidden-sm"><a href="/hooligan/main/selectRegister" style="color:white">회원가입</a></span>
                     </div>
