@@ -54,22 +54,25 @@
 		var list = result.list;
 		var pagination = result.pagination;
 		var target= $("#notice");
-		
+
+				
 		$.each(list, function(index, value){
 			
 			
 			var str = "<tr><td>"+value.noticeArticleNo+"</td>";
-			str = str+"<td>"+value.title+"</td>";
+			str = str+"<td><a href='view?pageNo="+pagination.pageNo+"&notice_article_no="+value.noticeArticleNo+"'>"+value.title+"</a></td>";
 			str = str+ "<td>"+value.noticeDate+"</td></tr>";
 			target.append(str);
 		})
-		var p = $("#pagination");
-		if(pagination.prev>-1)
-			p.append("<li><a href='list?pageNo="+pagination.prev+"'>&laquo;</a></li>");
-		for(var i= pagination.startPage; i<= pagination.endpage; i++)
-			p.append("<li><a href='list?pageNo="+i+"'>"+i+"</a></li>");
-		if(pagination.next>-1)
-			p.append("<li><a href='list?pageNo="+pagination.next+"'>&raquo;</a></li>");
+		
+		$("#pagination").append("<ul class='pagination' style='height: 20px;'></ul>");
+		var p = $("#pagination ul");
+		if (pagination.prev > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+		for (var i = pagination.startPage; i <= pagination.endPage; i++)
+			p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+		if (pagination.next > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
 	})
 				/*
 					<ul class="pagination"style="height: 20px;" id="pagination">
@@ -235,16 +238,8 @@
 							
 							
                     <br><br>
-                    
-                    <ul class="pagination"style="height: 20px;" id="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
+	                    <div id="pagination"></div>
+                    <br><br> <br><br>
                 </div>
                 </div>
             </div>	

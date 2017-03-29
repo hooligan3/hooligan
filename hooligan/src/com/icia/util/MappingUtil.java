@@ -1,17 +1,15 @@
 package com.icia.util;
 
-import java.io.File;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
 
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.tomcat.util.http.fileupload.*;
+import org.apache.tomcat.util.http.fileupload.disk.*;
+import org.apache.tomcat.util.http.fileupload.servlet.*;
 
-import com.icia.vo.Customer;
-import com.icia.vo.Employee;
+import com.icia.vo.*;
 
 public class MappingUtil {
 	public static Customer	makeCustomer(HttpServletRequest req){
@@ -120,4 +118,22 @@ public class MappingUtil {
 		}
 		return b;
 	}
+	
+	public static Notice getNoticeMaker(HttpServletRequest req, int noticeArticleNo){
+		Notice notice = new Notice();
+		notice.setNoticeArticleNo(noticeArticleNo);
+		notice.setTitle(req.getParameter("title"));
+		notice.setContent(req.getParameter("content"));
+		return notice;
+	}
+
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	

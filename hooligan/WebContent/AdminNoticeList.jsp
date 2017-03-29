@@ -18,6 +18,45 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    
+    <!-- <ul class="pagination" style="margin:0; margin-">
+                        <li><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>  
+                    </ul> -->
+                    
+  <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	var result = <%=request.getAttribute("result")%>
+	$(function(){
+		var list = result.list;
+		var pagination = result.pagination;
+		var target= $("#notice");
+		
+		$.each(list, function(index, value){
+			
+			
+			var str = "<tr><td>"+value.noticeArticleNo+"</td>";
+			str = str+"<td><a href='adminView?pageNo="+pagination.pageNo+"&notice_article_no="+value.noticeArticleNo+"'>"+value.title+"</a></td>";
+			str = str+ "<td>"+value.noticeDate+"</td></tr>";
+			target.append(str);
+		})
+		
+		$("#pagination").append("<ul class='pagination' style='height: 20px;'></ul>");
+		var p = $("#pagination ul");
+		if (pagination.prev > -1)
+			p.append("<li><a href='admin?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+		for (var i = pagination.startPage; i <= pagination.endPage; i++)
+			p.append("<li><a href='admin?pageNo=" + i + "'>" + i + "</a></li>");
+		if (pagination.next > -1)
+			p.append("<li><a href='admin?pageNo=" + pagination.next + "'>다음으로</a></li>");
+	})
+</script>
 </head>
 <body>
     <div id="wrap">
@@ -54,93 +93,21 @@
                                 <th style="text-align: center;">번호</th>
                                 <th style="text-align: center;">제목</th>
                                 <th style="text-align: center;">등록일</th>
-                                <th style="text-align: center;"></th>
                             </tr>
                         </thead>
-                        <tr>
-                            <td><a href="#"><a href="#">1</a></a></td>
-                            <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                            <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">2</a></td>
-                            <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">3</a></td>
-                           <td>깨끗한 사이트를 만듭시다
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                           <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">4</a></td>
-                           <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                           <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">5</a></td>
-                           <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">6</a></td>
-                            <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">7</a></td>
-                           <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">8</a></td>
-                             <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">9</a></td>
-                           <td>깨끗한 사이트를 만듭시다</td>
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">10</a></td>
-                           <td>깨끗한 사이트를 만듭시다
-                            <td>2014/11/11</td>
-                             <td><button>수정</button>
-                            <button>삭제</button></td>
-                        </tr>
+                         <tbody id="notice">
+                    
+                   		 </tbody>
                     </table>
                     
                     <div style="margin-left: 100px;">
                     
                    <!--페이징 시작 -->
-                    <ul class="pagination" style="margin:0; margin-">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>  
-                    </ul>
+                    <br><br>
+                    
+                     <div id="pagination"></div>
+                    
+                    
                     <br><br>&nbsp;&nbsp;&nbsp;
                     </div>
                     
@@ -149,7 +116,7 @@
                      <button class="search-button"><i class="fa fa-search"></i></button>
                       <input type="text" id="search" class="search-input" />
                      </label>
-                     &nbsp;<button><a href="/hooligan/AdminNoticeRegister.jsp">글 쓰기</a></button>
+                     &nbsp;<button><a href="/hooligan/notice/register">글 쓰기</a></button>
 
             </div> <!--페이징 끝 -->
             </div>

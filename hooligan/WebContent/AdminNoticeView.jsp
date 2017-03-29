@@ -18,6 +18,55 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	/*
+	  <thead id="notice">
+				                    <tr>
+										<th style="text-align: center;">1(글번호)</th>
+										<th style="text-align: center;">유앤미 카페에 어서오세요</th>
+										<th style="text-align: center;">조회수(1167)  </th>
+									</tr>
+                  					  </thead>
+	*/
+	
+	var result = <%=request.getAttribute("result")%>
+	var pageNo = <%= request.getParameter("pageNo") %>;
+	
+	$(function(){
+		var noticeArticleNo = result.noticeArticleNo;
+		
+		var str5 = "<input type='hidden' name='noticeArticleNo' id='noticeArticleNo' value='"+noticeArticleNo+"'>";
+		var str = "<tr><th style='text-align: center;'>"+result.noticeArticleNo+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.title+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.noticeDate+"</th><tr>";
+		
+		$("#notice").append(str);
+		
+		var str2 = result.content;
+		$("#content").append(str2);
+		
+		$("#back").on("click","#list",function(){
+			location.href='admin?pageNo='+pageNo;
+		});
+		$("#back").on("click","#update", function() {
+			location.href='update?notice_article_no=' + result.noticeArticleNo;
+		});	
+	
+		var back = $("#back");
+		var back2 = $("#back2 form");
+		back.append(str5);
+		back.append("<input type='submit' value='이전으로'data-loading-text='Loading...' class='btn btn-default btn-lg' id='list'>")
+		back.append("<input type='submit' value='내용수정'data-loading-text='Loading...' class='btn btn-default btn-lg' id='update'>")
+		back2.append("<input type='hidden' name='noticeArticleNo' id='noticeArticleNo' value='"+noticeArticleNo+"'>")
+		back2.append("<input type='submit' value='삭제'data-loading-text='Loading...' class='btn btn-default btn-lg' id='delete'>")
+	
+	})	 
+	
+	
+	
+</script>
 </head>
 <body>
     <div id="wrap">
@@ -55,12 +104,8 @@
 							<div class="well well-lg" style="padding-right: 50px;">
 							
               				  			<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-										<th style="text-align: center;">asdgtt </th>
-										<th style="text-align: center;">가구어디브랜드가괜찮나요?</th>
-										<th style="text-align: center;">조회수(1167)  </th>
-									</tr>
+				                    <thead id="notice">
+				                    
                   					  </thead>
                    
 
@@ -72,21 +117,9 @@
               		   <div class="col-lg-10 col-md-10 col-sm-10">
               		   <br>
               		   <p style="max-height: 700px; min-height: 250px;">
-              		   제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
+              		    <spen id="content">
+              		   
+						</spen>
 							
 							</p>
 							
@@ -101,15 +134,17 @@
               		   		
               		   </div>  
               		   <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
-              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="수정하기">
-              		 		 &nbsp; 
-              		 		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="삭제하기">	
+              		   	<div id="back">
+              		   		
+              		   </div>
+              		   <div id="back2">
+              		   	<form action='/hooligan/notice/delete' method='post'>
+              		   	
+              		   	</form>
               		   </div>  
+              		   </div>
 						<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
-				                    <tr >
-										<th style="text-align: center;"></th>
-									</tr>
                   					  </thead>
                    
 

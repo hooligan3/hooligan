@@ -18,6 +18,10 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    
+    </script>
 </head>
 <body>
     <div id="wrap">
@@ -47,18 +51,18 @@
             </nav>
             <section class="main_section">
                 <h2>공지사항 등록</h2><br><br>
-               
+               <form action="/hooligan/notice/register" method="post">
                <div style="margin-left: 33px;">
-               	제목 : <input type="text"><br><br>
-               	<div>내용</div><textarea rows="13" cols="2" style="width:700px;"></textarea>
+               	제목 : <input type="text" name="title" style='width:665px;'><br><br>
+               	<div>내용</div><textarea rows="13" cols="2" style="width:700px;" name="content"></textarea>
                </div>
                <br>
                
                <button style="margin-left: 320px; width:60px; height:30px;">
                <a href="/hooligan/AdminNoticeList.jsp">뒤로</a></button>
                &nbsp; &nbsp;
-               <button style="width:60px; height:30px;"><a href="#">등록</a></button>
-               
+               <input type="submit" style="width:60px; height:30px;" value="등록">
+               </form>
             </section>
         </div>
     </div>

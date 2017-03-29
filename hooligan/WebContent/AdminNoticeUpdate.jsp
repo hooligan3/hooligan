@@ -18,6 +18,25 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		var result = <%=request.getAttribute("result")%>
+		
+		var notice = result.notice
+		var title = notice.title;
+		var content = notice.content;
+		var noticeArticleNo = notice.noticeArticleNo;
+		$(function(){
+			
+			var str = "<input type='text' value='"+title+"' id='title' name='title' style='width:700px;'>";
+			var str2 = "<textarea rows='13' cols='2' style='width:700px;'name='content' id='content'>"+content+"</textarea>";
+			var str3 = "<input type='hidden' name='noticeArticleNo' value='"+ noticeArticleNo+"'>"; 
+			$("#title").append(str);			   							
+			$("#content").append(str2);
+			$("#bunho").append(str3);
+			
+		})
+	</script>
 </head>
 <body>
     <div id="wrap">
@@ -49,16 +68,30 @@
                 <h2>공지사항 수정</h2><br><br>
                
                <div style="margin-left: 33px;">
-               	제목 : <input type="text"><br><br>
-               	<div>내용</div><textarea rows="13" cols="2" style="width:700px;"></textarea>
+               
+               <form action="/hooligan/notice/update" method="post">
+               
+               	제목 : <div id="title">
+               	
+               	</div><br><br>
+               	
+               	<div>내용</div>
+               	
+               		<div id="content">
+               			
+               		</div>
+               		<div id="bunho">
+               			
+               		</div>
                </div>
                <br>
                
                <button style="margin-left: 320px; width:60px; height:30px;">
                <a href="/hooligan/AdminNoticeList.jsp">뒤로</a></button>
                &nbsp; &nbsp;
-               <button style="width:60px; height:30px;"><a href="#">등록</a></button>
+               <input type="submit" style="width:60px; height:30px;" value="등록">
                
+               </form>
             </section>
         </div>
     </div>
