@@ -35,19 +35,19 @@
               <h1>U&Me 개인 사업자 회원가입</h1>
           </div>
           <div class="col-md-6 col-md-offset-3">
-              <form role="form" action="/hooligan/employee/register3" method="POST">
+              <form role="form" action="/hooligan/employee/register3" method="POST" enctype="multipart/form-data">
                   
                    <div class="form-group">
                       <label for="brand_name">미리보기 상품 명</label>
-                      <input type="text" class="form-control" id="brand_name" placeholder="이름을 입력해주세요">
+                      <input type="text" class="form-control" id="product_name"  name="product_name" placeholder="이름을 입력해주세요">
                   </div>
                   <div class="form-group">
                       <label for="logo">미리보기 상품 이미지 등록</label>
-                      <input type="file" class="form-control" id="logo">
+                      <input type="file" class="form-control" id="logo" name="image_path">
                   </div>
                      <div class="form-group">
                       <label for="description">미리보기 상품 소개</label>
-                      <textarea rows="4" cols="50"></textarea>
+                      <textarea rows="4" cols="50" name="product_content"></textarea>
                   </div>
                  
                   <div class="form-group text-center">

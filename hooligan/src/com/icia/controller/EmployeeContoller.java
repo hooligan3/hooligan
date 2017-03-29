@@ -44,7 +44,7 @@ public class EmployeeContoller {
 			   System.out.println("go:" + go);
 			   session.removeAttribute("destination");
 			   if (go == null)
-			    go = "/hooligan/main/selectLogin";
+			    go = "/hooligan/employee/update";
 			   session.setAttribute("employee", employee);
 			   mav.setView(go);
 			   mav.setRedirect();
@@ -88,7 +88,6 @@ public class EmployeeContoller {
 		public static ModelAndView customerRegister2Start(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			 
 			  mav.setView("/EmployeeRegisterBrand.jsp");
 			  return mav;
 
@@ -98,7 +97,6 @@ public class EmployeeContoller {
 				public static ModelAndView customerRegister2End(HttpServletRequest req){
 					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 					ModelAndView mav=new ModelAndView();
-					
 					service.employeeRegisterEnd2(req);
 					  mav.setView("/hooligan/employee/register3");
 					  mav.setRedirect();
@@ -143,11 +141,11 @@ public class EmployeeContoller {
 		public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			Customer customer=service.customerUpdateEnd(req);
+			Employee employee=service.employeeUpdateEnd(req);
 			 HttpSession session = req.getSession();
-			 session.removeAttribute("customer");
-			 session.setAttribute("customer", customer);
-			mav.setView("/hooligan/main/index");
+			 session.removeAttribute("employee");
+			 session.setAttribute("employee", employee);
+			mav.setView("/hooligan/employee/update");
 			mav.setRedirect();
 			return mav;
 		}

@@ -7,6 +7,7 @@ public class Brand {
 	private int brandNo;
 	private String brandName;
 	private String brandContent;
-	private int companyTell;
+	private String companyTell;
+	private String imagePath;
 	
 }

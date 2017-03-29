@@ -201,7 +201,7 @@ public class HooliganDao {
 		return -1;
 	}
 
-	// 고객 아이디 찾기 CustomerSelectById
+	// 회원 아이디 찾기 CustomerSelectById
 	public String customerSeachId(Connection conn, HashMap<String, String> map) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -265,9 +265,9 @@ public class HooliganDao {
 			pstmt.setString(7, employee.getSsn2());
 			pstmt.setString(8, employee.getEmail());
 			pstmt.setString(9, employee.getTell());
-			pstmt.setInt(10, 0);// 0 이면 비활성화 1이면 활성화
+			pstmt.setInt(10, employee.getActive());// 0 이면 비활성화 1이면 활성화
 			pstmt.setInt(11, employee.getBrandNo());
-			pstmt.setInt(12, 0);
+			pstmt.setInt(12, employee.getPoint1());
 			
 			
 			return pstmt.executeUpdate();
@@ -278,6 +278,42 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	//직원회원가입 브랜드입력
+	public int insertEmployee2(Connection conn, Brand b) {
+		PreparedStatement pstmt = null;
+		try {
+			pstmt=conn.prepareStatement(EmpSql.insertBrand);
+			pstmt.setInt(1, b.getBrandNo());
+			pstmt.setString(2, b.getBrandName());
+			pstmt.setString(3, b.getBrandContent());
+			pstmt.setString(4, b.getCompanyTell());
+			pstmt.setString(5, b.getImagePath());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return 0;
+	}//직원회원가입 브랜드제품입력
+	public int insertEmployee3(Connection conn, BrandProduct b) {
+		PreparedStatement pstmt=null;
+		try {
+			pstmt=conn.prepareStatement(EmpSql.insertPreProduct);
+			pstmt.setInt(1,b.getProductNo());
+			pstmt.setInt(2, b.getBrandNo());
+			pstmt.setString(3, b.getProductName());
+			pstmt.setString(4, b.getProductContent());
+			pstmt.setString(5, b.getImagePath());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(pstmt, null);
+		}
+		return 0;
+	}
+
 
 	// 직원정보 수정 UpdateEmployee
 	public int updateEmployee(Connection conn, Employee employee) {
@@ -411,7 +447,6 @@ public class HooliganDao {
 		return -1;
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////
 	public Product makeProduct(ResultSet rs) {
 		Product pro = new Product();
 		try {
@@ -443,10 +478,7 @@ public class HooliganDao {
 			bp.setBrandNo(rs.getInt("brand_no"));
 			bp.setProductName(rs.getString("product_name"));
 			bp.setProductContent(rs.getString("product_content"));
-			bp.setPrice(rs.getInt("price"));
 			bp.setImagePath(rs.getString("image_path"));
-			bp.setMinimumSize(rs.getInt("minimum_size"));
-			bp.setMaximumSize(rs.getInt("maximum_size"));
 			return bp;
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -829,16 +861,14 @@ public class HooliganDao {
 		return 0;
 	}
 	/* 전체 브랜드 조회 */
-
 	private Brand makeBrand(ResultSet rs) throws SQLException {
 		Brand brand = new Brand();
 		brand.setBrandNo(rs.getInt("brand"));
 		brand.setBrandName(rs.getString("brandName"));
 		brand.setBrandContent(rs.getString("brandContent"));
-		brand.setCompanyTell(rs.getInt("columnIndex"));
+		brand.setCompanyTell(rs.getString("company_tell"));
 		return brand;
 	}
-
 	// 브랜드 전체조회
 	public ArrayList<Brand> brandAllList(Connection conn) {
 		PreparedStatement pstmt = null;
@@ -964,6 +994,7 @@ public class HooliganDao {
 				}
 				return -1;
 			}
+			//브랜드번호가져오기
 			public int maxBrandNo(Connection conn) {
 			PreparedStatement pstmt=null;
 			ResultSet rs=null;
@@ -977,6 +1008,22 @@ public class HooliganDao {
 				e.printStackTrace();
 			}
 			
+				return 0;
+			}
+			//브랜드제품 번호가져오기
+			public int maxProductNo(Connection conn) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(EmpSql.maxProductNo);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}JdbcUtil.close(pstmt, rs);
+				
 				return 0;
 			}
 		

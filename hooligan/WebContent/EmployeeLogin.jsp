@@ -26,16 +26,11 @@
     <![endif]-->
 </head>
 <body>
-<<<<<<< HEAD
     <!--헤더 시작-->
-   <%@ include file="header/MainHeader.jsp" %>
-=======
   <!--Start Header-->
 	<header id="header">
 		<%@ include file="header/MainHeader.jsp" %>
 	<!-- End Header -->
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
-   
    
         <div id="menu-bar">
             <div class="container">

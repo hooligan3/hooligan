@@ -4,12 +4,14 @@ import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.*;
+import org.apache.commons.fileupload.*;
 
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.disk.*;
+import org.apache.commons.fileupload.servlet.*;
 
+import com.icia.vo.Brand;
+import com.icia.vo.BrandProduct;
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
 
@@ -42,9 +44,10 @@ public class MappingUtil {
 		customer.setTell(req.getParameter("tell"));
 		return customer;
 	}
+	//직원가입하기1단계
 	public static Employee makeEmployee(HttpServletRequest req, int maxBrand) {
 		Employee e=new Employee();
-		e.setActive(1);
+		e.setActive(0);
 		e.setAddress(req.getParameter("address"));
 		e.setBrandNo(maxBrand+1);
 		e.setEmail(req.getParameter("email"));
@@ -59,48 +62,67 @@ public class MappingUtil {
 		return e;
 		
 	}
-	public static Employee makeEmplFromRequest(HttpServletRequest req, int beautyNo) {
-		Employee e= new Employee();
-
+	
+	//직원가입하기 브랜드분야
+	public static Object makeBrand(HttpServletRequest req, int maxBrand) {
+		Brand b=new Brand();
+		String path = req.getServletContext().getRealPath("brand/brandimg");
+		DiskFileItemFactory f = new DiskFileItemFactory();
+		ServletFileUpload uploader = new ServletFileUpload(f);
+		uploader.setFileSizeMax(1024 * 1024 * 10);
 		
-		java.sql.Date date = null;
-		String path = req.getServletContext().getRealPath("beautys/beautyimg");
+
+		try {
+			List<FileItem> list = uploader.parseRequest(req);
+			for (FileItem item : list) {
+				
+				if(item.isFormField()) {
+					if(item.getFieldName().equals("brand_name")){
+						b.setBrandName(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("company_phone_number")){
+						b.setCompanyTell(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("content")){
+						b.setBrandContent(item.getString("UTF-8"));
+				}}
+				else{
+					String fileName = item.getName();
+					System.out.println(item.getName());
+					int indexOfPoint = fileName.indexOf(".");
+					 System.out.println(fileName.indexOf("."));
+					String fName = fileName.substring(0, indexOfPoint);
+					String ext = fileName.substring(indexOfPoint + 1);
+					fileName = fName + "-" + System.nanoTime() + "." + ext;
+					item.write(new File(path + "/" + fileName));
+					System.out.println("파일이름제대로들어왓냐"+path + "/" + fileName);
+					b.setImagePath(fileName);
+				}
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		b.setBrandNo(maxBrand+1);
+		return b;
+
+	}
+	//직원가입하기 브랜드제품
+	public static Object makeBrandProduct(HttpServletRequest req, int maxBrand, int maxProduct) {
+		BrandProduct p=new BrandProduct();
+		String path = req.getServletContext().getRealPath("brand/productimg");
 		DiskFileItemFactory f = new DiskFileItemFactory();
 		ServletFileUpload uploader = new ServletFileUpload(f);
 		uploader.setFileSizeMax(1024 * 1024 * 10);
 		List<FileItem> list;
 
 		try {
-			list = uploader.parseRequest((RequestContext) req);
+			list = uploader.parseRequest(req);
 			for (FileItem item : list) {
 				
 				if(item.isFormField()) {
-					if(item.getFieldName().equals("orner_id")){
-						b.setBeautyId(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_pwd")){
-						b.setBeautyPwd(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_name")){
-						b.setBeautyOrnerName(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_address")){
-						b.setBeautyAddress(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("business_name")){
-						b.setBeautyName(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_no")){
-						b.setBeautyOrnerNo(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_mail")){
-						b.setBeautyMail(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_phone")){
-						b.setBeautyPhone(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("orner_active")){
-						b.setBeautyActive(Integer.parseInt(item.getString("UTF-8")));
-						if (b.getBeautyActive() == 2) {
-							java.util.Date d = new java.util.Date();
-							date = new java.sql.Date(d.getTime());
-						}
-						b.setBeautyActiveDate(date);
-					}else if(item.getFieldName().equals("orner_adminno")){
-						b.setAdminNo(Integer.parseInt(item.getString("UTF-8")));
-					}
+					if(item.getFieldName().equals("product_name")){
+						p.setProductName(item.getString("UTF-8"));
+					}else if(item.getFieldName().equals("product_content")){
+						p.setProductContent(item.getString("UTF-8"));	
+				}
 				}else{
 					String fileName = item.getName();
 					// System.out.println(item.getName());
@@ -111,13 +133,16 @@ public class MappingUtil {
 					fileName = fName + "-" + System.nanoTime() + "." + ext;
 					item.write(new File(path + "\\" + fileName));
 					System.out.println(path + "\\" + fileName);
-					b.setBeautyPhoto(fileName);
+					p.setImagePath(fileName);
 				}
-			}
+				}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return b;
+		p.setProductNo(maxProduct+1);
+		p.setBrandNo(maxBrand);
+		return p;
+		
+	
 	}
 }
