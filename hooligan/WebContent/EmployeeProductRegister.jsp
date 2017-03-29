@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,7 +14,7 @@
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<%ArrayList<HashMap<String,Object>> result=(ArrayList<HashMap<String,Object>>)request.getAttribute("result") ;%>
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
@@ -74,7 +76,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
+								<a href="/hooligan/main/index"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
@@ -192,7 +194,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 							<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/employee/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
@@ -216,7 +218,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg" style="height:360px; padding-left: 50px; padding-right: 30px; padding-top: 10px; padding-bottom: 20px;" ><h3><i class="fa fa-leaf"></i>    상품 판매 등록</h3>
 						
-							<form action="update" method="post">
+							<form action="/hooligan/employee/productRegister" method="POST" enctype="multipart/form-data">
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -237,13 +239,17 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><textarea rows="4" cols="3" style="width:180px;"></textarea></td></tr>
+										<tr><td><input type="text"  name="product_name"></td></tr>
+										<tr><td><select name="product_type">
+										<%for(HashMap<String,Object> map:result){ %>
+										<option value="<%=map.get("type_no")%>"><%=map.get("type_name") %></option>
+										<%} %>
+										</select></td></tr>
+										<tr><td><input type="text"  name="minimum_size"></td></tr>
+										<tr><td><input type="text"  name="maximum_size"></td></tr>
+										<tr><td><input type="date" name="closing_date" ></td></tr>
+										<tr><td><input type="text"  name="price"></td></tr>
+										<tr><td><textarea rows="4" cols="3" style="width:180px;" name="product_content"></textarea></td></tr>
 										
 									</tbody>
 								</table>
@@ -261,13 +267,13 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="file" ></td></tr>
-										<tr><td><input type="file" ></td></tr>
+										<tr><td><input type="file" name="main_image_path" ></td></tr>
+										<tr><td><input type="file"  name="image_path"></td></tr>
 										
 										</tbody>
 								</table>
 								<br><br><br><br><br><br><br>
-								&nbsp;&nbsp;<button class="btn btn-default btn-lg btn-block" type="button"> 
+								&nbsp;&nbsp;<button class="btn btn-default btn-lg btn-block" type="submit"> 
 							<i class="fa fa-rocket"></i> 상품 등록하기</button>
 							</div>
                             

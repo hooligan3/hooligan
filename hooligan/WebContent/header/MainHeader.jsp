@@ -10,6 +10,8 @@
 <body>
 <%if(session.getAttribute("customer")!=null){ %>
 <%@ include file="/header/CustomerLogin.jsp" %>
+<%}else if(session.getAttribute("employee")!=null){ %>
+<%@include file="/header/EmployeeLogin.jsp" %>
 <%}else{%>
 <%@ include file="/header/Noheader.jsp" %>
 <%} %>

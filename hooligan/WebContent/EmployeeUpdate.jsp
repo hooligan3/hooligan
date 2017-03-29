@@ -192,11 +192,11 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/employee/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductRegister.jsp" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister/" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->

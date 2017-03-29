@@ -27,7 +27,7 @@ import di.RequestMapping;
 
 public class CustomerController {
 	
-	//로그인폼으로
+	//회원로그인폼으로
 		@RequestMapping(value="/customer/login",method="GET")
 		public static ModelAndView loginStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
@@ -39,7 +39,7 @@ public class CustomerController {
 			
 			return mav;
 		}
-	//로그인하기
+	//회원로그인하기
 	@RequestMapping(value="/customer/login",method="POST")
 	public static ModelAndView loginEnd(HttpServletRequest req){
 		ModelAndView mav=new ModelAndView();
@@ -102,7 +102,7 @@ public class CustomerController {
 		  return mav;
 
 	}
-	//회원업데이트
+	//회원업데이트폼으로
 	@RequestMapping(value="/customer/update",method="GET")
 	public static ModelAndView customerUpdateStart(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -111,7 +111,7 @@ public class CustomerController {
 		mav.setView("/CustomerUpdate.jsp");
 		return mav;
 	}
-	
+	//회원업데이트
 	@RequestMapping(value="/customer/update",method="POST")
 	public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -159,7 +159,6 @@ public class CustomerController {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("result", service.customerSeachId(req));
-		
 		return mav;
 	}
 	//회원비밀번호 찾기폼으로

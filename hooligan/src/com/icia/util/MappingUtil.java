@@ -14,6 +14,7 @@ import com.icia.vo.Brand;
 import com.icia.vo.BrandProduct;
 import com.icia.vo.Customer;
 import com.icia.vo.Employee;
+import com.icia.vo.Product;
 
 public class MappingUtil {
 	public static Customer	makeCustomer(HttpServletRequest req){
@@ -144,5 +145,9 @@ public class MappingUtil {
 		return p;
 		
 	
+	}
+	//제품등록맵핑
+	public static Product makeRegisterProduct(HttpServletRequest req, int maxProduct) {
+		return null;
 	}
 }

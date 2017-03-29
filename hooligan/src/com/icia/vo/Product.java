@@ -19,7 +19,10 @@ public class Product {
 	private int typeNo;
 	private int brandNo;
 	private String employeeId;
-	private String imgPath;
+	private String mainImagePath;
+	private String detailContent;
+	private String detailImagePath;
+	
 	
 	
 	

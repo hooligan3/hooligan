@@ -1,5 +1,8 @@
 package com.icia.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -57,7 +60,7 @@ public class EmployeeContoller {
 				  ModelAndView mav=new ModelAndView();
 				  HttpSession sesstion=req.getSession();
 				  sesstion.removeAttribute("employee");
-				  mav.setView("/hooligan/main/select");
+				  mav.setView("/hooligan/employee/login");
 				  mav.setRedirect();
 				 return mav;
 			  }
@@ -169,6 +172,26 @@ public class EmployeeContoller {
 			else mav.addObject("result", "비밀번호를 확인하시오");
 			mav.setView("/hooligan/main/index");
 			mav.setRedirect();
+			return mav;
+		}
+		//직원상품등록폼으로
+		@RequestMapping(value="/employee/productRegister",method="GET")
+		public static ModelAndView employeeProductRegisterStart(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav=new ModelAndView();
+			ArrayList<HashMap<String, Object>> result=service.employeeProductRegisterStart(req);
+			System.out.println("들어왓냐??");
+			mav.addObject("result", result);
+			mav.setView("/EmployeeProductRegister.jsp");
+			return mav;
+		}
+		//직원상품등록하기
+		@RequestMapping(value="/employee/productRegister",method="POST")
+		public static ModelAndView employeeProductRegisterEnd(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			service.employeeProductRegister(req);
+			ModelAndView mav=new ModelAndView();
+			mav.setView("/employee/productList");
 			return mav;
 		}
 	

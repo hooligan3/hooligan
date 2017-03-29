@@ -8,7 +8,8 @@ public interface EmpSql {
 		
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(?,?,?,?,?)";
-		
+		//상품종류가져오기(상품등록)
+		public String selectProductSort="select *from type ";
 		// 미리보기 상품 등록(직원 회원가입)
 		public String insertPreProduct ="insert into brand_product values(?,?,?,?,?)";
 		
@@ -48,7 +49,8 @@ public interface EmpSql {
 		//포인트 환급
 		public String refundPoint1 ="update employee set point=? where employee_id=?";
 		public String refundPoint2 ="insert into refund_point values(?,sysdate,?)";
-		
+		//상품번호가져오기
+		public String registerProductMaxNo="select max(product_no) from product";
 		//상품글 등록
 		public String registerProduct ="insert into product values((select max(product_no)+1 from product),?,?,?,?,?,?,sysdate,?,?,?,?,?)";
 		

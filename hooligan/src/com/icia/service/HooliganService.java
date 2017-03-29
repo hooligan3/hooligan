@@ -159,9 +159,16 @@ public class HooliganService {
 	}
 	//직원업데이트
 	public Employee employeeUpdateEnd(HttpServletRequest req) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
+	//직원상품등록하기
+	public void employeeProductRegister(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		int maxProduct=dao.maxPno(conn);
+		Product p=(Product)MappingUtil.makeRegisterProduct(req,maxProduct);
+	}
+
 	//공지사항 게시글
 	public String readNotice(HttpServletRequest req){
 		Connection conn= JdbcUtil.getConnection();
@@ -179,6 +186,13 @@ public class HooliganService {
 		return new Gson().toJson(map);
 		
 		
+	}//직원상품등록 종류가져오기
+	public ArrayList<HashMap<String, Object>> employeeProductRegisterStart(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		System.out.println("들어왓습니까??");
+		ArrayList<HashMap<String, Object>> result=dao.productSort(conn);
+		JdbcUtil.close(conn);
+		return result;
 	}
 
 }

@@ -453,7 +453,7 @@ public class HooliganDao {
 			pro.setBrandNo(rs.getInt("brand_no"));
 			pro.setClosingDate(rs.getDate("closing_date"));
 			pro.setEmployeeId(rs.getString("employee_id"));
-			pro.setImgPath(rs.getString("image_path"));
+			pro.setMainImagePath(rs.getString("image_path"));
 			pro.setMaximumSize(rs.getInt("maximum_size"));
 			pro.setMinimumSize(rs.getInt("minimum_size"));
 			pro.setOrderState(rs.getInt("order_state"));
@@ -502,7 +502,7 @@ public class HooliganDao {
 			pstmt.setInt(11, product.getTypeNo());
 			pstmt.setInt(12, product.getBrandNo());
 			pstmt.setString(13, product.getEmployeeId());
-			pstmt.setString(14, product.getImgPath());
+			pstmt.setString(14, product.getMainImagePath());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -531,7 +531,7 @@ public class HooliganDao {
 			}
 			return null;
 		}
-		//싱픔종류별 검색 //잘모르겠음
+		//상픔종류별 검색 //잘모르겠음
 		public ArrayList<Product> searchOfKind(Connection conn,Type type) {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -1025,6 +1025,41 @@ public class HooliganDao {
 				}JdbcUtil.close(pstmt, rs);
 				
 				return 0;
+			}
+			//제품등록번호가져오기
+			public int maxPno(Connection conn) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(EmpSql.registerProductMaxNo);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return 0;
+			}
+			public ArrayList<HashMap<String, Object>> productSort(Connection conn) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				ArrayList<HashMap<String, Object>> list=new ArrayList<>();
+				try {
+					pstmt=conn.prepareStatement(EmpSql.selectProductSort);
+					rs=pstmt.executeQuery();
+					while(rs.next()){
+						HashMap<String, Object> map=new HashMap<>();
+						map.put("type_no", rs.getInt("type_no"));
+						map.put("type_name", rs.getString("type_name"));
+						list.add(map);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				return null;
 			}
 		
 	
