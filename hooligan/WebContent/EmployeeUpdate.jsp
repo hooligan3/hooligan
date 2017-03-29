@@ -196,7 +196,7 @@
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/employee/productRegister/" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->

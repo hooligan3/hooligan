@@ -1,15 +1,18 @@
 package com.icia.util;
 
-import java.io.File;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
+import javax.servlet.http.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.*;
 import org.apache.commons.fileupload.*;
 
 import org.apache.commons.fileupload.disk.*;
 import org.apache.commons.fileupload.servlet.*;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.icia.vo.*;
 import com.icia.vo.Brand;
 import com.icia.vo.BrandProduct;
 import com.icia.vo.Customer;
@@ -150,4 +153,21 @@ public class MappingUtil {
 	public static Product makeRegisterProduct(HttpServletRequest req, int maxProduct) {
 		return null;
 	}
+	
+	public static Notice getNoticeMaker(HttpServletRequest req, int noticeArticleNo){
+		Notice notice = new Notice();
+		notice.setNoticeArticleNo(noticeArticleNo);
+		notice.setTitle(req.getParameter("title"));
+		notice.setContent(req.getParameter("content"));
+		return notice;
+	}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	

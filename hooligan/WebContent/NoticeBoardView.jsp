@@ -48,6 +48,52 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+	/*
+	  <thead id="notice">
+				                    <tr>
+										<th style="text-align: center;">1(글번호)</th>
+										<th style="text-align: center;">유앤미 카페에 어서오세요</th>
+										<th style="text-align: center;">조회수(1167)  </th>
+									</tr>
+                  					  </thead>
+	*/
+	
+	var result = <%=request.getAttribute("result")%>
+	var pageNo = <%= request.getParameter("pageNo") %>;
+	
+	$(function(){
+		
+		
+		var str = "<tr><th style='text-align: center;'>"+result.noticeArticleNo+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.title+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.noticeDate+"</th><tr>";
+		$("#notice").append(str);
+		
+		var str2 = result.content;
+		$("#content").append(str2);
+		
+		
+		/*$("#pagination").on("click","#list", function() {
+			location.href='list?pageNo=' + pageNo;
+		});	
+		var pagination = $("#pagination");
+		pagination.append("<button id='update'>내용 수정</button>");
+		pagination.append("<button id='list'>리스트로</button>");
+		
+		
+		<button data-loading-text="Loading..." class="btn btn-default btn-lg" >이전으로</button>
+		*/
+		
+		$("#back").on("click","#list",function(){
+			location.href='list?pageNo='+pageNo;
+		});
+		$("#back").on("click","#update", function() {
+			location.href='update?notice_article_no=' + result.noticeArticleNo;
+		});	
+		var back = $("#back");
+		back.append("<input type='submit' value='이전으로'data-loading-text='Loading...' class='btn btn-default btn-lg' id='list'>")
+		back.append("<input type='submit' value='내용수정'data-loading-text='Loading...' class='btn btn-default btn-lg' id='update'>")
+	})
 	
 </script>
 </head>
@@ -180,16 +226,12 @@
 							<br><br>
 						
 							
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px;"><h3><i class="fa fa-laptop"></i>
 							
 							     공지사항</h3>
               				  			<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-										<th style="text-align: center;">1(글번호)</th>
-										<th style="text-align: center;">유앤미 카페에 어서오세요</th>
-										<th style="text-align: center;">조회수(1167)  </th>
-									</tr>
+				                    <thead id="notice">
+				                    
                   					  </thead>
                    
 
@@ -201,8 +243,10 @@
               		   <div class="col-lg-10 col-md-10 col-sm-10">
               		   <br>
               		   <p style="max-height: 700px; min-height: 250px;">
-              		   유앤미 카페에 어서오세요 당신을 환영합니다 유앤미 카페에 어서오세요 당신을 환영합니다 유앤미 카페에 어서오세요 당신을 환영합니다 유앤미 카페에 어서오세요 당신을 환영합니다 유앤미 카페에 어서오세요 당신을 환영합니다
-							
+              		   
+              		   <spen id="content">
+              		   
+						</spen>
 							</p>
 							
 							
@@ -213,7 +257,10 @@
               		   </div>	
               		   
               		   <div class="col-lg-11 col-md-11 col-sm-11">
-              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="이전으로">
+              		   <div id="back">
+              		   	
+              		   </div>
+              		   		 
               		   </div> 
               		   <br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
               		   <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="다음 글">

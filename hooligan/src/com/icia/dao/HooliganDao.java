@@ -637,10 +637,8 @@ public class HooliganDao {
 
 		try {
 			pstmt = conn.prepareStatement(NoticeSql.insertNotice);
-			pstmt.setInt(1, notice.getNoticeArticleNo());
-			pstmt.setString(2, notice.getTitle());
-			pstmt.setString(3, notice.getContent());
-			pstmt.setDate(4, notice.getNoticeDate());
+			pstmt.setString(1, notice.getTitle());
+			pstmt.setString(2, notice.getContent());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -655,7 +653,7 @@ public class HooliganDao {
 	public int updateNotice(Connection conn, Notice notice) {
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = conn.prepareStatement(NoticeSql.insertNotice);
+			pstmt = conn.prepareStatement(NoticeSql.updateNotice);
 			pstmt.setString(1, notice.getTitle());
 			pstmt.setString(2, notice.getContent());
 			pstmt.setInt(3, notice.getNoticeArticleNo());
@@ -727,6 +725,28 @@ public class HooliganDao {
 		}return 0;
 		
 		
+	}
+	// 공지사항 뷰
+	public Notice noticeView(Connection conn, int notice_article_no){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.NoticeView);
+			pstmt.setInt(1, notice_article_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				Notice notice = new Notice();
+				notice.setNoticeArticleNo(rs.getInt("notice_article_no"));
+				notice.setTitle(rs.getString("title"));
+				notice.setContent(rs.getString("content"));
+				notice.setNoticeDate(rs.getDate("notice_date"));
+				return notice;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
 	}
 	//////////////////////////////////////////////////////////////////////
 	// 자유게시판

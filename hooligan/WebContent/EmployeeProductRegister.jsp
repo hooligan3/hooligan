@@ -7,6 +7,7 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
+<%ArrayList<HashMap<String,Object>> result=(ArrayList<HashMap<String,Object>>)request.getAttribute("result") ;%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,6 @@
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-<%ArrayList<HashMap<String,Object>> result=(ArrayList<HashMap<String,Object>>)request.getAttribute("result") ;%>
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
@@ -240,7 +240,7 @@
 								<table>
 									<tbody>
 										<tr><td><input type="text"  name="product_name"></td></tr>
-										<tr><td><select name="product_type">
+										<tr><td><select name="type_no">
 										<%for(HashMap<String,Object> map:result){ %>
 										<option value="<%=map.get("type_no")%>"><%=map.get("type_name") %></option>
 										<%} %>

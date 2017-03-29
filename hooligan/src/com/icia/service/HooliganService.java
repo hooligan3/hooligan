@@ -194,6 +194,91 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return result;
 	}
+	//공지사항 등록
+	public String insertNotice(HttpServletRequest req){
+		Connection conn= JdbcUtil.getConnection();
+		Notice notice = new Notice();
+		notice.setTitle(req.getParameter("title"));
+		notice.setContent(req.getParameter("content"));
+		
+		int result = dao.insertNotice(conn, notice);		
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+		
+	}
+	//공지사항 뷰
+	public String noticeView(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		Notice notice = dao.noticeView(conn, Integer.parseInt(req.getParameter("notice_article_no")));
+		JdbcUtil.close(conn);
+		return new Gson().toJson(notice);
+	}
+	//공지사항 수정 GET
+	public String noticeUpdateStart(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		Notice notice = dao.noticeView(conn, Integer.parseInt(req.getParameter("notice_article_no")));
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("notice", notice);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+		
+	}
+	//공지사항 수정 POST
+	public String noticeUpdateEnd(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		Notice notice = new Notice();
+		System.out.println(req.getParameter("noticeArticleNo"));
+		System.out.println(req.getParameter("content"));
+		System.out.println(req.getParameter("title"));
+		
+		int noticeArticleNo = Integer.parseInt(req.getParameter("noticeArticleNo"));
+																 
+	
+		int result = dao.updateNotice(conn, MappingUtil.getNoticeMaker(req, noticeArticleNo));
+		
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	
+	//공지사항 삭제
+	public String noticeDelete(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		Notice notice = new Notice();
+		System.out.println(req.getParameter("noticeArticleNo"));
+		int noticeArticleNo = Integer.parseInt(req.getParameter("noticeArticleNo"));
+		
+		int result = dao.deleteNotice(conn, noticeArticleNo);
+		
+		JsonObject ob = new JsonObject();
+		
+		if(result==0) ob.addProperty("result", "fail");
+		else ob.addProperty("result", "success");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

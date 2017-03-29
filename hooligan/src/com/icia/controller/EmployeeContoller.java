@@ -180,7 +180,6 @@ public class EmployeeContoller {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
 			ArrayList<HashMap<String, Object>> result=service.employeeProductRegisterStart(req);
-			System.out.println("들어왓냐??");
 			mav.addObject("result", result);
 			mav.setView("/EmployeeProductRegister.jsp");
 			return mav;

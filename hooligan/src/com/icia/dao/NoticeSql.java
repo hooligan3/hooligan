@@ -14,6 +14,9 @@ public interface NoticeSql {
 		// 자유게시판댓글 수정
 		public String deleteFreeReple = "delete from free_reple where free_reple_no=?";
 		// 자유게시판댓글 삭제
+		public String FreeList = "";
+		public String countFree ="";
+	
 		
 		// 공지게시판
 		public String insertNotice = "insert into notice values(seq_notice.nextval,?,?,sysdate)";
@@ -27,4 +30,6 @@ public interface NoticeSql {
 		public String NoticeList = "select t2.* from (select rownum rnum, t1.* from (select notice_article_no,title,content,notice_Date from notice order by NOTICE_ARTICLE_NO) t1) t2 where rnum between ? and ?";
 		
 		public String countNotice = "select count(*) from notice";
+		//공지사항 게시판 조회
+		public String NoticeView = "select * from notice where notice_article_no=?";
 }
