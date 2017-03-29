@@ -126,6 +126,10 @@
                       <input type="text" class="form-control" id="phone_number" name="tell" placeholder="전화번호를 입력해주세요">
                   </div>
                   <div class="form-group">
+                      <label for="postal_no">우편번호</label>
+                      <input type="text" class="form-control" id="postal_no" name="postal_no" placeholder="우편번호를 입력해주세요">
+                  </div>
+                  <div class="form-group">
                       <label for="address">주소</label>
                       <input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력해주세요">
                   </div>

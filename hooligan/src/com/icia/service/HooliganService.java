@@ -126,19 +126,40 @@ public class HooliganService {
 		return new Gson().toJson(ob);
 		
 	}
-	//고객등록1단계
+	//직원등록1단계
 	public int employeeRegisterEnd(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
-		System.out.println("여기까지왓다매");
 		int maxBrand=dao.maxBrandNo(conn);
 		int result=dao.insertEmployee(conn, MappingUtil.makeEmployee(req,maxBrand));
+		System.out.println("결과가모냐고 시발년아"+result);
 		JdbcUtil.close(conn);
 		return 0;
-	}//고객등록2단계
+	}//직원등록2단계
 	public void employeeRegisterEnd2(HttpServletRequest req) {
-		
-	}//고객등록3단계
+		Connection conn=JdbcUtil.getConnection();
+		int maxBrand=dao.maxBrandNo(conn);
+		System.out.println("시발년아들어와라"+req.getParameter("imagepath"));
+		Brand b=(Brand)MappingUtil.makeBrand(req,maxBrand);
+		System.out.println(b.toString());
+		int result=dao.insertEmployee2(conn,b);
+		JdbcUtil.close(conn);
+	}//직원등록3단계
 	public String employeeRegisterEnd3(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		int maxBrand=dao.maxBrandNo(conn);
+		int maxProduct=dao.maxProductNo(conn);
+		BrandProduct b=(BrandProduct)MappingUtil.makeBrandProduct(req,maxBrand,maxProduct);
+		int result=dao.insertEmployee3(conn,b);
+		JdbcUtil.close(conn);
+		JsonObject ob=new JsonObject();
+		if(result==0){
+		ob.addProperty("result","회원등록에 실패했습니다" );
+		}else ob.addProperty("result", "회원가입되었습니다");
+		return  new Gson().toJson(ob);
+	}
+	//직원업데이트
+	public Employee employeeUpdateEnd(HttpServletRequest req) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 	//공지사항 게시글
@@ -159,6 +180,7 @@ public class HooliganService {
 		
 		
 	}
+<<<<<<< HEAD
 	//공지사항 등록
 	public String insertNotice(HttpServletRequest req){
 		Connection conn= JdbcUtil.getConnection();
@@ -230,6 +252,9 @@ public class HooliganService {
 		
 		return new Gson().toJson(ob);
 	}
+=======
+
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 }
 
 

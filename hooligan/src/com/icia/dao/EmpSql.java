@@ -2,20 +2,21 @@ package com.icia.dao;
 
 public interface EmpSql {
 	// 직원 회원가입
-		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,seq_brand_no.nextval,?)";
+		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		public String maxBrandNo="select max(brand_no) from brand";
+		public String maxProductNo="select max(product_no)from brand_product";
 		
 		// 브랜드 등록(직원 회원가입)
-		public String insertBrand = "insert into brand values(seq_employee.nextval,?,?,?)";
+		public String insertBrand = "insert into brand values(?,?,?,?,?)";
 		
 		// 미리보기 상품 등록(직원 회원가입)
-		public String insertPreProduct ="insert into brand_product values(seq_brand.nextval,?,?,?,?,?,?,?)";
+		public String insertPreProduct ="insert into brand_product values(?,?,?,?,?)";
 		
 		//브랜드 대표이미지 등록(직원 회원가입)
 		public String insertBrandImg = "insert into brand_image values(?,?);";
 		
 		//로그인
-		public String employeelogin = "select e.* from employee e where employee_id=? and employee_pwd=?";
+		public String employeelogin = "select e.* from employee e where e.employee_id=? and e.employee_pwd=? and active=1";
 		
 		//직원 주소 조회
 		public String selecAddressOfEmployee = "select postal_no, address from employee where employee_id=?";
