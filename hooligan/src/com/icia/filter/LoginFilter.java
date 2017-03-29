@@ -10,12 +10,15 @@ import javax.servlet.http.*;
 import com.icia.vo.Customer;
 
 
-@WebFilter({"/customer/*,/admin/*,/product/*,/employee/*"  })
+@WebFilter({"/customer/*,/employee/*,/product/*,/admin/*"  })
 public class LoginFilter implements Filter {
 	// 로그인 없이 접근할 수 있는 경로를 지정
 	private ArrayList<String> whiteList = new ArrayList<>();
     public LoginFilter() {
+    	//hooligan/main/selectLogin
     	
+    	whiteList.add("/hooligan/main/selectLogin");
+    	whiteList.add("/hooligan/employee/login");
     	whiteList.add("/hooligan/indexdddd.html");
     	whiteList.add("/hooligan/main/index");
     	whiteList.add("/hooligan/customer/login");

@@ -198,19 +198,19 @@
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductRegister.jsp" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductList.jsp" class="btn btn-block btn-default">내 상품조회</a>
+									<a href="/hooligan/employee/productList" class="btn btn-block btn-default">내 상품조회</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeRefund.jsp" class="btn btn-block btn-default">포인트 환급하기</a>
+									<a href="/hooligan/employee/refund" class="btn btn-block btn-default">포인트 환급하기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
@@ -228,8 +228,8 @@
 									<tr><td>상품 종류</td></tr>
 									<tr><td>최소수량</td></tr>
 									<tr><td>최대수량</td></tr>
-									<tr><td>마감일</td></tr>
 									<tr><td>판매 가격</td></tr>
+									<tr><td>마감일</td></tr>
 									<tr><td>상품 내용</td></tr>
 									
 								</tbody>
@@ -247,10 +247,9 @@
 										</select></td></tr>
 										<tr><td><input type="text"  name="minimum_size"></td></tr>
 										<tr><td><input type="text"  name="maximum_size"></td></tr>
-										<tr><td><input type="date" name="closing_date" ></td></tr>
 										<tr><td><input type="text"  name="price"></td></tr>
-										<tr><td><textarea rows="4" cols="3" style="width:180px;" name="product_content"></textarea></td></tr>
-										
+										<tr><td><input type="date" name="closing_date" ></td></tr>
+										<tr><td><textarea rows="4" cols="3" style="width:180px;" name="product_content"></textarea></td></tr>	
 									</tbody>
 								</table>
 							</div>
@@ -260,6 +259,7 @@
 
 										<tr><td>상품 이미지</td></tr>
 										<tr><td>제품 상세 이미지</td></tr>
+										<tr><td>제품 상세 내용</td></tr>
 
 									</tbody>
 								</table>
@@ -269,7 +269,7 @@
 									<tbody>
 										<tr><td><input type="file" name="main_image_path" ></td></tr>
 										<tr><td><input type="file"  name="image_path"></td></tr>
-										
+										<tr><td><textarea rows="4" cols="3" style="width:180px;" name="detailcontent"></textarea></td></tr>
 										</tbody>
 								</table>
 								<br><br><br><br><br><br><br>

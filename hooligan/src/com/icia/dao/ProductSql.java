@@ -2,7 +2,7 @@ package com.icia.dao;
 
 public interface ProductSql {
 	//제품등록
-	public  String insertProduct= "insert into product values(?,?,?,?,?,?,?,sysdate,sysdate,1,10,'qwelsmmin',1)";
+	public  String insertProduct= "insert into product values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	//제품명검색
 	public String searchOfProduct="select p.*,m.* from product p,main_image m where p.product_no=m.product_no and p.product_name=?";
 	//상품종류별검색

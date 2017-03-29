@@ -484,7 +484,7 @@ public class HooliganDao {
 			e.printStackTrace();
 		}return null;
 	}
-	//제품 등록
+	//직원제품 등록
 	public int insertProduct(Connection conn,Product product){
 		PreparedStatement pstmt = null;
 		try {
@@ -499,10 +499,12 @@ public class HooliganDao {
 			pstmt.setDate(8, product.getRegistrationDate());
 			pstmt.setDate(9, product.getClosingDate());
 			pstmt.setInt(10,product.getOrderState());
-			pstmt.setInt(11, product.getTypeNo());
-			pstmt.setInt(12, product.getBrandNo());
-			pstmt.setString(13, product.getEmployeeId());
-			pstmt.setString(14, product.getMainImagePath());
+			pstmt.setString(11, product.getMainImagePath());
+			pstmt.setInt(14, product.getTypeNo());
+			pstmt.setString(15, product.getEmployeeId());
+			pstmt.setInt(16, product.getBrandNo());
+			pstmt.setString(12, product.getDetailImagePath());
+			pstmt.setString(13, product.getDetailContent());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -1061,6 +1063,7 @@ public class HooliganDao {
 				}
 				return 0;
 			}
+			//상품등록시 종류가져오기
 			public ArrayList<HashMap<String, Object>> productSort(Connection conn) {
 				PreparedStatement pstmt=null;
 				ResultSet rs=null;

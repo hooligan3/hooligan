@@ -82,7 +82,6 @@ public class EmployeeContoller {
 			ModelAndView mav=new ModelAndView();
 			service.employeeRegisterEnd(req);
 			mav.setView("/hooligan/employee/register2");
-			mav.setRedirect();
 			 return mav;
 
 		}
@@ -149,17 +148,16 @@ public class EmployeeContoller {
 			 session.removeAttribute("employee");
 			 session.setAttribute("employee", employee);
 			mav.setView("/hooligan/employee/update");
-			mav.setRedirect();
 			return mav;
 		}
-		//직원삭제하기폼으로
+		//직원탈퇴하기폼으로
 		@RequestMapping(value="/employee/delete",method="GET")
 		public static ModelAndView customerDeleteStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/CustomerDelete.jsp");
 			return mav;
 		}
-		//직원삭제하기
+		//직원탈퇴하기
 		@RequestMapping(value="/employee/delete",method="POST")
 		public static ModelAndView customerDeleteEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
@@ -190,8 +188,36 @@ public class EmployeeContoller {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
-			mav.setView("/employee/productList");
+			mav.setView("/hooligan/employee/productList");
 			return mav;
 		}
-	
+		//직원상품리스트폼으로
+		@RequestMapping(value="/employee/productList",method="GET")
+		public static ModelAndView employeeProductListStart(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			service.employeeProductRegister(req);
+			ModelAndView mav=new ModelAndView();
+			mav.setView("/EmployeeProductList.jsp");
+			return mav;
+		}
+		//주문한회원조회리스트
+		
+		//직원환급하기폼으로
+		@RequestMapping(value="/employee/refund",method="GET")
+		public static ModelAndView employeeRefundStart(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			service.employeeProductRegister(req);
+			ModelAndView mav=new ModelAndView();
+			mav.setView("/EmployeeRefund.jsp");
+			return mav;
+		}
+		//직원환급하기
+		@RequestMapping(value="/employee/refund",method="POST")
+		public static ModelAndView employeeRefundEnd(HttpServletRequest req){
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			service.employeeProductRegister(req);
+			ModelAndView mav=new ModelAndView();
+			mav.setView("/hooligan/employee/refund");
+			return mav;
+		}
 }

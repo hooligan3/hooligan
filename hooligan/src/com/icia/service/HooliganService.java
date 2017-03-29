@@ -38,6 +38,7 @@ public class HooliganService {
 		  JdbcUtil.close(conn);
 		  return result;
 	}
+	
 	//회원등록
 	public int customerInsert(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
@@ -79,6 +80,35 @@ public class HooliganService {
 		return result;
 		
 	}
+	//회원아이디찾기
+		public Object customerSeachId(HttpServletRequest req) {
+			System.out.println("들어왓냐이년아");
+			Connection conn=JdbcUtil.getConnection();
+			HashMap<String, String> map=new HashMap<>();
+		
+			System.out.println("두번쨰"+req.getParameter("ssn1"));
+			map.put("ssn1", req.getParameter("ssn1"));
+			map.put("ssn2", req.getParameter("ssn2"));
+			JsonObject ob=new JsonObject();
+			String customerId=dao.customerSeachId(conn,map);
+			ob.addProperty("result", customerId);
+			JdbcUtil.close(conn);
+			return new Gson().toJson(ob);
+		}
+		//회원패스워드찾기
+		public Object customerSeachPwd(HttpServletRequest req) {
+			Connection conn=JdbcUtil.getConnection();
+			HashMap<String, String> map=new HashMap<>();	
+			map.put("ssn1", req.getParameter("ssn1"));
+			map.put("ssn2", req.getParameter("ssn2"));
+			map.put("customer_id", req.getParameter("customer_id"));
+			JsonObject ob=new JsonObject();
+			String customerPwd=dao.customerSeachPwd(conn,map);
+			ob.addProperty("result", customerPwd);
+			JdbcUtil.close(conn);
+			return new Gson().toJson(ob);
+			
+		}
 	//!!!!!!!!!!!!!!!여기까지 회원!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//직원로그인하기
 	public Employee EmployeeLogin(HttpServletRequest req) {
@@ -96,36 +126,7 @@ public class HooliganService {
 	
 	}
 
-//아이디 찾기
-	public Object customerSeachId(HttpServletRequest req) {
-		System.out.println("들어왓냐이년아");
-		Connection conn=JdbcUtil.getConnection();
-		HashMap<String, String> map=new HashMap<>();
-	
-		System.out.println("두번쨰"+req.getParameter("ssn1"));
-		map.put("ssn1", req.getParameter("ssn1"));
-		map.put("ssn2", req.getParameter("ssn2"));
-		JsonObject ob=new JsonObject();
-		String customerId=dao.customerSeachId(conn,map);
-		ob.addProperty("result", customerId);
-		JdbcUtil.close(conn);
-		return new Gson().toJson(ob);
-	}
-	public Object customerSeachPwd(HttpServletRequest req) {
-		Connection conn=JdbcUtil.getConnection();
-		HashMap<String, String> map=new HashMap<>();
-	
-		
-		map.put("ssn1", req.getParameter("ssn1"));
-		map.put("ssn2", req.getParameter("ssn2"));
-		map.put("customer_id", req.getParameter("customer_id"));
-		JsonObject ob=new JsonObject();
-		String customerPwd=dao.customerSeachPwd(conn,map);
-		ob.addProperty("result", customerPwd);
-		JdbcUtil.close(conn);
-		return new Gson().toJson(ob);
-		
-	}
+
 	//직원등록1단계
 	public int employeeRegisterEnd(HttpServletRequest req){
 		Connection conn=JdbcUtil.getConnection();
@@ -162,11 +163,21 @@ public class HooliganService {
 	
 		return null;
 	}
+	//직원상품등록 종류가져오기
+		public ArrayList<HashMap<String, Object>> employeeProductRegisterStart(HttpServletRequest req) {
+			Connection conn=JdbcUtil.getConnection();
+			System.out.println("들어왓습니까??");
+			ArrayList<HashMap<String, Object>> result=dao.productSort(conn);
+			JdbcUtil.close(conn);
+			return result;
+		}
 	//직원상품등록하기
 	public void employeeProductRegister(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
 		int maxProduct=dao.maxPno(conn);
 		Product p=(Product)MappingUtil.makeRegisterProduct(req,maxProduct);
+		dao.insertProduct(conn, p);
+		JdbcUtil.close(conn);
 	}
 
 	//공지사항 게시글
@@ -186,13 +197,6 @@ public class HooliganService {
 		return new Gson().toJson(map);
 		
 		
-	}//직원상품등록 종류가져오기
-	public ArrayList<HashMap<String, Object>> employeeProductRegisterStart(HttpServletRequest req) {
-		Connection conn=JdbcUtil.getConnection();
-		System.out.println("들어왓습니까??");
-		ArrayList<HashMap<String, Object>> result=dao.productSort(conn);
-		JdbcUtil.close(conn);
-		return result;
 	}
 	//공지사항 등록
 	public String insertNotice(HttpServletRequest req){

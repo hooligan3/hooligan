@@ -22,6 +22,7 @@ public class Product {
 	private String mainImagePath;
 	private String detailContent;
 	private String detailImagePath;
+		
 	
 	
 	
