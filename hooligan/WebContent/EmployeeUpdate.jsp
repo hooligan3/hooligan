@@ -259,6 +259,7 @@
 										<tr><td>브랜드 명</td></tr>
 										<tr><td>회사 연락처</td></tr>
 										<tr><td>브랜드 로고</td></tr>
+										<tr><td>변경할 로고</td></tr>
 										
 									</tbody>
 								</table>
@@ -268,13 +269,13 @@
 									<tbody>
 										<tr><td><%=emp.getBrandName() %></td></tr>
 										<tr><td><input type="text"  name="company_tell" value="<%= emp.getCompanyTell()%>"></td></tr>
-										<tr><td> <img src="/hooligan/brand/brandimg/<%=emp.getImage_path()%>" alt=""  width="250px" height="250px"></td></tr>
+										<tr><td> <img src="/hooligan/brand/brandimg/<%=emp.getImage_path()%>" alt=""  width="200px" height="200px"></td></tr>
 										<tr><td><input type="file" name="brand_image" ></td></tr>
 										
 									</tbody>
 								</table>
 								<br><br><br><br><br><br><br>
-								<button class="btn btn-default btn-lg btn-block" type="button"> 
+								<button type="submit" class="btn btn-default btn-lg btn-block" > 
 							<i class="fa fa-rocket"></i> 수정하기</button>
 							</div>
                             

@@ -332,7 +332,24 @@ public class HooliganDao {
 		} finally {
 			JdbcUtil.close(pstmt, null);
 		}
-		return -1;
+		return 0;
+	}
+	//직원업데이트(브랜드분야)
+	public int updateBrand(Connection conn, Brand b) {
+		PreparedStatement pstmt=null;
+		try {
+			pstmt=conn.prepareStatement(EmpSql.updateBrand);
+			pstmt.setString(1, b.getBrandName());
+			pstmt.setString(2, b.getBrandContent());
+			pstmt.setString(3, b.getCompanyTell());
+			pstmt.setString(4, b.getImagePath());
+			pstmt.setInt(5, b.getBrandNo());
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 	// 직원탈퇴 DeleteEmployee
@@ -1181,6 +1198,7 @@ public class HooliganDao {
 				}
 				return null;
 			}
+	
 		
 	
 }

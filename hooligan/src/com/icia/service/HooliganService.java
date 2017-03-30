@@ -172,9 +172,16 @@ public class HooliganService {
 		return  new Gson().toJson(ob);
 	}
 	//직원업데이트
-	public Employee employeeUpdateEnd(HttpServletRequest req) {
-	
-		return null;
+	public String employeeUpdateEnd(HttpServletRequest req) {
+	Connection conn=JdbcUtil.getConnection();
+	Brand b=MappingUtil.updateBrand(req);
+	Employee e=MappingUtil.updateEmployee(req);
+	int resultE=dao.updateEmployee(conn, e);
+	int resultB=dao.updateBrand(conn,b);
+	String result=null;
+	if(resultB==0||resultE==0) result="업데이트에 실패했습니다"; 
+	JdbcUtil.close(conn);
+		return new Gson().toJson(result);
 	}
 	//직원상품등록 종류가져오기
 		public ArrayList<HashMap<String, Object>> employeeProductRegisterStart(HttpServletRequest req) {

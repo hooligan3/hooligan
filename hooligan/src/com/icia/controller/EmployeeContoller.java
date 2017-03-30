@@ -144,11 +144,9 @@ public class EmployeeContoller {
 		public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			Employee employee=service.employeeUpdateEnd(req);
-			 HttpSession session = req.getSession();
-			 session.removeAttribute("employee");
-			 session.setAttribute("employee", employee);
-			mav.setView("/hooligan/employee/update");
+			service.employeeUpdateEnd(req);
+			mav.setView("/hooligan/main/index");
+			mav.setRedirect();
 			return mav;
 		}
 		//직원탈퇴하기폼으로

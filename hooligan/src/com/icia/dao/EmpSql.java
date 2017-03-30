@@ -41,7 +41,7 @@ public interface EmpSql {
 		public String updatePreProduct ="update brand_product set product_name=?, product_content=?, product_price=?, image_path=?, maximum_size=?, minimum_size=? where product_no=?";
 		
 		//브랜드 수정(직원 마이페이지)
-		public String updateBrand ="update brand set brand_name=?, brand_content=?, company_tell=? where brand_no=?";
+		public String updateBrand ="update brand set brand_name=?, brand_content=?, company_tell=?,image_path=? where brand_no=?";
 		
 		//주문한 회원목록 조회
 		public String selectCustomerByorder = "select t2.* from (select rownum rnum, t1.* from (select customer_id, order_date, order_price, postal_no, address, order_size from product_order where product_no=?) t1 ) t2 where rnum between ? and ?";

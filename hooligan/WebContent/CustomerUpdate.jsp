@@ -217,7 +217,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg"style="padding-left: 50px; padding-right: 50px; height: 285px; padding-top: 10px;"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
-							<form action="/hooligan/customer/update" method="POST">
+							<form action="/hooligan/customer/update" method="POST" >
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -225,7 +225,7 @@
 									
 									<tr><td>이름</td></tr>
 									<tr><td>아이디</td></tr>
-									<tr><td>생년월일</td></tr>
+									<tr><td>주민번호</td></tr>
 									<tr><td>비밀번호</td></tr>
 									<tr><td>이메일</td></tr>
 									<tr><td>연락처</td></tr>
