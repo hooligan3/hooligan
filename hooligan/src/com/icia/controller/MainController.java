@@ -14,12 +14,13 @@ public class MainController {
 	@RequestMapping(value="/main/index",method="GET")
 	public static ModelAndView main(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		
 		ModelAndView mav=new ModelAndView();
 		mav.setView("/Main.jsp");
 	return mav;
 	}
-	
 
+	
 	@RequestMapping(value="/employee/register",method="POST")
 	public static ModelAndView employeeRegisterEnd(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");

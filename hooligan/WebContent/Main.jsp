@@ -193,6 +193,7 @@
 
 
 
+
 <section class="wrapper">
 
     <!--=====================최신등록 상품 시작======================-->
@@ -218,11 +219,11 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="/hooligan/images/portfolio/portfolio_1.png" alt="" class="img-responsive">
+                                <img src="/hooligan/employees/productImg/llove-519985900717872.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                    <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
+                                    <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image">1</a>
                                 </div>
                             </figure>
                         </li>
@@ -230,7 +231,7 @@
                         <!-- Recent Work Item -->
                         <li class="col-sm-3 col-md-3 col-lg-3">
                             <figure class="touching effect-bubba">
-                                <img src="/hooligan/images/portfolio/portfolio_2.png" alt="" class="img-responsive">
+                                <img src="/hooligan/employees/productImg/llove-519985900717872.png" alt="" class="img-responsive">
 
                                 <div class="option">
                                     <a href="portfolio_single.html" class="fa fa-link"></a>

@@ -9,7 +9,7 @@ public interface EmpSql {
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(?,?,?,?,?)";
 		//상품종류가져오기(상품등록)
-		public String selectProductSort="select *from type ";
+		public String selectProductSort="select *from type order by type_no";
 		// 미리보기 상품 등록(직원 회원가입)
 		public String insertPreProduct ="insert into brand_product values(?,?,?,?,?)";
 		

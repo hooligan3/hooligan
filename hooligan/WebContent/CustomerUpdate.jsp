@@ -215,7 +215,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
+							<div class="well well-lg"style="padding-left: 50px; padding-right: 50px; height: 285px; padding-top: 10px;"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
 							<form action="/hooligan/customer/update" method="POST">
 							
@@ -277,7 +277,7 @@
 									</tbody>
 								</table>
 							
-							<br><br><br><br>
+							<br><br><br>
 							<button class="btn btn-default btn-lg btn-block" type="submit"> 
 							<i class="fa fa-rocket"></i> 수정하기</button>
                             </div>

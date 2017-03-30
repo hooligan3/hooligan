@@ -189,13 +189,14 @@ public class EmployeeContoller {
 			service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/hooligan/employee/productList");
+			mav.setRedirect();
 			return mav;
 		}
 		//직원상품리스트폼으로
 		@RequestMapping(value="/employee/productList",method="GET")
 		public static ModelAndView employeeProductListStart(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
-			service.employeeProductRegister(req);
+			//service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/EmployeeProductList.jsp");
 			return mav;

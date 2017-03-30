@@ -214,7 +214,7 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
+							<div class="well well-lg" style="padding-left: 50px; padding-right: 50px; height: 360px; padding-top: 10px;"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
 							<form action="update" method="post">
 							
@@ -230,7 +230,8 @@
 									<tr><td>보유포인트</td></tr>
 									<tr><td>이메일</td></tr>
 									<tr><td>연락처</td></tr>
-									<tr><td>주소</td></tr>
+									<tr><td>우편번호</td></tr>
+									<tr><td>상세주소</td></tr>
 									
 								</tbody>
 							</table>
@@ -239,10 +240,11 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
+										<tr><td>김금명</td></tr>
+										<tr><td>qazwsxo05</td></tr>
+										<tr><td>11111111</td></tr>
 										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
+										<tr><td>100P</td></tr>
 										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="text" ></td></tr>
@@ -256,9 +258,6 @@
 										<tr><td>브랜드 명</td></tr>
 										<tr><td>회사 연락처</td></tr>
 										<tr><td>브랜드 로고</td></tr>
-										<tr><td>상품명</td></tr>
-										<tr><td>상품 이미지</td></tr>
-										<tr><td>상품 소개글</td></tr>
 										
 									</tbody>
 								</table>
@@ -266,15 +265,13 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="text" ></td></tr>
+										<tr><td>나이키</td></tr>
 										<tr><td><input type="text" ></td></tr>
 										<tr><td><input type="file" ></td></tr>
 										
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="file" ></td></tr>
-										<tr><td><textarea rows="4" cols="3" style="width:180px;"></textarea></td></tr>
 									</tbody>
 								</table>
+								<br><br><br><br><br><br><br>
 								<button class="btn btn-default btn-lg btn-block" type="button"> 
 							<i class="fa fa-rocket"></i> 수정하기</button>
 							</div>
