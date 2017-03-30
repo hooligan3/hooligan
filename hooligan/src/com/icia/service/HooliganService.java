@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import com.google.gson.Gson;
@@ -111,18 +112,30 @@ public class HooliganService {
 		}
 	//!!!!!!!!!!!!!!!여기까지 회원!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//직원로그인하기
-	public Employee EmployeeLogin(HttpServletRequest req) {
+	public String EmployeeLogin(HttpServletRequest req) {
 		Connection conn = JdbcUtil.getConnection();
+		HttpSession sesstion=req.getSession();
 		  HashMap<String, String> employee = new HashMap<>();
 		  employee.put("employee_id", req.getParameter("employee_id"));
 		  employee.put("employee_pwd", req.getParameter("employee_pwd"));
 		  System.out.println("아이디는:"+req.getParameter("employee_id")+"비밀번호는:"+req.getParameter("employee_pwd"));
-		  Customer result = null; 
-		  if(null!=dao.EmployeeLogin(conn, employee))
-			 return  dao.EmployeeLogin(conn, employee);
-		  System.out.println("결과값은"+result);
+		  Employee result = null; 
+		  JsonObject ob=new JsonObject();
+		  
+		  if(null!=dao.EmployeeLogin(conn, employee)){
+			Employee emp=dao.EmployeeLogin(conn, employee);
+			int brandNo=emp.getBrandNo();
+			Brand b=dao.BrandselectByBrandNO(conn,brandNo);
+			emp.setBrandContent(b.getBrandContent());
+			emp.setBrandName(b.getBrandName());
+			emp.setCompanyTell(b.getCompanyTell());
+			emp.setImage_path(b.getImagePath());
+			sesstion.setAttribute("employee", emp);
+			
+		  }else 
+			 ob.addProperty("result", "아이디와 비밀번호를 확인하세요");
 		  JdbcUtil.close(conn);
-		  return null;
+		  return new Gson().toJson(ob);
 	
 	}
 
@@ -269,6 +282,20 @@ public class HooliganService {
 		
 		return new Gson().toJson(ob);
 	}
+	//메인화면 최근 제품가져오기
+	public Object mainRecentProduct(HttpServletRequest req) {
+	Connection conn=JdbcUtil.getConnection();
+	ArrayList<Product> p=dao.mainRecentProduct(conn);
+	JdbcUtil.close(conn);
+		return new Gson().toJson(p);
+	}
+	//메인화면에서 인기상품가져오기
+	public Object mainHitProduct(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		ArrayList<Product> p=dao.mainHitProduct(conn);
+		JdbcUtil.close(conn);
+			return new Gson().toJson(p);
+		}
 
 }
 

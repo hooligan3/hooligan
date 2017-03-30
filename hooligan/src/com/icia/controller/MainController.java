@@ -14,8 +14,11 @@ public class MainController {
 	@RequestMapping(value="/main/index",method="GET")
 	public static ModelAndView main(HttpServletRequest req){
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
-		
 		ModelAndView mav=new ModelAndView();
+		mav.addObject("recent", service.mainRecentProduct(req));
+		System.out.println("최신상품값:"+service.mainRecentProduct(req).toString());
+		mav.addObject("hit", service.mainHitProduct(req));
+		System.out.println("인가상품값:"+service.mainHitProduct(req).toString());
 		mav.setView("/Main.jsp");
 	return mav;
 	}

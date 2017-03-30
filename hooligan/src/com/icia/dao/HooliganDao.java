@@ -1084,6 +1084,103 @@ public class HooliganDao {
 				}
 				return null;
 			}
+			//직원로그인시 브랜드를 세션에 넣어주는 역활
+			public Brand BrandselectByBrandNO(Connection conn, int brandNo) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				Brand b=new Brand();
+				try {
+					pstmt=conn.prepareStatement(EmpSql.brandSelectByBrandNo);
+					pstmt.setInt(1, brandNo);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						b.setBrandContent(rs.getString("content"));
+						b.setBrandNo(rs.getInt("brand_no"));
+						b.setBrandName(rs.getString("brand_name"));
+						b.setCompanyTell(rs.getString("company_tell"));
+						b.setImagePath(rs.getString("image_path"));
+						return b;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				
+				
+				return null;
+			}
+			//메인 최근등록상품가져오기
+			public ArrayList<Product> mainRecentProduct(Connection conn) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				ArrayList<Product> list=new ArrayList<>();
+				try {
+					pstmt=conn.prepareStatement(ProductSql.mainRecentProduct);
+					rs=pstmt.executeQuery();
+					while(rs.next()){
+						Product p=new Product();
+						p.setBrandNo(rs.getInt("brand_no"));
+						p.setClosingDate(rs.getDate("closing_date"));
+						p.setEmployeeId(rs.getString("employee_id"));
+						p.setMainImagePath(rs.getString("main_image_path"));
+						p.setMaximumSize(rs.getInt("maximum_size"));
+						p.setMinimumSize(rs.getInt("minimum_size"));
+						p.setOrderState(rs.getInt("order_state"));
+						p.setTypeNo(rs.getInt("type_no"));
+						p.setRegistrationDate(rs.getDate("registration_date"));
+						p.setPresentSize(rs.getInt("present_size"));
+						p.setPrice(rs.getInt("price"));
+						p.setProductNo(rs.getInt("product_no"));
+						p.setProductName(rs.getString("product_name"));
+						p.setProductContent(rs.getString("product_content"));
+						
+						
+						list.add(p);
+						
+					}return list;
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}
+				return null;
+			}
+			//메인 인기상품가져오기
+			public ArrayList<Product> mainHitProduct(Connection conn) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				ArrayList<Product> list=new ArrayList<>();
+				try {
+					pstmt=conn.prepareStatement(ProductSql.mainHitProduct);
+					rs=pstmt.executeQuery();
+					while(rs.next()){
+						Product p=new Product();
+						p.setBrandNo(rs.getInt("brand_no"));
+						p.setClosingDate(rs.getDate("closing_date"));
+						p.setEmployeeId(rs.getString("employee_id"));
+						p.setMainImagePath(rs.getString("main_image_path"));
+						p.setMaximumSize(rs.getInt("maximum_size"));
+						p.setMinimumSize(rs.getInt("minimum_size"));
+						p.setOrderState(rs.getInt("order_state"));
+						p.setTypeNo(rs.getInt("type_no"));
+						p.setRegistrationDate(rs.getDate("registration_date"));
+						p.setPresentSize(rs.getInt("present_size"));
+						p.setPrice(rs.getInt("price"));
+						p.setProductNo(rs.getInt("product_no"));
+						p.setProductName(rs.getString("product_name"));
+						p.setProductContent(rs.getString("product_content"));
+						list.add(p);
+						
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}
+				return null;
+			}
 		
 	
 }

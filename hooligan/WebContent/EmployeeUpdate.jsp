@@ -5,6 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
+<%Employee emp=(Employee)session.getAttribute("employee"); %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,7 +75,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
+								<a href="/hooligan/main/index"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
@@ -216,7 +217,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg" style="padding-left: 50px; padding-right: 50px; height: 360px; padding-top: 10px;"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
-							<form action="update" method="post">
+							<form action="/hooligan/employee/update" method="post" enctype="multipart/form-data" >
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -224,7 +225,7 @@
 									
 									<tr><td>이름</td></tr>
 									<tr><td>아이디</td></tr>
-									<tr><td>생년월일</td></tr>
+									<tr><td>주민번호</td></tr>
 							
 									<tr><td>비밀번호</td></tr>
 									<tr><td>보유포인트</td></tr>
@@ -240,15 +241,15 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td>김금명</td></tr>
-										<tr><td>qazwsxo05</td></tr>
-										<tr><td>11111111</td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td>100P</td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
+										<tr><td><%=emp.getEname() %></td></tr>
+										<tr><td><%=emp.getEmployeeId() %></td></tr>
+										<tr><td><%=emp.getSsn1()%>-<%=emp.getSsn2() %></td></tr>
+										<tr><td><input type="text" name="employee_pwd" value="<%=emp.getEmployeePwd() %>" ></td></tr>
+										<tr><td><%=emp.getPoint1() %></td></tr>
+										<tr><td><input type="text" name="email" value="<%=emp.getEmail()%>"></td></tr>
+										<tr><td><input type="text" name="tell" value="<%=emp.getTell()%>" ></td></tr>
+										<tr><td><input type="text"  name="postal_no" value="<%= emp.getPostalNo()%>"></td></tr>
+										<tr><td><input type="text"  name="address" value="<%=emp.getAddress()%>"></td></tr>
 									</tbody>
 								</table>
 							</div>
@@ -265,9 +266,10 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td>나이키</td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="file" ></td></tr>
+										<tr><td><%=emp.getBrandName() %></td></tr>
+										<tr><td><input type="text"  name="company_tell" value="<%= emp.getCompanyTell()%>"></td></tr>
+										<tr><td> <img src="/hooligan/brand/brandimg/<%=emp.getImage_path()%>" alt=""  width="250px" height="250px"></td></tr>
+										<tr><td><input type="file" name="brand_image" ></td></tr>
 										
 									</tbody>
 								</table>

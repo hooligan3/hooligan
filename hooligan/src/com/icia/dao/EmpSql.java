@@ -5,7 +5,7 @@ public interface EmpSql {
 		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		public String maxBrandNo="select max(brand_no) from brand";
 		public String maxProductNo="select max(product_no)from brand_product";
-		
+		public String brandSelectByBrandNo="select *from brand where brand_no=?";
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(?,?,?,?,?)";
 		//상품종류가져오기(상품등록)

@@ -56,13 +56,13 @@ public class MappingUtil {
 	// 직원가입하기1단계
 	public static Employee makeEmployee(HttpServletRequest req, int maxBrand) {
 		Employee e = new Employee();
-		e.setActive(0);
+		e.setActive(1);
 		e.setAddress(req.getParameter("address"));
 		e.setBrandNo(maxBrand + 1);
 		e.setEmail(req.getParameter("email"));
 		e.setEmployeeId(req.getParameter("employee_id"));
 		e.setEmployeePwd(req.getParameter("employee_pwd"));
-		e.setEname(req.getParameter("employee_name"));
+		e.setEname(req.getParameter("ename"));
 		e.setPoint1(0);
 		e.setPostalNo(Integer.parseInt(req.getParameter("postal_no")));
 		e.setSsn1(req.getParameter("ssn1"));
