@@ -174,10 +174,15 @@ public class HooliganService {
 	//직원업데이트
 	public String employeeUpdateEnd(HttpServletRequest req) {
 	Connection conn=JdbcUtil.getConnection();
-	Brand b=MappingUtil.updateBrand(req);
 	Employee e=MappingUtil.updateEmployee(req);
 	int resultE=dao.updateEmployee(conn, e);
-	int resultB=dao.updateBrand(conn,b);
+	Brand b=new Brand();
+	b.setBrandContent(e.getBrandContent());
+	b.setBrandName(e.getBrandName());
+	b.setBrandNo(e.getBrandNo());
+	b.setCompanyTell(e.getCompanyTell());
+	b.setImagePath(e.getImage_path());
+	int  resultB=dao.updateBrand(conn, b);
 	String result=null;
 	if(resultB==0||resultE==0) result="업데이트에 실패했습니다"; 
 	JdbcUtil.close(conn);
@@ -289,7 +294,6 @@ public class HooliganService {
 		
 		return new Gson().toJson(ob);
 	}
-<<<<<<< HEAD
 	//자유게시판 리스트
 	public String readFreeList(HttpServletRequest req){
 		Connection conn = JdbcUtil.getConnection();
@@ -442,7 +446,6 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
-=======
 	//메인화면 최근 제품가져오기
 	public Object mainRecentProduct(HttpServletRequest req) {
 	Connection conn=JdbcUtil.getConnection();
@@ -457,7 +460,38 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 			return new Gson().toJson(p);
 		}
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
+
+	//직원이 등록한 상품조회
+	public Object employeeProductList(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HttpSession session=req.getSession();
+		Employee emp=(Employee)session.getAttribute("employee");
+		int pageNo=1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo=Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfProduct=dao.employeeSelectCount(conn,emp.getEmployeeId());
+		Pagination pagination=PagingUtil.setPageMaker(pageNo, numberOfProduct);
+		
+		ArrayList<Product> p=dao.productList(conn,emp.getEmployeeId(),pagination.getStartArticle(),pagination.getEndArticle());
+		HashMap<String, Object> map=new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", p);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	//직원삭제하기
+	public String employeeDelete(HttpServletRequest req, String employeeid) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap< String, String> map=new HashMap<>();
+		JsonObject ob=new JsonObject();
+		map.put("employee_Id", employeeid);
+		map.put("employee_pwd", req.getParameter("employee_pwd"));
+		int result=dao.deleteEmployee(conn, map);
+		if(result==0) ob.addProperty("result", "비밀번호를 확인하세요");
+		else ob.addProperty("result", "탈퇴되었습니다");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+	}
 
 }
 

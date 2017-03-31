@@ -193,23 +193,23 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 									<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/employee/update." class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductRegister.jsp" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductList.jsp" class="btn btn-block btn-default">내 상품조회</a>
+									<a href="/hooligan/employee/productList" class="btn btn-block btn-default">내 상품조회</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeRefund.jsp" class="btn btn-block btn-default">포인트 환급하기</a>
+									<a href="/hooligan/employeeRefund" class="btn btn-block btn-default">포인트 환급하기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
@@ -217,7 +217,7 @@
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; height: 625px;"><h3><i class="fa fa-leaf"></i>    내 등록상품 조회</h3>
 						
-							<form action="update" method="post">
+							<form action="update" method="get">
 							
 							<div class="col-lg-12 col-md-12 col-sm-12">
 							
@@ -233,231 +233,13 @@
 						<th></th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                       <td>2014/11/11</td>
-						<td><a href="#">침대</a></td>
-						<td>주문성공</td>
-						<td>2014/11/11</td>
-						<td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>2</td>
-                        <td>The Godfather</td>
-                        <td>1972</td>
-                        <td>9.2</td>
-                        <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>The Godfather: Part II</td>
-                        <td>1974</td>
-                        <td>9.0</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Pulp Fiction</td>
-                        <td>1994</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
-                     <tr>
-                        <td>5</td>
-                        <td>The Good, the Bad and the Ugly</td>
-                        <td>1966</td>
-                        <td>8.9</td>
-                       <td>
-						<a href="/hooligan/EmployeeProductOrderList.jsp" class="btn btn-sm btn-social-facebook">
-						<i class="fa fa-linkedin-square"></i>
-								                    	주문회원
-								         		</a>
-								                <a href="/hooligan/ProductUpdate.jsp" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	수정
-								                </a>
-								                <a href="#" class="btn btn-sm btn-social-facebook">
-								             <i class="fa fa-linkedin-square"></i>
-								                    	삭제
-								                </a>
-								                
-								        </td>
-                    </tr>
+                    <tbody id=productList>
+
                     </tbody>
                 </table>
                  <!--페이징 시작 -->
-                <div class="col-sm-12 text-center">
-                    <ul class="pagination">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
+                <div class="col-sm-12 text-center"  id="pagination" >
+                   
                 </div>
             </div> <!--페이징 끝 -->
 							
@@ -502,8 +284,47 @@
 					<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
 					<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
 					<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript">
 
-
+$(document).ready(function() {
+	var result= <%= request.getAttribute("result") %>
+	var list=result.list;
+	var pagination=result.pagination;
+	$.each(list, function(index, p) {
+		if(p.orderState==0)	p.orderState="주문중";
+		if(p.orderState==1)   p.orderState="주문성공";
+		if(p.orderState==2)   p.orderState="주문완료"
+		if(p.orderState==3)   p.orderState="주문실패"
+		var a=$('<tr></tr>');
+		var productName1=$('<td></td>');
+		var productName2=$("<a href='/hooligan/product/productDetail?productNo="+p.productNo+"'>"+p.productName+"</a>")
+		productName1.append(productName2);
+		var date1=p.closingDate;
+		var date=$('<td></td>');
+		date.append(date1);
+		var regidate=p.registrationDate;
+		var regidate1=$('<td></td>');
+		regidate1.append(regidate);
+		var order1=p.orderState;
+		var orderState=$('<td></td>');
+		orderState.append(order1);
+		var orderFirst=$('<td></td>');
+		var orderList=$("<a href='/hooligan/employee/productOrderList?productNo="+p.productNo+"'>주문회원리스트</a>");
+		orderFirst.append(orderList);
+		a.append(regidate1).append(productName1).append(orderState).append(date);
+		$("#productList").append(a);
+	});
+	$("#pagination").append("<ul class='pagination'></ul>");
+	var p = $("#pagination ul");
+	if (pagination.prev > -1)
+		p.append("<li><a href='productList?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+	for (var i = pagination.startPage; i <= pagination.endPage; i++)
+		p.append("<li><a href='productList?pageNo=" + i + "'>" + i + "</a></li>");
+	if (pagination.next > -1)
+		p.append("<li><a href='productList?pageNo=" + pagination.next + "'>다음으로</a></li>");
+	
+});
+</script>
 					<script type="text/javascript">
 						$(document)
 								.ready(

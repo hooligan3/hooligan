@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.icia.util.JdbcUtil;
+import com.icia.util.MappingUtil;
 import com.icia.vo.Bookmark;
 import com.icia.vo.Brand;
 import com.icia.vo.BrandProduct;
@@ -1298,6 +1299,7 @@ public class HooliganDao {
 					pstmt=conn.prepareStatement(ProductSql.mainHitProduct);
 					rs=pstmt.executeQuery();
 					while(rs.next()){
+						
 						Product p=new Product();
 						p.setBrandNo(rs.getInt("brand_no"));
 						p.setClosingDate(rs.getDate("closing_date"));
@@ -1322,6 +1324,62 @@ public class HooliganDao {
 					JdbcUtil.close(pstmt, rs);
 				}
 				return null;
+			}
+			//직원이 등록한 회원의 제품리스트
+			public ArrayList<Product> productList(Connection conn, String employeeId, int i, int j) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				ArrayList<Product> list=new ArrayList<>();
+				try {
+					pstmt=conn.prepareStatement(EmpSql.productList);
+					pstmt.setInt(2, i);
+					pstmt.setInt(3, j);
+					pstmt.setString(1, employeeId);
+					rs=pstmt.executeQuery();
+					while(rs.next()){
+						Product p=new Product();
+						p.setBrandNo(rs.getInt("brand_no"));
+						p.setClosingDate(rs.getDate("closing_date"));
+						p.setEmployeeId(rs.getString("employee_id"));
+						p.setMainImagePath(rs.getString("main_image_path"));
+						p.setMaximumSize(rs.getInt("maximum_size"));
+						p.setMinimumSize(rs.getInt("minimum_size"));
+						p.setOrderState(rs.getInt("order_state"));
+						p.setTypeNo(rs.getInt("type_no"));
+						p.setRegistrationDate(rs.getDate("registration_date"));
+						p.setPresentSize(rs.getInt("present_size"));
+						p.setPrice(rs.getInt("price"));
+						p.setProductNo(rs.getInt("product_no"));
+						p.setProductName(rs.getString("product_name"));
+						p.setProductContent(rs.getString("product_content"));
+						list.add(p);
+						
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				return null;
+			}
+			//직원이 등록한 회원의 개수를 세기
+			public int employeeSelectCount(Connection conn, String employeeId) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(EmpSql.productListCount);
+					pstmt.setString(1, employeeId);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				return 0;
 			}
 	
 		

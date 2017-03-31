@@ -190,6 +190,7 @@ public class MappingUtil {
 						java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result);
 						System.out.println(2);
 						Date close = new Date(date.getTime());
+					
 						p.setClosingDate(close);
 
 					}
@@ -247,7 +248,6 @@ public class MappingUtil {
 		notice.setContent(req.getParameter("content"));
 		return notice;
 	}
-<<<<<<< HEAD
 	public static FreeBoard getFreeMaker(HttpServletRequest req, int articleNo){
 		FreeBoard free = new FreeBoard();
 		free.setArticleNo(articleNo);
@@ -261,52 +261,6 @@ public class MappingUtil {
 		freeReple.setFreeRepleNo(free_reple_no);
 		return freeReple;
 		
-=======
-
-	// 직원업데이트 브랜드분야
-	public static Brand updateBrand(HttpServletRequest req) {
-		String path = req.getServletContext().getRealPath("brand/brandimg");
-		DiskFileItemFactory f = new DiskFileItemFactory();
-		Brand b = new Brand();
-		ServletFileUpload uploader = new ServletFileUpload(f);
-		uploader.setFileSizeMax(1024 * 1024 * 10);
-		List<FileItem> list;
-		HttpSession session = req.getSession();
-		Employee emp = (Employee) session.getAttribute("employee");
-		b.setBrandNo(emp.getBrandNo());
-		b.setBrandContent(emp.getBrandContent());
-		b.setBrandName(emp.getBrandName());
-		try {
-			list = uploader.parseRequest(req);
-			for (FileItem item : list) {
-
-				if (item.isFormField()) {
-					if (item.getFieldName().equals("company_tell")) {
-						b.setCompanyTell(item.getString("UTF-8"));
-					}
-				} else {
-					if (item.getFieldName().equals("brand_image")) {
-						String fileName = item.getName();
-						if(fileName!=null){
-						// System.out.println(item.getName());
-						int indexOfPoint = fileName.indexOf(".");
-						// System.out.println(fileName.indexOf("."));
-						String fName = fileName.substring(0, indexOfPoint);
-						String ext = fileName.substring(indexOfPoint + 1);
-						fileName = fName + "-" + System.nanoTime() + "." + ext;
-						item.write(new File(path + "\\" + fileName));
-						System.out.println(path + "\\" + fileName);
-						b.setImagePath(fileName);
-						}else b.setImagePath(emp.getImage_path());
-					}
-
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return b;
-
 	}
 //직원업데이트
 	public static Employee updateEmployee(HttpServletRequest req) {
@@ -318,6 +272,7 @@ public class MappingUtil {
 		List<FileItem> list;
 		HttpSession session = req.getSession();
 		Employee emp1 = (Employee) session.getAttribute("employee");
+		System.out.println("원래세션의 값은"+emp1.getImage_path());
 		emp.setEmployeeId(emp1.getEmployeeId());
 		emp.setEname(emp1.getEname());
 		emp.setSsn1(emp1.getSsn1());
@@ -334,9 +289,11 @@ public class MappingUtil {
 				if (item.isFormField()) {
 					if (item.getFieldName().equals("company_tell")) {
 						emp.setCompanyTell(item.getString("UTF-8"));
+						System.out.println("전화번호의 값은"+item.getString("UTF-8"));
 					}
 					else if (item.getFieldName().equals("employee_pwd")) {
 						emp.setEmployeePwd(item.getString("UTF-8"));
+						System.out.println("패스워드값은"+item.getString("UTF-8"));
 					}
 					else if (item.getFieldName().equals("email")) {
 						emp.setEmail(item.getString("UTF-8"));
@@ -352,19 +309,17 @@ public class MappingUtil {
 					}
 				} else {
 					if (item.getFieldName().equals("brand_image")) {
-						
+						System.out.println("아이템의 이름은"+item.getName());
 						if(item.getName()!=null){
 							String fileName = item.getName();
-						// System.out.println(item.getName());
 						int indexOfPoint = fileName.indexOf(".");
-						// System.out.println(fileName.indexOf("."));
 						String fName = fileName.substring(0, indexOfPoint);
 						String ext = fileName.substring(indexOfPoint + 1);
 						fileName = fName + "-" + System.nanoTime() + "." + ext;
 						item.write(new File(path + "\\" + fileName));
 						System.out.println(path + "\\" + fileName);
 						emp.setImage_path(fileName);
-						}else emp.setImage_path(emp1.getImage_path());
+						}else if(item.getName()==null) emp.setImage_path(emp1.getImage_path());
 					}
 
 				}
@@ -374,9 +329,8 @@ public class MappingUtil {
 		}
 		session.removeAttribute("employee");
 		session.setAttribute("employee", emp);
-		System.out.println(emp.toString());
+		System.out.println("새로생긴 세션의 값은:"+emp.toString());
 		return emp;
 
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	}
 }
