@@ -33,8 +33,8 @@ public class EmployeeContoller {
 			System.out.println("로그인나아아아ㅏ");
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			mav.setView("/EmployeeLogin.jsp");
-			Employee employee = service.EmployeeLogin(req);
-			  if (employee== null) {
+			String ob= service.EmployeeLogin(req);
+			  if (ob== null) {
 			   System.out.println("아이디나 비밀번호 확인필요");
 			   String result="아이디와 비밀번호를 확인하십시요";
 			   mav.setView("/hooligan/employee/login");
@@ -48,7 +48,7 @@ public class EmployeeContoller {
 			   session.removeAttribute("destination");
 			   if (go == null)
 			    go = "/hooligan/employee/update";
-			   session.setAttribute("employee", employee);
+			   System.out.println(session.getAttribute("employee"));
 			   mav.setView(go);
 			   mav.setRedirect();
 			  }
@@ -82,6 +82,7 @@ public class EmployeeContoller {
 			ModelAndView mav=new ModelAndView();
 			service.employeeRegisterEnd(req);
 			mav.setView("/hooligan/employee/register2");
+			mav.setRedirect();
 			 return mav;
 
 		}
@@ -143,11 +144,9 @@ public class EmployeeContoller {
 		public static ModelAndView customerUpdateEnd(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
-			Employee employee=service.employeeUpdateEnd(req);
-			 HttpSession session = req.getSession();
-			 session.removeAttribute("employee");
-			 session.setAttribute("employee", employee);
-			mav.setView("/hooligan/employee/update");
+			service.employeeUpdateEnd(req);
+			mav.setView("/hooligan/main/index");
+			mav.setRedirect();
 			return mav;
 		}
 		//직원탈퇴하기폼으로
@@ -189,13 +188,14 @@ public class EmployeeContoller {
 			service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/hooligan/employee/productList");
+			mav.setRedirect();
 			return mav;
 		}
 		//직원상품리스트폼으로
 		@RequestMapping(value="/employee/productList",method="GET")
 		public static ModelAndView employeeProductListStart(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
-			service.employeeProductRegister(req);
+			//service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/EmployeeProductList.jsp");
 			return mav;

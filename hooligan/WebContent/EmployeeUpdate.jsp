@@ -5,6 +5,7 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
 <!--<![endif]-->
+<%Employee emp=(Employee)session.getAttribute("employee"); %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,7 +75,7 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
+								<a href="/hooligan/main/index"><img
 									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
@@ -214,9 +215,9 @@
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
-							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
+							<div class="well well-lg" style="padding-left: 50px; padding-right: 50px; height: 360px; padding-top: 10px;"><h3><i class="fa fa-laptop"></i>    내 정보수정</h3>
 						
-							<form action="update" method="post">
+							<form action="/hooligan/employee/update" method="post" enctype="multipart/form-data" >
 							
 							<div class="col-lg-3 col-md-3 col-sm-3">
 							<table>
@@ -224,13 +225,14 @@
 									
 									<tr><td>이름</td></tr>
 									<tr><td>아이디</td></tr>
-									<tr><td>생년월일</td></tr>
+									<tr><td>주민번호</td></tr>
 							
 									<tr><td>비밀번호</td></tr>
 									<tr><td>보유포인트</td></tr>
 									<tr><td>이메일</td></tr>
 									<tr><td>연락처</td></tr>
-									<tr><td>주소</td></tr>
+									<tr><td>우편번호</td></tr>
+									<tr><td>상세주소</td></tr>
 									
 								</tbody>
 							</table>
@@ -239,14 +241,15 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
+										<tr><td><%=emp.getEname() %></td></tr>
+										<tr><td><%=emp.getEmployeeId() %></td></tr>
+										<tr><td><%=emp.getSsn1()%>-<%=emp.getSsn2() %></td></tr>
+										<tr><td><input type="text" name="employee_pwd" value="<%=emp.getEmployeePwd() %>" ></td></tr>
+										<tr><td><%=emp.getPoint1() %></td></tr>
+										<tr><td><input type="text" name="email" value="<%=emp.getEmail()%>"></td></tr>
+										<tr><td><input type="text" name="tell" value="<%=emp.getTell()%>" ></td></tr>
+										<tr><td><input type="text"  name="postal_no" value="<%= emp.getPostalNo()%>"></td></tr>
+										<tr><td><input type="text"  name="address" value="<%=emp.getAddress()%>"></td></tr>
 									</tbody>
 								</table>
 							</div>
@@ -256,9 +259,7 @@
 										<tr><td>브랜드 명</td></tr>
 										<tr><td>회사 연락처</td></tr>
 										<tr><td>브랜드 로고</td></tr>
-										<tr><td>상품명</td></tr>
-										<tr><td>상품 이미지</td></tr>
-										<tr><td>상품 소개글</td></tr>
+										<tr><td>변경할 로고</td></tr>
 										
 									</tbody>
 								</table>
@@ -266,16 +267,15 @@
 							<div class="col-lg-3 col-md-3 col-sm-3">
 								<table>
 									<tbody>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="file" ></td></tr>
+										<tr><td><%=emp.getBrandName() %></td></tr>
+										<tr><td><input type="text"  name="company_tell" value="<%= emp.getCompanyTell()%>"></td></tr>
+										<tr><td> <img src="/hooligan/brand/brandimg/<%=emp.getImage_path()%>" alt=""  width="200px" height="200px"></td></tr>
+										<tr><td><input type="file" name="brand_image" ></td></tr>
 										
-										<tr><td><input type="text" ></td></tr>
-										<tr><td><input type="file" ></td></tr>
-										<tr><td><textarea rows="4" cols="3" style="width:180px;"></textarea></td></tr>
 									</tbody>
 								</table>
-								<button class="btn btn-default btn-lg btn-block" type="button"> 
+								<br><br><br><br><br><br><br>
+								<button type="submit" class="btn btn-default btn-lg btn-block" > 
 							<i class="fa fa-rocket"></i> 수정하기</button>
 							</div>
                             

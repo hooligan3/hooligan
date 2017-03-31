@@ -56,13 +56,13 @@ public class MappingUtil {
 	// 직원가입하기1단계
 	public static Employee makeEmployee(HttpServletRequest req, int maxBrand) {
 		Employee e = new Employee();
-		e.setActive(0);
+		e.setActive(1);
 		e.setAddress(req.getParameter("address"));
 		e.setBrandNo(maxBrand + 1);
 		e.setEmail(req.getParameter("email"));
 		e.setEmployeeId(req.getParameter("employee_id"));
 		e.setEmployeePwd(req.getParameter("employee_pwd"));
-		e.setEname(req.getParameter("employee_name"));
+		e.setEname(req.getParameter("ename"));
 		e.setPoint1(0);
 		e.setPostalNo(Integer.parseInt(req.getParameter("postal_no")));
 		e.setSsn1(req.getParameter("ssn1"));
@@ -156,9 +156,9 @@ public class MappingUtil {
 
 	// 제품등록맵핑
 	public static Product makeRegisterProduct(HttpServletRequest req, int maxProduct) {
-		HttpSession session=req.getSession();
-		Employee emp=(Employee)session.getAttribute("employee");
-		Product p=new Product();
+		HttpSession session = req.getSession();
+		Employee emp = (Employee) session.getAttribute("employee");
+		Product p = new Product();
 		String path = req.getServletContext().getRealPath("employees/productImg");
 		DiskFileItemFactory f = new DiskFileItemFactory();
 		ServletFileUpload uploader = new ServletFileUpload(f);
@@ -168,53 +168,47 @@ public class MappingUtil {
 		try {
 			list = uploader.parseRequest(req);
 			for (FileItem item : list) {
-				
-				if(item.isFormField()) {
-					if(item.getFieldName().equals("product_name")){
+
+				if (item.isFormField()) {
+					if (item.getFieldName().equals("product_name")) {
 						p.setProductName(item.getString("UTF-8"));
-					}else if(item.getFieldName().equals("product_content")){
-						p.setProductContent(item.getString("UTF-8"));	
-				}
-					else if(item.getFieldName().equals("minimum_size")){
-						p.setMinimumSize(Integer.parseInt(item.getString("UTF-8")));	
-				}
-					else if(item.getFieldName().equals("maximum_size")){
-						p.setMaximumSize(Integer.parseInt(item.getString("UTF-8")));	
-				}
-					else if(item.getFieldName().equals("type_no")){
-						p.setTypeNo(Integer.parseInt(item.getString("UTF-8")));	
-				}
-					else if(item.getFieldName().equals("price")){
-						p.setPrice(Integer.parseInt(item.getString("UTF-8")));	
-				}
-					else if(item.getFieldName().equals("detailcontent")){
-						p.setDetailContent(item.getString("UTF-8"));	
-						
-				}	else if(item.getFieldName().equals("closing_date")){
-					String result=item.getString("UTF-8");
-					java.util.Date date=new SimpleDateFormat("yyyy-MM-dd").parse(result);
-					System.out.println(2);
-					Date close=new Date(date.getTime());
-					p.setClosingDate(close);
-				
-			}
-					
-					
-				}else{
-					if(item.getFieldName().equals("main_image_path")){
-					String fileName = item.getName();
-					// System.out.println(item.getName());
-					int indexOfPoint = fileName.indexOf(".");
-					// System.out.println(fileName.indexOf("."));
-					String fName = fileName.substring(0, indexOfPoint);
-					String ext = fileName.substring(indexOfPoint + 1);
-					fileName = fName + "-" + System.nanoTime() + "." + ext;
-					item.write(new File(path + "\\" + fileName));
-					System.out.println(path + "\\" + fileName);
-					p.setMainImagePath(fileName);
-				}
-				
-					else if(item.getFieldName().equals("image_path")){
+					} else if (item.getFieldName().equals("product_content")) {
+						p.setProductContent(item.getString("UTF-8"));
+					} else if (item.getFieldName().equals("minimum_size")) {
+						p.setMinimumSize(Integer.parseInt(item.getString("UTF-8")));
+					} else if (item.getFieldName().equals("maximum_size")) {
+						p.setMaximumSize(Integer.parseInt(item.getString("UTF-8")));
+					} else if (item.getFieldName().equals("type_no")) {
+						p.setTypeNo(Integer.parseInt(item.getString("UTF-8")));
+					} else if (item.getFieldName().equals("price")) {
+						p.setPrice(Integer.parseInt(item.getString("UTF-8")));
+					} else if (item.getFieldName().equals("detailcontent")) {
+						p.setDetailContent(item.getString("UTF-8"));
+
+					} else if (item.getFieldName().equals("closing_date")) {
+						String result = item.getString("UTF-8");
+						java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result);
+						System.out.println(2);
+						Date close = new Date(date.getTime());
+						p.setClosingDate(close);
+
+					}
+
+				} else {
+					if (item.getFieldName().equals("main_image_path")) {
+						String fileName = item.getName();
+						// System.out.println(item.getName());
+						int indexOfPoint = fileName.indexOf(".");
+						// System.out.println(fileName.indexOf("."));
+						String fName = fileName.substring(0, indexOfPoint);
+						String ext = fileName.substring(indexOfPoint + 1);
+						fileName = fName + "-" + System.nanoTime() + "." + ext;
+						item.write(new File(path + "\\" + fileName));
+						System.out.println(path + "\\" + fileName);
+						p.setMainImagePath(fileName);
+					}
+
+					else if (item.getFieldName().equals("image_path")) {
 						String fileName = item.getName();
 						// System.out.println(item.getName());
 						int indexOfPoint = fileName.indexOf(".");
@@ -226,13 +220,14 @@ public class MappingUtil {
 						System.out.println(path + "\\" + fileName);
 						p.setDetailImagePath(fileName);
 					}
-				
+
 				}
-			}}catch (Exception e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		p.setProductNo(maxProduct+1);
+
+		p.setProductNo(maxProduct + 1);
 		java.sql.Date date = null;
 		java.util.Date d = new java.util.Date();
 		date = new java.sql.Date(d.getTime());
@@ -240,9 +235,9 @@ public class MappingUtil {
 		p.setBrandNo(emp.getBrandNo());
 		p.setEmployeeId(emp.getEmployeeId());
 		p.setOrderState(0);
-		System.out.println("들어왔냐 임마"+p.toString());
+		System.out.println("들어왔냐 임마" + p.toString());
 		return p;
-		
+
 	}
 
 	public static Notice getNoticeMaker(HttpServletRequest req, int noticeArticleNo) {
@@ -252,6 +247,7 @@ public class MappingUtil {
 		notice.setContent(req.getParameter("content"));
 		return notice;
 	}
+<<<<<<< HEAD
 	public static FreeBoard getFreeMaker(HttpServletRequest req, int articleNo){
 		FreeBoard free = new FreeBoard();
 		free.setArticleNo(articleNo);
@@ -265,5 +261,122 @@ public class MappingUtil {
 		freeReple.setFreeRepleNo(free_reple_no);
 		return freeReple;
 		
+=======
+
+	// 직원업데이트 브랜드분야
+	public static Brand updateBrand(HttpServletRequest req) {
+		String path = req.getServletContext().getRealPath("brand/brandimg");
+		DiskFileItemFactory f = new DiskFileItemFactory();
+		Brand b = new Brand();
+		ServletFileUpload uploader = new ServletFileUpload(f);
+		uploader.setFileSizeMax(1024 * 1024 * 10);
+		List<FileItem> list;
+		HttpSession session = req.getSession();
+		Employee emp = (Employee) session.getAttribute("employee");
+		b.setBrandNo(emp.getBrandNo());
+		b.setBrandContent(emp.getBrandContent());
+		b.setBrandName(emp.getBrandName());
+		try {
+			list = uploader.parseRequest(req);
+			for (FileItem item : list) {
+
+				if (item.isFormField()) {
+					if (item.getFieldName().equals("company_tell")) {
+						b.setCompanyTell(item.getString("UTF-8"));
+					}
+				} else {
+					if (item.getFieldName().equals("brand_image")) {
+						String fileName = item.getName();
+						if(fileName!=null){
+						// System.out.println(item.getName());
+						int indexOfPoint = fileName.indexOf(".");
+						// System.out.println(fileName.indexOf("."));
+						String fName = fileName.substring(0, indexOfPoint);
+						String ext = fileName.substring(indexOfPoint + 1);
+						fileName = fName + "-" + System.nanoTime() + "." + ext;
+						item.write(new File(path + "\\" + fileName));
+						System.out.println(path + "\\" + fileName);
+						b.setImagePath(fileName);
+						}else b.setImagePath(emp.getImage_path());
+					}
+
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+
+	}
+//직원업데이트
+	public static Employee updateEmployee(HttpServletRequest req) {
+		String path = req.getServletContext().getRealPath("brand/brandimg");
+		DiskFileItemFactory f = new DiskFileItemFactory();
+		Employee emp=new Employee();
+		ServletFileUpload uploader = new ServletFileUpload(f);
+		uploader.setFileSizeMax(1024 * 1024 * 10);
+		List<FileItem> list;
+		HttpSession session = req.getSession();
+		Employee emp1 = (Employee) session.getAttribute("employee");
+		emp.setEmployeeId(emp1.getEmployeeId());
+		emp.setEname(emp1.getEname());
+		emp.setSsn1(emp1.getSsn1());
+		emp.setSsn2(emp1.getSsn2());
+		emp.setBrandNo(emp1.getBrandNo());
+		emp.setBrandContent(emp1.getBrandContent());
+		emp.setBrandName(emp1.getBrandName());
+		emp.setActive(emp1.getActive());
+		emp.setPoint1(emp1.getPoint1());
+		try {
+			list = uploader.parseRequest(req);
+			for (FileItem item : list) {
+
+				if (item.isFormField()) {
+					if (item.getFieldName().equals("company_tell")) {
+						emp.setCompanyTell(item.getString("UTF-8"));
+					}
+					else if (item.getFieldName().equals("employee_pwd")) {
+						emp.setEmployeePwd(item.getString("UTF-8"));
+					}
+					else if (item.getFieldName().equals("email")) {
+						emp.setEmail(item.getString("UTF-8"));
+					}
+					else if (item.getFieldName().equals("postal_no")) {
+						emp.setPostalNo(Integer.parseInt(item.getString("UTF-8")));
+					}
+					else if (item.getFieldName().equals("address")) {
+						emp.setAddress(item.getString("UTF-8"));
+					}
+					else if (item.getFieldName().equals("tell")) {
+						emp.setTell(item.getString("UTF-8"));
+					}
+				} else {
+					if (item.getFieldName().equals("brand_image")) {
+						
+						if(item.getName()!=null){
+							String fileName = item.getName();
+						// System.out.println(item.getName());
+						int indexOfPoint = fileName.indexOf(".");
+						// System.out.println(fileName.indexOf("."));
+						String fName = fileName.substring(0, indexOfPoint);
+						String ext = fileName.substring(indexOfPoint + 1);
+						fileName = fName + "-" + System.nanoTime() + "." + ext;
+						item.write(new File(path + "\\" + fileName));
+						System.out.println(path + "\\" + fileName);
+						emp.setImage_path(fileName);
+						}else emp.setImage_path(emp1.getImage_path());
+					}
+
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		session.removeAttribute("employee");
+		session.setAttribute("employee", emp);
+		System.out.println(emp.toString());
+		return emp;
+
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	}
 }
