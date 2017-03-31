@@ -93,12 +93,14 @@
 			
 			
 
-		var str = "<tr><th style='text-align: center;'>글번호("+result.articleNo+")</th>";
-		str = str + "<th style='text-align: center;'>"+result.customerId+"</th>";
-		str = str + "<th style='text-align: center;'>"+result.title+"</th>";
-		str = str + "<th style='text-align: center;'>"+result.articleDate+"</th>";
-		str = str + "<th style='text-align: center;'>조회수("+result.hits+")</th>";
+		var str = "<tr><th style='text-align: left;'>"+result.customerId+"</th>";
+		str = str + "<th style='text-align: center;'></th>";
+		str = str + "<th style='text-align: right;'>"+result.articleDate+"</th></tr>";
 		
+		var str5 = "조회수("+result.hits+")";
+		
+		$("#abc").append(str5);
+		$("#title2").append("<i class='fa fa-comment-o'></i>&nbsp;&nbsp;"+result.title);
 		$("#title").append(str);
 		
 		var str2 = result.content;
@@ -258,8 +260,8 @@
 
 			<div class="well well-lg"
 				style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px;">
-				<h3>
-					<i class="fa fa-laptop"></i> 자유 게시판
+				<h3 id="title2">
+					
 				</h3>
 				<table class="table table-striped table-hover"
 					style="text-align: center;">
@@ -302,20 +304,19 @@
 					style="text-align: center;">
 					<thead>
 						<tr>
-							<th style="text-align: center;"></th>
+							<th></th>	
 						</tr>
 					</thead>
 
 
 				</table>
 
-				<p>댓글 목록</p>
-
+				<div style="display: inline-block;" id="abc"></div>
 				<!-- 댓글 -->
 					
 					
 					<form action="/hooligan/free/repleDelete" method="post" id="delete">
-					<table class="table table-striped table-hover" style="text-align: center;" id="reple">
+					<br><table class="table table-striped table-hover" style="text-align: center;" id="reple">
 					
 					</table>
 					</form>
