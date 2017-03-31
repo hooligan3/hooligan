@@ -201,15 +201,15 @@
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductList.jsp" class="btn btn-block btn-default">내 상품조회</a>
+									<a href="/hooligan/employee/productList" class="btn btn-block btn-default">내 상품조회</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeRefund.jsp" class="btn btn-block btn-default">포인트 환급하기</a>
+									<a href="/hooligan/employee/refund" class="btn btn-block btn-default">포인트 환급하기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>

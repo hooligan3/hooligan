@@ -180,27 +180,26 @@
            
             <div class="col-lg-12 col-md-12 col-sm-12">
             <br><br>
-					<div class="col-lg-3 col-md-3 col-sm-3">
-
-								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeUpdate.jsp" class="btn btn-block btn-default">내 정보 수정</a>
+            		<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="/hooligan/employee/update." class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductRegister.jsp" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeProductList.jsp" class="btn btn-block btn-default">내 상품조회</a>
+									<a href="/hooligan/employee/productList" class="btn btn-block btn-default">내 상품조회</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeRefund.jsp" class="btn btn-block btn-default">포인트 환급하기</a>
+									<a href="/hooligan/employeeRefund" class="btn btn-block btn-default">포인트 환급하기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/EmployeeDelete.jsp" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
+					
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">

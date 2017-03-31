@@ -174,10 +174,15 @@ public class HooliganService {
 	//직원업데이트
 	public String employeeUpdateEnd(HttpServletRequest req) {
 	Connection conn=JdbcUtil.getConnection();
-	Brand b=MappingUtil.updateBrand(req);
 	Employee e=MappingUtil.updateEmployee(req);
 	int resultE=dao.updateEmployee(conn, e);
-	int resultB=dao.updateBrand(conn,b);
+	Brand b=new Brand();
+	b.setBrandContent(e.getBrandContent());
+	b.setBrandName(e.getBrandName());
+	b.setBrandNo(e.getBrandNo());
+	b.setCompanyTell(e.getCompanyTell());
+	b.setImagePath(e.getImage_path());
+	int  resultB=dao.updateBrand(conn, b);
 	String result=null;
 	if(resultB==0||resultE==0) result="업데이트에 실패했습니다"; 
 	JdbcUtil.close(conn);
@@ -303,6 +308,25 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 			return new Gson().toJson(p);
 		}
+
+	//직원이 등록한 상품조회
+	public Object employeeProductList(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HttpSession session=req.getSession();
+		Employee emp=(Employee)session.getAttribute("employee");
+		int pageNo=1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo=Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfProduct=dao.employeeSelectCount(conn,emp.getEmployeeId());
+		Pagination pagination=PagingUtil.setPageMaker(pageNo, numberOfProduct);
+		
+		ArrayList<Product> p=dao.productList(conn,emp.getEmployeeId(),pagination.getStartArticle(),pagination.getEndArticle());
+		HashMap<String, Object> map=new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", p);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
 
 }
 

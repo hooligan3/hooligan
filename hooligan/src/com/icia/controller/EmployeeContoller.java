@@ -195,8 +195,8 @@ public class EmployeeContoller {
 		@RequestMapping(value="/employee/productList",method="GET")
 		public static ModelAndView employeeProductListStart(HttpServletRequest req){
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
-			//service.employeeProductRegister(req);
 			ModelAndView mav=new ModelAndView();
+			mav.addObject("result", service.employeeProductList(req));
 			mav.setView("/EmployeeProductList.jsp");
 			return mav;
 		}
