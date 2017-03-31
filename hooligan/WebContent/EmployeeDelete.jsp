@@ -180,8 +180,10 @@
            
             <div class="col-lg-12 col-md-12 col-sm-12">
             <br><br>
-            		<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/hooligan/employee/update." class="btn btn-block btn-default">내 정보 수정</a>
+					<div class="col-lg-3 col-md-3 col-sm-3">
+
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="/hooligan/employee/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
@@ -199,13 +201,12 @@
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
 									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
-					
 							</div>
 							
 							<div class="col-lg-9 col-md-9 col-sm-9">
 							<div class="well well-lg" style="height:360px; padding-left: 50px; padding-right: 50px;"><h3><i class="fa fa-laptop"></i>    탈퇴하기</h3>
 							
-							<form action="update" method="post">
+							<form action="/hooligan/employee/delete" method="post">
 							
 								
 									
@@ -213,8 +214,8 @@
 									
 									<div class="col-lg-6 col-md-6 col-sm-6">
 									<h2>직원 비밀번호 입력</h2><br>
-									<input type="text" class="form-control" placeholder="비밀번호를 입력하시오"> 
-									<button class="btn btn-default btn-lg btn-block" type="button">
+									<input type="text" class="form-control" placeholder="비밀번호를 입력하시오" name="employee_pwd"> 
+									<button class="btn btn-default btn-lg btn-block" type="submit">
 									
 							<i class="fa fa-rocket"></i> 탈퇴하기</button>
 									</div>

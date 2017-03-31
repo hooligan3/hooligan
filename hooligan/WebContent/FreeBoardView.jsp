@@ -103,8 +103,7 @@
 		
 		var str2 = result.content;
 		$("#content").append(str2);
-		
-
+	
 		$("#back").on("click","#list",function(){
 			location.href='list?pageNo='+pageNo;
 		});

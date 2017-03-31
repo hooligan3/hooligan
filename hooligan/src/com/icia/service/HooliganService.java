@@ -294,7 +294,6 @@ public class HooliganService {
 		
 		return new Gson().toJson(ob);
 	}
-<<<<<<< HEAD
 	//자유게시판 리스트
 	public String readFreeList(HttpServletRequest req){
 		Connection conn = JdbcUtil.getConnection();
@@ -447,7 +446,6 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
-=======
 	//메인화면 최근 제품가져오기
 	public Object mainRecentProduct(HttpServletRequest req) {
 	Connection conn=JdbcUtil.getConnection();
@@ -462,7 +460,6 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 			return new Gson().toJson(p);
 		}
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
 	//직원이 등록한 상품조회
 	public Object employeeProductList(HttpServletRequest req) {
@@ -481,6 +478,19 @@ public class HooliganService {
 		map.put("list", p);
 		JdbcUtil.close(conn);
 		return new Gson().toJson(map);
+	}
+	//직원삭제하기
+	public String employeeDelete(HttpServletRequest req, String employeeid) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap< String, String> map=new HashMap<>();
+		JsonObject ob=new JsonObject();
+		map.put("employee_Id", employeeid);
+		map.put("employee_pwd", req.getParameter("employee_pwd"));
+		int result=dao.deleteEmployee(conn, map);
+		if(result==0) ob.addProperty("result", "비밀번호를 확인하세요");
+		else ob.addProperty("result", "탈퇴되었습니다");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
 	}
 
 }

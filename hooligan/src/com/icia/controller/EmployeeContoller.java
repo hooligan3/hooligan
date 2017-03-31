@@ -153,7 +153,7 @@ public class EmployeeContoller {
 		@RequestMapping(value="/employee/delete",method="GET")
 		public static ModelAndView customerDeleteStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
-			mav.setView("/CustomerDelete.jsp");
+			mav.setView("/EmployeeDelete.jsp");
 			return mav;
 		}
 		//직원탈퇴하기
@@ -162,10 +162,10 @@ public class EmployeeContoller {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav=new ModelAndView();
 			HttpSession session=req.getSession();
-			Customer c=(Customer)session.getAttribute("customer");
-			String customer_id=c.getCustomerId();
-			int result=service.customerDelete(req,customer_id);
-			if(result==1) session.removeAttribute("customer");
+			Employee e=(Employee)session.getAttribute("employee");
+			String employeeid=e.getEmployeeId();
+			String result=service.employeeDelete(req,employeeid);
+			if(result.equals("탈퇴되었습니다")) session.removeAttribute("employee");
 			else mav.addObject("result", "비밀번호를 확인하시오");
 			mav.setView("/hooligan/main/index");
 			mav.setRedirect();

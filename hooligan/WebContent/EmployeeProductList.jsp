@@ -238,7 +238,7 @@
                     </tbody>
                 </table>
                  <!--페이징 시작 -->
-                <div class="col-sm-12 text-center" id=pagination>
+                <div class="col-sm-12 text-center"  id="pagination" >
                    
                 </div>
             </div> <!--페이징 끝 -->
@@ -314,7 +314,7 @@ $(document).ready(function() {
 		a.append(regidate1).append(productName1).append(orderState).append(date);
 		$("#productList").append(a);
 	});
-	$("#pagination").append("<ul></ul>");
+	$("#pagination").append("<ul class='pagination'></ul>");
 	var p = $("#pagination ul");
 	if (pagination.prev > -1)
 		p.append("<li><a href='productList?pageNo=" + pagination.prev + "'>이전으로</a></li>");
