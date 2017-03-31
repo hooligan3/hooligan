@@ -49,7 +49,25 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+var result = <%=request.getAttribute("result")%>
+
+var free = result.free
+var title = free.title;
+var content = free.content;
+var articleNo = free.articleNo;
+$(function(){
 	
+	var str = "<input type='text' value='"+title+"' id='title' style='width:350px;' name='title'>";
+	var str2 = "<textarea rows='15' cols='0' id='content'name='content'>"+content+"</textarea>";
+	var str3 = "<input type='hidden'  value='"+ articleNo+"'name='articleNo'>"; 
+	$("#title").append(str);			   							
+	$("#content").append(str2);
+	$("#bunho").append(str3);
+	/*
+		<input type="text" style="width:350px;"> <textarea rows="15" cols=""></textarea>
+	*/
+	
+})
 </script>
 </head>
 <body>
@@ -58,18 +76,14 @@
 		<%@ include file="header/MainHeader.jsp" %>
 	<!-- End Header -->
 		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -82,7 +96,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -142,17 +156,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -174,10 +191,43 @@
                 </div>
             </div>
              </section>
-            
+             <form action="/hooligan/free/update" method="post">
  
            
-            <div class="col-lg-12 col-md-12 col-sm-12">
+             <div class="col-lg-12 col-md-12 col-sm-12">
+							<br><br>
+						
+							
+														<div class="well well-lg" style="padding-right: 50px; padding-left : 50px; margin-left:50px; margin-right : 50px; height: 600px;">
+							<div class="col-lg-1 col-md-1 col-sm-1">
+              		   </div>
+							<div class="col-lg-10 col-md-10 col-sm-10">
+							<h3><i class="fa fa-laptop"></i> 자유게시판 글 수정</h3>
+								<table class="table table-striped table-hover" style="text-align: center;">
+				                    <thead>
+				                    <tr>
+										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<div id="title" style="display: inline-block;"></div></th></h3>
+
+									</tr>
+                  					  </thead>
+
+              						  </table>
+						<div id="content"></div>
+              		   	<div id="bunho"></div>
+              		   <div class="col-sm-12 text-center"><br>
+                  			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="취소하기">
+                  			 &nbsp;&nbsp;
+                  			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
+           				 </div>
+							</div>
+							</div>
+							</div>
+							</form>
+					
+
+
+<!-- 
+  <div class="col-lg-12 col-md-12 col-sm-12">
 							<br><br>
 						
 							
@@ -185,7 +235,7 @@
 							<div class="col-lg-1 col-md-1 col-sm-1">
               		   </div>
 							<div class="col-lg-10 col-md-10 col-sm-10">
-							<h3><i class="fa fa-laptop"></i> 자유 게시판 글 수정</h3>
+							<h3><i class="fa fa-laptop"></i> 문의게시판 글 작성</h3>
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
@@ -203,21 +253,8 @@
                   			 &nbsp;&nbsp;
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
            				 </div>
-							
-							
-								
-							
-						
-                            
-							
-									
-							
-							
 							</div>
-							
-							
-					
-
+ -->
            
 			
 

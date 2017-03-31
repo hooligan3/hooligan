@@ -248,6 +248,21 @@ public class MappingUtil {
 		notice.setContent(req.getParameter("content"));
 		return notice;
 	}
+<<<<<<< HEAD
+	public static FreeBoard getFreeMaker(HttpServletRequest req, int articleNo){
+		FreeBoard free = new FreeBoard();
+		free.setArticleNo(articleNo);
+		free.setTitle(req.getParameter("title"));
+		free.setContent(req.getParameter("content"));
+		return free;
+	}
+	public static FreeReple getFreeRepleMaker(HttpServletRequest req, int free_reple_no){
+		FreeReple freeReple = new FreeReple();
+		freeReple.setContent(req.getParameter("content"));
+		freeReple.setFreeRepleNo(free_reple_no);
+		return freeReple;
+		
+=======
 
 //직원업데이트
 	public static Employee updateEmployee(HttpServletRequest req) {
@@ -319,5 +334,6 @@ public class MappingUtil {
 		System.out.println("새로생긴 세션의 값은:"+emp.toString());
 		return emp;
 
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	}
 }

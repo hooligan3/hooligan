@@ -132,7 +132,7 @@
                                     <li><a href="#">문의사항</a>
                                     </li>
                                     
-                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
                                     </li>
                                     </ul>
                             </ul>

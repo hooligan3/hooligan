@@ -9,7 +9,7 @@ public class FreeBoard {
 	private int articleNo;
 	private String title;
 	private int hits;
-	private String Content;
+	private String content;
 	private Date articleDate;
 	private String customerId;
 	

@@ -181,7 +181,7 @@
 							<br><br>
 						
 							
-							<div class="well well-lg" style="padding-right: 50px; height: 600px;">
+							<div class="well well-lg" style="padding-right: 50px; padding-left : 50px; margin-left:50px; margin-right : 50px; height: 600px;">
 							<div class="col-lg-1 col-md-1 col-sm-1">
               		   </div>
 							<div class="col-lg-10 col-md-10 col-sm-10">
@@ -203,16 +203,6 @@
                   			 &nbsp;&nbsp;
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
            				 </div>
-							
-							
-								
-							
-						
-                            
-							
-									
-							
-							
 							</div>
 							
 							

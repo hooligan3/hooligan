@@ -1,5 +1,9 @@
+<%@page import="com.icia.vo.FreeReple"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%Customer customer=(Customer)session.getAttribute("customer");%>
+<%-- <%ArrayList<FreeReple> list01 = (ArrayList<FreeReple>)request.getAttribute("result2");%> --%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -17,7 +21,8 @@
 <link rel="stylesheet" href="/hooligan/css/style.css">
 <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css"
 	media="screen" data-name="skins">
-<link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
+<link rel="stylesheet" href="/hooligan/css/layout/wide.css"
+	data-name="layout">
 
 <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css"
 	media="screen" />
@@ -28,47 +33,114 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-
-
-
 .name {
 	text-align: center;
 	padding-left: 200px;
 	padding-right: 200px;
 }
 
-
 .well {
-    min-height: 290px;
-    padding : 0;
-    padding-left: 50px;
-    }
-    
+	min-height: 290px;
+	padding: 0;
+	padding-left: 50px;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+
+	var result = <%=request.getAttribute("result")%>
+	var result2 =<%=request.getAttribute("result2")%>
+	var pageNo = <%=request.getParameter("pageNo")%>
 	
+	
+	
+	$(function(){
+	
+		var articleNo = result.articleNo;
+		var free_reple_no = result.freeRepleNo;
+		$("#rrr").append("<input type='hidden' name='article_no' value='"+articleNo+"'>");
+		
+// 		private int freeRepleNo;
+// 		private int articleNo;
+// 		private String writeId;
+// 		private String content;
+// 		private Date repleDate;
+		
+		var rn = 0;
+		$.each(result2.list, function(index, value){
+			rn++;
+			var freeReple = value.freeRepleNo;
+			var articleNo = value.articleNo;
+			var id = value.writeId;
+			var content = value.content;
+			var repleDate = value.repleDate;
+			//var btnModify = "onClick='location.href=\"/hooligan/free/repleUpdate?free_reple_no="+freeReple+"&article_no="+articleNo+"&page_no="+pageNo+"'";
+			var btnModify = "onClick='location.href=\"/hooligan/free/repleUpdate?free_reple_no="+freeReple+"&content="+content+"&article_no="+articleNo+"&page_no="+pageNo+"\"'";
+			var btnModify2 ="onClick='location.href=\"/hooligan/free/repleDelete?free_reple_no="+freeReple+"&article_no="+articleNo+"&page_no="+pageNo+"\"'";
+			var str="<tr><th>"+id+"</th>";
+				str = str+ "<th style='text-align: right;' colspan='2'>"+repleDate+"</th></tr>";
+				str = str+"<tr><td colspan='2' style='text-align:left; padding-left:60px;'>"+content;
+				str = str+ "<input type='hidden' name='article_no' value='"+articleNo+"'><input type='hidden' name='page_no' value='"+pageNo+"'>";
+				str = str+"<input type='hidden' name='free_reple_no' value='"+freeReple+"'>";
+				str = str+"<input type='hidden' name='free_reple_no' value='"+freeReple+"'><input type='hidden' name='article_no' value='"+articleNo+"'><input type='hidden' name='page_no' value='"+pageNo+"'></td><td style='text-align:right;'><input type='button' value='수정' "+btnModify+" style='color : white; width : 40px; height:20px; padding:0px;' data-loading-text='Loading...' class='btn btn-default btn-lg'>&nbsp;&nbsp;<input type='submit' value='삭제' style='width : 40px; height:20px; padding:0px;' data-loading-text='Loading...' class='btn btn-default btn-lg'></td></tr>";
+				$("#reple").append(str);
+				
+				
+		})
+		
+		
+			
+			
+
+		var str = "<tr><th style='text-align: center;'>글번호("+result.articleNo+")</th>";
+		str = str + "<th style='text-align: center;'>"+result.customerId+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.title+"</th>";
+		str = str + "<th style='text-align: center;'>"+result.articleDate+"</th>";
+		str = str + "<th style='text-align: center;'>조회수("+result.hits+")</th>";
+		
+		$("#title").append(str);
+		
+		var str2 = result.content;
+		$("#content").append(str2);
+		
+
+		$("#back").on("click","#list",function(){
+			location.href='list?pageNo='+pageNo;
+		});
+		
+		$("#back3").on("click","#update", function() {
+			location.href='update?article_no=' + result.articleNo;
+		});	
+		
+		var back = $("#back");
+		var back3 = $("#back3");
+		var back4 = $("#back4 form");
+		back.append("<input type='submit' value='이전으로'data-loading-text='Loading...' class='btn btn-default btn-lg' id='list' style='height:40px; width:74.39px; margin :0;'>")
+		back3.append("<input type='submit' value='수정'data-loading-text='Loading...' class='btn btn-default btn-lg' id='update'>")
+		back4.append("<input type='hidden' name='articleNo' id='articleNo' value='"+articleNo+"'>")
+		back4.append("<input type='submit' value='삭제'data-loading-text='Loading...' class='btn btn-default btn-lg' id='delete'>")
+	
+	})
 </script>
 </head>
 <body>
 	<!--Start Header-->
-<header id="header">
-   <%@ include file="header/MainHeader.jsp" %>
- <!--end Header-->
+	<header id="header">
+		<%@ include file="header/MainHeader.jsp"%>
+		<!--end Header-->
 		<div id="menu-bar">
 			<div class="container">
 				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
+					<div class="col-md-3 col-sm-3">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img
+									src="/hooligan/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -81,7 +153,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -141,17 +213,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -162,160 +237,155 @@
 		<!--End Header-->
 		<!--start wrapper-->
 		<section class="page_head">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
 
-                        <div class="page_title">
-                           <h2>자유 게시판</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-             </section>
-            
- 
-           
-            <div class="col-lg-12 col-md-12 col-sm-12">
-							<br><br>
+						<div class="page_title">
+							<h2>자유 게시판</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<br>
+			<br>
+
+
+			<div class="well well-lg"
+				style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px;">
+				<h3>
+					<i class="fa fa-laptop"></i> 자유 게시판
+				</h3>
+				<table class="table table-striped table-hover"
+					style="text-align: center;">
+					<thead id="title">
+
+					</thead>
+
+
+				</table>
+
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+				<div class="col-lg-10 col-md-10 col-sm-10">
+					<br>
+					<p id="content" style="max-height: 700px; min-height: 250px;">
+
+
+					</p>
+
+
+				</div>
+
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9" id="back"></div>
+				<div class="col-lg-2 col-md-2 col-sm-2" style="text-align: right;">
+
+					<div id="back3" style="height: 40px;"></div>
+
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1" style="text-align: right;">
+
+					<div id="back4" style="height: 40px;">
+						<form action='/hooligan/free/delete' method='post'></form>
+					</div>
+
+				</div>
+
+				<table class="table table-striped table-hover"
+					style="text-align: center;">
+					<thead>
+						<tr>
+							<th style="text-align: center;"></th>
+						</tr>
+					</thead>
+
+
+				</table>
+
+				<p>댓글 목록</p>
+
+				<!-- 댓글 -->
+					
+					
+					<form action="/hooligan/free/repleDelete" method="post" id="delete">
+					<table class="table table-striped table-hover" style="text-align: center;" id="reple">
+					
+					</table>
+					</form>
 						
-							
-							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px;"><h3><i class="fa fa-laptop"></i>
-							
-							     자유 게시판</h3>
-              				  			<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-										<th style="text-align: center;">asdgtt </th>
-										<th style="text-align: center;">가구어디브랜드가괜찮나요?</th>
-										<th style="text-align: center;">조회수(1167)  </th>
-									</tr>
-                  					  </thead>
-                   
-
-              						  </table>
-              		
-              		   <div class="col-lg-1 col-md-1 col-sm-1">
-              		   </div>
-              		   
-              		   <div class="col-lg-10 col-md-10 col-sm-10">
-              		   <br>
-              		   <p style="max-height: 700px; min-height: 250px;">
-              		   제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-							
-							</p>
-							
-							
-              		   </div>
-              		   	
-              		   <div class="col-lg-1 col-md-1 col-sm-1">
-              		   		
-              		   </div>	
-              		   
-              		   <div class="col-lg-9 col-md-9 col-sm-9">
-              		   		
-              		   </div>  
-              		   <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
-              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="수정하기">
-              		 		 &nbsp; 
-              		 		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="삭제하기">	
-              		   </div>  
-						<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-										<th style="text-align: center;"></th>
-									</tr>
-                  					  </thead>
-                   
-
-              						  </table>
-              						  
-               				 <p>댓글 목록</p>
-               				 
-               				 <!-- 댓글 -->
-               				 <table class="table table-striped table-hover" style="text-align: center;">
-				                    <tr >
-				                    	<th>lady</th>
-										<th style="text-align: right;">2017-03-10-12:35</th>
-									</tr>
-                   							<tr>
-                   								<td></td>
-                   								<td>침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~</td>
-                   							</tr>
-				                    <tr >
-				                    	<th>poip</th>
-										<th style="text-align: right;">2017-03-11-18:10</th>
-									</tr>
-                   							<tr>
-                   								<td></td>
-                   								<td>요즘은 즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~요즘은 이케아나 한샘쪽도 괜찮다고 하더라구요~괜찮다고 하괜찮다고 하더라구요~</td>
-              						 		</tr>
-              						  </table>
-              						  
-              				<!-- 댓글 -->
-             						<p>댓글 작성</p>
-             						 <div class="col-lg-11 col-md-11 col-sm-11">
-             						<textarea rows="3" cols="" ></textarea>
-             						</div>
-										&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록" style="margin-top: 10px;">
-									<br><br>
-									<br><br>
-								
-							
-							
-								
-							
-						
-                            
-							
-									
-							</div>
-							
-							
-							</div>
-							
-							
+					
+				
 					
 
-           
-			
+				<form action="/hooligan/free/view" method="post">
+					<!-- 댓글 -->
+					<p id="rrr">댓글 작성		
+							
+							<input type="hidden" name="write_id" value="<%=customer.getCustomerId()%>">
+							<input type="hidden" name="page_no" value="<%=request.getParameter("pageNo")%>">
+							
+					</p>
+					<div class="col-lg-11 col-md-11 col-sm-11">
+						<textarea rows="3" cols="" name="content"></textarea>
+						
+					</div>
+					&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..."
+						class="btn btn-default btn-lg" value="등록" style="margin-top: 10px;">
+					<br>
+					<br> <br>
+					<br>
+				</form>	
 
 
-					<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
-					<script src="/hooligan/js/bootstrap.min.js"></script>
-					<script src="/hooligan/js/jquery.easing.1.3.js"></script>
-					<script src="/hooligan/js/retina-1.1.0.min.js"></script>
-					<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script>
-					<!-- jQuery cookie -->
-					<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script>
-					<!-- Style Colors Switcher -->
-					<script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
-					<script type="text/javascript"
-						src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
-					<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
-					<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
-					<script type="text/javascript"
-						src="/hooligan/js/jquery.magnific-popup.min.js"></script>
-					<script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
-					<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
-					<script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
-					<script type="text/javascript">
+
+
+
+
+			</div>
+
+
+		</div>
+
+
+
+
+
+
+
+
+		<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+		<script src="/hooligan/js/bootstrap.min.js"></script>
+		<script src="/hooligan/js/jquery.easing.1.3.js"></script>
+		<script src="/hooligan/js/retina-1.1.0.min.js"></script>
+		<script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script>
+		<!-- jQuery cookie -->
+		<script type="text/javascript" src="/hooligan/js/styleswitch.js"></script>
+		<!-- Style Colors Switcher -->
+		<script type="text/javascript"
+			src="/hooligan/js/jquery.smartmenus.min.js"></script>
+		<script type="text/javascript"
+			src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+		<script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+		<script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+		<script type="text/javascript"
+			src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript"
+			src="/hooligan/js/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+		<script type="text/javascript"
+			src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
+
+
+		<script type="text/javascript">
 						$(document)
 								.ready(
 										function() {
@@ -564,6 +634,6 @@
 													});
 										});
 					</script>
-					<script src="/hooligan/js/main.js"></script>
+		<script src="/hooligan/js/main.js"></script>
 </body>
 </html>

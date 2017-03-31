@@ -8,6 +8,7 @@ import lombok.Data;
 public class FreeReple {
 	private int freeRepleNo;
 	private int articleNo;
+	private String writeId;
 	private String content;
 	private Date repleDate;
 }

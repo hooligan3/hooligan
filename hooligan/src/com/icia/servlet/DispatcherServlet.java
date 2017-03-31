@@ -13,7 +13,7 @@ import com.icia.service.HooliganService;
 import di.AnnotationRunner;
 import di.ModelAndView;
 
-@WebServlet({"/employee/*", "/main/*","/customer/*","/product/*","/admin/*","/notice/*"})
+@WebServlet({"/employee/*", "/main/*","/customer/*","/product/*","/admin/*","/notice/*","/free/*"})
 public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
@@ -35,8 +35,10 @@ public class DispatcherServlet extends HttpServlet {
 			HashMap<String,Object> model = mav.getModel();
 			response.setContentType("application/x-json; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			System.out.println(model.get("result"));
+			System.out.println("리절트 1은"+model.get("result"));
+			System.out.println("리절트 2는 "+model.get("result2"));
 			out.print(model.get("result"));
+			out.print(model.get("result2"));
 			out.flush();
 		}
 		else {

@@ -777,12 +777,9 @@ public class HooliganDao {
 
 		try {
 			pstmt = conn.prepareStatement(NoticeSql.insertFreeBoard);
-			pstmt.setInt(1, freeBoard.getArticleNo());
-			pstmt.setString(2, freeBoard.getTitle());
-			pstmt.setInt(3, freeBoard.getHits());
-			pstmt.setString(4, freeBoard.getContent());
-			pstmt.setDate(5, freeBoard.getArticleDate());
-			pstmt.setString(6, freeBoard.getCustomerId());
+			pstmt.setString(1, freeBoard.getTitle());
+			pstmt.setString(2, freeBoard.getContent());
+			pstmt.setString(3, freeBoard.getCustomerId());
 
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -826,18 +823,98 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	//자유게시판 리스트 조회
+	public ArrayList<FreeBoard> FreeList(Connection conn, int startId, int endId){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.FreeList);
+			pstmt.setInt(1, startId);
+			pstmt.setInt(2, endId);
+			rs = pstmt.executeQuery();
+			
+			ArrayList<FreeBoard> list =new ArrayList<>();
+			while(rs.next()){
+				FreeBoard free = new FreeBoard();
+				free.setArticleNo(rs.getInt("article_no"));
+				free.setTitle(rs.getString("title"));
+				free.setHits(rs.getInt("hits"));
+				free.setContent(rs.getString("content"));
+				free.setArticleDate(rs.getDate("article_date"));
+				free.setCustomerId(rs.getString("customer_id"));
+				list.add(free);
+			}return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+	}
+	//자유게시판 총 글 개수
+	public int countFree(Connection conn){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.countFree);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return -1;
+	}
+	//자유게시판 조회수 증가
+	public int hitsUpdate(Connection conn, int article_no){
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(NoticeSql.hitsPlust);
+			pstmt.setInt(1, article_no);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}JdbcUtil.close(pstmt, null);
+		return -1;
+	}
+	//자유게시판 뷰
+	public FreeBoard FreeView(Connection conn, int article_no){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		FreeBoard free = new FreeBoard();
+		try {
+			pstmt= conn.prepareStatement(NoticeSql.FreeView);
+			pstmt.setInt(1, article_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				free.setArticleNo(rs.getInt("article_no"));
+				free.setTitle(rs.getString("title"));
+				free.setHits(rs.getInt("hits"));
+				free.setContent(rs.getString("content"));
+				free.setArticleDate(rs.getDate("article_date"));
+				free.setCustomerId(rs.getString("customer_id"));
+				return free;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+	}
+	
+	
 	// 자유게시판 댓글 작성
 		public int insertFreeReple(Connection conn, FreeReple freeReple) {
 			PreparedStatement pstmt = null;
 			
 			try {
 				pstmt = conn.prepareStatement(NoticeSql.insertFreeReple);
-				pstmt.setInt(1, freeReple.getFreeRepleNo());
-				pstmt.setInt(2, freeReple.getArticleNo());
+				pstmt.setInt(1, freeReple.getArticleNo());
+				pstmt.setString(2, freeReple.getWriteId());
 				pstmt.setString(3, freeReple.getContent());
-				pstmt.setDate(4, freeReple.getRepleDate());
-
 				return pstmt.executeUpdate();
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
@@ -877,6 +954,54 @@ public class HooliganDao {
 				JdbcUtil.close(pstmt, null);
 			}
 			return -1;
+		}
+		// 자유게시판 댓글 조회
+		public ArrayList<FreeReple> FreeRepleList(Connection conn,int articleNo){
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<FreeReple> list = new ArrayList<>();
+			try {
+				pstmt = conn.prepareStatement(NoticeSql.freeRepleList);
+				pstmt.setInt(1, articleNo);
+				rs = pstmt.executeQuery();
+				while(rs.next()){
+					FreeReple freeReple = new FreeReple();
+					freeReple.setFreeRepleNo(rs.getInt("free_reple_no"));
+					freeReple.setArticleNo(rs.getInt("article_no"));
+					freeReple.setWriteId(rs.getString("write_id"));
+					freeReple.setContent(rs.getString("content"));			
+					freeReple.setRepleDate(rs.getDate("reple_date"));
+					list.add(freeReple);
+				}return list;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				JdbcUtil.close(pstmt, rs);
+			}return null;
+		}
+		//자유게시판 댓글 하나 조회
+		public FreeReple freeRepleView(Connection conn, int free_reple_no){
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			
+			try {
+				pstmt = conn.prepareStatement(NoticeSql.freeRepleView);
+				pstmt.setInt(1, free_reple_no);
+				rs =pstmt.executeQuery();
+				if(rs.next()){
+					FreeReple freeReple = new FreeReple();
+					freeReple.setArticleNo(rs.getInt("article_no"));
+					freeReple.setContent(rs.getString("content"));
+					freeReple.setFreeRepleNo(rs.getInt("free_reple_no"));
+					freeReple.setRepleDate(rs.getDate("reple_date"));
+					freeReple.setWriteId(rs.getString("write_id"));
+					return freeReple;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+				JdbcUtil.close(pstmt, rs);
+			}return null;
 		}
 		
 	///////////////////////////////////////////////////////////////////////

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.icia.vo.Customer" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html class="no-js" lang="en">
+
 <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,7 +14,7 @@
 <meta name="description" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+<%Customer customer=(Customer)session.getAttribute("customer");%>
 <!-- CSS FILES -->
 <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css" />
 <link rel="stylesheet" href="/hooligan/css/style.css">
@@ -58,18 +60,14 @@
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
 		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -82,7 +80,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -142,17 +140,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -189,22 +190,24 @@
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
-										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:350px;"></th></h3>
+				                      <form action="/hooligan/free/register" method="post">
+				                      	<div><input type="hidden" name="customer_id" value="<%=customer.getCustomerId()%>"> </div>
+										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:399px;"name="title"></th></h3>
 
 									</tr>
                   					  </thead>
 
               						  </table>
 	
-              		   <textarea rows="15" cols=""></textarea>
-              		   	
+              		   <textarea rows="15" cols="" name="content"></textarea>
+              		   			<div id="id"></div>
               		   <div class="col-sm-12 text-center"><br>
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="취소하기">
                   			 &nbsp;&nbsp;
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
            				 </div>
 							
-							
+							</form>
 								
 							
 						
@@ -215,7 +218,7 @@
 							
 							</div>
 							
-							
+							</div></div>
 					
 
            

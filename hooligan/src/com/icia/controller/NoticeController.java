@@ -32,8 +32,8 @@ public class NoticeController {
 		public static ModelAndView customerRegisterStart(HttpServletRequest req){
 			ModelAndView mav=new ModelAndView();
 			mav.setView("/AdminNoticeRegister.jsp");
-		
 			return mav;
+			
 		}
 		//공지사항 작성
 		@RequestMapping(value="/notice/register",method="POST")
@@ -56,6 +56,7 @@ public class NoticeController {
 			mav.setView("/NoticeBoardView.jsp");
 			return mav;
 		}
+		
 		//공지사항 어드민 뷰
 				@RequestMapping(value="/notice/adminView", method="GET")
 				public static ModelAndView adminView(HttpServletRequest req) {
@@ -97,12 +98,125 @@ public class NoticeController {
 			mav.setRedirect();
 			return mav;
 		}
+		//자유게시판 리스트 조회
+		@RequestMapping(value="/free/list", method="GET")
+		public static ModelAndView freeList(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.readFreeList(req));
+			mav.setView("/FreeBoardList.jsp");
+			return mav;
+		}
+		//자유게시판 뷰
+		@RequestMapping(value="/free/view", method="GET")
+		public static ModelAndView freeView(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.readFreeView(req));
+			mav.addObject("result2", service.freeRepleList(req));// 자유게시판 댓글 리스트 조회
+			mav.setView("/FreeBoardView.jsp");
+			return mav;
+		}
+		//자유게시판 뷰 댓글 작성
+		@RequestMapping(value = "/free/view", method = "POST")
+		public static ModelAndView freeViewRegisterReple(HttpServletRequest req) {
+			HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("result", service.freeRepleRegister(req));
+			mav.setRedirect();
+			mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+			return mav;
+	}
+
+	// 자유게시판 작성폼으로
+	@RequestMapping(value = "/free/register", method = "GET")
+	public static ModelAndView insertFreeStart(HttpServletRequest req) {
+		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.setView("/FreeBoardRegister.jsp");
+		return mav;
+	}
+	// 자유게시판 작성하기
+	@RequestMapping(value = "/free/register", method = "POST")
+	public static ModelAndView insertFreeEnd(HttpServletRequest req) {
+		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("result", service.insertFree(req));
+		String ggo = "/hooligan/free/list";
+		mav.setView(ggo);
+		mav.setRedirect();
+		return mav;
+	}
+	//자유게시판 수정GET
+	@RequestMapping(value="/free/update", method="GET")
+	public static ModelAndView FreeupdateStart(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("result", service.updateFreeStart(req));
+		mav.setView("/FreeBoardUpdate.jsp");
+		return mav;
+	}
+	//자유게시판 수정POST
+	@RequestMapping(value="/free/update", method="POST")
+	public static ModelAndView FreeupdateEnd(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
 		
+		mav.addObject("result", service.updateFreeEnd(req));
+		mav.setView("/hooligan/free/list");
+		mav.setRedirect();
+		return mav;
+	}
+
+	// 공지사항 삭제
+	@RequestMapping(value = "/free/delete", method = "POST")
+	public static ModelAndView deletefree(HttpServletRequest req) {
+		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("result", service.deleteFree(req));
+		mav.setView("/hooligan/free/list");
+		mav.setRedirect();
+		return mav;
+	}
+	//자유게시판 댓글 수정GET
+	@RequestMapping(value="/free/repleUpdate", method="GET")
+	public static ModelAndView freeRepleUpdateStart(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("result", service.freeRepleUpdateStart(req));
+		mav.setView("/FreeBoardRepleUpdate.jsp");
+		return mav;
+	}
+	//자유게시판 댓글 수정POST
+	@RequestMapping(value="/free/repleUpdate", method="POST")
+	public static ModelAndView freeRepleUpdateEnd(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
 		
-		
-		
-		
-		
+		mav.addObject("result", service.freeRepleUpdateEnd(req));
+		mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+		mav.setRedirect();
+		return mav;
+	}
+	//자유게시판 댓글 삭제
+	@RequestMapping(value = "/free/repleDelete", method = "POST")
+	public static ModelAndView deletefreeReple(HttpServletRequest req) {
+		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("result", service.freeRepleDelete(req));
+		mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+		mav.setRedirect();
+		return mav;
+	}
+	
+	
+
+
+
 		
 		
 		
