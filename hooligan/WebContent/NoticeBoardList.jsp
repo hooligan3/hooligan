@@ -57,8 +57,7 @@
 
 				
 		$.each(list, function(index, value){
-			
-			
+
 			var str = "<tr><td>"+value.noticeArticleNo+"</td>";
 			str = str+"<td><a href='view?pageNo="+pagination.pageNo+"&notice_article_no="+value.noticeArticleNo+"'>"+value.title+"</a></td>";
 			str = str+ "<td>"+value.noticeDate+"</td></tr>";
@@ -74,17 +73,7 @@
 		if (pagination.next > -1)
 			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
 	})
-				/*
-					<ul class="pagination"style="height: 20px;" id="pagination">
-                        <li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
-				*/					
+						
 </script>
 </head>
 <body>
@@ -92,19 +81,15 @@
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+		 <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -117,7 +102,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -177,17 +162,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -216,7 +204,7 @@
 							<br><br>
 							
 							
-							<div class="well well-lg" style="padding-right: 50px;"><h3><i class="fa fa-laptop"></i>     공지사항 목록</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px;margin-left: 50px; margin-right: 50px;"><h3><i class="fa fa-laptop"></i>     공지사항 목록</h3>
 							
 								<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>

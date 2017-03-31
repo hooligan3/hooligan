@@ -96,7 +96,9 @@
             </nav>
             <section class="main_section">
                 <h2>공지 사항</h2>
+                
                 <div class="article">
+                
                     <div class="col-lg-12 col-md-12 col-sm-12">
 							<br><br>
 						

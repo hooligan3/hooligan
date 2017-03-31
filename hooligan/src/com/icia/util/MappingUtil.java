@@ -252,4 +252,18 @@ public class MappingUtil {
 		notice.setContent(req.getParameter("content"));
 		return notice;
 	}
+	public static FreeBoard getFreeMaker(HttpServletRequest req, int articleNo){
+		FreeBoard free = new FreeBoard();
+		free.setArticleNo(articleNo);
+		free.setTitle(req.getParameter("title"));
+		free.setContent(req.getParameter("content"));
+		return free;
+	}
+	public static FreeReple getFreeRepleMaker(HttpServletRequest req, int free_reple_no){
+		FreeReple freeReple = new FreeReple();
+		freeReple.setContent(req.getParameter("content"));
+		freeReple.setFreeRepleNo(free_reple_no);
+		return freeReple;
+		
+	}
 }

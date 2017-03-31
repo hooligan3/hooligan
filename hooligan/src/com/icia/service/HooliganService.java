@@ -263,14 +263,168 @@ public class HooliganService {
 		
 		JsonObject ob = new JsonObject();
 		
-		if(result==0) ob.addProperty("result", "fail");
+		if(result==1) ob.addProperty("result", "fail");
 		else ob.addProperty("result", "success");
 		JdbcUtil.close(conn);
 		
 		return new Gson().toJson(ob);
 	}
+	//자유게시판 리스트
+	public String readFreeList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.countFree(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<FreeBoard> list = dao.FreeList(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+
+	}
+	//자유게시판 뷰
+	public String readFreeView(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();	
+		int article_no = Integer.parseInt(req.getParameter("article_no"));
+		FreeBoard free = dao.FreeView(conn, article_no);
+		dao.hitsUpdate(conn, article_no);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(free);
+		
+	}
+	//자유게시판 작성
+	public String insertFree(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		FreeBoard free = new FreeBoard();
+		free.setTitle(req.getParameter("title"));
+		free.setContent(req.getParameter("content"));
+		free.setCustomerId(req.getParameter("customer_id"));
+		int result = dao.insertFreeBoard(conn, free);
+		
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+	}
+	//자유게시판 수정 GET
+	public String updateFreeStart(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		FreeBoard free = dao.FreeView(conn, Integer.parseInt(req.getParameter("article_no")));
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("free", free);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	//자유게시판 수정 POST
+	public String updateFreeEnd(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		FreeBoard free = new FreeBoard();
+		System.out.println(req.getParameter("articleNo"));
+		System.out.println(req.getParameter("content"));
+		System.out.println(req.getParameter("title"));
+		int articleNo = Integer.parseInt(req.getParameter("articleNo"));
+		int result = dao.updateFreeBoard(conn, MappingUtil.getFreeMaker(req, articleNo));
+		
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	//자유게시판 삭제
+	public String deleteFree(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		System.out.println(req.getParameter("articleNo"));
+		int articleNo = Integer.parseInt(req.getParameter("articleNo"));
+		int result = dao.deleteFreeBoard(conn, articleNo);
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "fail");
+		else ob.addProperty("result", "success");
+		JdbcUtil.close(conn);
+
+		return new Gson().toJson(ob);
+	}
+	//자유게시판 댓글 리스트 조회
+	public String freeRepleList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int articleNo = Integer.parseInt(req.getParameter("article_no"));
+		ArrayList<FreeReple> list = dao.FreeRepleList(conn, articleNo);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	
+	//자유게시판 댓글 작성
+	public String freeRepleRegister(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		FreeReple freeReple = new FreeReple();
+		System.out.println(req.getParameter("article_no"));
+		System.out.println(req.getParameter("write_id"));
+		System.out.println(req.getParameter("content"));
+		
+		freeReple.setArticleNo(Integer.parseInt(req.getParameter("article_no")));
+		freeReple.setWriteId(req.getParameter("write_id"));
+		freeReple.setContent(req.getParameter("content"));
+		
+		int result = dao.insertFreeReple(conn, freeReple);
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+		
+	}
+	//자유게시판 덧글 수정 폼으로 이동(GET)
+	public String freeRepleUpdateStart(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		
+		int	freeRepleNo = Integer.parseInt(req.getParameter("free_reple_no"));
+		
+		FreeReple freeReple = dao.freeRepleView(conn, freeRepleNo);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("freeReple", freeReple);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	//자유게시판 덧글 수정 (POST)
+	public String freeRepleUpdateEnd(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		System.out.println(req.getParameter("free_reple_no"));
+		int free_reple_no = Integer.parseInt(req.getParameter("free_reple_no"));
+		
+		int result = dao.updateFreeReple(conn, MappingUtil.getFreeRepleMaker(req, free_reple_no));
+		
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	//자유게시판 댓글 삭제
+	public String freeRepleDelete(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		System.out.println(req.getParameter("free_reple_no"));
+		int freeRepleNo = Integer.parseInt(req.getParameter("free_reple_no"));
+		int result = dao.deleteFreeReple(conn, freeRepleNo);
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "fail");
+		else ob.addProperty("result", "success");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+	}
 
 }
+
+
 
 
 

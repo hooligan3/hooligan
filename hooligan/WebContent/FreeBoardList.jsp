@@ -43,13 +43,42 @@
     min-height: 290px;
     padding : 0;
     padding-left: 50px;
+	
     }
     
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+var result = <%=request.getAttribute("result")%>
+$(function(){
+	var list = result.list;
+	var pagination = result.pagination;
+	var target= $("#free");
+
+
+			
+	$.each(list, function(index, value){
+		var str = "<tr><td>"+value.articleNo+"</td>";
+		
+		str = str+"<td>"+value.customerId+"</td>";
+		str = str+"<td ><a href='view?pageNo="+pagination.pageNo+"&article_no="+value.articleNo+"'>"+value.title+"</a></td>";
+		str = str+"<td>"+value.articleDate+"</td>";
+		str = str+"<td>"+value.hits+"</td></tr>";
+		target.append(str);
+	})
 	
+	
+	
+	$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+	var p = $("#pagination ul");
+	if (pagination.prev > -1)
+		p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+	for (var i = pagination.startPage; i <= pagination.endPage; i++)
+		p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+	if (pagination.next > -1)
+		p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
+})	
 </script>
 </head>
 <body>
@@ -57,19 +86,16 @@
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+		
+        <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -82,7 +108,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -142,17 +168,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -177,115 +206,45 @@
             
  
            
-            <div class="col-lg-12 col-md-12 col-sm-12">
+                 <div class="col-lg-12 col-md-12 col-sm-12">
 							<br><br>
 							
 							
-							<div class="well well-lg" style="height:510px; padding-left: 50px; padding-right: 50px; margin: 0;"><h3><i class="fa fa-laptop"></i>     게시판 목록</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: "><h3><i class="fa fa-laptop"></i>     자유게시판 목록</h3>
 							
 								<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
                     <tr >
 										<th style="text-align: center;">글 번호</th>
-										<th style="text-align: center;">제목</th>
 										<th style="text-align: center;">글쓴이</th>
+										<th style="text-align: center;">제목</th>
+										
 										<th style="text-align: center;">등록일</th>
 										<th style="text-align: center;">조회수</th>
 									</tr>
                     </thead>
-                    <tbody>
-                    <tr>
-										<td>1</td>
-										<td><a href="#">옷이이뻐요~!! 	</a></td>
-										<td>qweqwe</td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-								       
-									</tr>
-                    <tr>
-										<td>2</td>
-										<td><a href="#">봄신상언제나와요?</a></td>
-										<td>asdasd </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>3</td>
-										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
-										<td>asdgtt </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>4</td>
-										<td><a href="#">유앤미여기넘좋네요! </a></td>
-										<td>ttrertert </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>5</td>
-										<td><a href="#">이거맛있네요~!</a></td>
-										<td>troiig</td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                     <tr>
-										<td>6</td>
-										<td><a href="#">옷이이뻐요~!! </a>	</td>
-										<td>qweqwe</td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-								       
-									</tr>
-                    <tr>
-										<td>7</td>
-										<td><a href="#">봄신상언제나와요?</a></td>
-										<td>asdasd </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>8</td>
-										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
-										<td>asdgtt </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>9</td>
-										<td><a href="#">유앤미여기넘좋네요!</a> </td>
-										<td>ttrertert </td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
-                    <tr>
-										<td>10</td>
-										<td><a href="#">이거맛있네요~!</a></td>
-										<td>troiig</td>
-										<td> 2017-03-05</td>
-										<td>101</td>
-                    </tr>
+                    
+                    <tbody id="free">
+                    
                     </tbody>
 
-                </table><br>
-							<div class="col-sm-12 text-right" style="height: 20px;">
-							<div class="col-sm-12 text-center" style="height: 10px;">
-                    <ul class="pagination"style="height: 20px;">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
+                </table>
+              	 <div class="col-lg-9 col-md-9 col-sm-9"></div>
+              	  <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
+                <a href='/hooligan/free/register'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기"></a>
                 </div>
                 <br>
-                   <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기">
+							<div class="col-sm-12 text-right" style="height: 20px;">
+							
+						  
+                    <br><br>
+	                    <div id="pagination" style="text-align: center;"></div>
+	                  
+                    <br><br> <br><br>
+                </div>
                 </div>
             </div>	
-				                     <!--페이징 시작 -->
+				                     
                 
             </div> 
             
@@ -305,9 +264,6 @@
 							
 							</div>
 							
-							
-					
-
            
 			
 
