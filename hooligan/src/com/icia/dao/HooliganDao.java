@@ -1381,6 +1381,25 @@ public class HooliganDao {
 				}
 				return 0;
 			}
+			//상품메인화면나오게하기
+			public Product productMain(Connection conn, int product_no) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.productMain);
+					pstmt.setInt(1, product_no);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						Product p=new Product();
+						return MappingUtil.makeProduct(rs);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				return null;
+			}
 	
 		
 	

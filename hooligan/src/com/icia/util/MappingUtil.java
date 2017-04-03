@@ -2,7 +2,8 @@ package com.icia.util;
 
 import java.io.*;
 import java.sql.Date;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -332,5 +333,34 @@ public class MappingUtil {
 		System.out.println("새로생긴 세션의 값은:"+emp.toString());
 		return emp;
 
+	}
+
+	public static Product makeProduct(ResultSet rs) {
+		Product p=new Product();
+		try {
+			p.setProductNo(rs.getInt("product_no"));
+			p.setProductName(rs.getString("product_name"));
+			p.setProductContent(rs.getString("product_content"));
+			p.setPrice(rs.getInt("price"));
+			p.setMaximumSize(rs.getInt("maximum_size"));
+			p.setMinimumSize(rs.getInt("minimum_size"));
+			p.setPresentSize(rs.getInt("present_size"));
+			p.setRegistrationDate(rs.getDate("registration_date"));
+			p.setClosingDate(rs.getDate("closing_date"));
+			p.setOrderState(rs.getInt("order_state"));
+			p.setMainImagePath(rs.getString("main_image_path"));
+			p.setDetailContent(rs.getString("detail_content"));
+			p.setTypeNo(rs.getInt("type_no"));
+			p.setEmployeeId(rs.getString("employee_id"));
+			p.setBrandNo(rs.getInt("brand_no"));
+			return p;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return null;
 	}
 }
