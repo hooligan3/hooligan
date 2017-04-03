@@ -487,6 +487,7 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
+<<<<<<< HEAD
 	//문의게시판 리스트
 	public String FAQList(HttpServletRequest req){
 		Connection conn = JdbcUtil.getConnection();
@@ -531,6 +532,20 @@ public class HooliganService {
 		else ob.addProperty("result", "fail");
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
+=======
+	
+	//제품 메인
+	public String productMain(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HashMap<String, Object> map=new HashMap<>();
+		JsonObject ob=new JsonObject();
+		int product_no=Integer.parseInt(req.getParameter("product_no"));
+		Product p=dao.productMain(conn,product_no);
+		JdbcUtil.close(conn);
+		HashMap<String , Object> product=new HashMap<>();
+		product.put("p", p);
+		return new Gson().toJson(product);
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	}
 
 }

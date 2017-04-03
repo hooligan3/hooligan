@@ -53,6 +53,9 @@ public interface ProductSql {
 	//4.현재상품주문내역에 추가
 	public String insertOrder="insert into order(product_no,customer_id,order_state,order_date,order_price,postal_no,address,order_size,send_date,sent_no) values(?,?,?,sysdate,?,?,?,?,?,?)";
 	
+	//제품 메인보기
+	public String productMain = "select *from product where product_no=?";
+	
 	
 	
 	

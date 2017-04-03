@@ -1,6 +1,8 @@
+<%@page import="com.icia.vo.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
@@ -156,7 +158,7 @@
 						<!--Project Details Page-->
 						<div class="porDetCarousel">
 							<div class="carousel-content">
-								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider1.png" alt="">
+								<img class="carousel-item" id="productI" src="/hooligan/images/portfolio/portfolio_slider1.png" alt="">
 								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider2.png" alt="">
 								<img class="carousel-item" src="/hooligan/images/portfolio/portfolio_slider3.png" alt="">
 							</div>
@@ -166,22 +168,22 @@
 					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="project_description">
 							<div class="widget_title">
-								<h4><span>상품명</span></h4>
+								<h4 id="productN"><span>상품명</span>h4>
 							</div>
 
 							<p>상품 내용</p>
-							<p style="height:233px;">제68회 칸 영화제와 제영이 연출하고 뱅상 카셀, 셀마 헤이엑, 토비 존스가 주연을 맡았다. 압도적인 비주얼로 유명한 〈그랜드 부다페스트 호텔〉 제작진이 참여해 화려하고 독창적인 미장센이 돋보이는 이 판타지 영화는 유럽 최초의 동화 모음집 『펜타메로네』에서 고른 세 편을 창조적으로 변형하여 옴니버스 형태로 제작한 것이다. </p>
+							<p style="height:233px;" id="productC"></p>
 						<ul class="progress-skill-bar mrg-0">
                 
                     <li>
-                        <span class="lable">90%</span>
+                        <span class="lable" id="productB">%</span>
                         <div class="progress_skill">
                             <div data-height="100" role="progressbar" data-value="90" class="bar" style="width: 90%; height: 100%;">
                                 현재 주문수
                               
                             </div>
                               </div>
-                            <br><p>구매 수량 선택&nbsp;&nbsp;&nbsp;<select name="number" >
+                            <br><p>구매 수량 선택&nbsp;&nbsp;&nbsp;<select name="order_size" >
 										    <option value="1">1</option>
 										    <option value="2">2</option>
 										    <option value="3">3</option>
@@ -414,6 +416,7 @@
 				
 				
 				// CHANGE ITEM
+				
 				var changeImage = function(direction, context) {
 					var current = ui.carousel.find('.carousel-item.active');
 
@@ -493,7 +496,18 @@
 			});
 		});
 	</script>
+<<<<<<< HEAD
 	<script src="js/main.js"></script>
+=======
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var result= <%= request.getAttribute("result") %>
+		var productName=result.productName;
+		$("#productN").append(productName);
+		
+	</script>
+	<script src="/hooligan/js/main.js"></script>
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	
 	<!-- Start Style Switcher -->
 	<div class="switcher"></div>
