@@ -1,5 +1,6 @@
 package com.icia.controller;
 
+	
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +16,7 @@ public class ProductController {
 		  HttpSession session = req.getSession();
 		  HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		  mav.addObject("result",service.productMain(req) );
+		  System.out.println(service.productMain(req).toString());
 		  mav.setView("/ProductMain.jsp");
 		return mav;
 	}

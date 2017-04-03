@@ -37,7 +37,7 @@
                 <!-- Logo / Mobile Menu -->
                  <div  class="col-lg-3 col-sm-3 ">
                     <div id="logo">
-                        <h1><a href="index.html"><img src="images/logo.png" alt=""/></a></h1>
+                        <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt=""/></a></h1>
                     </div>
                 </div>
                 <!-- Navigation
@@ -497,6 +497,7 @@
 		});
 	</script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<script src="js/main.js"></script>
 =======
 	<script type="text/javascript">
@@ -506,6 +507,9 @@
 		$("#productN").append(productName);
 		
 	</script>
+=======
+
+>>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	<script src="/hooligan/js/main.js"></script>
 >>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	
