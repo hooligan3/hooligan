@@ -29,8 +29,19 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+.panel-body, .panel-heading {
+	text-align: center;
+}
 
+.panel-body, .panel-heading {
+	text-align: center;
+}
 
+.name li {
+	list-style: none;
+	float: left;
+	margin: 15px 10px;
+}
 
 .name {
 	text-align: center;
@@ -38,38 +49,33 @@
 	padding-right: 200px;
 }
 
-
-.well {
-    min-height: 290px;
-    padding : 0;
-    padding-left: 50px;
-    }
-    
+.nnn {
+	text-align: center;
+	padding-left: 200px;
+	padding-right: 200px;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	
+
 </script>
 </head>
 <body>
-		<!--Start Header-->
+	<!--Start Header-->
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
-					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+		
+        <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
+					 <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -82,7 +88,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -142,17 +148,20 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li class="active"><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
+                                    </li>
+                                    
+                                    <li><a href="#">문의사항</a>
+                                    </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
@@ -162,7 +171,7 @@
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
-		<section class="page_head">
+				<section class="page_head">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -181,35 +190,62 @@
 							<br><br>
 						
 							
-							<div class="well well-lg" style="padding-right: 50px; padding-left : 50px; margin-left:50px; margin-right : 50px; height: 600px;">
+							<div class="well well-lg" style="padding-right: 50px; padding-left:50px; margin-left : 50px; margin-right : 50px; height: 600px;">
 							<div class="col-lg-1 col-md-1 col-sm-1">
               		   </div>
 							<div class="col-lg-10 col-md-10 col-sm-10">
-							<h3><i class="fa fa-laptop"></i> 문의게시판 글 작성</h3>
+							<h3><i class="fa fa-info-circle"></i>&nbsp; 문의 게시판 글 작성</h3>
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
-										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:350px;"></th></h3>
+				                      <form action="/hooligan/faq/register" method="post">
+				                      	<div><input type="hidden" name="customer_id" > </div>
+										<th><h3>문의 선택&nbsp;&nbsp;:&nbsp;&nbsp;
+										<select name="group_name">
+											<option value="입금확인">입금확인</option>
+											<option value="1st.Class전용">1st.Class전용</option>
+											<option value="VIP전용">VIP전용</option>
+											<option value="배송/기타">배송/기타</option>
+											<option value="코디/상품">코디/상품</option>
+											<option value="교환/반품">교환/반품</option>
+											<option value="해외배송">해외배송</option>
+										</select>&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:540px;"name="title"></th></h3>
 
 									</tr>
                   					  </thead>
 
               						  </table>
 	
-              		   <textarea rows="15" cols=""></textarea>
-              		   	
+              		   <textarea rows="15" cols="" name="content"></textarea>
+              		   			<div id="id"></div>
               		   <div class="col-sm-12 text-center"><br>
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="취소하기">
                   			 &nbsp;&nbsp;
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
            				 </div>
+							
+							</form>
+								
+							
+						
+                            
+							
+									
+							
+							
 							</div>
 							
-							
+							</div></div>
 					
 
            
 			
+
+					
+
+
 
 
 					<script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
@@ -481,6 +517,6 @@
 													});
 										});
 					</script>
-					<script src="/hooligan/js/main.js"></script>
+					<script src="js/main.js"></script>
 </body>
 </html>

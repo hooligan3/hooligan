@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%Customer customer=(Customer)session.getAttribute("customer");%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -49,7 +50,34 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+var result = <%=request.getAttribute("result")%>
+$(function(){
+	var list = result.list;
+	var pagination = result.pagination;
+	var target= $("#FAQ");
+	$.each(list, function(index, value){
+		
+		var str = "<tr><td>"+value.customerId+"</td>";
+		str = str+"<td>"+value.groupName+"</td>";
+		str = str+"<td ><a href='view?pageNo="+pagination.pageNo+"&inquiry_no="+value.inquiryNo+"'>"+value.title+"</a></td>";
+		str = str+"<td>"+value.inquiryDate+"</td></tr>";
+		target.append(str);
+	})
 	
+	
+	
+	$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+	var p = $("#pagination ul");
+	if (pagination.prev > -1)
+		p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+	for (var i = pagination.startPage; i <= pagination.endPage; i++)
+		p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+	if (pagination.next > -1)
+		p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
+
+
+})	
+
 </script>
 </head>
 <body>
@@ -57,18 +85,14 @@
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
-			<div class="container">
-				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
-						<div id="logo">
-							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
-							</h1>
-						</div>
-					</div>
+	 <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
+                    </div>
 					  <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
@@ -162,7 +186,7 @@
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 		<!--End Header-->
 		<!--start wrapper-->
-		<section class="page_head">
+			<section class="page_head">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -177,138 +201,45 @@
             
  
            
-            <div class="col-lg-12 col-md-12 col-sm-12">
+                 <div class="col-lg-12 col-md-12 col-sm-12">
 							<br><br>
 							
 							
-							<div class="well well-lg"style="height:510px; padding-left: 50px; padding-right: 50px; margin: 0;"><h3><i class="fa fa-laptop"></i>     문의게시판 목록</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px; padding-top: 10px;"><h3><i class="fa fa-info-circle"></i>&nbsp;     작성한 문의 글 목록</h3>
 							
 								<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
                     <tr >
-										<th style="text-align: center;">문의 번호</th>
-										<th style="text-align: center;">상품 번호</th>
-										<th style="text-align: center;">제목</th>
-										<th style="text-align: center;">글쓴이</th>
-										<th style="text-align: center;">등록일</th>
+										<th style="text-align: center;  width: 80px;">글쓴이</th>
+										<th style="text-align: center;  width: 100px;">분류</th>
+										<th style="text-align: center;">제목</th>				
+										<th style="text-align: center; width: 150px;">등록일</th>
 									</tr>
                     </thead>
-                    <tbody>
-                    <tr>
-										<td>1</td>
-										<td>24</td>
-										<td><a href="#">옷이이뻐요~!! 	</a></td>
-										<td>qweqwe</td>
-										<td> 2017-03-05</td>
-								       
-									</tr>
-                    <tr>
-										<td>2</td>
-										<td>244</td>
-										<td><a href="#">봄신상언제나와요?</a></td>
-										<td>asdasd </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>3</td>
-										<td>64</td>
-										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
-										<td>asdgtt </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>4</td>
-										<td>24</td>
-										<td><a href="#">유앤미여기넘좋네요! </a></td>
-										<td>ttrertert </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>5</td>
-										<td>24</td>
-										<td><a href="#">이거맛있네요~!</a></td>
-										<td>troiig</td>
-										<td> 2017-03-05</td>
-                    </tr>
-                     <tr>
-										<td>6</td>
-										<td>24</td>
-										<td><a href="#">옷이이뻐요~!! </a>	</td>
-										<td>qweqwe</td>
-										<td> 2017-03-05</td>
-								       
-									</tr>
-                    <tr>
-										<td>7</td>
-										<td>24</td>
-										<td><a href="#">봄신상언제나와요?</a></td>
-										<td>asdasd </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>8</td>
-										<td>24</td>
-										<td><a href="#">가구어디브랜드가괜찮아요?</a></td>
-										<td>asdgtt </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>9</td>
-										<td>24</td>
-										<td><a href="#">유앤미여기넘좋네요!</a> </td>
-										<td>ttrertert </td>
-										<td> 2017-03-05</td>
-                    </tr>
-                    <tr>
-										<td>10</td>
-										<td>24</td>
-										<td><a href="#">이거맛있네요~!</a></td>
-										<td>troiig</td>
-										<td> 2017-03-05</td>
-                    </tr>
+                    
+                    <tbody id="FAQ">
+                    	
                     </tbody>
 
-                </table><br>
-							<div class="col-sm-12 text-right" style="height: 20px;">
-							<div class="col-sm-12 text-center" style="height: 10px;">
-                    <ul class="pagination"style="height: 20px;">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
-                </div>
+                </table>
+              	
                 <br>
-                   <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기">
+							<div class="col-sm-12 text-right" style="height: 20px;">
+							
+						  
+                    <br><br>
+	                    <div id="pagination" style="text-align: center;"></div>
+	                  
+                    <br><br> <br><br>
+                </div>
+                </div>
+                 <div class="col-lg-9 col-md-9 col-sm-9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <a href='/hooligan/free/register'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="이전으로"></a></div>
+              	  <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left;">
+              	  
                 </div>
             </div>	
-				                     <!--페이징 시작 -->
-                
-            </div> 
-            
-             
-									
-									
-							
-							
-								
-							
-						
-                            
-							
-									
-							</div>
-							
-							
-							</div>
-							
-							
-					
-
-           
+				                     
 			
 
 

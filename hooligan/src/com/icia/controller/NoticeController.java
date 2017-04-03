@@ -213,8 +213,49 @@ public class NoticeController {
 		return mav;
 	}
 	
+	//문의게시판 리스트
+	@RequestMapping(value="/faq/list", method="GET")
+	public static ModelAndView faqList(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		HttpSession sesstion=req.getSession();
+		System.out.println(sesstion.getAttribute("customer").toString());
+		mav.addObject("result", service.FAQList(req));
+		mav.setView("/FAQBoardList.jsp");
+		return mav;
+	}
+	//문의게시판 뷰
+	@RequestMapping(value="/faq/view", method="GET")
+	public static ModelAndView faqView(HttpServletRequest req) {
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("result", service.FAQView(req));
+		//mav.addObject("result2", service.freeRepleList(req));// 자유게시판 댓글 리스트 조회
+		mav.setView("/FAQBoardView.jsp");
+		return mav;
+	}	
+	// 자유게시판 작성폼으로
+		@RequestMapping(value = "/faq/register", method = "GET")
+		public static ModelAndView insertFAQStart(HttpServletRequest req) {
+			HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			mav.setView("/FAQBoardRegister.jsp");
+			return mav;
+		}
 	
-
+	
+	
+	//문의게시판 작성
+	@RequestMapping(value = "/faq/register", method = "POST")
+	public static ModelAndView insertFAQEnd(HttpServletRequest req) {
+		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("result", service.FAQInsert(req));
+		String ggo = "/hooligan/faq/list";
+		mav.setView(ggo);
+		mav.setRedirect();
+		return mav;
+	}
 
 
 		
