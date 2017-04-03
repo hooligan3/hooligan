@@ -8,9 +8,9 @@ public interface ProductSql {
 	//상품종류별검색
 	public String searchOfKind="select rnum,t2.* from(select rownum rnum,t1.* from(select p.*,m.* from product p,main_image m where p.product_no=m.product_no and p.type_no=?)t1)t2 where rnum between ? and ?";
 	//메인 최신제품받기
-	public String mainRecentProduct="select rnum,t2.* from(select rownum rnum,t1.* from(select p.* from product p  order by p.REGISTRATION_DATE desc )t1)t2 where rnum between 1 and 10";
+	public String mainRecentProduct="select rnum,t2.* from(select rownum rnum,t1.* from(select p.* from product p  order by p.REGISTRATION_DATE desc )t1)t2 where rnum between 1 and 20";
 	//메인 인기상품받기
-	public String mainHitProduct="select rnum,t2.* from(select rownum rnum,t1.* from(select p.* from product p  order by p.present_size ASC, p.product_no desc )t1)t2 where rnum between 1 and 10";
+	public String mainHitProduct="select rnum,t2.* from(select rownum rnum,t1.* from(select p.* from product p  order by p.present_size ASC, p.product_no desc )t1)t2 where rnum between 1 and 20";
 	//브랜드의종류별검색
 	
 	//1.최신
@@ -52,6 +52,9 @@ public interface ProductSql {
 	public String updateOrderState="update product set order_state=? where product_no=?";
 	//4.현재상품주문내역에 추가
 	public String insertOrder="insert into order(product_no,customer_id,order_state,order_date,order_price,postal_no,address,order_size,send_date,sent_no) values(?,?,?,sysdate,?,?,?,?,?,?)";
+	
+	//제품 메인보기
+	public String productMain = "select *from product where product_no=?";
 	
 	
 	

@@ -299,7 +299,7 @@ $(document).ready(function() {
 
 		var tagli=$('<li class="col-sm-3 col-md-3 col-lg-3"></li>');
 		var tagli2=$('<figure class="touching effect-bubba"></figure>')
-		var a=$("<a href='/hooligan/product/productDetail?productNo="+r.productNo+"'></a>")
+		var a=$("<a href='/hooligan/product/productMain?product_no="+r.productNo+"'></a>")
 		var tagImg=$('<img src="/hooligan/employees/productImg/'+r.mainImagePath+'"alt="" class="img-responsive"/>');
 		a.append(tagImg);
 		tagli2.append(a);
@@ -310,7 +310,7 @@ $(document).ready(function() {
 
 		var tagli=$('<li class="col-sm-3 col-md-3 col-lg-3"></li>');
 		var tagli2=$('<figure class="touching effect-bubba"></figure>')
-		var a=$("<a href='/hooligan/product/productDetail?productNo="+h.productNo+"'></a>")
+		var a=$("<a href='/hooligan/product/productMain?product_no="+h.productNo+"'></a>")
 		var tagImg=$('<img src="/hooligan/employees/productImg/'+h.mainImagePath+'"alt="" class="img-responsive"/>');
 		a.append(tagImg);
 		tagli2.append(a);
