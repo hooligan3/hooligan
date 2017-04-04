@@ -1,9 +1,14 @@
+<%@page import="com.icia.vo.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+<%Customer customer=(Customer)session.getAttribute("customer"); %>
+<%Product product=(Product)request.getAttribute("result");%>
+<%String order_size=(String)request.getAttribute("size"); %>
+<%int size=Integer.parseInt(order_size); %>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Portfolio Single - Edge Responsive Multipurpose Template</title>
@@ -172,9 +177,9 @@
                     </thead>
                     <tbody>
                     <tr>
-										<td>한우 소갈비</td>
-										<td>5 개</td>
-										<td>300.000원</td>
+										<td><%=product.getProductName() %></td>
+										<td><%=size%></td>
+										<td><%=product.getPrice()*size%></td>
 								       
 									</tr>
                     <tr>
@@ -195,10 +200,10 @@
 								<h4><span>배송지 확인</span></h4>
 							</div>
 							<ul class="details">
-								<li><span>수령인 </span>주희경</li>
-								<li><span>우편 번호 </span> 서울특별시 구로구 xxxxxxx</li>
-								<li><span>상세 주소</span> xxx-xxx</li>
-								<li><span>연락처 </span> 010-1234-5678</li>
+								<li><span>수령인 </span><%=customer.getCustomerName()%></li>
+								<li><span>우편 번호 </span> <%=customer.getPostalNo() %></li>
+								<li><span>상세 주소</span> <%=customer.getAddress() %></li>
+								<li><span>연락처 </span> <%=customer.getTell() %></li>
 							</ul>
 						</div>
 					</div>
@@ -208,9 +213,8 @@
 						<br><br>
 						<div class="porDetCarousel">
 							<div class="carousel-content">
-								<img class="carousel-item" src="images/portfolio/portfolio_slider1.png" alt="" style="display: none;">
-								<img class="carousel-item" src="images/portfolio/portfolio_slider2.png" alt="" style="display: none;">
-								<img class="carousel-item active" src="images/portfolio/portfolio_slider3.png" alt="" style="display: block;">
+								<img class="carousel-item"  src="/hooligan/employees/productImg/<%=product.getMainImagePath() %>" alt="">
+									<img class="carousel-item"  src="/hooligan/employees/productImg/<%=product.getDetailImagePath() %>" alt="">
 							</div>
 						<div class="carousel-control"><div class="carousel-prev"></div><div class="carousel-next"></div><ul class="carousel-pagination"><li class=""></li><li class=""></li><li class="active"></li></ul></div></div>
 					</div>
@@ -229,152 +233,8 @@
 				
 				
 				<br><br><br><br>
-				<div class="row sub_content">
-					<div class="carousel-intro">
-						<div class="col-md-12">
-							<div class="dividerHeading">
-								<h4><span>최근 등록된 상품</span></h4>
-							</div>
-							<div class="carousel-navi">
-								<div id="work-prev" class="arrow-left jcarousel-prev" data-jcarouselcontrol="true"><i class="fa fa-angle-left"></i></div>
-								<div id="work-next" class="arrow-right jcarousel-next active" data-jcarouselcontrol="true"><i class="fa fa-angle-right"></i></div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-
-                    <div class="jcarousel recent-work-jc" data-jcarousel="true" style="height: 162px;">
-                        <ul class="jcarousel-list" style="left: 0px;">
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_1.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_1.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_2.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_3.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_3.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_4.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_4.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_5.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_5.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_6.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_6.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_7.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_7.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-
-                            <!-- Recent Work Item -->
-                            <li class="col-sm-3 col-md-3 col-lg-3">
-                                <figure class="touching effect-bubba">
-                                    <img src="/hooligan/images/portfolio/portfolio_8.png" alt="" class="img-responsive">
-
-                                    <div class="option">
-                                        <a href="/hooligan/portfolio_single.html" class="fa fa-link"></a>
-                                        <a href="/hooligan/images/portfolio/portfolio_8.png" class="fa fa-search mfp-image"></a>
-                                    </div>
-                                    <figcaption class="item-description">
-                                        <h5>Touch and Swipe</h5>
-                                        <p>Technology</p>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                    </div>
-				</div>
+				                    </div>
+				
 			</div>
 		</section>
 	</section>
@@ -490,16 +350,7 @@
 					});
 				
 				// AUTO CHANGE
-				if (op.autoChange) {
-					var changeInterval = setInterval(changeImage, op.interval);
-					ui.carousel
-						.on('mouseenter', function() {
-							clearInterval(changeInterval);
-						})
-						.on('mouseleave', function() {
-							changeInterval = setInterval(changeImage, op.interval);
-						});
-				}
+
 				return this;
 			};
 			

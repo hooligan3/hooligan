@@ -349,6 +349,7 @@ public class MappingUtil {
 			p.setClosingDate(rs.getDate("closing_date"));
 			p.setOrderState(rs.getInt("order_state"));
 			p.setMainImagePath(rs.getString("main_image_path"));
+			p.setDetailImagePath(rs.getString("image_path"));
 			p.setDetailContent(rs.getString("detail_content"));
 			p.setTypeNo(rs.getInt("type_no"));
 			p.setEmployeeId(rs.getString("employee_id"));
