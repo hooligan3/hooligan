@@ -146,15 +146,11 @@
                                 </li>
                                  <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#"> 공지사항</a>
-                                    </li>
-                                    
-                                    <li><a href="#">문의사항</a>
-                                    </li>
-                                    
-                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
-                                    </li>
+                                 
+                                   <li><a href="/hooligan/main/freeBoardList">자유 게시판</a></li>
+                                        <li><a href="/hooligan/"> 문의 게시판</a></li> <!-- 아직안만듬 -->
+                                        <li><a href="/hooligan/main/noticeBoardList">공지 사항</a></li>
+                                      
                                     </ul>
                             </ul>
                         </div>
@@ -186,24 +182,25 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/employee/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage2.html" class="btn btn-block btn-default">상품 판매등록</a>
+									<a href="/hooligan/employee/productRegister" class="btn btn-block btn-default">상품 판매등록</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage3.html" class="btn btn-block btn-default">내 상품조회</a>
+									<a href="/hooligan/employee/productList" class="btn btn-block btn-default">내 상품조회</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage5.html" class="btn btn-block btn-default">포인트 환급하기</a>
+									<a href="/hooligan/employee/refund" class="btn btn-block btn-default">포인트 환급하기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/company_MyPage6.html" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/employee/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
+								
 
 							</div>
 							

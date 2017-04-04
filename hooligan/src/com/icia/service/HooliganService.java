@@ -531,7 +531,7 @@ public class HooliganService {
 		else ob.addProperty("result", "fail");
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
-	
+	}
 	//제품 메인
 	public String productMain(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
