@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%Customer customer=(Customer)session.getAttribute("customer");%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -58,7 +59,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-
+	if(<%=customer.getCustomerId() %>==null){
+		alert("로그인을 먼저 해주세요")
+	}
 </script>
 </head>
 <body>
@@ -153,13 +156,11 @@
                                  <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                     
-                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
-                                    </li>
+                                   <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
                                     
-                                    <li><a href="#">문의사항</a>
-                                    </li>
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
                                     
-                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
                                     </li>
                                     </ul>
                             </ul>
@@ -199,7 +200,7 @@
 				                    <thead>
 				                    <tr>
 				                      <form action="/hooligan/faq/register" method="post">
-				                      	<div><input type="hidden" name="customer_id" > </div>
+				                      	<div><input type="hidden" name="customer_id" value="<%=customer.getCustomerId() %>" > </div>
 										<th><h3>문의 선택&nbsp;&nbsp;:&nbsp;&nbsp;
 										<select name="group_name">
 											<option value="입금확인">입금확인</option>
@@ -227,14 +228,7 @@
            				 </div>
 							
 							</form>
-								
-							
-						
-                            
-							
-									
-							
-							
+
 							</div>
 							
 							</div></div>

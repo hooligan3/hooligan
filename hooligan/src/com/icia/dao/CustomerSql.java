@@ -52,9 +52,9 @@ public interface CustomerSql {
 		/* 문의 게시판*/
 		
 		//문의게시판글 작성
-		public String  insertInquiryAticle= "insert into INQUIRY_BOARD values(seq_faqboard,?,?,sysdate,?,?)";
+		public String  insertInquiryAticle= "insert into INQUIRY_BOARD values(seq_faqboard.nextval,?,?,sysdate,?,?)";
 		//문의게시판글수정
-		public String updateInquiryAticle = "update INQUIRY_BOARD set group_name=?, title=?, content=? where inquiry_no=?";
+		public String updateInquiryAticle = "update INQUIRY_BOARD set title=?, content=?, group_name=? where inquiry_no=?";
 		//문의게시판글삭제
 		public String deleteInquiryAticle = "delete from INQUIRY_BOARD where inquiry_no=?";
 		//문의게시판 리스트

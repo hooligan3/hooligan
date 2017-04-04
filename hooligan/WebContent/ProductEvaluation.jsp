@@ -46,7 +46,7 @@
                         <h1><a href="index.html"><img src="images/logo.png" alt=""/></a></h1>
                     </div>
                 </div>
-               <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -124,13 +124,11 @@
                                  <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                     
-                                    <li><a href="#"> 공지사항</a>
-                                    </li>
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
                                     
-                                    <li><a href="#">문의사항</a>
-                                    </li>
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
                                     
-                                    <li><a href="FreeBoardList.jsp">자유게시판</a>
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
                                     </li>
                                     </ul>
                             </ul>
@@ -139,7 +137,6 @@
                 </div>
             </div>
         </div>
-        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 <!--End Header-->
 	<section class="wrapper">
