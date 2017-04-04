@@ -51,9 +51,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 var result = <%=request.getAttribute("result")%>
+
 $(function(){
 	var list = result.list;
 	var pagination = result.pagination;
+	var pageNo = pagination.pageNo;
 	var target= $("#FAQ");
 	$.each(list, function(index, value){
 		
@@ -171,11 +173,13 @@ $(function(){
                                     </ul>
                                      <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
+                                    
+                                        <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
             
-                                </li>
                                 </li>
                             </ul>
                         </div>
@@ -205,7 +209,7 @@ $(function(){
 							<br><br>
 							
 							
-							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px; padding-top: 10px;"><h3><i class="fa fa-info-circle"></i>&nbsp;     작성한 문의 글 목록</h3>
+							<div class="well well-lg" style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px; padding-top: 10px;"><h3><i class="fa fa-info-circle"></i>&nbsp;     내가 작성한 문의 글</h3>
 							
 								<table class="table table-striped table-hover" style="text-align: center;">
                     <thead>
@@ -234,7 +238,7 @@ $(function(){
                 </div>
                 </div>
                  <div class="col-lg-9 col-md-9 col-sm-9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <a href='/hooligan/free/register'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="이전으로"></a></div>
+                 <a href='/hooligan/FAQMain.jsp'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="이전으로"></a></div>
               	  <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: left;">
               	  
                 </div>

@@ -156,13 +156,11 @@
                                  <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                     
-                                    <li><a href="/hooligan/notice/list"> 공지사항</a>
-                                    </li>
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
                                     
-                                    <li><a href="#">문의사항</a>
-                                    </li>
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
                                     
-                                    <li><a href="/hooligan/free/list">자유게시판</a>
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
                                     </li>
                                     </ul>
                             </ul>
@@ -200,7 +198,7 @@
 						</div>
 						
 						<div class="col-lg-6 col-md-6 col-sm-6" style="height: 60px;">
-							   <br><br><div style="text-align: right; height: 60px;"><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value='1:1문의하기'></div>					
+							   <br><br><div style="text-align: right; height: 60px;"><a href="/hooligan/faq/register"><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value='1:1문의하기'></a></div>					
 						</div>	  
 							<div class="col-lg-12 col-md-12 col-sm-12">
 							<div class="dividerHeading">
@@ -469,7 +467,9 @@
                      
                      <div class="col-lg-6 col-md-6 col-sm-6"></div>
                     <div class="col-lg-6 col-md-6 col-sm-6" style="text-align: right;">
-                     <div style="text-align: right; height: 60px; display: inline-block;"><input type="submit" style="text-align: right;" data-loading-text="Loading..." class="btn btn-default btn-lg" value="작성한 문의 글 조회"></div>	
+                     <div style="text-align: right; height: 60px; display: inline-block;">
+                     <a href="/hooligan/faq/list">
+                     <input type="submit" style="text-align: right;" data-loading-text="Loading..." class="btn btn-default btn-lg" value="작성한 문의 글 조회"></a></div>	
                            
                             </div>
                            <div class="col-lg-12 col-md-12 col-sm-12">  

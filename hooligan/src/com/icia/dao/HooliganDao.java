@@ -1080,11 +1080,12 @@ public class HooliganDao {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.updateInquiryAticle);
-			pstmt.setString(1, inquiryBoard.getGroupName());
-			pstmt.setString(2, inquiryBoard.getTitle());
-			pstmt.setString(3, inquiryBoard.getContent());
 			
-			pstmt.setInt(3, inquiryBoard.getInquiryNo());
+			pstmt.setString(1, inquiryBoard.getTitle());
+			pstmt.setString(2, inquiryBoard.getContent());
+			pstmt.setString(3, inquiryBoard.getGroupName());		
+			pstmt.setInt(4, inquiryBoard.getInquiryNo());
+			
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

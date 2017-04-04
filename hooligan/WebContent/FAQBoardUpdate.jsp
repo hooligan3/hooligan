@@ -49,6 +49,26 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
+	//받아 올것 = content, title, inquiry_no
+	//넘겨줄것 = content, title, inquiry_no, group_no
+	
+	var result = <%=request.getAttribute("result")%>
+	
+	
+	$(function(){
+		var inquiry = result.inquiry;
+		var content = inquiry.content;
+		var title = inquiry.title;
+		var inquiryNo = inquiry.inquiryNo;
+		
+		var str = "<input type='text' style='width:530px;' name='title' value='"+title+"'>";
+		var str2 ="<textarea rows='15' cols='0' id='content' name='content'>"+content+"</textarea>";
+		var str3 = "<input type='hidden' value='"+ inquiryNo+"'name='inquiry_no'>";
+		
+		$("#title").append(str);
+		$("#content").append(str2);
+		$("#bunho").append(str3);
+	})
 	
 </script>
 </head>
@@ -57,15 +77,14 @@
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
+	<div id="menu-bar">
 			<div class="container">
 				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
+					<div class="col-md-3 col-sm-3">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img
+									src="/hooligan/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
@@ -147,11 +166,12 @@
                                     </ul>
                                      <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
+                                        <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
             
-                                </li>
                                 </li>
                             </ul>
                         </div>
@@ -177,43 +197,55 @@
             
  
            
+        
             <div class="col-lg-12 col-md-12 col-sm-12">
 							<br><br>
 						
 							
-							<div class="well well-lg" style="padding-right: 50px; height: 600px;">
+							<div class="well well-lg" style="padding-right: 50px; padding-left:50px; margin-left : 50px; margin-right : 50px; height: 600px;">
 							<div class="col-lg-1 col-md-1 col-sm-1">
               		   </div>
 							<div class="col-lg-10 col-md-10 col-sm-10">
-							<h3><i class="fa fa-laptop"></i> 문의게시판 글 작성</h3>
+							<h3><i class="fa fa-info-circle"></i>&nbsp; 문의 게시판 글 수정</h3>
+							<form action="/hooligan/faq/update" method="post">
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
-										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:350px;"></th></h3>
+				                      
+				                      
+										<th><h3>문의 선택&nbsp;&nbsp;:&nbsp;&nbsp;
+										<select name="group_name">
+											<option value="입금확인">입금확인</option>
+											<option value="1st.Class전용">1st.Class전용</option>
+											<option value="VIP전용">VIP전용</option>
+											<option value="배송/기타">배송/기타</option>
+											<option value="코디/상품">코디/상품</option>
+											<option value="교환/반품">교환/반품</option>
+											<option value="해외배송">해외배송</option>
+										</select>&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										제목&nbsp;&nbsp;:&nbsp;&nbsp;<span id="title"></span></th></h3>
 
 									</tr>
                   					  </thead>
 
               						  </table>
-	
-              		   <textarea rows="15" cols=""></textarea>
-              		   	
+
+              		   <div id="content"></div>
+              		   	<div id="bunho"></div>
+              		   	<div id="pageNo"><input type="hidden" name="page_no" value="<%=request.getParameter("pageNo")%>"></div>
+              			
               		   <div class="col-sm-12 text-center"><br>
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="취소하기">
                   			 &nbsp;&nbsp;
                   			 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록하기">
            				 </div>
 							
-							
-								
-							
-						
-                            
-							
-									
-							
-							
+	</form>
 							</div>
+							
+							</div></div>
+					
 							
 							
 					

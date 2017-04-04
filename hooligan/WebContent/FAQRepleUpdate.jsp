@@ -35,18 +35,20 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 	$(function(){
+		
+	
 		var result = <%=request.getAttribute("result")%>
 		
-		var freeReple = result.freeReple;
-		var content = freeReple.content;
-		var freeRepleNo = freeReple.freeRepleNo;
-		var articleNo = freeReple.articleNo;
+		var inquiryReple = result.inquiryReple;
+		var content = inquiryReple.content;
+		var inquiryRepleNo = inquiryReple.inquiryRepleNo;
 		var pageNo = <%=request.getParameter("page_no")%>
+		var inquiryNo = inquiryReple.inquiryNo;
 		
-		$("#content").append("<tr><td>댓글 내용 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><br><textarea rows='4' cols='3' name='content' style='width:575px;'>"+content+"</textarea><input type='hidden'name='free_reple_no' value='"+freeRepleNo+"' ><input type='hidden'name='page_no' value='"+pageNo+"' ><input type='hidden'name='article_no' value='"+articleNo+"' ></td></tr>")
+		$("#content").append("<tr><td>댓글 내용 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><br><textarea rows='4' cols='3' name='repleContent' style='width:575px;'>"+content+"</textarea><input type='hidden'name='inquiry_reple_no' value='"+inquiryRepleNo+"' ><input type='hidden'name='page_no' value='"+pageNo+"' ><input type='hidden'name='inquiry_no' value='"+inquiryNo+"' ></td></tr>")
 		
 		$("#return").on("click","#list",function(){
-			location.href='view?pageNo='+pageNo+'&article_no='+articleNo;
+			location.href='view?pageNo='+pageNo+'&inquiry_no='+inquiryNo;
 		});
 		
 		$("#return").append("<input type='button' data-loading-text='Loading...' class='btn btn-default btn-lg' value='이전으로' id='list' style='width:84px; height:40px; margin : 0px; display:inline-block; color : white;'>");
@@ -148,7 +150,7 @@
                                  <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                     
-                                  <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
                                     
                                     <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
                                     
@@ -188,7 +190,7 @@
 <div class="col-lg-8 col-md-8 col-sm-8">
 		<div class="well well-lg" style="padding-left: 50px; padding-top: 10px;"><h3><i class="fa fa-leaf"></i>    댓글 수정하기</h3>
 		
-		<form action="/hooligan/free/repleUpdate" method="post">
+		<form action="/hooligan/faq/repleUpdate" method="post">
 						<table>
 							<tbody id="content">
 								
