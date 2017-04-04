@@ -49,6 +49,53 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 	
+	var result = <%=request.getAttribute("result")%>
+	var pageNo = <%=request.getParameter("pageNo")%>
+	
+	$(function(){
+		var inquiryNo = result.inquiryNo;
+		alert(inquiryNo);
+		
+		
+			var Id = result.customerId;
+			var group = result.groupName;
+			var date = result.inquiryDate;
+			var title = result.title;
+			var content = result.content;
+			
+			var str = "<tr><th style='text-align : left; width:100px;'>"+Id+"</th>";
+			str = str+"<th style='text-align: left; '>"+group+"</th>";
+			str = str+"<th style='text-align: center;'></th>";
+			str = str+"<th style='text-align: right;'>"+date+"</th></tr>"
+			
+			var str2 = "<i class='fa fa-comment-o'></i>&nbsp;&nbsp;"+title;
+			var str3 = content;
+				
+			$("#title").append(str);
+			$("#title2").append(str2);
+			$("#content").append(str3);
+		
+		
+			
+			//버튼
+				$("#back").on("click","#list",function(){
+				location.href='list?pageNo='+pageNo;
+			});
+			
+			$("#back3").on("click","#update", function() {
+				location.href='update?article_no=' + result.articleNo;
+			});	
+			
+			var back = $("#back");
+			var back3 = $("#back3");
+			var back4 = $("#back4 form");
+			back.append("<input type='submit' value='이전으로'data-loading-text='Loading...' class='btn btn-default btn-lg' id='list' style='height:40px; width:74.39px; margin :0;'>")
+			back3.append("<input type='submit' value='수정'data-loading-text='Loading...' class='btn btn-default btn-lg' id='update'>")
+			//back4.append("<input type='hidden' name='articleNo' id='articleNo' value='"+articleNo+"'>")
+			back4.append("<input type='submit' value='삭제'data-loading-text='Loading...' class='btn btn-default btn-lg' id='delete'>")
+	})
+
+	
 </script>
 </head>
 <body>
@@ -56,15 +103,14 @@
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-		<div id="menu-bar">
+	<div id="menu-bar">
 			<div class="container">
 				<div class="row">
-					<!-- Logo / Mobile Menu -->
-					<div class="col-lg-3 col-sm-3 ">
+					<div class="col-md-3 col-sm-3">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img
+									src="/hooligan/images/logo.png" /></a>
 							</h1>
 						</div>
 					</div>
@@ -176,123 +222,116 @@
             
  
            
-            <div class="col-lg-12 col-md-12 col-sm-12">
-							<br><br>
-						
-							
-							<div class="well well-lg" style=" padding-left: 50px; padding-right: 50px; margin: 0;"><h3><i class="fa fa-laptop"></i>
-							
-							     문의 게시판</h3>
-              				  			<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-				                    <th style="text-align: center;">qazwsxo05 </th>
-										<th style="text-align: center;">12(상품 번호) </th>
-										<th style="text-align: center;">이 상품에 대해 문의 드립니다</th>
-										<th style="text-align: center;">2015/11/11(등록일) </th>
-									</tr>
-                  					  </thead>
-                   
+         	<div class="col-lg-12 col-md-12 col-sm-12">
+			<br>
+			<br>
 
-              						  </table>
-              		
-              		   <div class="col-lg-1 col-md-1 col-sm-1">
-              		   </div>
-              		   
-              		   <div class="col-lg-10 col-md-10 col-sm-10">
-              		   <br>
-              		   <p style="max-height: 700px; min-height: 250px;">
-              		   제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-								  
-						제가 결혼을 해서 신혼집에 가구를 좀 사야되는데
-							어디 브랜드가 가격대비 좋은가요?
-							추천좀 해주세요~
-							
-							</p>
-							
-							
-              		   </div>
-              		   	
-              		   <div class="col-lg-1 col-md-1 col-sm-1">
-              		   		
-              		   </div>	
-              		   
-              		   <div class="col-lg-9 col-md-9 col-sm-9">
-              		   		
-              		   </div>  
-              		   <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
-              		   		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="수정하기">
-              		 		 &nbsp; 
-              		 		 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="삭제하기">	
-              		   </div>  
-						<table class="table table-striped table-hover" style="text-align: center;">
-				                    <thead>
-				                    <tr >
-										<th style="text-align: center;"></th>
-									</tr>
-                  					  </thead>
-                   
 
-              						  </table>
-              						  
-               				 <p>댓글 목록</p>
-               				 
-               				 <!-- 댓글 -->
-               				 <table class="table table-striped table-hover" style="text-align: center;">
-				                    <tr >
-				                    	<th>lady</th>
-										<th style="text-align: right;">2017-03-10-12:35</th>
-									</tr>
-                   							<tr>
-                   								<td></td>
-                   								<td>침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~침대같은경우에는 에몬스 괜찮아요~</td>
-                   							</tr>
-				                    <tr >
-				                    	<th>poip</th>
-										<th style="text-align: right;">2017-03-11-18:10</th>
-									</tr>
-                   							<tr>
-                   								<td></td>
-                   								<td>요즘은 즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~즘은 이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~이케아나  한아나 한샘쪽도샘쪽도 괜찮다고 하더라구요~요즘은 이케아나 한샘쪽도 괜찮다고 하더라구요~괜찮다고 하괜찮다고 하더라구요~</td>
-              						 		</tr>
-              						  </table>
-              						  
-              				<!-- 댓글 -->
-             						<p>댓글 작성</p>
-             						 <div class="col-lg-11 col-md-11 col-sm-11">
-             						<textarea rows="3" cols="" ></textarea>
-             						</div>
-										&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="등록" style="margin-top: 10px;">
-									<br><br>
-									<br><br>
-								
-							
-							
-								
-							
+			<div class="well well-lg"
+				style="padding-right: 50px; padding-left: 50px; margin-left: 50px; margin-right: 50px;">
+				<h3 id="title2">
+					
+				</h3>
+				<table class="table table-striped table-hover"
+					style="text-align: center;">
+					
+					<thead id="title">
 						
-                            
-							
-									
-							</div>
-							
-							
-							</div>
-							
-							
+					</thead>
+
+
+				</table>
+
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+				<div class="col-lg-10 col-md-10 col-sm-10">
+					<br>
+					
+					<p id="content" style="max-height: 700px; min-height: 250px;">
+						
+
+					</p>
+
+
+				</div>
+
+				<div class="col-lg-1 col-md-1 col-sm-1"></div>
+
+				<div class="col-lg-9 col-md-9 col-sm-9" id="back"></div>
+				<div class="col-lg-2 col-md-2 col-sm-2" style="text-align: right;">
+
+					<div id="back3" style="height: 40px;"></div>
+
+				</div>
+				<div class="col-lg-1 col-md-1 col-sm-1" style="text-align: right;">
+
+					<div id="back4" style="height: 40px;">
+						<form action='/hooligan/free/delete' method='post'></form>
+					</div>
+
+				</div>
+
+				<table class="table table-striped table-hover"
+					style="text-align: center;">
+					<thead>
+						<tr>
+							<th></th>	
+						</tr>
+					</thead>
+
+
+				</table>
+
+				<div style="display: inline-block;" id="abc"></div>
+				<!-- 댓글 -->
+					
+					
+					<form action="/hooligan/free/repleDelete" method="post" id="delete">
+					<br><table class="table table-striped table-hover" style="text-align: center;" id="reple">
+					
+					</table>
+					</form>
+						
+					
+				
 					
 
-           
+				<form action="/hooligan/free/view" method="post">
+					<!-- 댓글 -->
+					<p id="rrr">댓글 작성		
+							
+<%-- 							<input type="hidden" name="write_id" value="<%=customer.getCustomerId()%>"> --%>
+<%-- 							<input type="hidden" name="page_no" value="<%=request.getParameter("pageNo")%>"> --%>
+							
+					</p>
+					<div class="col-lg-11 col-md-11 col-sm-11">
+						<textarea rows="3" cols="" name="content"></textarea>
+						
+					</div>
+					&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..."
+						class="btn btn-default btn-lg" value="등록" style="margin-top: 10px;">
+					<br>
+					<br> <br>
+					<br>
+				</form>	
+
+
+
+
+
+
+
+
+			</div>
+
+
+		</div>
+
+
+
+
+
+
 			
 
 

@@ -1061,10 +1061,10 @@ public class HooliganDao {
 
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.insertInquiryAticle);
-			pstmt.setInt(1, inquiryBoard.getInquiryNo());
-			pstmt.setString(2, inquiryBoard.getTitle());
-			pstmt.setString(3, inquiryBoard.getContent());
-			pstmt.setDate(4, inquiryBoard.getInquiryDate());
+			pstmt.setString(1, inquiryBoard.getTitle());	//제목
+			pstmt.setString(2, inquiryBoard.getContent());	//내용
+			pstmt.setString(3, inquiryBoard.getCustomerId());//고객아이디
+			pstmt.setString(4, inquiryBoard.getGroupName());//분류이름
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -1080,8 +1080,10 @@ public class HooliganDao {
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(CustomerSql.updateInquiryAticle);
-			pstmt.setString(1, inquiryBoard.getTitle());
-			pstmt.setString(2, inquiryBoard.getContent());
+			pstmt.setString(1, inquiryBoard.getGroupName());
+			pstmt.setString(2, inquiryBoard.getTitle());
+			pstmt.setString(3, inquiryBoard.getContent());
+			
 			pstmt.setInt(3, inquiryBoard.getInquiryNo());
 			return pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -1107,16 +1109,82 @@ public class HooliganDao {
 		}
 		return -1;
 	}
+	//문의게시판 리스트
+	public ArrayList<InquiryBoard> InquiryList(Connection conn, int startId, int endId, String customer){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<InquiryBoard> list = new ArrayList<>();
+		try {
+			pstmt = conn.prepareStatement(CustomerSql.inquiryArticleList);
+			pstmt.setString(1, customer);
+			pstmt.setInt(2, startId);
+			pstmt.setInt(3, endId);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				InquiryBoard inquiry = new InquiryBoard();
+				inquiry.setInquiryNo(rs.getInt("inquiry_no"));
+				inquiry.setTitle(rs.getString("title"));
+				inquiry.setContent(rs.getString("content"));
+				inquiry.setInquiryDate(rs.getDate("inquiry_date"));
+				inquiry.setCustomerId(rs.getString("customer_id"));
+				inquiry.setGroupName(rs.getString("group_name"));
+				list.add(inquiry);			
+			}return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+	}
+	//문의게시판 뷰
+	public InquiryBoard InquiryView(Connection conn, int inquiryNo){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		InquiryBoard inquiry = new InquiryBoard();
+		try {
+			pstmt = conn.prepareStatement(CustomerSql.inquiryView);
+			pstmt.setInt(1, inquiryNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				inquiry.setInquiryNo(rs.getInt("inquiry_no"));				
+				inquiry.setTitle(rs.getString("title"));
+				inquiry.setContent(rs.getString("content"));
+				inquiry.setInquiryDate(rs.getDate("inquiry_date"));
+				inquiry.setCustomerId(rs.getString("customer_id"));
+				inquiry.setGroupName(rs.getString("group_name"));
+				return inquiry;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return null;
+	}
+	//문의게시판 총 게시글 수
+	public int InquiryCount(Connection conn){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(CustomerSql.inquiryCount);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(pstmt, rs);
+		}return -1;
+	}
+	
 	// 문의게시판 댓글 작성
 			public int insertInquiryReple(Connection conn,InquiryReple inquiryReple) {
 				PreparedStatement pstmt = null;
 				
 				try {
 					pstmt = conn.prepareStatement(CustomerSql.insertInquiryAticleIReple);
-					pstmt.setInt(1, inquiryReple.getInquiryRepleNo());
-					pstmt.setString(2, inquiryReple.getContent());
-					pstmt.setDate(3,inquiryReple.getRepleDate());
-					pstmt.setInt(4,inquiryReple.getInquiryNo());
+					pstmt.setString(1, inquiryReple.getContent());
+					pstmt.setInt(2,inquiryReple.getInquiryNo());
 
 					return pstmt.executeUpdate();
 				} catch (SQLException e) {
@@ -1127,8 +1195,54 @@ public class HooliganDao {
 				return -1;
 
 			}
+
+	// 문의게시판 댓글 리스트
+			public ArrayList<InquiryReple> InquiryRepleList(Connection conn, int inquiryNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<InquiryReple> list = new ArrayList<>();
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.inquiryRepleList);
+					pstmt.setInt(1, inquiryNo);
+					rs = pstmt.executeQuery();
+					while(rs.next()){
+						InquiryReple iqrReple = new InquiryReple();
+						iqrReple.setInquiryRepleNo(rs.getInt("inquiry_reple_no"));
+						iqrReple.setContent(rs.getString("content"));
+						iqrReple.setRepleDate(rs.getDate("reple_date"));
+						iqrReple.setInquiryNo(rs.getInt("inquiry_no"));
+						list.add(iqrReple);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
+	// 문의게시판 댓글 뷰
+			public InquiryReple InquiryRepleView(Connection conn, int inquiryRepleNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;				
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.inquiryRepleView);
+					pstmt.setInt(1, inquiryRepleNo);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						InquiryReple iqrReple = new InquiryReple();
+						iqrReple.setInquiryRepleNo(rs.getInt("inquiry_reple_no"));
+						iqrReple.setContent(rs.getString("content"));
+						iqrReple.setRepleDate(rs.getDate("reple_date"));
+						iqrReple.setInquiryNo(rs.getInt("inquiry_no"));
+						return iqrReple;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
 			
-			// 자유게시판  댓글 수정
+			// 문의게시판  댓글 수정
 			public int updateInquiryReple(Connection conn, InquiryReple inquiryReple) {
 				PreparedStatement pstmt = null;
 				try {
@@ -1144,7 +1258,7 @@ public class HooliganDao {
 				return -1;
 			}
 
-			// 자유게시판 댓글 삭제
+			// 문의게시판 댓글 삭제
 			public int deleteInquiryReple(Connection conn,int inquiryRepleNo ) {
 				PreparedStatement pstmt = null;
 				try {
@@ -1159,6 +1273,8 @@ public class HooliganDao {
 				}
 				return -1;
 			}
+			
+	
 			//브랜드번호가져오기
 			public int maxBrandNo(Connection conn) {
 			PreparedStatement pstmt=null;

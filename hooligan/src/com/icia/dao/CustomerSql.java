@@ -52,19 +52,27 @@ public interface CustomerSql {
 		/* 문의 게시판*/
 		
 		//문의게시판글 작성
-		public String  insertInquiryAticle= "insert into INQUIRY_BOARD values(?,?,?,?)";
+		public String  insertInquiryAticle= "insert into INQUIRY_BOARD values(seq_faqboard,?,?,sysdate,?,?)";
 		//문의게시판글수정
-		public String updateInquiryAticle = "update INQUIRY_BOARD set title=?, content=? where inquiry_no=?";
+		public String updateInquiryAticle = "update INQUIRY_BOARD set group_name=?, title=?, content=? where inquiry_no=?";
 		//문의게시판글삭제
 		public String deleteInquiryAticle = "delete from INQUIRY_BOARD where inquiry_no=?";
-		
+		//문의게시판 리스트
+		public String inquiryArticleList = "select t2.* from (select rownum rnum, t1.* from (select inquiry_no, title, content, INQUIRY_DATE, customer_id, group_name from INQUIRY_BOARD where customer_id=? order by inquiry_no desc) t1 )t2 where rnum between ? and ?";
+		//문의게시판 뷰 
+		public String inquiryView = "select * from inquiry_board where inquiry_no=?";
 		//문의게시판댓글작성
-		public String insertInquiryAticleIReple  = "insert into INQUIRY_REPLE values(?,?,?,?)";
+		public String insertInquiryAticleIReple  = "insert into INQUIRY_REPLE values(seq_faqreple.nextval,?,sysdate,?)";
 		//문의게시판댓글수정
 		public String updateInquiryAticleReple ="update INQUIRY_REPLE set content=? where INQUIRY_REPLE_NO=?";
 		//문의게시판댓글삭제
 		public String deleteInquiryAticleReple ="delete from INQUIRY_REPLE where INQUIRY_REPLE_NO=?";
-		
+		//문의게시판 댓글리스트
+		public String inquiryRepleList = "select * from inquiry_reple where inquiry_no=?";
+		//문의게시판 댓글 뷰
+		public String inquiryRepleView ="select * from inquiry_reple where inquiry_reple_no=?";
+		//문의게시판 총 글 수
+		public String inquiryCount ="select count(*) from inquiry_board";
 		/*--------------------------------------------------------------------------------------------------------*/
 		/*상품평가 게시판*/
 		

@@ -56,7 +56,7 @@
 	
 	
 	$(function(){
-	
+
 		var articleNo = result.articleNo;
 		var free_reple_no = result.freeRepleNo;
 		$("#rrr").append("<input type='hidden' name='article_no' value='"+articleNo+"'>");

@@ -1,19 +1,14 @@
 package com.icia.service;
 
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.sql.*;
+import java.util.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
+import javax.servlet.http.*;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.icia.dao.HooliganDao;
+import com.google.gson.*;
+import com.icia.dao.*;
 import com.icia.util.*;
 import com.icia.vo.*;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 public class HooliganService {
 	private HooliganDao dao;
@@ -492,7 +487,51 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
+	//문의게시판 리스트
+	public String FAQList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		HttpSession sesstion=req.getSession();
+		System.out.println("ggiugui"+sesstion.getAttribute("customer"));
+		int pageNo=1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.InquiryCount(conn);
+		System.out.println("ggiugui"+sesstion.getAttribute("customer"));
+		Customer customer= (Customer) sesstion.getAttribute("customer");
+		String id = customer.getCustomerId();
+		
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<InquiryBoard> list = dao.InquiryList(conn, pagination.getStartArticle(), pagination.getEndArticle(), id);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("pagination", pagination);
+		return new Gson().toJson(map);
+	}
+	//문의게시판 뷰
+	public String FAQView(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int inquiryNo = Integer.parseInt(req.getParameter("inquiry_no"));
+		InquiryBoard inquiry = dao.InquiryView(conn, inquiryNo);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(inquiry);
+		
 	
+	}
+	//문의게시판 작성
+	public String FAQInsert(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		InquiryBoard inquiry = new InquiryBoard();
+		inquiry.setContent(req.getParameter("content"));
+		inquiry.setTitle(req.getParameter("title"));
+		inquiry.setGroupName(req.getParameter("group_name"));
+		inquiry.setCustomerId(req.getParameter("customer_id"));
+		int result = dao.insertInquiryAticle(conn, inquiry);
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+	}
 	//제품 메인
 	public Product productMain(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
@@ -509,12 +548,7 @@ public class HooliganService {
 
 }
 
-
-
-
-
-
-
+		
 
 
 
