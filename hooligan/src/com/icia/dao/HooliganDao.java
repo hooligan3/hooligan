@@ -1394,6 +1394,7 @@ public class HooliganDao {
 						p.setProductNo(rs.getInt("product_no"));
 						p.setProductName(rs.getString("product_name"));
 						p.setProductContent(rs.getString("product_content"));
+						p.setDetailImagePath(rs.getString("image_path"));
 						
 						
 						list.add(p);

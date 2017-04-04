@@ -182,7 +182,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage.html" class="btn btn-block btn-default">내 정보 수정</a>
+									<a href="/hooligan/cutomer/update" class="btn btn-block btn-default">내 정보 수정</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
