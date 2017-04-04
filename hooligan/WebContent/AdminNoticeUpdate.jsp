@@ -69,7 +69,7 @@
                
                <div style="margin-left: 33px;">
                
-               <form action="/hooligan/notice/update" method="post">
+               <form action="/hooligan/admin/notice/update" method="post">
                
                	제목 : <div id="title">
                	
@@ -87,7 +87,7 @@
                <br>
                
                <button style="margin-left: 320px; width:60px; height:30px;">
-               <a href="/hooligan/AdminNoticeList.jsp">뒤로</a></button>
+               <a href="/hooligan/admin/notice/list">뒤로</a></button>
                &nbsp; &nbsp;
                <input type="submit" style="width:60px; height:30px;" value="등록">
                

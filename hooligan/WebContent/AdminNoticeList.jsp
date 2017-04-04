@@ -42,7 +42,7 @@
 			
 			
 			var str = "<tr><td>"+value.noticeArticleNo+"</td>";
-			str = str+"<td><a href='adminView?pageNo="+pagination.pageNo+"&notice_article_no="+value.noticeArticleNo+"'>"+value.title+"</a></td>";
+			str = str+"<td><a href='view?pageNo="+pagination.pageNo+"&notice_article_no="+value.noticeArticleNo+"'>"+value.title+"</a></td>";
 			str = str+ "<td>"+value.noticeDate+"</td></tr>";
 			target.append(str);
 		})
@@ -116,7 +116,7 @@
                      <button class="search-button"><i class="fa fa-search"></i></button>
                       <input type="text" id="search" class="search-input" />
                      </label>
-                     &nbsp;<button><a href="/hooligan/notice/register">글 쓰기</a></button>
+                     &nbsp;<button><a href="/hooligan/admin/notice/register">글 쓰기</a></button>
 
             </div> <!--페이징 끝 -->
             </div>

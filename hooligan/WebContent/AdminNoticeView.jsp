@@ -48,7 +48,7 @@
 		$("#content").append(str2);
 		
 		$("#back").on("click","#list",function(){
-			location.href='admin?pageNo='+pageNo;
+			location.href='list?pageNo='+pageNo;
 		});
 		$("#back").on("click","#update", function() {
 			location.href='update?notice_article_no=' + result.noticeArticleNo;
@@ -140,7 +140,7 @@
               		   		
               		   </div>
               		   <div id="back2">
-              		   	<form action='/hooligan/notice/delete' method='post'>
+              		   	<form action='/hooligan/admin/notice/delete' method='post'>
               		   	
               		   	</form>
               		   </div>  

@@ -51,7 +51,7 @@
             </nav>
             <section class="main_section">
                 <h2>공지사항 등록</h2><br><br>
-               <form action="/hooligan/notice/register" method="post">
+               <form action="/hooligan/admin/notice/register" method="post">
                <div style="margin-left: 33px;">
                	제목 : <input type="text" name="title" style='width:665px;'><br><br>
                	<div>내용</div><textarea rows="13" cols="2" style="width:700px;" name="content"></textarea>
