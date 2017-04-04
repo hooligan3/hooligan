@@ -102,14 +102,14 @@
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li ><a href="product.html">브랜드</a>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
+
 
                                 </li>
 
-<<<<<<< HEAD
+
 								<li><a href="#"><span class="data-hover"
 										data-hover="brand">브랜드</span></a></li>
-=======
+
                                 <li><a href="#">의류</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="elements.html">점퍼</a></li>
@@ -120,15 +120,12 @@
                                         <li><a href="icons.html">팬츠</a></li>
                                     </ul>
                                 </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
-
-<<<<<<< HEAD
 								<li><a href="#"><span class="data-hover"
 										data-hover="dress"> 의류</span></a>
 									<ul class="dropdown-menu">
 										<li><a href="#">점퍼</a></li>
 										<li><a href="#">코트</a></li>
-=======
+
                                 <li><a href="#" >수제품</a>
                                     <ul class="dropdown-menu">
                                         <li>
@@ -143,15 +140,12 @@
      
                                     </ul>
                                 </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
-
-<<<<<<< HEAD
-										<li class="active"><a href="#">니트</a></li>
+						<li class="active"><a href="#">니트</a></li>
 										<li><a href="#">정장</a></li>
 										<li><a href="#">티셔츠</a></li>
 										<li><a href="#">팬츠</a></li>
 									</ul></li>
-=======
+
                                 <li><a href="#">식품</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">과일</a>
@@ -161,9 +155,7 @@
                                             <a href="portfolio_masonry_3.html">견과</a>
  
                                         </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 								<li><a href="#"><span class="data-hover"
 										data-hover="hand">수제품</span></a>
 									<ul class="dropdown-menu">
@@ -175,12 +167,10 @@
 										<li class="active"><a href="#">잡화</a></li>
 										<li><a href="#">가방</a></li>
 									</ul></li>
-=======
+
                                         <li>
                                             <a href="portfolio_single.html">음료</a>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 								<li><a href="#"> <span class="data-hover"
 										data-hover="contact">식품</span></a>
 									<ul class="dropdown-menu">
@@ -202,8 +192,7 @@
 	</header>
 	<!--End Header-->
 
-=======
-                                        </li>
+                               </li>
                                          <li>
                                             <a href="portfolio_single.html">과자</a>
 
@@ -242,7 +231,7 @@
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 <!--End Header-->
 	
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
+
 	<!--start wrapper-->
 	<section class="wrapper">
 		<section class="page_head">

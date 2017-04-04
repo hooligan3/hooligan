@@ -174,11 +174,11 @@ $(function(){
                                      <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
                                     
-                                        <li><a href="/hooligan/main/notice/list"> 공지사항</a> </li>
+                                        <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
                                     
-                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    <li><a href="/hooligan/FAQMain/List">문의사항</a> </li>
                                     
-                                    <li><a href="/hooligan/main/free/list">자유게시판</a></li>
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
             
                                 </li>
                             </ul>
