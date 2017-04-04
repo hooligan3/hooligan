@@ -533,6 +533,7 @@ public class HooliganService {
 		return new Gson().toJson(ob);
 	}
 	
+
 	//제품 메인
 	public Product productMain(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();

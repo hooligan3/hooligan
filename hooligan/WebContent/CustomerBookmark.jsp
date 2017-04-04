@@ -147,9 +147,9 @@
                                     </ul>
                                      <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
+                                        <li><a href="/hooligan/main/freeBoardList">자유 게시판</a></li>
+                                        <li><a href="/hooligan/"> 문의 게시판</a></li> <!-- 아직안만듬 -->
+                                        <li><a href="/hooligan/main/noticeBoardList">공지 사항</a></li>
             
                                 </li>
                                 </li>
@@ -182,23 +182,27 @@
 					<div class="col-lg-3 col-md-3 col-sm-3">
 
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+
+									<a href="/hooligan/customer/update" class="btn btn-block btn-default">내 정보 수정</a>
+
 									<a href="/hooligan/cutomer/update" class="btn btn-block btn-default">내 정보 수정</a>
+
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage2.html" class="btn btn-block btn-default">주문 내역</a>
+									<a href="/hooligan/customer/order" class="btn btn-block btn-default">주문 내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage3.html" class="btn btn-block btn-default">내 즐겨찾기</a>
+									<a href="/hooligan/customer/bookmark" class="btn btn-block btn-default">내 즐겨찾기</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage4.html" class="btn btn-block btn-default">포인트 충전내역</a>
+									<a href="/hooligan/customer/chargeList" class="btn btn-block btn-default">포인트 충전내역</a>
 								</div>
 								
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-									<a href="/Java/project/html_semi/WebContent/UandMe/user_MyPage4.html" class="btn btn-block btn-default">회원 탈퇴</a>
+									<a href="/hooligan/customer/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
 
 							</div>
