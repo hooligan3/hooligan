@@ -190,7 +190,7 @@
 <div class="col-lg-8 col-md-8 col-sm-8">
 		<div class="well well-lg" style="padding-left: 50px; padding-top: 10px;"><h3><i class="fa fa-leaf"></i>    댓글 수정하기</h3>
 		
-		<form action="/hooligan/faq/repleUpdate" method="post">
+		<form action="/hooligan/main/faq/repleUpdate" method="post">
 						<table>
 							<tbody id="content">
 								

@@ -59,9 +59,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	if(<%=customer.getCustomerId() %>==null){
-		alert("로그인을 먼저 해주세요")
-	}
+
 </script>
 </head>
 <body>
@@ -199,7 +197,7 @@
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
-				                      <form action="/hooligan/faq/register" method="post">
+				                      <form action="/hooligan/main/faq/register" method="post">
 				                      	<div><input type="hidden" name="customer_id" value="<%=customer.getCustomerId() %>" > </div>
 										<th><h3>문의 선택&nbsp;&nbsp;:&nbsp;&nbsp;
 										<select name="group_name">

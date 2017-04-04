@@ -188,7 +188,7 @@
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>
-				                      <form action="/hooligan/free/register" method="post">
+				                      <form action="/hooligan/main/free/register" method="post">
 				                      
 				                      	<div><input type="hidden" name="customer_id" value="<%=customer.getCustomerId()%>"> </div>
 										<th><h3>제목&nbsp;&nbsp;:&nbsp;&nbsp;<input type="text" style="width:399px;"name="title"></th></h3>

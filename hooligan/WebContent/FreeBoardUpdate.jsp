@@ -189,7 +189,7 @@ $(function(){
                 </div>
             </div>
              </section>
-             <form action="/hooligan/free/update" method="post">
+             <form action="/hooligan/main/free/update" method="post">
  
            
              <div class="col-lg-12 col-md-12 col-sm-12">

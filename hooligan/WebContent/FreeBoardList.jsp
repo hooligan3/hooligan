@@ -177,7 +177,7 @@ $(function(){
                                     
                                     <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
                                     
-                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
+                                    <li><a href="/hooligan/main/free/list">자유게시판</a></li>
                                     </li>
                                     </ul>
                             </ul>
@@ -229,7 +229,7 @@ $(function(){
                 </table>
               	 <div class="col-lg-9 col-md-9 col-sm-9"></div>
               	  <div class="col-lg-3 col-md-3 col-sm-3" style="text-align: right;">
-                <a href='/hooligan/free/register'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기"></a>
+                <a href='/hooligan/main/free/register'><input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="글 쓰기"></a>
                 </div>
                 <br>
 							<div class="col-sm-12 text-right" style="height: 20px;">

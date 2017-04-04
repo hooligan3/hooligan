@@ -100,7 +100,7 @@
 				var repleDate =  value.repleDate;
 				var inquiryRepleNo = value.inquiryRepleNo;
 				var inquiryNo = value.inquiryNo;
-				var btnModify = "onClick='location.href=\"/hooligan/faq/repleUpdate?inquiry_reple_no="+inquiryRepleNo+"&content="+repleContent+"&inquiry_no="+inquiryNo+"&page_no="+pageNo+"\"'";
+				var btnModify = "onClick='location.href=\"/hooligan/main/faq/repleUpdate?inquiry_reple_no="+inquiryRepleNo+"&content="+repleContent+"&inquiry_no="+inquiryNo+"&page_no="+pageNo+"\"'";
 				
 				var str9="<tr><th>U&ME</th>";
 				str9 = str9+ "<th style='text-align: right;' colspan='2'>"+repleDate+"</th></tr>";
@@ -290,7 +290,7 @@
 				<div class="col-lg-1 col-md-1 col-sm-1" style="text-align: right;">
 
 					<div id="back4" style="height: 40px;">
-						<form action='/hooligan/faq/delete' method='post'></form>
+						<form action='/hooligan/main/faq/delete' method='post'></form>
 					</div>
 
 				</div>
@@ -310,7 +310,7 @@
 				<!-- 댓글 -->
 					
 					
-					<form action="/hooligan/faq/repleDelete" method="post" id="delete">
+					<form action="/hooligan/main/faq/repleDelete" method="post" id="delete">
 					<br><table class="table table-striped table-hover" style="text-align: center;" id="reple">
 					
 					</table>
@@ -319,7 +319,7 @@
 				
 					
 
-				<form action="/hooligan/faq/view" method="post">
+				<form action="/hooligan/main/faq/view" method="post">
 					<!-- 댓글 -->
 					<p id="rrr">댓글 작성		
 							

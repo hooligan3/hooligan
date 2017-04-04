@@ -207,7 +207,7 @@
               		   </div>
 							<div class="col-lg-10 col-md-10 col-sm-10">
 							<h3><i class="fa fa-info-circle"></i>&nbsp; 문의 게시판 글 수정</h3>
-							<form action="/hooligan/faq/update" method="post">
+							<form action="/hooligan/main/faq/update" method="post">
 								<table class="table table-striped table-hover" style="text-align: center;">
 				                    <thead>
 				                    <tr>

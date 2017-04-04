@@ -99,7 +99,7 @@ public class NoticeController {
 			return mav;
 		}
 		//자유게시판 리스트 조회
-		@RequestMapping(value="/free/list", method="GET")
+		@RequestMapping(value="/main/free/list", method="GET")
 		public static ModelAndView freeList(HttpServletRequest req) {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
@@ -109,7 +109,7 @@ public class NoticeController {
 			return mav;
 		}
 		//자유게시판 뷰
-		@RequestMapping(value="/free/view", method="GET")
+		@RequestMapping(value="/main/free/view", method="GET")
 		public static ModelAndView freeView(HttpServletRequest req) {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
@@ -120,18 +120,18 @@ public class NoticeController {
 			return mav;
 		}
 		//자유게시판 뷰 댓글 작성
-		@RequestMapping(value = "/free/view", method = "POST")
+		@RequestMapping(value = "/main/free/view", method = "POST")
 		public static ModelAndView freeViewRegisterReple(HttpServletRequest req) {
 			HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("result", service.freeRepleRegister(req));
 			mav.setRedirect();
-			mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+			mav.setView("/hooligan/main/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
 			return mav;
 	}
 
 	// 자유게시판 작성폼으로
-	@RequestMapping(value = "/free/register", method = "GET")
+	@RequestMapping(value = "/main/free/register", method = "GET")
 	public static ModelAndView insertFreeStart(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -139,18 +139,18 @@ public class NoticeController {
 		return mav;
 	}
 	// 자유게시판 작성하기
-	@RequestMapping(value = "/free/register", method = "POST")
+	@RequestMapping(value = "/main/free/register", method = "POST")
 	public static ModelAndView insertFreeEnd(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result", service.insertFree(req));
-		String ggo = "/hooligan/free/list";
+		String ggo = "/hooligan/main/free/list";
 		mav.setView(ggo);
 		mav.setRedirect();
 		return mav;
 	}
 	//자유게시판 수정GET
-	@RequestMapping(value="/free/update", method="GET")
+	@RequestMapping(value="/main/free/update", method="GET")
 	public static ModelAndView FreeupdateStart(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -159,30 +159,30 @@ public class NoticeController {
 		return mav;
 	}
 	//자유게시판 수정POST
-	@RequestMapping(value="/free/update", method="POST")
+	@RequestMapping(value="/main/free/update", method="POST")
 	public static ModelAndView FreeupdateEnd(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("result", service.updateFreeEnd(req));
-		mav.setView("/hooligan/free/list");
+		mav.setView("/hooligan/main/free/list");
 		mav.setRedirect();
 		return mav;
 	}
 
-	// 공지사항 삭제
-	@RequestMapping(value = "/free/delete", method = "POST")
+	// 자유게시판 삭제
+	@RequestMapping(value = "/main/free/delete", method = "POST")
 	public static ModelAndView deletefree(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("result", service.deleteFree(req));
-		mav.setView("/hooligan/free/list");
+		mav.setView("/hooligan/main/free/list");
 		mav.setRedirect();
 		return mav;
 	}
-	//자유게시판  수정GET
-	@RequestMapping(value="/free/repleUpdate", method="GET")
+	//자유게시판 댓글 수정GET
+	@RequestMapping(value="/main/free/repleUpdate", method="GET")
 	public static ModelAndView freeRepleUpdateStart(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -191,30 +191,30 @@ public class NoticeController {
 		return mav;
 	}
 	//자유게시판 댓글 수정POST
-	@RequestMapping(value="/free/repleUpdate", method="POST")
+	@RequestMapping(value="/main/free/repleUpdate", method="POST")
 	public static ModelAndView freeRepleUpdateEnd(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("result", service.freeRepleUpdateEnd(req));
-		mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+		mav.setView("/hooligan/main/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
 		mav.setRedirect();
 		return mav;
 	}
 	//자유게시판 댓글 삭제
-	@RequestMapping(value = "/free/repleDelete", method = "POST")
+	@RequestMapping(value = "/main/free/repleDelete", method = "POST")
 	public static ModelAndView deletefreeReple(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("result", service.freeRepleDelete(req));
-		mav.setView("/hooligan/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
+		mav.setView("/hooligan/main/free/view?pageNo="+req.getParameter("page_no")+"&article_no="+req.getParameter("article_no"));
 		mav.setRedirect();
 		return mav;
 	}
 	
 	//문의게시판 리스트
-	@RequestMapping(value="/faq/list", method="GET")
+	@RequestMapping(value="/main/faq/list", method="GET")
 	public static ModelAndView faqList(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -225,7 +225,7 @@ public class NoticeController {
 		return mav;
 	}
 	//문의게시판 뷰 / 덧글 리스트
-	@RequestMapping(value="/faq/view", method="GET")
+	@RequestMapping(value="/main/faq/view", method="GET")
 	public static ModelAndView faqView(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -238,7 +238,7 @@ public class NoticeController {
 
 	
 	// 자유게시판 작성폼으로
-		@RequestMapping(value = "/faq/register", method = "GET")
+		@RequestMapping(value = "/main/faq/register", method = "GET")
 		public static ModelAndView insertFAQStart(HttpServletRequest req) {
 			HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
@@ -249,18 +249,18 @@ public class NoticeController {
 	
 	
 	//문의게시판 작성
-	@RequestMapping(value = "/faq/register", method = "POST")
+	@RequestMapping(value = "/main/faq/register", method = "POST")
 	public static ModelAndView insertFAQEnd(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result", service.FAQInsert(req));
-		String ggo = "/hooligan/faq/list";
+		String ggo = "/hooligan/main/faq/list";
 		mav.setView(ggo);
 		mav.setRedirect();
 		return mav;
 	}
 	//문의게시판 수정GET
-	@RequestMapping(value="/faq/update", method="GET")
+	@RequestMapping(value="/main/faq/update", method="GET")
 	public static ModelAndView FAQUpdateStart(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
@@ -269,41 +269,41 @@ public class NoticeController {
 		return mav;
 		}
 	//문의게시판 수정POST
-	@RequestMapping(value="/faq/update", method="POST")
+	@RequestMapping(value="/main/faq/update", method="POST")
 	public static ModelAndView FAQUpdateEnd(HttpServletRequest req) {
 		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 			
 		mav.addObject("result", service.FAQUpdateEnd(req));
 		System.out.println("넘어온 페이지 번호넘어온 페이지 번호넘어온 페이지 번호넘어온 페이지 번호넘어온 페이지 번호"+req.getParameter("page_no"));
-		mav.setView("/hooligan/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
+		mav.setView("/hooligan/main/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
 		mav.setRedirect();
 		return mav;
 		
 		}
 	//문의게시판 삭제
-	@RequestMapping(value = "/faq/delete", method = "POST")
+	@RequestMapping(value = "/main/faq/delete", method = "POST")
 	public static ModelAndView deleteFAQ(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("result", service.FAQDelete(req));
-		mav.setView("/hooligan/faq/list");
+		mav.setView("/hooligan/main/faq/list");
 		mav.setRedirect();
 		return mav;
 		}
 	//문의게시판 뷰 댓글 작성
-	@RequestMapping(value = "/faq/view", method = "POST")
+	@RequestMapping(value = "/main/faq/view", method = "POST")
 	public static ModelAndView faqViewRegisterReple(HttpServletRequest req) {
 		HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("result", service.FAQRepleRegister(req));
 		mav.setRedirect();
-		mav.setView("/hooligan/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
+		mav.setView("/hooligan/main/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
 		return mav;
 		}
 	//문의게시판  수정GET
-		@RequestMapping(value="/faq/repleUpdate", method="GET")
+		@RequestMapping(value="/main/faq/repleUpdate", method="GET")
 		public static ModelAndView faqRepleUpdateStart(HttpServletRequest req) {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
@@ -312,24 +312,24 @@ public class NoticeController {
 			return mav;
 		}
 		//문의게시판 댓글 수정POST
-		@RequestMapping(value="/faq/repleUpdate", method="POST")
+		@RequestMapping(value="/main/faq/repleUpdate", method="POST")
 		public static ModelAndView faqRepleUpdateEnd(HttpServletRequest req) {
 			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
 			
 			mav.addObject("result", service.FAQRepleUpdateEnd(req));
-			mav.setView("/hooligan/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
+			mav.setView("/hooligan/main/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
 			mav.setRedirect();
 			return mav;
 		}	
 		//문의게시판 댓글 삭제
-		@RequestMapping(value = "/faq/repleDelete", method = "POST")
+		@RequestMapping(value = "/main/faq/repleDelete", method = "POST")
 		public static ModelAndView deleteFAQReple(HttpServletRequest req) {
 			HooliganService service = (HooliganService) req.getServletContext().getAttribute("service");
 			ModelAndView mav = new ModelAndView();
 			
 			mav.addObject("result", service.FAQRepleDelete(req));
-			mav.setView("/hooligan/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
+			mav.setView("/hooligan/main/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
 			mav.setRedirect();
 			return mav;
 			}	
