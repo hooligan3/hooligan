@@ -1,10 +1,6 @@
-<%@page import="com.icia.vo.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%Product p=(Product)request.getAttribute("result"); %>
-<%double result=(double)p.getPresentSize()/p.getMaximumSize();%>
-<%double result2=result*100; %>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
@@ -27,22 +23,56 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+   <style>
+   .well {
+    min-height: 250px;
+    padding : 0;
+    padding-left: 50px;
+    }
+
+   </style>
+  <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+	
+		var result = <%=request.getAttribute("result")%>
+		
+		var inquiryReple = result.inquiryReple;
+		var content = inquiryReple.content;
+		var inquiryRepleNo = inquiryReple.inquiryRepleNo;
+		var pageNo = <%=request.getParameter("page_no")%>
+		var inquiryNo = inquiryReple.inquiryNo;
+		
+		$("#content").append("<tr><td>댓글 내용 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td><br><textarea rows='4' cols='3' name='repleContent' style='width:575px;'>"+content+"</textarea><input type='hidden'name='inquiry_reple_no' value='"+inquiryRepleNo+"' ><input type='hidden'name='page_no' value='"+pageNo+"' ><input type='hidden'name='inquiry_no' value='"+inquiryNo+"' ></td></tr>")
+		
+		$("#return").on("click","#list",function(){
+			location.href='view?pageNo='+pageNo+'&inquiry_no='+inquiryNo;
+		});
+		
+		$("#return").append("<input type='button' data-loading-text='Loading...' class='btn btn-default btn-lg' value='이전으로' id='list' style='width:84px; height:40px; margin : 0px; display:inline-block; color : white;'>");
+		
+		
+		
+		
+	})
+</script>
 </head>
 <body>
 <!--Start Header-->
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-    <div id="menu-bar">
-        <div class="container">
-            <div class="row">
-                <!-- Logo / Mobile Menu -->
-                 <div  class="col-lg-3 col-sm-3 ">
-                    <div id="logo">
-                        <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt=""/></a></h1>
+  <div id="menu-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div id="logo">
+                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                        </div>
                     </div>
-                </div>
-                   <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+               <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -133,11 +163,8 @@
                 </div>
             </div>
         </div>
-        </header>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 <!--End Header-->
-	
-	<!--start wrapper-->
 	<section class="wrapper">
     <section class="page_head">
         <div class="container">
@@ -147,102 +174,65 @@
                         <ul>
 
                             <li><a href="index.html">Home</a></li>
-                            <li>상품</li>
+                            <li>상품등록</li>
                         </ul>
                     </nav>
 
                     <div class="page_title">
-                        <h2>상품 정보 보기</h2>
+                        <h2>상품 평가</h2>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <br>
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+<div class="col-lg-8 col-md-8 col-sm-8">
+		<div class="well well-lg" style="padding-left: 50px; padding-top: 10px;"><h3><i class="fa fa-leaf"></i>    댓글 수정하기</h3>
 		
-		<section class="content portfolio_single">
-			<div class="container">
-				<div class="row sub_content">
-					<div class="col-lg-8 col-md-8 col-sm-8">
-						<!--Project Details Page-->
-						<div class="porDetCarousel">
-							<div class="carousel-content">
-								<img class="carousel-item"  src="/hooligan/employees/productImg/<%=p.getMainImagePath() %>" alt="">
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="project_description">
-							<div class="widget_title">
-								<h2 id="productN"><span >상품명: <%=p.getProductName() %></span>
-							</div>
-
-							<p>상품 내용</p>
-							<p style="height:233px;" id="productC"><%=p.getProductContent() %></p>
-							<p>상품 가격<span></span> :<%=p.getPrice() %>원</p>
-							<p>마감일<span></span> :<%=p.getClosingDate() %></p>
-							<p>등록일<span></span> :<%=p.getRegistrationDate() %></p>
-						<ul class="progress-skill-bar mrg-0">
-                		
-                    <li>
-                        <span class="lable" id="productB"><%=result2%>%</span>
-                        <div class="progress_skill">
-                            <div data-height="100" role="progressbar" data-value=<%=result2%> class="bar" style="width: <%=result%>%; height: 100%;">
-                                현재 주문수
-                              
-                            </div>
-                              </div>
-                            <br><p>구매 수량 선택&nbsp;&nbsp;&nbsp;<select name="order_size" >
-										    <option value="1">1</option>
-										    <option value="2">2</option>
-										    <option value="3">3</option>
-										    <option value="4">4</option>
-										    <option value="5">5</option>
-										</select></p>
-				<!-- 즐겨찾기 주문하기 상품평가 상세보기 -->						
-										<br>
-                <a href="#"><input type="button" data-loading-text="Loading..."  style="color:white; "class="btn btn-default btn-lg" value="상세보기"></a>
-                <a href="#"><input type="button" data-loading-text="Loading..."  style="color:white; "class="btn btn-default btn-lg" value="즐겨찾기"></a>
-                <a href="/hooligan/ProductOrder.jsp"><input type="button" data-loading-text="Loading..."  style="color:white; "class="btn btn-default btn-lg" value="주문하기"></a>
-                <a href="/hooligan/ProductEvaluationList.jsp"><input type="button" data-loading-text="Loading..."  style="color:white; "class="btn btn-default btn-lg" value="상품평가"></a>                      
-                 
-                 <!-- 즐겨찾기 주문하기 상품평가 상세보기 -->	      
-                        </div>
-                </div>
-                        
-                        
-                    </li>
-                </ul>
-                
-                
-                
-                
-
-						
-						</div>
+		<form action="/hooligan/faq/repleUpdate" method="post">
+						<table>
+							<tbody id="content">
+								
+								
+		
+							</tbody>
+						</table>
+									<div class="col-lg-2 col-md-2 col-sm-2"></div>
+									
+									<div class="col-lg-2 col-md-2 col-sm-2"></div>
+									<div class="col-lg-8 col-md-8 col-sm-8">
+									<br><br><br>
+									<div id="return" style="display: inline-block;"></div>
+										&nbsp;
+                						<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="수정하기">
+									</div>
+									</form>
+									<div class="col-lg-2 col-md-2 col-sm-2"></div>
+									
+									
+									
+									
 						
 						
-				<div class="row sub_content">
-					<div class="carousel-intro">
-						<div class="col-md-12">
-							<div class="dividerHeading">
-					
+				
 	
 	
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/retina-1.1.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script> <!-- jQuery cookie -->
-    <script type="text/javascript" src="js/styleswitch.js"></script> <!-- Style Colors Switcher -->
-    <script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
-    <script type="text/javascript" src="js/jflickrfeed.js"></script>
-    <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
-    <script type="text/javascript" src="js/swipe.js"></script>
-    <script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+	
+    <script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>
+    <script src="/hooligan/js/bootstrap.min.js"></script>
+    <script src="/hooligan/js/jquery.easing.1.3.js"></script>
+    <script src="/hooligan/js/retina-1.1.0.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.cookie.js"></script> <!-- jQuery cookie -->
+    <script type="text/javascript" src="/hooligan/js/styleswitch.js"></script> <!-- Style Colors Switcher -->
+    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.smartmenus.bootstrap.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jflickrfeed.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="/hooligan/js/swipe.js"></script>
+    <script type="text/javascript" src="/hooligan/js/jquery-scrolltofixed-min.js"></script>
 
 
 	<script type="text/javascript">
@@ -279,7 +269,6 @@
 				
 				
 				// CHANGE ITEM
-				
 				var changeImage = function(direction, context) {
 					var current = ui.carousel.find('.carousel-item.active');
 
@@ -339,7 +328,17 @@
 					});
 				
 				// AUTO CHANGE
-			
+				if (op.autoChange) {
+					var changeInterval = setInterval(changeImage, op.interval);
+					ui.carousel
+						.on('mouseenter', function() {
+							clearInterval(changeInterval);
+						})
+						.on('mouseleave', function() {
+							changeInterval = setInterval(changeImage, op.interval);
+						});
+				}
+				return this;
 			};
 			
 			$('.porDetCarousel').each(function() {
@@ -349,16 +348,6 @@
 			});
 		});
 	</script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		var result= <%= request.getAttribute("result") %>
-		var productName=result.productName;
-		$("#productN").append(productName);
-		alert(productName);
-	</script>
-	<script src="js/main.js"></script>
-
-
 	<script src="/hooligan/js/main.js"></script>
 	
 	<!-- Start Style Switcher -->

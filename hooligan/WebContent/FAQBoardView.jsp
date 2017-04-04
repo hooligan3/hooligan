@@ -50,12 +50,10 @@
 <script>
 	
 	var result = <%=request.getAttribute("result")%>
+	var result2 =<%=request.getAttribute("result2")%>
 	var pageNo = <%=request.getParameter("pageNo")%>
-	
 	$(function(){
 		var inquiryNo = result.inquiryNo;
-		alert(inquiryNo);
-		
 		
 			var Id = result.customerId;
 			var group = result.groupName;
@@ -70,6 +68,7 @@
 			
 			var str2 = "<i class='fa fa-comment-o'></i>&nbsp;&nbsp;"+title;
 			var str3 = content;
+			var str6 = "<input type='hidden' value='"+inquiryNo+"' name='inquiry_no'>"
 				
 			$("#title").append(str);
 			$("#title2").append(str2);
@@ -79,11 +78,11 @@
 			
 			//버튼
 				$("#back").on("click","#list",function(){
-				location.href='list?pageNo='+pageNo;
+				location.href='list?pageNo='+<%=request.getParameter("pageNo")%>;
 			});
 			
 			$("#back3").on("click","#update", function() {
-				location.href='update?article_no=' + result.articleNo;
+				location.href='update?inquiry_no=' + result.inquiryNo+"&pageNo="+<%=request.getParameter("pageNo")%>;
 			});	
 			
 			var back = $("#back");
@@ -92,7 +91,31 @@
 			back.append("<input type='submit' value='이전으로'data-loading-text='Loading...' class='btn btn-default btn-lg' id='list' style='height:40px; width:74.39px; margin :0;'>")
 			back3.append("<input type='submit' value='수정'data-loading-text='Loading...' class='btn btn-default btn-lg' id='update'>")
 			//back4.append("<input type='hidden' name='articleNo' id='articleNo' value='"+articleNo+"'>")
+			back4.append(str6);
 			back4.append("<input type='submit' value='삭제'data-loading-text='Loading...' class='btn btn-default btn-lg' id='delete'>")
+	
+			//댓글
+			$.each(result2.list, function(index, value){
+				var repleContent = value.content;
+				var repleDate =  value.repleDate;
+				var inquiryRepleNo = value.inquiryRepleNo;
+				var inquiryNo = value.inquiryNo;
+				var btnModify = "onClick='location.href=\"/hooligan/faq/repleUpdate?inquiry_reple_no="+inquiryRepleNo+"&content="+repleContent+"&inquiry_no="+inquiryNo+"&page_no="+pageNo+"\"'";
+				
+				var str9="<tr><th>U&ME</th>";
+				str9 = str9+ "<th style='text-align: right;' colspan='2'>"+repleDate+"</th></tr>";
+				str9 = str9+"<tr><td colspan='2' style='text-align:left; padding-left:60px;'>"+repleContent;
+				str9 = str9+"<input type='hidden' name='inquiry_reple_no' value='"+inquiryRepleNo+"'><input type='hidden' name='inquiry_no' value='"+inquiryNo+"'><input type='hidden' name='page_no' value='"+pageNo+"'></td><td style='text-align:right;'><input type='button' value='수정' "+btnModify+" style='color : white; width : 40px; height:20px; padding:0px;' data-loading-text='Loading...' class='btn btn-default btn-lg'>&nbsp;&nbsp;<input type='submit' value='삭제' style='width : 40px; height:20px; padding:0px;' data-loading-text='Loading...' class='btn btn-default btn-lg'></td></tr>";
+				$("#reple").append(str9);
+				$("#rrr").append("<input type='hidden' name='inquiry_reple_no' value='"+inquiryRepleNo+"'><input type='hidden' name='inquiry_no' value='"+inquiryNo+"'><input type='hidden' name='page_no' value='"+pageNo+"'>");
+		
+			
+	})
+			
+			
+			
+		
+	
 	})
 
 	
@@ -192,11 +215,12 @@
                                     </ul>
                                      <li class="active"><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
+                                       <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
             
-                                </li>
                                 </li>
                             </ul>
                         </div>
@@ -266,7 +290,7 @@
 				<div class="col-lg-1 col-md-1 col-sm-1" style="text-align: right;">
 
 					<div id="back4" style="height: 40px;">
-						<form action='/hooligan/free/delete' method='post'></form>
+						<form action='/hooligan/faq/delete' method='post'></form>
 					</div>
 
 				</div>
@@ -286,26 +310,25 @@
 				<!-- 댓글 -->
 					
 					
-					<form action="/hooligan/free/repleDelete" method="post" id="delete">
+					<form action="/hooligan/faq/repleDelete" method="post" id="delete">
 					<br><table class="table table-striped table-hover" style="text-align: center;" id="reple">
 					
 					</table>
 					</form>
-						
 					
 				
 					
 
-				<form action="/hooligan/free/view" method="post">
+				<form action="/hooligan/faq/view" method="post">
 					<!-- 댓글 -->
 					<p id="rrr">댓글 작성		
 							
-<%-- 							<input type="hidden" name="write_id" value="<%=customer.getCustomerId()%>"> --%>
-<%-- 							<input type="hidden" name="page_no" value="<%=request.getParameter("pageNo")%>"> --%>
+ 						<input type="hidden" name="page_no" value="<%=request.getParameter("pageNo")%>">
+ 						<input type="hidden" name="inquiry_no" value="<%=request.getParameter("inquiry_no")%>">
 							
 					</p>
 					<div class="col-lg-11 col-md-11 col-sm-11">
-						<textarea rows="3" cols="" name="content"></textarea>
+						<textarea rows="3" cols="" name="repleContent"></textarea>
 						
 					</div>
 					&nbsp;&nbsp;<input type="submit" data-loading-text="Loading..."

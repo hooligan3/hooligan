@@ -532,8 +532,9 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
+
 	//제품 메인
-	public String productMain(HttpServletRequest req) {
+	public Product productMain(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
 		HashMap<String, Object> map=new HashMap<>();
 		JsonObject ob=new JsonObject();
@@ -541,13 +542,166 @@ public class HooliganService {
 		Product p=dao.productMain(conn,product_no);
 		JdbcUtil.close(conn);
 		HashMap<String , Object> product=new HashMap<>();
-		product.put("p", p);
-		return new Gson().toJson(product);
+		//product.put("p", p);
+		 //new Gson().toJson(product);
+		 return p;
+	}
+	
+	//문의게시판 수정 GET
+	public String FAQUdateStart(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int inquiryNo = Integer.parseInt(req.getParameter("inquiry_no"));
+		InquiryBoard inquiry = dao.InquiryView(conn, inquiryNo);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("inquiry", inquiry);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	
+	//문의게시판 수정 POST
+	public String FAQUpdateEnd(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		InquiryBoard inquiry = new InquiryBoard();
+		System.out.println(req.getParameter("title"));
+		System.out.println(req.getParameter("content"));
+		System.out.println(req.getParameter("group_name"));
+		System.out.println(req.getParameter("inquiry_no"));
+		
+		inquiry.setTitle(req.getParameter("title"));
+		inquiry.setContent(req.getParameter("content"));
+		inquiry.setGroupName(req.getParameter("group_name"));
+		inquiry.setInquiryNo(Integer.parseInt(req.getParameter("inquiry_no")));
+		
+		int result = dao.updateInquiryAticle(conn, inquiry);
+		JsonObject ob = new JsonObject();
+	
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	//문의게시판 삭제
+	public String FAQDelete(HttpServletRequest req){
+		Connection conn=JdbcUtil.getConnection();
+		HashMap< String, String> map=new HashMap<>();
+		JsonObject ob=new JsonObject();
+		int inquiryNo = Integer.parseInt(req.getParameter("inquiry_no"));
+		int result=dao.deleteInquiryAticle(conn, inquiryNo);
+		
+		if(result==0) ob.addProperty("result", "비밀번호를 확인하세요");
+		else ob.addProperty("result", "탈퇴되었습니다");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+	}
+	//문의게시판 댓글리스트
+	public String FAQRepleList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int inquiryNo = Integer.parseInt(req.getParameter("inquiry_no"));
+		ArrayList<InquiryReple> list = dao.InquiryRepleList(conn, inquiryNo);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	//문의게시판 댓글 등록
+	public String FAQRepleRegister(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		InquiryReple inquiryReple = new InquiryReple();
+		
+		System.out.println(req.getParameter("inquiry_no"));
+		System.out.println(req.getParameter("repleContent"));
+		
+		inquiryReple.setInquiryNo(Integer.parseInt(req.getParameter("inquiry_no")));
+		inquiryReple.setContent(req.getParameter("repleContent"));
+		
+		int result = dao.insertInquiryReple(conn, inquiryReple);
+		
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+		
+	}
+	//문의게시판 댓글 수정 폼으로 GET
+	public String FAQRepleUpdateStart(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		
+		int	inquiryRepleNo = Integer.parseInt(req.getParameter("inquiry_reple_no"));
+		
+		InquiryReple inquiryReple = dao.InquiryRepleView(conn, inquiryRepleNo);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("inquiryReple", inquiryReple);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
 	}
 
+	//문의게시판 덧글 수정 (POST)
+	public String FAQRepleUpdateEnd(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		
+		System.out.println("댓글번호"+req.getParameter("inquiry_reple_no"));
+		int inquiryRepleNo = Integer.parseInt(req.getParameter("inquiry_reple_no"));
+		
+		
+		InquiryReple inquiryReple = new InquiryReple();
+		inquiryReple.setContent(req.getParameter("repleContent"));
+		inquiryReple.setInquiryRepleNo(inquiryRepleNo);
+		
+		int result = dao.updateInquiryReple(conn, inquiryReple);
+		
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	//문의게시판 덧글 삭제
+	public String FAQRepleDelete(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		
+		int inquiryRepleNo = Integer.parseInt(req.getParameter("inquiry_reple_no"));
+		int result = dao.deleteInquiryReple(conn, inquiryRepleNo);
+		JsonObject ob = new JsonObject();
+		if(result==1) ob.addProperty("result", "fail");
+		else ob.addProperty("result", "success");
+		JdbcUtil.close(conn);
+		return new Gson().toJson(ob);
+
+	}
 }
 
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

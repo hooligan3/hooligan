@@ -79,8 +79,7 @@
                             <h1><a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img src="images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
-                    <!-- Navigation
-                    <!-- =====================메인 메뉴(우측상단) 시작============================= -->
+                       <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -93,7 +92,7 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li><a href="product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
@@ -123,7 +122,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="active"><a href="#">식품</a>
+                                <li><a href="#">식품</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">과일</a>
        
@@ -153,17 +152,18 @@
                                             <a href="portfolio_single.html">통조림</a>
                            
                                         </li>
-                                        
-                                        
                                     </ul>
-                                     <li><a href="#">게시판</a>
+                                </li>
+                                 <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
-            
-                                </li>
-                                </li>
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>

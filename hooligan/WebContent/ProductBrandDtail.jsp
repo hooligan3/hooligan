@@ -248,8 +248,7 @@
                             <h1><a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img src="images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
-                    <!-- Navigation
-                    ================================================== -->
+                   <!-- =====================메인 메뉴(우측상단) 시작============================= -->
                     <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
                         <!--  <div class="container">-->
                         <div class="navbar-header">
@@ -262,76 +261,86 @@
                         </div>
                         <div class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="/Java/project/html_semi/WebContent/UandMe/product.html">브랜드</a>
+                                <li ><a href="product.html">브랜드</a>
 
                                 </li>
 
-                                <li>
-                                    <a href="#">의류</a>
+                                <li><a href="#">의류</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">Elements</a></li>
-                                        <li><a href="columns.html">Columns</a></li>
-                                        <li><a href="typography.html">Typography</a></li>
-                                        <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                        <li><a href="icons.html">Icons</a></li>
+                                        <li><a href="elements.html">점퍼</a></li>
+                                        <li><a href="columns.html"> 코트</a></li>
+                                        <li><a href="typography.html">니트</a></li>
+                                        <li><a href="pricing-tables.html">정장</a></li>
+                                        <li><a href="icons.html">티셔츠</a></li>
+                                        <li><a href="icons.html">팬츠</a></li>
                                     </ul>
                                 </li>
 
-                                <li>
-                                    <a href="#">수제품</a>
+                                <li><a href="#" >수제품</a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="about.html">About</a>
+                                            <a href="about.html">악세사라</a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="about.html">About Us 1</a></li>
-                                                <li><a href="about-2.html">About Us 2</a></li>
+                                                <li><a href="about.html">케이스</a></li>
+                                                <li><a href="about-2.html">브로치</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
-                                        <li><a href="sidebar-right.html">Right Sidebar</a></li>
-                                        <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                                        <li><a href="404-page.html">404 Page</a></li>
+                                        <li><a href="services.html">잡화</a></li>
+                                        <li><a href="faq.html">가방</a></li>
+     
                                     </ul>
                                 </li>
 
-                                <li>
-                                    <a href="#">식품</a>
+                                <li><a href="#">식품</a>
                                     <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">Portfolio Classic</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="portfolio_2.html">Portfolio 2</a></li>
-                                                <li><a href="portfolio_3.html">Portfolio 3</a></li>
-                                                <li><a href="portfolio_4.html">Portfolio 4</a></li>
-                                            </ul>
+                                        <li><a href="#">과일</a>
+       
                                         </li>
                                         <li>
-                                            <a href="portfolio_masonry_3.html">Portfolio Masnory</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="portfolio_masonry_2.html">Masonry portfolio 2</a></li>
-                                                <li><a href="portfolio_masonry_3.html">Masonry portfolio 3</a></li>
-                                                <li><a href="portfolio_masonry_4.html">Masonry portfolio 4</a></li>
-                                            </ul>
+                                            <a href="portfolio_masonry_3.html">견과</a>
+ 
                                         </li>
 
                                         <li>
-                                            <a href="portfolio_single.html">Portfolio Single</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="portfolio_single.html">Portfolio Single 1</a></li>
-                                                <li><a href="portfolio_single_2.html">Portfolio Single 2</a></li>
-                                                <li><a href="portfolio_single_3.html">Portfolio Single 3</a></li>
-                                            </ul>
+                                            <a href="portfolio_single.html">음료</a>
+
+                                        </li>
+                                         <li>
+                                            <a href="portfolio_single.html">과자</a>
+
+                                        </li>
+                                          <li>
+                                            <a href="portfolio_single.html">유제품</a>
+             
+                                        </li>
+                                        <li>
+                                            <a href="portfolio_single.html">냉동식품</a>
+               
+                                        </li>
+                                        <li>
+                                            <a href="portfolio_single.html">통조림</a>
+                           
                                         </li>
                                     </ul>
                                 </li>
+                                 <li><a href="#">게시판</a>
+                                    <ul class="dropdown-menu">
+                                    
+                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    
+                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
+                                    </li>
+                                    </ul>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </header>
+        <!-- =====================메인 메뉴(우측상단) 끝============================= -->
         <!--End Header-->
         <!--start wrapper-->
         <section class="wrapper">
