@@ -297,7 +297,7 @@ $(document).ready(function() {
 		if(p.orderState==3)   p.orderState="주문실패"
 		var a=$('<tr></tr>');
 		var productName1=$('<td></td>');
-		var productName2=$("<a href='/hooligan/product/productDetail?productNo="+p.productNo+"'>"+p.productName+"</a>")
+		var productName2=$("<a href='/hooligan/product/productMain?product_no="+p.productNo+"'>"+p.productName+"</a>")
 		productName1.append(productName2);
 		var date1=p.closingDate;
 		var date=$('<td></td>');
