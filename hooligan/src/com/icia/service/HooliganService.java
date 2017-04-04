@@ -532,10 +532,7 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(ob);
 	}
-<<<<<<< HEAD
 	
-=======
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	//제품 메인
 	public Product productMain(HttpServletRequest req) {
 		Connection conn=JdbcUtil.getConnection();
