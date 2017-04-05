@@ -863,6 +863,24 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(product);
 	}
+	//상품 종류별로 뿌리기
+	public String selectProductByTypeNo(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int typeNo = Integer.parseInt(req.getParameter("type_no"));
+		int numberOfTotalArticle = dao.countProductByTypeNo(conn, typeNo);
+		Pagination pagination = PagingUtil2.setPageMaker(pageNo, numberOfTotalArticle);
+		
+		ArrayList<Product> list = dao.selectProductByPageNo(conn, pagination.getStartArticle(), pagination.getEndArticle(), typeNo);
+		
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
 }
 
 

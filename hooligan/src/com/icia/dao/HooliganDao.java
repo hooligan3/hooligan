@@ -1,9 +1,6 @@
 package com.icia.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -1918,7 +1915,64 @@ public class HooliganDao {
 					JdbcUtil.close(pstmt, rs);
 				}return null;
 			}
+			//종류별 상품 뿌리기
+			public ArrayList<Product> selectProductByPageNo(Connection conn, int startId, int endId, int typeNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<Product> list = new ArrayList<>();
+				try {
+					pstmt = conn.prepareStatement(ProductSql.selectProductByType);
+					pstmt.setInt(1, typeNo);
+					pstmt.setInt(2, startId);
+					pstmt.setInt(3, endId);
+					rs = pstmt.executeQuery();
+					while(rs.next()){
+						Product product = new Product();
+						product.setProductNo(rs.getInt("product_no"));
+						product.setProductName(rs.getString("product_name"));
+						product.setProductContent(rs.getString("product_content"));
+						product.setPrice(rs.getInt("price"));
+						product.setMinimumSize(rs.getInt("minimum_size"));
+						product.setMaximumSize(rs.getInt("maximum_size"));
+						product.setPresentSize(rs.getInt("present_size"));
+						product.setRegistrationDate(rs.getDate("registration_date"));
+						product.setClosingDate(rs.getDate("closing_date"));
+						product.setOrderState(rs.getInt("order_state"));
+						product.setTypeNo(rs.getInt("type_no"));
+						product.setBrandNo(rs.getInt("brand_no"));
+						product.setEmployeeId(rs.getString("employee_id"));
+						product.setMainImagePath(rs.getString("main_image_path"));
+						product.setDetailImagePath(rs.getString("image_path"));
+						product.setDetailContent(rs.getString("detail_content"));
+						list.add(product);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
+			//종류별 상품 개수
+			public int countProductByTypeNo(Connection conn, int typeNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				try {
+					pstmt = conn.prepareStatement(ProductSql.countProductByType);
+					pstmt.setInt(1, typeNo);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return -1;
+			}
 }
+
+
+
 
 
 

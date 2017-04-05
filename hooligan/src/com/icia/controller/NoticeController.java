@@ -420,7 +420,16 @@ public class NoticeController {
 					return mav;
 				}
 				
-		
+				//상품 종류별 조회
+				@RequestMapping(value="/main/ProductList", method="GET")
+				public static ModelAndView ProductList(HttpServletRequest req) {
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav = new ModelAndView();
+					
+					mav.addObject("result", service.selectProductByTypeNo(req));
+					mav.setView("/ProductSort.jsp");
+					return mav;
+				}
 		
 		
 		
