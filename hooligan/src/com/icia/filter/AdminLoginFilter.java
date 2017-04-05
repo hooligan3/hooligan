@@ -17,12 +17,11 @@ import javax.servlet.http.HttpSession;
 import com.icia.vo.Admin;
 import com.icia.vo.Employee;
 
-@WebFilter("/admin/*")
+//@WebFilter("/admin/*")
 public class AdminLoginFilter implements Filter {
 	private ArrayList<String> whiteList = new ArrayList<>();
     public AdminLoginFilter() {
     	whiteList.add("/hooligan/admin/login");
-    	
     }
 
 	public void destroy() {

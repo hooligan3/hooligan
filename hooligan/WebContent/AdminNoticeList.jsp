@@ -70,17 +70,17 @@
         <div id="container">
             <nav class="main_gnb">
                    <ul>
-                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                   <li><a href="/hooligan/admin/employee/NoActiveList">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/admin/employee/list">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <li><a href="/hooligan/admin/customer/list">회원 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <li><a href="/hooligan/admin/brand/list">브랜드 조회</a></li>
                     <hr />
                     <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <li><a href="/hooligan/admin/notice/list">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>

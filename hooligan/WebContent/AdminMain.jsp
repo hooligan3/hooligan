@@ -30,17 +30,17 @@
         <div id="container">
             <nav class="main_gnb">
                 <ul>
-                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                     <li><a href="/hooligan/admin/employee/NoActiveList">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/admin/employee/list">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <li><a href="/hooligan/admin/customer/list">회원 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <li><a href="/hooligan/admin/brand/list">브랜드 조회</a></li>
                     <hr />
                     <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <li><a href="/hooligan/admin/notice/list">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
@@ -56,9 +56,9 @@
                             </tr>
                         </thead>
                         <tr>
-                            <td><a href="/hooligan/AdminWaitEmployee.jsp"><img src="/hooligan/images/제휴신청중.png" /></a></td>
-                            <td><a href="/hooligan/AdminEmployeeList.jsp"><img src="/hooligan/images/개인사업자.png" /></a></td>
-                            <td><a href="/hooligan/AdminCustomerList.jsp"><img src="/hooligan/images/회원관리.png" /></a></td>
+                            <td><a href="/hooligan/admin/employee/NoActiveList"><img src="/hooligan/images/제휴신청중.png" /></a></td>
+                            <td><a href="/hooligan/admin/employee/list"><img src="/hooligan/images/개인사업자.png" /></a></td>
+                            <td><a href="/hooligan/admin/customer/list"><img src="/hooligan/images/회원관리.png" /></a></td>
                         </tr>
                         <thead>
                             <tr>
@@ -68,9 +68,9 @@
                             </tr>
                         </thead>
                         <tr>
-                            <td><a href="/hooligan/AdminBrandList.jsp"><img src="/hooligan/images/브랜드.png" /></a></td>
+                            <td><a href="/hooligan/admin/brand/list"><img src="/hooligan/images/브랜드.png" /></a></td>
                             <td><a href="/hooligan/AdminPointSelect.jsp"><img src="/hooligan/images/매출내역.png" /></a></td>
-                            <td><a href="/hooligan/AdminNoticeList.jsp"><img src="/hooligan/images/logo2.png" /></a></td>
+                            <td><a href="/hooligan/admin/notice/list"><img src="/hooligan/images/logo2.png" /></a></td>
                         </tr>
                     </table>
                 </div>

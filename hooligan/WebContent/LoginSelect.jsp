@@ -153,9 +153,9 @@
                                     </ul>
                                      <li><a href="#">게시판</a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="elements.html">자유 게시판</a></li>
-                                        <li><a href="columns.html"> 문의 게시판</a></li>
-                                        <li><a href="typography.html">공지 사항</a></li>
+                                       <li><a href="/hooligan/main/notice/list"> 공지사항</a> </li>
+                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
+                                    <li><a href="/hooligan/main/free/list">자유게시판</a></li>
             
                                 </li>
                                 </li>

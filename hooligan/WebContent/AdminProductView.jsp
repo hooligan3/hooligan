@@ -8,6 +8,30 @@
     <link href="/hooligan/css/manager_reset.css" rel="stylesheet" />
     <link href="/hooligan/css/manager.css" rel="stylesheet" />
     <link href="/hooligan/css/product_description.css" rel="stylesheet" />
+ <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+	var result = <%=request.getAttribute("result")%>
+
+	$(function(){
+		
+		var target= $("#product");
+		var image = result.imagePath;
+		var title = result.productName;
+		var content = result.productContent;
+		
+		var str ="<tr><td rowspan='4' style='width:250px; height:250px;'><img src='/hooligan/brand/brandimg/"+image+"' style='width:250px; height:250px;'></td>"
+			str = str+"<td class='title' style='width:544px; height:30px; font-size : 1.2em;'>상품명</td></tr>";
+			str = str+"<tr><td style='width:544px; height:30px; background-color : #EEE;'>"+title+"</td></tr>";
+			str = str+"<tr><td class='title'style='width:544px; height:30px; font-size : 1.2em;' >상품 소개</td></tr>";
+			str = str+"<tr><td style='background-color : #EEE;'>"+content+"</td></tr>";
+			
+			target.append(str);
+		
+	
+})
+</script>                
 </head>
 <body>
     <div id="wrap">
@@ -21,36 +45,25 @@
         <div id="container">
             <nav class="main_gnb">
                   <ul>
-                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                   <li><a href="/hooligan/admin/employee/NoActiveList">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/admin/employee/list">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <li><a href="/hooligan/admin/customer/list">회원 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <li><a href="/hooligan/admin/brand/list">브랜드 조회</a></li>
                     <hr />
                     <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <li><a href="/hooligan/admin/notice/list">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
             <section class="main_section">
                 <h2>제품 상세정보</h2>
-                <table height="250" width="800">
-                    <tr>
-                        <td rowspan="4"><img src="http://placehold.it/250x250" alt="제품 이미지" width="250" height="250"/></td>
-                        <td class="title">제품명</td>
-                    </tr>
-                    <tr>
-                        <td>나이키 운동화</td>
-                    </tr>
-                    <tr>
-                        <td class="title">제품 설명</td>
-                    </tr>
-                    <tr>
-                        <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</td>
-                    </tr>
+                <table height="250" width="800" id="product">
+                
+             
                 </table>
             </section>
         </div>

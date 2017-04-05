@@ -19,12 +19,42 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+        <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+	var result = <%=request.getAttribute("result")%>
+	
+	$(function(){
+		
+		var list = result.list;
+		var pagination = result.pagination;
+		var pageNo = pagination.pageNo;
+		var target= $("#brand");
+		
+		$.each(list, function(index,value){
+			var str = "<tr><td>"+value.brandNo+"</td>";
+			str = str+"<td>"+value.brandName+"</td>";
+			str = str+"<td><form action='/hooligan/admin/employee/brnadView' method='get'><input type='hidden' name='brand_no' value='"+value.brandNo+"'><input type='submit' value='상세보기'></form></td>";
+			str = str+"<td><form action='/hooligan/admin/employee/brandProductView' method='get'><input type='hidden' name='brand_no' value='"+value.brandNo+"'><input type='submit' value='상품보기'></form></tr>";
+			target.append(str);
+		})
+		$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+		var p = $("#pagination ul");
+		if (pagination.prev > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+		for (var i = pagination.startPage; i <= pagination.endPage; i++)
+			p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+		if (pagination.next > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
+	})
+</script>
 </head>
 <body>
     <div id="wrap">
         <header id="header">
             <h1><a href="manager_index.html"><img class="main_logo_img" src="images/logo.png" alt="로고" /></a></h1>
-            <p>Manager</p>
+            <p>Manager</p> 
         </header>
         <!--==============헤더와 본문 영역 구분===============-->
         <div id="header_blank"></div>
@@ -32,17 +62,17 @@
         <div id="container">
             <nav class="main_gnb">
                  <ul>
-                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                    <li><a href="/hooligan/admin/employee/NoActiveList">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/admin/employee/list">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <li><a href="/hooligan/admin/customer/list">회원 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <li><a href="/hooligan/admin/brand/list">브랜드 조회</a></li>
                     <hr />
                     <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <li><a href="/hooligan/admin/notice/list">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
@@ -52,104 +82,22 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>브랜드명</th>
-                                <th>회사 연락처</th>
-                                <th></th>
+                                <th>브랜드 번호</th>
+                                <th>브랜드명 </th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tr>
-                            <td>나이키</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>불가리</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>브라이틀링</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>뉴발란스</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
-                        <tr>
-                            <td>구찌</td>
-                            <td>02-123-4567</td>
-                            <td><button>브랜드 상세</button></td>
-                            <td><button>상품 상세</button></td>
-                            <td><button>삭제하기</button></td>
-                        </tr>
+                        <tbody id="brand">
                         
+                        </tbody>
                     </table>
-                    <!--페이징 시작 -->
-                    <div style="margin-left: 135px;">
-                    <ul class="pagination" style="margin:0; margin-">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>  
-                    </ul>
+                      <!--페이징 시작 -->
+                    <div id="pagination" style="text-align: center;"></div>
                     <br><br>&nbsp;&nbsp;&nbsp;
-                    <label for="search" class="search-label" >
-                     <button class="search-button"><i class="fa fa-search"></i></button>
-                      <input type="text" id="search" class="search-input" />
-                     </label>
                     
-            </div> <!--페이징 끝 -->
             </div>
+                </div>
                 </div>
             </section>
         </div>

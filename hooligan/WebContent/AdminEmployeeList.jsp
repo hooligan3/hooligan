@@ -18,6 +18,41 @@
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
 
     <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+	var result = <%=request.getAttribute("result")%>
+	
+	$(function(){
+		
+		var list = result.list;
+		var pagination = result.pagination;
+		var pageNo = pagination.pageNo;
+		var target= $("#employee");
+		
+		$.each(list, function(index,value){
+			var str = "<tr><td>"+value.ename+"</td>";
+			str = str+"<td>"+value.employeeId+"</td>";
+			str = str+"<td>"+value.tell+"</td>";
+			str = str+"<td>"+value.ssn1+"-"+value.ssn2+"</td>";
+			str = str+"<td>"+value.email+"</td>";
+			str = str+"<td>"+value.postalNo+"</td>";
+			str = str+"<td>"+value.address+"</td>";
+			str = str+"<td>"+value.active+"</td></tr>";
+			target.append(str);
+		})
+		
+		$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+		var p = $("#pagination ul");
+		if (pagination.prev > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+		for (var i = pagination.startPage; i <= pagination.endPage; i++)
+			p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+		if (pagination.next > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
+	})
+</script>
 </head>
 <body>
     <div id="wrap">
@@ -31,135 +66,46 @@
         <div id="container">
             <nav class="main_gnb">
                   <ul>
-                    <li><a href="/hooligan/AdminWaitEmployee.jsp">승인대기중인 개인사업자</a></li>
+                    <li><a href="/hooligan/admin/employee/NoActiveList">승인대기중인 개인사업자</a></li>
                     <hr/>
-                    <li><a href="/hooligan/AdminEmployeeList.jsp">개인사업자 조회</a></li>
+                    <li><a href="/hooligan/admin/employee/list">개인사업자 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminCustomerList.jsp">회원 조회</a></li>
+                    <li><a href="/hooligan/admin/customer/list">회원 조회</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminBrandList.jsp">브랜드 조회</a></li>
+                    <li><a href="/hooligan/admin/brand/list">브랜드 조회</a></li>
                     <hr />
                     <li><a href="/hooligan/AdminPointSelect.jsp">매출 내역</a></li>
                     <hr />
-                    <li><a href="/hooligan/AdminNoticeList.jsp">공지사항</a></li>
+                    <li><a href="/hooligan/admin/notice/list">공지사항</a></li>
                     <hr />
                 </ul>
             </nav>
             <section class="main_section">
                 <h2>개인사업자 조회</h2>
+                <br>
                 <div class="article">
                     <table>
                         <thead>
                             <tr>
-                                <th>직원이름</th>
+                                <th>이름</th>
                                 <th>아이디</th>
-                                <th>이메일</th>
                                 <th>연락처</th>
+                                <th>주민번호</th>
+                                <th>이메일</th>
+                                <th>우편번호</th>
+                                <th>상세주소</th>
                                 <th>상태</th>
-                                <th></th>
-                                <th></th>
                             </tr>
                         </thead>
-                        <tr>
-                            <td><a href="#"><a href="#">홍길동</a></a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>활성화</td>
-                            <td><button>비활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>활성화</td>
-                            <td><button>비활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">홍길동</a></td>
-                            <td>hong-gil-dong</td>
-                            <td>hong-gil-dong@gamil.com</td>
-                            <td>010-1234-5769</td>
-                            <td>비활성화</td>
-                            <td><button>활성화</button></td>
-                            <td><button>삭제</button></td>
-                        </tr>
+                        <tbody id="employee">
+                        	
+                        </tbody>
+                       
                     </table>
-                    <div style="margin-left: 260px;">
                     <!--페이징 시작 -->
-                    <ul class="pagination" style="margin:0; margin-">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>  
-                    </ul>
+                    <div id="pagination" style="text-align: center;"></div>
                     <br><br>&nbsp;&nbsp;&nbsp;
-                    <label for="search" class="search-label" >
-                     <button class="search-button"><i class="fa fa-search"></i></button>
-                      <input type="text" id="search" class="search-input" />
-                     </label>
                     
-            </div> <!--페이징 끝 -->
             </div>
                 </div>
             </section>
