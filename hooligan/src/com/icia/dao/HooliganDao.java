@@ -1554,7 +1554,7 @@ public class HooliganDao {
 			}
 			//주문시
 			//상품의 주문상태를 변경시켜준다
-			public void updateOrderState(Connection conn, int orderState, int productNo) {
+			public void updateOrderState(Connection conn, int productNo, int orderState) {
 				PreparedStatement pstmt=null;
 				ResultSet rs=null;
 				try {

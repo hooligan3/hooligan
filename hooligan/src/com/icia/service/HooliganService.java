@@ -713,6 +713,7 @@ public class HooliganService {
 			}
 			else if(p.getMaximumSize()>(p.getPresentSize()+orderSize)&&(p.getPresentSize()+orderSize)>=p.getMinimumSize()){
 				orderState=1;
+				System.out.println("너희 여기로 들어왓지??");
 				dao.updateOrderState(conn,productNo,orderState);
 				dao.updateOrderStateProductOrder(conn,productNo,orderState);
 				dao.updateCusomerPoint(conn,customerId,resultPoint);

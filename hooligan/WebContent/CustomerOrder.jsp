@@ -64,8 +64,8 @@
 					<div class="col-lg-3 col-sm-3 ">
 						<div id="logo">
 							<h1>
-								<a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img
-									src="images/logo.png" alt="" /></a>
+								<a href="/hooligan/main/index"><img
+									src="/hooligan/images/logo.png" alt="" /></a>
 							</h1>
 						</div>
 					</div>
