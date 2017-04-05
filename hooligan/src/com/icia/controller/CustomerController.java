@@ -176,4 +176,5 @@ public class CustomerController {
 		mav.addObject("result", service.customerSeachPwd(req));
 		return mav;
 	}
+	
 }

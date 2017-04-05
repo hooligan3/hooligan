@@ -1036,6 +1036,7 @@ public class HooliganDao {
 	}
 	// 브랜드 전체조회
 	public ArrayList<Brand> brandAllList(Connection conn) {
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Brand> list = new ArrayList<>();
@@ -1518,7 +1519,272 @@ public class HooliganDao {
 				}
 				return null;
 			}
+			
+			//회원 전체 조회
+			
+			public ArrayList<Customer> selectAllCustomers(Connection conn, int startId, int endId){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<Customer> list = new ArrayList<>();
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.selectCustomer);
+					pstmt.setInt(1, startId);
+					pstmt.setInt(2, endId);
+					rs = pstmt.executeQuery();
+					while(rs.next()){
+						Customer customer = new Customer();
+						customer.setCustomerId(rs.getString("customer_id"));
+						customer.setCustomerName(rs.getString("customer_name"));
+						customer.setTell(rs.getString("tell"));
+						customer.setSsn1(rs.getString("ssn1"));
+						customer.setSsn2(rs.getString("ssn2"));
+						customer.setEmail(rs.getString("email"));
+						customer.setGradeName(rs.getString("grade_name"));
+						customer.setPostalNo(rs.getInt("postal_no"));
+						customer.setAddress(rs.getString("address"));
+						list.add(customer);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+				
+			}
+			
+			//직원 전체 조회
+			public ArrayList<Employee> selectAllEmployees(Connection conn, int startId, int endId){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<Employee> list = new ArrayList<>();
+				
+				try {
+					pstmt = conn.prepareStatement(EmpSql.selectEmployees);
+					pstmt.setInt(1, startId);
+					pstmt.setInt(2, endId);
+					rs= pstmt.executeQuery();
+					while(rs.next()){
+						Employee employee= new Employee();
+						employee.setEmployeeId(rs.getString("employee_id"));
+						employee.setEname(rs.getString("ename"));
+						employee.setTell(rs.getString("tell"));
+						employee.setSsn1(rs.getString("ssn1"));
+						employee.setSsn2(rs.getString("ssn2"));
+						employee.setEmail(rs.getString("email"));
+						employee.setPostalNo(rs.getInt("postal_no"));
+						employee.setAddress(rs.getString("address"));
+						employee.setActive(rs.getInt("active"));
+						list.add(employee);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+				
+			}
+			
+			
+			//총 회원 수 조회
+			public int countCustomer(Connection conn){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				try {
+					pstmt = conn.prepareStatement(CustomerSql.countCustomer);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return -1;
+			}
+			
+			// 총 직원 수 조회
 	
-		
+			public int countEmployee(Connection conn){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				try {
+					pstmt = conn.prepareStatement(EmpSql.countEmployees);
+					rs= pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return -1;
 	
+			}
+			//브랜드 전체 조회
+			public ArrayList<Brand> selectAllBrand(Connection conn, int startId, int endId){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<Brand> list = new ArrayList<>();
+				try {
+					pstmt = conn.prepareStatement(ProductSql.selectAllBrand);
+					pstmt.setInt(1, startId);
+					pstmt.setInt(2, endId);
+					rs = pstmt.executeQuery();
+					while(rs.next()){
+						Brand brand = new Brand();
+						brand.setBrandNo(rs.getInt("brand_no"));
+						brand.setBrandName(rs.getString("brand_name"));
+						list.add(brand);
+					}return list;
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
+			//전체 브랜드 수
+			public int countBrand(Connection conn){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				try {
+					pstmt = conn.prepareStatement(ProductSql.countBrand);
+					rs= pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return -1;
+				
+			}
+			
+			//비활성화 직원 조회
+			public ArrayList<Employee> selectNoActiveEmployees(Connection conn, int startId, int endId){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				ArrayList<Employee> list =new ArrayList<>();
+				try {
+					pstmt = conn.prepareStatement(EmpSql.selectNoActiveEmployees);
+					pstmt.setInt(1, startId);
+					pstmt.setInt(2, endId);
+					rs = pstmt.executeQuery();
+					while(rs.next()){
+						Employee emp = new Employee();
+						emp.setEname(rs.getString("ename"));
+						emp.setEmployeeId(rs.getString("employee_id"));
+						emp.setTell(rs.getString("tell"));
+						emp.setSsn1(rs.getString("ssn1"));
+						emp.setSsn2(rs.getString("ssn2"));
+						emp.setEmail(rs.getString("email"));
+						emp.setPostalNo(rs.getInt("postal_no"));
+						emp.setAddress(rs.getString("address"));
+						emp.setActive(rs.getInt("active"));
+						emp.setBrandNo(rs.getInt("brand_no"));
+						list.add(emp);
+					}return list;
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
+			//승인 대기중인 직원 수
+			public int countNoActiveEmployee(Connection conn){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				try {
+					pstmt = conn.prepareStatement(EmpSql.countNoActiveEmployee);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return -1;
+			}
+			
+			//직원 활성화
+			public int activateEmployee(Connection conn,String employeeId){
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = conn.prepareStatement(EmpSql.ActiveEmployee);
+					pstmt.setString(1, employeeId);
+					return pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, null);
+				}return -1;
+			}
+			//직원 거절
+			public int deleteEmployee(Connection conn, String employeeId){
+				PreparedStatement pstmt = null;
+				try {
+					pstmt = conn.prepareStatement(EmpSql.DeleteEmployee);
+					pstmt.setString(1, employeeId);
+					return pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, null);
+				}return -1;
+			}
+			//브랜드 상세보기
+			public Brand selectBrandByBrandNo(Connection conn, int brandNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				try {
+					pstmt= conn.prepareStatement(ProductSql.selectDetailBrand);
+					pstmt.setInt(1, brandNo);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						Brand brand = new Brand();
+						brand.setImagePath(rs.getString("image_path"));
+						brand.setBrandName(rs.getString("brand_name"));
+						brand.setBrandContent(rs.getString("content"));
+						return brand;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
+			//브랜드 상품 상세보기 
+			public BrandProduct selectBrandProductByBrand_no(Connection conn, int brandNo){
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				try {
+					pstmt= conn.prepareStatement(ProductSql.selectDetailProduct);
+					pstmt.setInt(1, brandNo);
+					rs = pstmt.executeQuery();
+					if(rs.next()){
+						BrandProduct bp = new BrandProduct();
+						bp.setImagePath(rs.getString("image_path"));
+						bp.setProductName(rs.getString("product_name"));
+						bp.setProductContent(rs.getString("content"));
+						return bp;
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}return null;
+			}
 }
+
+
+
+
+
+
+

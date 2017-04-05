@@ -322,6 +322,7 @@ public class NoticeController {
 			mav.setRedirect();
 			return mav;
 		}	
+		
 		//문의게시판 댓글 삭제
 		@RequestMapping(value = "/main/faq/repleDelete", method = "POST")
 		public static ModelAndView deleteFAQReple(HttpServletRequest req) {
@@ -332,11 +333,93 @@ public class NoticeController {
 			mav.setView("/hooligan/main/faq/view?pageNo="+req.getParameter("page_no")+"&inquiry_no="+req.getParameter("inquiry_no"));
 			mav.setRedirect();
 			return mav;
-			}	
+			
+		}
+		//회원 전체 조회
+		@RequestMapping(value="/admin/customer/list", method="GET")
+		public static ModelAndView customerList(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.readCustomerList(req));
+			mav.setView("/AdminCustomerList.jsp");
+			return mav;
+		}
 		
+		//직원 전체 조회
+		@RequestMapping(value="/admin/employee/list", method="GET")
+		public static ModelAndView employeeList(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.readEmployeeList(req));
+			mav.setView("/AdminEmployeeList.jsp");
+			return mav;
+		}
+		//브랜드 전체조회
+		@RequestMapping(value="/admin/brand/list", method="GET")
+		public static ModelAndView brandList(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.selectAllBrand(req));
+			mav.setView("/AdminBrandList.jsp");
+			return mav;
+		}
+		//승인대기중인 직원 조회
+		@RequestMapping(value="/admin/employee/NoActiveList", method="GET")
+		public static ModelAndView noActiveEmployeeList(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+			
+			mav.addObject("result", service.selectNoActiveEmployee(req));
+			mav.setView("/AdminWaitEmployee.jsp");
+			return mav;
+		}
 		
-		
-		
+		//승인하기(POST)
+		@RequestMapping(value="/admin/employee/Activate", method="POST")
+		public static ModelAndView ActivateEmployee(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+				
+			mav.addObject("result", service.activateEmployee(req));
+			mav.setView("/hooligan/admin/employee/NoActiveList");
+			mav.setRedirect();
+			return mav;
+			
+			}
+		//거절하기
+		@RequestMapping(value="/admin/employee/DeleteNoActive", method="POST")
+		public static ModelAndView deleteNoActive(HttpServletRequest req) {
+			HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+			ModelAndView mav = new ModelAndView();
+				
+			mav.addObject("result", service.deleteEmployee(req));
+			mav.setView("/hooligan/admin/employee/NoActiveList");
+			mav.setRedirect();
+			return mav;
+			
+			}
+		//브랜드 상세보기
+				@RequestMapping(value="/admin/employee/brnadView", method="GET")
+				public static ModelAndView brnadDetailView(HttpServletRequest req) {
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav = new ModelAndView();
+					mav.addObject("result", service.selectDetailBrand(req));
+					mav.setView("/AdminBrandView.jsp");
+					return mav;
+				}
+				//브랜드 상품 상세보기
+				@RequestMapping(value="/admin/employee/brandProductView", method="GET")
+				public static ModelAndView brandProductDetailView(HttpServletRequest req) {
+					HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+					ModelAndView mav = new ModelAndView();
+					mav.addObject("result", service.selectDetailBrandProduct(req));
+					mav.setView("/AdminProductView.jsp");
+					return mav;
+				}
+				
 		
 		
 		

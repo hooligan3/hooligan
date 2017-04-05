@@ -56,10 +56,15 @@ public interface ProductSql {
 	//제품 메인보기
 	public String productMain = "select *from product where product_no=?";
 	
+	//브랜드 전체 조회
+	public String selectAllBrand = "select t2.* from (select rownum rnum, t1.* from (select brand_no, brand_name from brand order by brand_no desc) t1) t2 where rnum between ? and ?";
+	// 브랜드 전체 수
+	public String countBrand = "select count(*) from brand";
 	
-	
-	
-	
+	//브랜드 상세조회
+	public String selectDetailBrand ="select image_path, brand_name, content from brand where brand_no=?";
+	//상품 상세 조회
+	public String selectDetailProduct = "select p.image_path, p.product_name, p.content from brand b, brand_product p where b.brand_no=p.brand_no and b.brand_no=?";
 	
 	
 	

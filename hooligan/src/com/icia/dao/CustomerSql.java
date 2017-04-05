@@ -2,7 +2,12 @@ package com.icia.dao;
 
 public interface CustomerSql {
 	// 회원
-		//회원가입
+	
+	//회원 전체 조회
+	public String selectCustomer= "select t2.* from (select rownum rnum, t1.* from (select c.customer_id customer_id,c.customer_name customer_name,c.tell tell,c.ssn1 ssn1,c.ssn2 ssn2,c.email email,g.grade_name grade_name,c.postal_no postal_no,c.address address from customer c, grade g where g.grade_no=c.grade_no) t1 ) t2 where rnum between ? and ?";
+	// 회원 전체 수
+	public String countCustomer="select count(*) from customer";
+	//회원가입
 		public String insertCustomer= " insert into CUSTOMER(CUSTOMER_ID,CUSTOMER_PWD,CUSTOMER_NAME,postal_no,address,tell,ssn1,ssn2,email,point1,grade_no)values(?,?,?,?,?,?,?,?,?,0,1)";
 
 		//아이디 중복 확인

@@ -673,10 +673,115 @@ public class HooliganService {
 		return new Gson().toJson(ob);
 
 	}
+	//회원 리스트 조회
+	public String readCustomerList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.countCustomer(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<Customer> list = dao.selectAllCustomers(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+
+	}
+	//직원 리스트 조회
+	public String readEmployeeList(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.countEmployee(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<Employee> list = dao.selectAllEmployees(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+
+	}
+	//브랜드 전체 조회
+	public String selectAllBrand(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.countBrand(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<Brand> list = dao.selectAllBrand(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	//승인 대기중인 직원 조회
+	public String selectNoActiveEmployee(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int pageNo = 1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo = Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfTotalArticle = dao.countNoActiveEmployee(conn);
+		Pagination pagination = PagingUtil.setPageMaker(pageNo, numberOfTotalArticle);
+		ArrayList<Employee> list = dao.selectNoActiveEmployees(conn, pagination.getStartArticle(), pagination.getEndArticle());
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	}
+	
+	//직원 승인하기(Post)
+	public String activateEmployee(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		System.out.println(req.getParameter("employeeId"));
+		String employeeId = req.getParameter("employeeId");
+		int result = dao.activateEmployee(conn, employeeId);
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+		
+	}
+	//직원 거절하기
+	public String deleteEmployee(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		System.out.println("직원 거절 ");
+		String employeeId = req.getParameter("employeeId");
+		int result = dao.deleteEmployee(conn, employeeId);
+		JsonObject ob = new JsonObject();
+		
+		if(result==1) ob.addProperty("result", "success");
+		else ob.addProperty("result", "fail");
+		JdbcUtil.close(conn);
+		
+		return new Gson().toJson(ob);
+	}
+	//브랜드 상세보기(brand)
+	public String selectDetailBrand(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int brandNo = Integer.parseInt(req.getParameter("brand_no"));
+		Brand brand = dao.selectBrandByBrandNo(conn, brandNo);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(brand);
+	}
+	//상품 상세보기(product)
+	public String selectDetailBrandProduct(HttpServletRequest req){
+		Connection conn = JdbcUtil.getConnection();
+		int brandNo = Integer.parseInt(req.getParameter("brand_no")); 
+		BrandProduct product = dao.selectBrandProductByBrand_no(conn, brandNo);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(product);
+	}
 }
-
-
-
 
 
 

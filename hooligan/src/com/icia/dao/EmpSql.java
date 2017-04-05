@@ -5,7 +5,7 @@ public interface EmpSql {
 		public String insertEmployee = "insert into employee(employee_id,employee_pwd, ename, postal_no, address, ssn1, ssn2, email, tell,active,brand_no,point1) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		public String maxBrandNo="select max(brand_no) from brand";
 		public String maxProductNo="select max(product_no)from brand_product";
-		public String brandSelectByBrandNo="select *from brand where brand_no=?";
+		public String brandSelectByBrandNo="select * from brand where brand_no=?";
 		// 브랜드 등록(직원 회원가입)
 		public String insertBrand = "insert into brand values(?,?,?,?,?)";
 		//상품종류가져오기(상품등록)
@@ -76,6 +76,27 @@ public interface EmpSql {
 		//직원 등록한 제품리스트(개수파악)
 		public String productListCount = "select count(*)from product where employee_id=?";
 		public String productList ="select rnum,t2.* from(select rownum rnum,t1.* from(select p.* from product p where p.employee_id=? order by p.REGISTRATION_DATE desc)t1)t2 where rnum between ? and ? ";
+		
+
+		
+
+		//직원 전체 조회
+		public String selectEmployees ="select t2.* from (select rownum rnum, t1.* from (select employee_id,ename,tell,ssn1,ssn2,email,postal_no,address,active from employee) t1 ) t2 where rnum between ? and ?";
+		// 총 직원 수
+		public String countEmployees ="select count(*) from employee";
+	
+
+		//신청중인 직원 조회
+		public String selectNoActiveEmployees ="select t2.* from (select rownum rnum, t1.* from (select employee_id,ename,tell,ssn1,ssn2,email,postal_no,address,active,brand_no from employee where active=0) t1 ) t2 where rnum between ? and ?";
+		//신청중인 직원 수
+		public String countNoActiveEmployee = "select count(*) from employee where active=0";
+
+		//직원 활성화 하기
+		public String ActiveEmployee = "update employee set active=1 where employee_id=?";
+		
+
+		//직원 거절하기 
+		public String DeleteEmployee = "delete from employee where employee_id=?";
 		
 		
 }
