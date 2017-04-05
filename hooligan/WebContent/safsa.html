@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
@@ -11,14 +9,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="/hooligan/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/hooligan/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/style.css" media="screen" data-name="skins">
-    <link rel="stylesheet" href="/hooligan/css/layout/wide.css" data-name="layout">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" data-name="skins">
+    <link rel="stylesheet" href="css/layout/wide.css" data-name="layout">
 
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
 
-    <link rel="stylesheet" type="text/css" href="/hooligan/css/switcher.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/switcher.css" media="screen" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -75,19 +73,26 @@ $(function(){
 		var title = value.productName;
 		var price = value.price;
 		
-		var str = "<li class='list_item col-lg-4 col-md-6 col-sm-6'><li class='list_item col-lg-4 col-md-6 col-sm-6'>";
-			str = str + "<figure class='touching effect-bubba'><img src='/hooligan/employees/productImg/"+image+"' alt=''/>";
-			str = str + "<div class='option'><a href='portfolio_single.html' class='fa fa-link'></a>";
-			str = str + "<a href='/hooligan/employees/productImg/"+image+"' class='fa fa-search mfp-image'></a>";
-			str = str + "</div><figcaption><h5>"+title+"</h5><p>"+price+"</p></figcaption></figure></li> "
+		alert(price);
+		alert(image);
+		alert(price);
+// 		var str = "<div class='item responsive'> <figure class='touching effect-bubba'><img src='/hooligan/brand/brandimg/"+image+"' alt='' class='img-responsive'>"
+		
+// 			str = str+ "<div class='option'><a href='portfolio_single.html' class='fa fa-link'></a>  <a href='images/22222.jpg' class='fa fa-search mfp-image'></a>"
+// 			str = str+ " </div> <figcaption class='item-description'> <br><br>상품명<h5>"+title+"<h5>상품가격";
+// 			str = str+ "<p>가격"+price+"</p></figcaption></figure> </div>";
 			
-			$("#list").append(str)
+// 			$("#list").append(str)
 		
 	})
 		
 	})
 	
-                   
+                           
+                                
+
+                                
+                                    
                                   
                                
                                
@@ -105,12 +110,13 @@ $(function(){
 <header id="header">
    <%@ include file="header/MainHeader.jsp" %>
  <!--end Header-->
-       <div id="menu-bar">
+        <div id="menu-bar">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3">
+                    <!-- Logo / Mobile Menu -->
+                    <div class="col-lg-3 col-sm-3 ">
                         <div id="logo">
-                            <h1><a href="/hooligan/main/index"><img src="/hooligan/images/logo.png"/></a></h1>
+                            <h1><a href="/Java/project/html_semi/WebContent/UandMe/index.html"><img src="images/logo.png" alt="" /></a></h1>
                         </div>
                     </div>
                        <!-- =====================메인 메뉴(우측상단) 시작============================= -->
@@ -237,7 +243,133 @@ $(function(){
                             
                             <ul id="list" class="portfolio_list clearfix ">
                             
+                                <!--begin List Item -->
+                                <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
 
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
+                                 <li class="list_item col-lg-4 col-md-6 col-sm-6">
+                                    <figure class="touching effect-bubba">
+                                        <img src="images/portfolio/portfolio_2.png" alt=""/>
+
+                                        <div class="option">
+                                            <a href="portfolio_single.html" class="fa fa-link"></a>
+                                            <a href="images/portfolio/portfolio_2.png" class="fa fa-search mfp-image"></a>
+                                        </div>
+                                        <figcaption>
+                                            <h5>Touch and Swipe</h5>
+                                            <p>Technology</p>
+                                        </figcaption>
+                                    </figure>
+                                </li>
 
                                
                             </ul> <!--end portfolio_list -->
@@ -462,6 +594,7 @@ $(function(){
         $(window).smartresize(isotope);
     }(jQuery));
 </script>
-                    <script src="/hooligan/js/main.js"></script>
+                    <script src="js/main.js"></script>
 </body>
 </html>
+/html>
