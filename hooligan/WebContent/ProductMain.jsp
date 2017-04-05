@@ -4,12 +4,9 @@
 <!DOCTYPE html>
 <%
 	Product p = (Product) request.getAttribute("result");
-%>
-<%
 	double result = (double) p.getPresentSize() / p.getMaximumSize();
-%>
-<%
-	double result2 = result * 100;
+	double result2=result*100;
+	int result3 =(int)result2; 
 %>
 <!--[if IE 8 ]><html class="ie ie8" class="no-js" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -41,7 +38,6 @@
     <![endif]-->
 </head>
 <body>
-<<<<<<< HEAD
 	<!--Start Header-->
 	<header id="header">
 		<%@ include file="header/MainHeader.jsp"%>
@@ -74,96 +70,23 @@
 						</div>
 						<div class="navbar-collapse collapse">
 							<ul class="nav navbar-nav">
-=======
-<!--Start Header-->
-<header id="header">
-   <%@ include file="header/MainHeader.jsp" %>
- <!--end Header-->
-    <div id="menu-bar">
-        <div class="container">
-            <div class="row">
-                <!-- Logo / Mobile Menu -->
-                 <div  class="col-lg-3 col-sm-3 ">
-                    <div id="logo">
-                        <h1><a href="index.html"><img src="/hooligan/images/logo.png" alt=""/></a></h1>
-                    </div>
-                </div>
-                   <!-- =====================메인 메뉴(우측상단) 시작============================= -->
-                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
-                        <!--  <div class="container">-->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li ><a href="product.html">브랜드</a>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-                                </li>
 
-<<<<<<< HEAD
 								<li><a href="#"><span class="data-hover"
 										data-hover="brand">브랜드</span></a></li>
-=======
-                                <li><a href="#">의류</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="elements.html">점퍼</a></li>
-                                        <li><a href="columns.html"> 코트</a></li>
-                                        <li><a href="typography.html">니트</a></li>
-                                        <li><a href="pricing-tables.html">정장</a></li>
-                                        <li><a href="icons.html">티셔츠</a></li>
-                                        <li><a href="icons.html">팬츠</a></li>
-                                    </ul>
-                                </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 								<li><a href="#"><span class="data-hover"
 										data-hover="dress"> 의류</span></a>
 									<ul class="dropdown-menu">
 										<li><a href="#">점퍼</a></li>
 										<li><a href="#">코트</a></li>
-=======
-                                <li><a href="#" >수제품</a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="about.html">악세사라</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="about.html">케이스</a></li>
-                                                <li><a href="about-2.html">브로치</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">잡화</a></li>
-                                        <li><a href="faq.html">가방</a></li>
-     
-                                    </ul>
-                                </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 										<li class="active"><a href="#">니트</a></li>
 										<li><a href="#">정장</a></li>
 										<li><a href="#">티셔츠</a></li>
 										<li><a href="#">팬츠</a></li>
 									</ul></li>
-=======
-                                <li><a href="#">식품</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">과일</a>
-       
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_masonry_3.html">견과</a>
- 
-                                        </li>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 								<li><a href="#"><span class="data-hover"
 										data-hover="hand">수제품</span></a>
 									<ul class="dropdown-menu">
@@ -175,12 +98,7 @@
 										<li class="active"><a href="#">잡화</a></li>
 										<li><a href="#">가방</a></li>
 									</ul></li>
-=======
-                                        <li>
-                                            <a href="portfolio_single.html">음료</a>
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 
-<<<<<<< HEAD
 								<li><a href="#"> <span class="data-hover"
 										data-hover="contact">식품</span></a>
 									<ul class="dropdown-menu">
@@ -202,47 +120,6 @@
 	</header>
 	<!--End Header-->
 
-=======
-                                        </li>
-                                         <li>
-                                            <a href="portfolio_single.html">과자</a>
-
-                                        </li>
-                                          <li>
-                                            <a href="portfolio_single.html">유제품</a>
-             
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">냉동식품</a>
-               
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">통조림</a>
-                           
-                                        </li>
-                                    </ul>
-                                </li>
-                                 <li><a href="#">게시판</a>
-                                    <ul class="dropdown-menu">
-                                    
-                                    <li><a href="/hooligan/notice/list"> 공지사항</a> </li>
-                                    
-                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
-                                    
-                                    <li><a href="/hooligan/free/list">자유게시판</a></li>
-                                    </li>
-                                    </ul>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </header>
-        <!-- =====================메인 메뉴(우측상단) 끝============================= -->
-<!--End Header-->
-	
->>>>>>> branch 'master' of https://github.com/hooligan3/hooligan.git
 	<!--start wrapper-->
 	<section class="wrapper">
 		<section class="page_head">
@@ -281,6 +158,7 @@
 						</div>
 					</div>
 
+
 					<div class="col-lg-4 col-md-4 col-sm-4">
 						<div class="project_description">
 							<div class="widget_title">
@@ -297,29 +175,30 @@
 								마감일<span></span> :<%=p.getClosingDate()%></p>
 							<p>
 								등록일<span></span> :<%=p.getRegistrationDate()%></p>
+								
+							<p>최대수량<span></span> :<%=p.getMaximumSize()%></p>
+							<p>
+								최소주문가능수<span></span> :<%=p.getMinimumSize()%></p>
+							<p>
+								현재주문수량<span></span> :<%=p.getPresentSize()%></p>
 							<ul class="progress-skill-bar mrg-0">
-
-								<li><span class="lable" id="productB"><%=result2%>%</span>
+						
+								<li><span class="lable" id="productB"><%=result3%>%</span>
 									<div class="progress_skill">
 										<div data-height="100" role="progressbar"
-											data-value=<%=result2%> class="bar"
-											style="width: <%=result%>%; height: 100%;">현재 주문수</div>
+											data-value=<%=result3%> class="bar"
+											style="width:<%=result3%>%; height: 100%;">현재 주문수</div>
 									</div> <br>
 								<p>
-										구매 수량 선택&nbsp;&nbsp;&nbsp;<select name="order_size" id="size">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-										</select>
+								
 									</p> <!-- 즐겨찾기 주문하기 상품평가 상세보기 --> <br>
 									<div>
-										<div id="size">
+										<div>
 											<a href="#"><input type="button"
 												data-loading-text="Loading..." style="color: white;"
 												class="btn btn-default btn-lg" value="즐겨찾기"></a> <a
-												href="/hooligan/product/productOrder?product_no=<%=p.getProductNo()%>&order_size="><input
+												id="hool"
+												href="/hooligan/product/productOrder?product_no=<%=p.getProductNo()%>&order_size=order_size.val()"><input
 												type="button" data-loading-text="Loading..."
 												style="color: white;" class="btn btn-default btn-lg"
 												value="주문하기"></a> <a
@@ -332,6 +211,9 @@
 										</div>
 									</div></li>
 							</ul>
+							</div>
+							</div></form>
+							
 
 
 
@@ -641,8 +523,6 @@
 																				});
 															});
 											
-											
-											var order = $("#size").val();
 										</script>
 
 										<script src="/hooligan/js/main.js"></script>

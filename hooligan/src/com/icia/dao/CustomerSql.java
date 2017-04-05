@@ -86,4 +86,6 @@ public interface CustomerSql {
 		//내가쓴 평가글 조회  
 		public  String evaluationArticleMy ="select c.CUSTOMER_ID,e.title,e.SCORE from CUSTOMER c,EVALUATION e where c.CUSTOMER_ID=e.CUSTOMER_ID and c.CUSTOMER_ID=?";
 	*/
+//주문시 고객포인트차감
+		public String updatePoint = "update customer set point1=? where customer_id=?";
 	}

@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class Order {
 	private int productNo;
+	private String productName;
 	private String customerId;
 	private int orderState;
 	private Date orderDate;

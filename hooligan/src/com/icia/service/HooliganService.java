@@ -673,6 +673,89 @@ public class HooliganService {
 		return new Gson().toJson(ob);
 
 	}
+	//고객주문하기
+	public String customerOrder(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		Order order=null;
+		int orderState=0;
+		String result=null;
+		int productNo=Integer.parseInt(req.getParameter("product_no"));
+		Product p=dao.bookmarkBest2(conn, productNo);
+		int price=Integer.parseInt(req.getParameter("sumprice"));
+		int orderSize=Integer.parseInt(req.getParameter("order_size"));
+		int resultSize=orderSize+p.getPresentSize();
+		HttpSession session=req.getSession();
+		Customer customer=(Customer)session.getAttribute("customer");
+		int userPoint=customer.getPoint1();
+		int resultPoint=userPoint-price;
+		customer.setPoint1(resultPoint);
+		System.out.println("들어왓냐 썅");
+		if(resultPoint<0) result="유저의 포인트를 충전하세요";
+		if(resultPoint>=0){
+			session.removeAttribute("customer");
+			session.setAttribute("customer", customer);
+			String customerId=customer.getCustomerId();
+			int point=customer.getPoint1();
+			dao.updateCustomerUpdate(conn,customerId,point);
+			if(p.getMaximumSize()<(p.getPresentSize()+orderSize)){
+				orderState=3;
+				result="주문수량을 초과했습니다";
+			}
+			//주문수량이 완료될경우
+			else if(p.getMaximumSize()==(p.getPresentSize()+orderSize)){
+				orderState=2;
+				dao.updateOrderState(conn,productNo,orderState);
+				dao.updateOrderStateProductOrder(conn,productNo,orderState);
+				dao.updateCusomerPoint(conn,customerId,resultPoint);
+				dao.updateProductPresentSize(conn,productNo,resultSize);
+				order=MappingUtil.makeOrder(customer,p,orderSize,orderState);
+				dao.insertOrder(conn,order);
+			}
+			else if(p.getMaximumSize()>(p.getPresentSize()+orderSize)&&(p.getPresentSize()+orderSize)>=p.getMinimumSize()){
+				orderState=1;
+				dao.updateOrderState(conn,productNo,orderState);
+				dao.updateOrderStateProductOrder(conn,productNo,orderState);
+				dao.updateCusomerPoint(conn,customerId,resultPoint);
+				dao.updateProductPresentSize(conn,productNo,resultSize);
+				order=MappingUtil.makeOrder(customer,p,orderSize,orderState);
+				dao.insertOrder(conn,order);
+				
+			}else{
+				orderState=0;
+				dao.updateCusomerPoint(conn,customerId,resultPoint);
+				dao.updateProductPresentSize(conn,productNo,resultSize);
+				order=MappingUtil.makeOrder(customer,p, orderSize,orderState);
+				dao.insertOrder(conn,order);
+			}
+			//상품의 주문상태변경시키기
+			//HashMap<String, int> orderState=dao.productState
+			
+		}
+		JdbcUtil.close(conn);
+		System.out.println("여기까지는??들어옴??");
+		return new Gson().toJson(result);
+	}
+	//고객주문리스트
+	public String customerOrdeList(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HttpSession session=req.getSession();
+		Customer customer=(Customer)session.getAttribute("customer");
+		int pageNo=1;
+		if(req.getParameter("pageNo")!=null)
+			pageNo=Integer.parseInt(req.getParameter("pageNo"));
+		int numberOfProduct=dao.ProductOrderSelectCount(conn,customer.getCustomerId());
+		System.out.println("여기값모냐 시방새야"+numberOfProduct);
+		Pagination pagination=ProductPagingUtil.setPageMaker(pageNo, numberOfProduct);
+
+		ArrayList<Order> list=dao.orderList(conn,customer.getCustomerId(),pagination.getStartArticle(),pagination.getEndArticle());
+		System.out.println(2);
+		HashMap<String, Object> map=new HashMap<>();
+		map.put("pagination", pagination);
+		map.put("list", list);
+		JdbcUtil.close(conn);
+		return new Gson().toJson(map);
+	
+	}
 }
 
 

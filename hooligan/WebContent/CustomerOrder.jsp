@@ -217,83 +217,15 @@
                     <thead>
                     <tr>
                        					<th style="text-align: center;">상품명</th>
-										<th style="text-align: center;">상품 이미지</th>
+										<th style="text-align: center;">주문상태</th>
 										<th style="text-align: center;">총 주문금액</th>
-										<th style="text-align: center;">주문 날짜</th>
-										<th style="text-align: center;">마감 날짜</th>
+										<th style="text-align: center;">수량</th>
+										<th style="text-align: center;">주문날짜</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
-                     <tr>			<!-- 누르면 상품 페이지로 이동 -->
-                      					<td><a href="#">침대</a></td>
-										<td>침대 이미지</td>
-										<td>400.000원</td>
-										<td>2014/11/11</td>
-										<td>2015/11/11</td>
-                    </tr>
+                    <tbody id="list">
+
+                 
 
                     </tbody>
                 </table>
@@ -301,16 +233,8 @@
                 </form>
 							<!-- 테이블 끝 -->
 								<!--페이징 시작 -->
-                <div class="col-sm-12 text-center">
-                    <ul class="pagination">
-                        <br><br><li><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li> <br><br> <br><br>
-                    </ul>
+                <div class="col-sm-12 text-center" id="pagination">
+                   
                 </div>
             </div> <!--페이징 끝 -->
 							</div>
@@ -592,6 +516,47 @@
 													});
 										});
 					</script>
+					<script type="text/javascript">
+
+$(document).ready(function() {
+	var result= <%= request.getAttribute("result") %>
+	var list=result.list;
+	var pagination=result.pagination;
+	$.each(list, function(index, p) {
+		if(p.orderState==0)	p.orderState="주문중";
+		if(p.orderState==1)   p.orderState="주문성공";
+		if(p.orderState==2)   p.orderState="주문완료"
+		if(p.orderState==3)   p.orderState="주문실패"
+		var a=$('<tr></tr>');
+		var productName1=$('<td></td>');
+		var productName2=$("<a href='/hooligan/product/productMain?product_no="+p.productNo+"'>"+p.productName+"</a>")
+		productName1.append(productName2);
+		var date1=p.orderDate;
+		var date2=$('<td></td>');
+		date2.append(date1);
+		var order1=p.orderState;
+		var orderState=$('<td></td>');
+		orderState.append(order1);
+		var price=$('<td></td>');
+		var price1=p.orderPrice+"p";
+		price.append(price1);
+		var orderSize=$('<td></td>');
+		var orderSize1=p.orderSize;
+		orderSize.append(orderSize1);
+		a.append(productName1).append(orderState).append(price).append(orderSize).append(date2);
+		$("#list").append(a);
+	});
+	$("#pagination").append("<ul class='pagination'></ul>");
+	var p = $("#pagination ul");
+	if (pagination.prev > -1)
+		p.append("<li><a href='order?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+	for (var i = pagination.startPage; i <= pagination.endPage; i++)
+		p.append("<li><a href='order?pageNo=" + i + "'>" + i + "</a></li>");
+	if (pagination.next > -1)
+		p.append("<li><a href='order?pageNo=" + pagination.next + "'>다음으로</a></li>");
+	
+});
+</script>
 					<script src="/hooligan/js/main.js"></script>
 </body>
 </html>

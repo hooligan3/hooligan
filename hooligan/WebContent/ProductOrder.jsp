@@ -7,8 +7,7 @@
 <head>
 <%Customer customer=(Customer)session.getAttribute("customer"); %>
 <%Product product=(Product)request.getAttribute("result");%>
-<%String order_size=(String)request.getAttribute("size"); %>
-<%int size=Integer.parseInt(order_size); %>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Portfolio Single - Edge Responsive Multipurpose Template</title>
@@ -28,7 +27,23 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	$(function(){
+		
+		  $('#size').change(function(){
+			  
+			  $("#sumprice").html("");
+		        var price = <%=product.getPrice()%>
+		    	price = price*($('#size option:selected').val());
+		    	$("#sumprice").append(price+"<input type='hidden' name='sumprice'  value='"+price+"'>");
+		    });
+	})
+	
+</script>
 </head>
+
 <body>
 <!--Start Header-->
 <header id="header">
@@ -143,7 +158,7 @@
 	<!--start wrapper-->
 	
 		
-		
+		 <form action="/hooligan/product/productOrder" method="POST">
                 <section class="wrapper">
         <section class="page_head">
             <div class="container">
@@ -184,8 +199,17 @@
                     <tbody>
                     <tr>
 										<td><%=product.getProductName() %></td>
-										<td><%=size%></td>
-										<td><%=product.getPrice()*size%></td>
+										<td><input type="hidden" name="product_no" value=<%=product.getProductNo() %>><select name="order_size" id="size" >
+											<option >수량선택</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select></td>
+										<td id="sumprice" name="sumprice">
+											
+										</td>
 								       
 									</tr>
                     <tr>
@@ -231,7 +255,6 @@
 				<div class="col-lg-1 col-md-1 col-sm-1"></div>
 				<div class="col-lg-6 col-md-6 col-sm-6">
                 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="쇼핑 계속하기"> &nbsp; &nbsp;
-                <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="배송지 수정"> &nbsp; &nbsp;
                 <input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="주문하기">
 						
 				</div>
@@ -244,7 +267,7 @@
 			</div>
 		</section>
 	</section>
-	
+	</form>
 	
 	
     <script type="text/javascript" src="/hooligan/js/jquery-1.10.2.min.js"></script>

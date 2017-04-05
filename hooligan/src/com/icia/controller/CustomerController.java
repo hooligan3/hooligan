@@ -176,4 +176,13 @@ public class CustomerController {
 		mav.addObject("result", service.customerSeachPwd(req));
 		return mav;
 	}
+	//고객 주문리스트
+	@RequestMapping(value="/customer/order",method="GET")
+	public static ModelAndView customerOrderList(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("result", service.customerOrdeList(req));
+		mav.setView("/CustomerOrder.jsp");
+		return mav;
+	}
 }

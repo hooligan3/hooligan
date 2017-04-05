@@ -21,6 +21,8 @@ public class EmpLoginFilter implements Filter {
 	private ArrayList<String> whiteList = new ArrayList<>();
     public EmpLoginFilter() {
     	whiteList.add("/hooligan/employee/login");
+    	whiteList.add("/hooligan/employee/logout");
+    	
     	whiteList.add("/hooligan/employee/register");
     	whiteList.add("/hooligan/employee/register2");
     	whiteList.add("/hooligan/employee/register3");

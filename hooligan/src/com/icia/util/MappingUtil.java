@@ -17,11 +17,6 @@ import org.apache.commons.fileupload.servlet.*;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.icia.vo.*;
-import com.icia.vo.Brand;
-import com.icia.vo.BrandProduct;
-import com.icia.vo.Customer;
-import com.icia.vo.Employee;
-import com.icia.vo.Product;
 
 public class MappingUtil {
 	public static Customer makeCustomer(HttpServletRequest req) {
@@ -363,5 +358,38 @@ public class MappingUtil {
 		
 		
 		return null;
+	}
+
+	public static Order makeOrder(Customer customer, Product p, int orderSize, int orderState) {
+	Order o=new Order();
+	o.setProductNo(p.getProductNo());
+	o.setCustomerId(customer.getCustomerId());
+	o.setOrderState(orderState);
+	o.setOrderPrice(p.getPrice()*orderSize);
+	o.setPostalNo(customer.getPostalNo());
+	o.setAddress(customer.getAddress());
+	o.setOrderSize(orderSize);
+	return o;
+	}
+
+	public static Order makeOrder(ResultSet rs) {
+		Order o=new Order();
+		try {
+			o.setProductNo(rs.getInt("product_no"));
+			o.setAddress(rs.getString("address"));
+			o.setCustomerId(rs.getString("customer_id"));
+			o.setOrderDate(rs.getDate("order_date"));
+			o.setOrderPrice(rs.getInt("order_price"));
+			o.setOrderSize(rs.getInt("order_size"));
+			o.setOrderState(rs.getInt("order_state"));
+			o.setPostalNo(rs.getInt("postal_no"));
+			o.setSendDate(rs.getDate("send_date"));
+			o.setSendNo(rs.getString("send_no"));
+			o.setProductName(rs.getString("product_name"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return o;
 	}
 }

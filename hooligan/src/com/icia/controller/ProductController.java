@@ -28,10 +28,22 @@ public class ProductController {
 		ModelAndView mav=new ModelAndView();
 		  HttpSession session = req.getSession();
 		  HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
-		 
-		 req.setAttribute("size", req.getAttribute("order_size"));
 		 req.setAttribute("result", service.productMain(req));
 		  mav.setView("/ProductOrder.jsp");
 		return mav;
 	}
+	//주문하기
+	@RequestMapping(value="/product/productOrder",method="POST")
+	public static ModelAndView productOrderEnd(HttpServletRequest req){
+		ModelAndView mav=new ModelAndView();
+		  HttpSession session = req.getSession();
+		  HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		  String result=service.customerOrder(req);
+		  mav.setView("/hooligan/customer/order");
+		  mav.setRedirect();
+		  //else mav.addObject("result",result);
+		 
+		return mav;
+	}
+	
 }

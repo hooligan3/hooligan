@@ -47,14 +47,21 @@ public interface ProductSql {
 	//1.현재주문수량과 최소 최대수량 가져오기
 	public String selectPresentSize="select present_size,minimum_size,maximum_size from product  where product_no=?";
 	//2.주문수량변경
-	public String updatePresentSize="update present_size set present_size=? where product_no=?";
+	public String updatePresentSize="update product set present_size=? where product_no=?";
 	//3.주문상태변경
 	public String updateOrderState="update product set order_state=? where product_no=?";
+	//상품내역의 주문상태변경
+	public String updateOrderStateProductOrder = "update product_order set order_state=? where product_no=?";
 	//4.현재상품주문내역에 추가
-	public String insertOrder="insert into order(product_no,customer_id,order_state,order_date,order_price,postal_no,address,order_size,send_date,sent_no) values(?,?,?,sysdate,?,?,?,?,?,?)";
+	public String insertOrder="insert into product_order(product_no,customer_id,order_state,order_date,order_price,postal_no,address,order_size) values(?,?,?,sysdate,?,?,?,?)";
 	
 	//제품 메인보기
 	public String productMain = "select *from product where product_no=?";
+	public String updateCustomerPoint = "update customer set point1=? where customer_id=?";
+	public String productOrderCount = "select count(*)from product_order where customer_id=?";
+	
+	public String orderList = "select rnum,t2.* from(select rownum rnum,t1.* from(select p.*,o.product_name from product_order p,product o where p.customer_id=? and p.product_no=o.product_no order by p.order_date desc)t1)t2 where rnum between ? and ? ";
+
 	
 	
 	

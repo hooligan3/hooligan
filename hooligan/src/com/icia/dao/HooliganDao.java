@@ -19,6 +19,7 @@ import com.icia.vo.FreeReple;
 import com.icia.vo.InquiryBoard;
 import com.icia.vo.InquiryReple;
 import com.icia.vo.Notice;
+import com.icia.vo.Order;
 import com.icia.vo.Product;
 import com.icia.vo.Type;
 
@@ -634,7 +635,7 @@ public class HooliganDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement(ProductSql.searchOfBestBookMark2);
+			pstmt = conn.prepareStatement(ProductSql.productMain);
 			pstmt.setInt(1, productNo);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -1499,6 +1500,24 @@ public class HooliganDao {
 				}
 				return 0;
 			}
+			public int ProductOrderSelectCount(Connection conn, String customerId) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.productOrderCount);
+					pstmt.setString(1, customerId);
+					rs=pstmt.executeQuery();
+					if(rs.next()){
+						return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				return 0;
+			}
 			//상품메인화면나오게하기
 			public Product productMain(Connection conn, int product_no) {
 				PreparedStatement pstmt=null;
@@ -1516,6 +1535,125 @@ public class HooliganDao {
 				}finally {
 					JdbcUtil.close(pstmt, rs);
 				}
+				return null;
+			}
+			public void updateCustomerUpdate(Connection conn,String customerId,int point) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(CustomerSql.updatePoint);
+					pstmt.setInt(1, point);
+					pstmt.setString(2, customerId);
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+			}
+			//주문시
+			//상품의 주문상태를 변경시켜준다
+			public void updateOrderState(Connection conn, int orderState, int productNo) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.updateOrderState);
+					pstmt.setInt(1, orderState);
+					pstmt.setInt(2, productNo);
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+			}
+			//주문상품의 주문상태를 변경시켜준다
+			public void updateOrderStateProductOrder(Connection conn, int productNo, int orderState) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.updateOrderStateProductOrder);
+					pstmt.setInt(1, orderState);
+					pstmt.setInt(2, productNo);
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+			}
+			//고객의 포인트차감
+			public void updateCusomerPoint(Connection conn, String customerId, int resultPoint) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.updateCustomerPoint);
+					pstmt.setInt(1, resultPoint);
+					pstmt.setString(2, customerId);
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				
+			}
+			//주문내역추가
+			public void insertOrder(Connection conn, Order order) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.insertOrder);
+					pstmt.setInt(1, order.getProductNo());
+					pstmt.setString(2, order.getCustomerId());
+					pstmt.setInt(3, order.getOrderState());
+					pstmt.setInt(4, order.getOrderPrice());
+					pstmt.setInt(5, order.getPostalNo());
+					pstmt.setString(6, order.getAddress());
+					pstmt.setInt(7, order.getOrderSize());
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally{
+					JdbcUtil.close(pstmt, rs);
+				}
+				
+			}
+			public void updateProductPresentSize(Connection conn, int productNo, int resultSize) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(ProductSql.updatePresentSize);
+					pstmt.setInt(1, resultSize);
+					pstmt.setInt(2, productNo);
+					pstmt.executeUpdate();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+			}
+			public ArrayList<Order> orderList(Connection conn, String customerId, int startArticle, int endArticle) {
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			ArrayList<Order> list=new ArrayList<>();
+			try {
+				pstmt=conn.prepareStatement(ProductSql.orderList);
+			
+				pstmt.setString(1, customerId);
+				pstmt.setInt(2, startArticle);
+				pstmt.setInt(3, endArticle);
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					list.add(MappingUtil.makeOrder(rs));
+				}return list;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				JdbcUtil.close(pstmt, rs);
+			}
 				return null;
 			}
 	
