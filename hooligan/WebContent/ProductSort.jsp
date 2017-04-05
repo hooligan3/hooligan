@@ -67,11 +67,78 @@
 	text-align: center;
 	display: inline-block;
 }
+
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </head>
+<script>
+    (function ($) {
+        var $container = $('.masonry_wrapper'),
+                colWidth = function () {
+                    var w = $container.width(),
+                            columnNum = 1,
+                            columnWidth = 0;
+                    if (w > 1200) {
+                        columnNum  = 3;
+                    } else if (w > 900) {
+                        columnNum  = 3;
+                    } else if (w > 600) {
+                        columnNum  = 2;
+                    } else if (w > 300) {
+                        columnNum  = 1;
+                    }
+                    columnWidth = Math.floor(w/columnNum);
+                    $container.find('.item').each(function() {
+                        var $item = $(this),
+                                multiplier_w = $item.attr('class').match(/item-w(\d)/),
+                                multiplier_h = $item.attr('class').match(/item-h(\d)/),
+                                width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
+                                height = multiplier_h ? columnWidth*multiplier_h[1]*0.4-4 : columnWidth*0.5-4;
+                        $item.css({
+                            width: width,
+                            height: height
+                        });
+                    });
+                    return columnWidth;
+                }
+
+        function refreshWaypoints() {
+            setTimeout(function() {
+            }, 1000);
+        }
+        function setPortfolio() {
+            setColumns();
+            $container.isotope('reLayout');
+        }
+
+        isotope = function () {
+            $container.isotope({
+                resizable: true,
+                itemSelector: '.item',
+                masonry: {
+                    columnWidth: colWidth(),
+                    gutterWidth: 0
+                }
+            });
+        };
+        isotope();
+        $(window).smartresize(isotope);
+    }(jQuery));
+    
+    $(function(){
+		$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+		var p = $("#pagination ul");
+		if (pagination.prev > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+		for (var i = pagination.startPage; i <= pagination.endPage; i++)
+			p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+		if (pagination.next > -1)
+			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
+    })
+</script>
+
 <body>
 	<!--Start Header-->
 	<header id="header">
@@ -184,10 +251,8 @@
 
 							<!--begin portfolio_list -->
 
-							<div class="mixed-container masonry_wrapper"  id="sumin">
-							
-							
-							
+						<div  id="sumin">
+						
 							
 							
 							
@@ -197,9 +262,9 @@
 							
 							<!--end isotope -->
 						</div>
-						<div class="col-lg-1 col-sm-1"></div>
+					
 					</div>
-
+	<div class="col-lg-1 col-sm-1"></div>
 				</div>
 			</div>
 			</div>
@@ -208,26 +273,14 @@
 
 
 
-			<!--페이징 시작 -->
-			<div class="col-sm-12 text-center">
-				<ul class="pagination">
-					<br>
-					<br>
-					<li><a href="#">&laquo;</a></li>
-					<li class="active"><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-					<br>
-					<br>
-					<br>
-					<br>
-				</ul>
-			</div>
-			</div>
-			<!--페이징 끝 -->
+		<div class="col-sm-12 text-right" style="height: 20px;">
+							
+						  
+                    <br><br>
+	                    <div id="pagination" style="text-align: center;"></div>
+	                  
+                    <br><br> <br><br>
+                </div>
 			</div>
 			<!--./div-->
 		</section>
@@ -369,61 +422,7 @@
                             });
                         });
                     </script>
-	<script>
-    (function ($) {
-        var $container = $('.masonry_wrapper'),
-                colWidth = function () {
-                    var w = $container.width(),
-                            columnNum = 1,
-                            columnWidth = 0;
-                    if (w > 1200) {
-                        columnNum  = 3;
-                    } else if (w > 900) {
-                        columnNum  = 3;
-                    } else if (w > 600) {
-                        columnNum  = 2;
-                    } else if (w > 300) {
-                        columnNum  = 1;
-                    }
-                    columnWidth = Math.floor(w/columnNum);
-                    $container.find('.item').each(function() {
-                        var $item = $(this),
-                                multiplier_w = $item.attr('class').match(/item-w(\d)/),
-                                multiplier_h = $item.attr('class').match(/item-h(\d)/),
-                                width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
-                                height = multiplier_h ? columnWidth*multiplier_h[1]*0.5-4 : columnWidth*0.5-4;
-                        $item.css({
-                            width: width,
-                            height: height
-                        });
-                    });
-                    return columnWidth;
-                }
-
-        function refreshWaypoints() {
-            setTimeout(function() {
-            }, 1000);
-        }
-        function setPortfolio() {
-            setColumns();
-            $container.isotope('reLayout');
-        }
-
-        isotope = function () {
-            $container.isotope({
-                resizable: true,
-                itemSelector: '.item',
-                masonry: {
-                    columnWidth: colWidth(),
-                    gutterWidth: 0
-                }
-            });
-        };
-        isotope();
-        $(window).smartresize(isotope);
-    }(jQuery));
-</script>
-	<script type="text/javascript">
+		<script type="text/javascript">
 $(document).ready(function(){
 
 	var result = <%=request.getAttribute("result")%>
@@ -451,16 +450,13 @@ $(document).ready(function(){
 		fig.append(br).append(name1).append(price1).append(div);
 		figure.append(img).append(tag).append(fig);
 		item.append(figure);
-		
-		
-		img.append(tag);
-		figure.append(img);
-		item.append(figure);
+
 		$("#sumin").append(item);
 	});   
 });
 
 </script>
+
 	<script src="/hooligan/js/main.js"></script>
 </body>
 </html>

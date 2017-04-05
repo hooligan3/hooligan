@@ -73,6 +73,9 @@
                                         <li><a href="pricing-tables.html">정장</a></li>
                                         <li><a href="icons.html">티셔츠</a></li>
                                         <li><a href="icons.html">팬츠</a></li>
+                                        <li><a href="/hooligan/main/productList?type_no=1">모자</a></li>
+                                        
+                                        
                                     </ul>
                                 </li>
 
