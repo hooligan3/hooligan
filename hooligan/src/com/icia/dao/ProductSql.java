@@ -71,7 +71,7 @@ public interface ProductSql {
 	//브랜드 상세조회
 	public String selectDetailBrand ="select image_path, brand_name, content from brand where brand_no=?";
 	//상품 상세 조회
-	public String selectDetailProduct = "select p.image_path, p.product_name, p.content from brand b, brand_product p where b.brand_no=p.brand_no and b.brand_no=?";
+	public String selectDetailProduct = "select *from brand_product where brand_no=?";
 	//종류별 상품 뿌리기
 	public String selectProductByType = "select t2.* from (select rownum rnum, t1.* from (select * from product where type_no=? order by product_no desc) t1 ) t2 where rnum between ? and ?";
 	//종류별 상품 총 개수

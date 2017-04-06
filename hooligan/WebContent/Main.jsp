@@ -49,98 +49,7 @@
                     </div>
                     
   <!-- =====================메인 메뉴(우측상단) 시작============================= -->
-                    <div class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container" role="navigation">
-                        <!--  <div class="container">-->
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li ><a href="product.html">브랜드</a>
-
-                                </li>
-
-                                <li><a href="#">의류</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="elements.html">점퍼</a></li>
-                                        <li><a href="columns.html"> 코트</a></li>
-                                        <li><a href="typography.html">니트</a></li>
-                                        <li><a href="pricing-tables.html">정장</a></li>
-                                        <li><a href="icons.html">티셔츠</a></li>
-                                        <li><a href="icons.html">팬츠</a></li>
-                                        <li><a href="/hooligan/main/productList?type_no=1">모자</a></li>
-                                        
-                                        
-                                    </ul>
-                                </li>
-
-                                <li><a href="#" >수제품</a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="about.html">악세사라</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="about.html">케이스</a></li>
-                                                <li><a href="about-2.html">브로치</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">잡화</a></li>
-                                        <li><a href="faq.html">가방</a></li>
-     
-                                    </ul>
-                                </li>
-
-                                <li><a href="#">식품</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">과일</a>
-       
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_masonry_3.html">견과</a>
- 
-                                        </li>
-
-                                        <li>
-                                            <a href="portfolio_single.html">음료</a>
-
-                                        </li>
-                                         <li>
-                                            <a href="portfolio_single.html">과자</a>
-
-                                        </li>
-                                          <li>
-                                            <a href="portfolio_single.html">유제품</a>
-             
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">냉동식품</a>
-               
-                                        </li>
-                                        <li>
-                                            <a href="portfolio_single.html">통조림</a>
-                           
-                                        </li>
-                                    </ul>
-                                </li>
-                                 <li><a href="#">게시판</a>
-                                    <ul class="dropdown-menu">
-                                    
-                                    <li><a href="/hooligan/main/notice/list"> 공지사항</a> </li>
-                                    
-                                    <li><a href="/hooligan/FAQMain.jsp">문의사항</a> </li>
-                                    
-                                    <li><a href="/hooligan/main/free/list">자유게시판</a></li>
-                                    </ul>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+               <%@include file="menu/MenuSelect.jsp" %>
         <!-- =====================메인 메뉴(우측상단) 끝============================= -->
 
 
@@ -300,7 +209,7 @@ $(document).ready(function() {
 		var tagli=$('<li class="col-sm-3 col-md-3 col-lg-3"></li>');
 		var tagli2=$('<figure class="touching effect-bubba"></figure>')
 		var a=$("<a href='/hooligan/product/productMain?product_no="+r.productNo+"'></a>")
-		var tagImg=$('<img src="/hooligan/employees/productImg/'+r.mainImagePath+'"alt="" class="img-responsive"/>');
+		var tagImg=$('<img src="/hooligan/employees/productImg/'+r.mainImagePath+'"alt="" style="width:350px; height:200px; " class="img-responsive"/>');
 		a.append(tagImg);
 		tagli2.append(a);
 		tagli.append(tagli2);
@@ -311,7 +220,7 @@ $(document).ready(function() {
 		var tagli=$('<li class="col-sm-3 col-md-3 col-lg-3"></li>');
 		var tagli2=$('<figure class="touching effect-bubba"></figure>')
 		var a=$("<a href='/hooligan/product/productMain?product_no="+h.productNo+"'></a>")
-		var tagImg=$('<img src="/hooligan/employees/productImg/'+h.mainImagePath+'"alt="" class="img-responsive"/>');
+		var tagImg=$('<img src="/hooligan/employees/productImg/'+h.mainImagePath+'"alt=""  style="width:350px; height:200px; " class="img-responsive"/>');
 		a.append(tagImg);
 		tagli2.append(a);
 		tagli.append(tagli2);

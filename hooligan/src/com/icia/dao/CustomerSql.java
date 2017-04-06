@@ -93,4 +93,8 @@ public interface CustomerSql {
 	*/
 //주문시 고객포인트차감
 		public String updatePoint = "update customer set point1=? where customer_id=?";
+		//고객 포인트 충전하기
+		public String chargePoint = "update customer set point1=? where customer_id=?";
+		//고객충전내역입력
+		public String insertPoint ="insert into point_charge values(?,sysdate,?)";
 	}

@@ -108,11 +108,11 @@
                  <div class="form-group">
                   	 <label for="ssn">주민번호</label><br>
                   	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;">
-                  	 	<input type="text" class="form-control" id="ssn1" placeholder="앞자리" >
+                  	 	<input type="text" class="form-control" id="ssn1" placeholder="앞자리"  name="ssn1">
                   	 </div>
                   	 <div class="col-lg-6 col-md-6 col-sm-6" style="padding:0;"> 
                   	 	
-                  	 	<input type="text" class="form-control" id="ssn2" placeholder="뒷자리" >
+                  	 	<input type="text" class="form-control" id="ssn2" placeholder="뒷자리"  name="ssn2">
                   	 </div>
                
                   <div class="form-group">

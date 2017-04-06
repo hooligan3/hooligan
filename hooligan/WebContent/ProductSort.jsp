@@ -74,69 +74,33 @@
 
 </head>
 <script>
-    (function ($) {
-        var $container = $('.masonry_wrapper'),
-                colWidth = function () {
-                    var w = $container.width(),
-                            columnNum = 1,
-                            columnWidth = 0;
-                    if (w > 1200) {
-                        columnNum  = 3;
-                    } else if (w > 900) {
-                        columnNum  = 3;
-                    } else if (w > 600) {
-                        columnNum  = 2;
-                    } else if (w > 300) {
-                        columnNum  = 1;
-                    }
-                    columnWidth = Math.floor(w/columnNum);
-                    $container.find('.item').each(function() {
-                        var $item = $(this),
-                                multiplier_w = $item.attr('class').match(/item-w(\d)/),
-                                multiplier_h = $item.attr('class').match(/item-h(\d)/),
-                                width = multiplier_w ? columnWidth*multiplier_w[1]-4 : columnWidth-4,
-                                height = multiplier_h ? columnWidth*multiplier_h[1]*0.4-4 : columnWidth*0.5-4;
-                        $item.css({
-                            width: width,
-                            height: height
-                        });
-                    });
-                    return columnWidth;
-                }
+$(document).ready(function(){
 
-        function refreshWaypoints() {
-            setTimeout(function() {
-            }, 1000);
-        }
-        function setPortfolio() {
-            setColumns();
-            $container.isotope('reLayout');
-        }
-
-        isotope = function () {
-            $container.isotope({
-                resizable: true,
-                itemSelector: '.item',
-                masonry: {
-                    columnWidth: colWidth(),
-                    gutterWidth: 0
-                }
-            });
-        };
-        isotope();
-        $(window).smartresize(isotope);
-    }(jQuery));
-    
-    $(function(){
-		$("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
+	 var result = <%=request.getAttribute("result")%>
+	 var list = result.list;
+	var pagination = result.pagination;
+	var pageNo = pagination.pageNo;
+	
+	var typeNo = <%=request.getParameter("type_no")%>
+	
+	 $.each(list, function(index,p){
+	  var image = p.mainImagePath;
+	  var price = p.price;
+	  var name= p.productName;
+	  
+	  $("#sumin").append("<li class='list_item col-lg-4 col-md-6 col-sm-6'><figure class='touching effect-bubba'><img src='/hooligan/employees/productImg/"+image+"' alt='' style='width:500px; height:300px; ' class='img-responsive'/><div class='option'><a href='/hooligan/product/productMain?product_no="+p.productNo+"' class='fa fa-search mfp-image'></a></div><figcaption><h5>"+name+"</h5><p>"+price+"</p></figcaption></figure></li>").trigger("create");
+	  
+	 })
+	 $("#pagination").append("<ul class='pagination' style='height: 20px;' ></ul>");
 		var p = $("#pagination ul");
 		if (pagination.prev > -1)
-			p.append("<li><a href='list?pageNo=" + pagination.prev + "'>이전으로</a></li>");
+			p.append("<li><a href='productList?type_no="+typeNo+"&pageNo=" + pagination.prev + "'>이전으로</a></li>");
 		for (var i = pagination.startPage; i <= pagination.endPage; i++)
-			p.append("<li><a href='list?pageNo=" + i + "'>" + i + "</a></li>");
+			p.append("<li><a href='productList?type_no="+typeNo+ "&pageNo="+ i + "'>" + i + "</a></li>");
 		if (pagination.next > -1)
-			p.append("<li><a href='list?pageNo=" + pagination.next + "'>다음으로</a></li>");
-    })
+			p.append("<li><a href='productList?type_no="+typeNo+"&pageNo=" + pagination.next + "'>다음으로</a></li>");
+
+	 });   
 </script>
 
 <body>
@@ -156,71 +120,7 @@
 						</div>
 					</div>
 					<!-- =====================메인 메뉴(우측상단) 시작============================= -->
-					<div
-						class="col-lg-9 col-sm-9 navbar navbar-default navbar-static-top container"
-						role="navigation">
-						<!--  <div class="container">-->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle"
-								data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span> <span
-									class="icon-bar"></span> <span class="icon-bar"></span> <span
-									class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li><a href="product.html">브랜드</a></li>
-
-								<li><a href="#">의류</a>
-									<ul class="dropdown-menu">
-										<li><a href="elements.html">점퍼</a></li>
-										<li><a href="columns.html"> 코트</a></li>
-										<li><a href="typography.html">니트</a></li>
-										<li><a href="pricing-tables.html">정장</a></li>
-										<li><a href="icons.html">티셔츠</a></li>
-										<li><a href="icons.html">팬츠</a></li>
-									</ul></li>
-
-								<li><a href="#">수제품</a>
-									<ul class="dropdown-menu">
-										<li><a href="about.html">악세사라</a>
-											<ul class="dropdown-menu">
-												<li><a href="about.html">케이스</a></li>
-												<li><a href="about-2.html">브로치</a></li>
-											</ul></li>
-										<li><a href="services.html">잡화</a></li>
-										<li><a href="faq.html">가방</a></li>
-
-									</ul></li>
-
-								<li><a href="#">식품</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">과일</a></li>
-										<li><a href="portfolio_masonry_3.html">견과</a></li>
-
-										<li><a href="portfolio_single.html">음료</a></li>
-										<li><a href="portfolio_single.html">과자</a></li>
-										<li><a href="portfolio_single.html">유제품</a></li>
-										<li><a href="portfolio_single.html">냉동식품</a></li>
-										<li><a href="portfolio_single.html">통조림</a></li>
-									</ul></li>
-								<li><a href="#">게시판</a>
-									<ul class="dropdown-menu">
-
-										<li><a href="/hooligan/notice/list"> 공지사항</a></li>
-
-										<li><a href="/hooligan/FAQMain.jsp">문의사항</a></li>
-
-										<li><a href="/hooligan/free/list">자유게시판</a></li></li>
-							</ul>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+				    <%@include file="menu/MenuSelect.jsp" %>
 	<!-- =====================메인 메뉴(우측상단) 끝============================= -->
 	<!--End Header-->
 	<!--start wrapper-->
@@ -423,37 +323,7 @@
                         });
                     </script>
 		<script type="text/javascript">
-$(document).ready(function(){
 
-	var result = <%=request.getAttribute("result")%>
-	var list = result.list;
-	
-	$.each(list, function(index,p){
-		var image = p.mainImagePath;
-	
-		var detail=p.detailImagePath;
-		var name= p.productName;
-		var name1=$('<h5></h5>');
-		name1.append(name);
-		var price = p.price;
-		var price1=$('<p></p>');
-		price1.append(price);
-		var item=$('<div class="item"></div>');
-		var figure=$('<figure class="touching effect-bubba"></figure>');
-		var img=$('<img src="/hooligan/employees/productImg/'+image+'"alt="" class="img-responsive">');
-		var tag=$('<div class="option"></div>');
-		var tag1=$("<a href='/hooligan/product/productMain?product_no="+p.productNo+"' class='fa fa-link'></a>");
-		tag.append(tag1);
-		var br=$("<br><br>");
-		var fig=$('<figcaption  class="item-description"></figcaption>');
-		var div=$('<div class="col-sm-4 images-style-inner"</div>');
-		fig.append(br).append(name1).append(price1).append(div);
-		figure.append(img).append(tag).append(fig);
-		item.append(figure);
-
-		$("#sumin").append(item);
-	});   
-});
 
 </script>
 

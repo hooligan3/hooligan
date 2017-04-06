@@ -21,7 +21,7 @@
 		var title = result.productName;
 		var content = result.productContent;
 		
-		var str ="<tr><td rowspan='4' style='width:250px; height:250px;'><img src='/hooligan/brand/brandimg/"+image+"' style='width:250px; height:250px;'></td>"
+		var str ="<tr><td rowspan='4' style='width:250px; height:250px;'><img src='/hooligan/brand/productimg/"+image+"' style='width:250px; height:250px;'></td>"
 			str = str+"<td class='title' style='width:544px; height:30px; font-size : 1.2em;'>상품명</td></tr>";
 			str = str+"<tr><td style='width:544px; height:30px; background-color : #EEE;'>"+title+"</td></tr>";
 			str = str+"<tr><td class='title'style='width:544px; height:30px; font-size : 1.2em;' >상품 소개</td></tr>";

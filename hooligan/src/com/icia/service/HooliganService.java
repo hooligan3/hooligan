@@ -882,6 +882,46 @@ public class HooliganService {
 		JdbcUtil.close(conn);
 		return new Gson().toJson(map);
 	}
+	//고객포인트 충전하기
+	public String customerCharge(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HttpSession session=req.getSession();
+		Customer customer=(Customer)session.getAttribute("customer");
+		String customerId=customer.getCustomerId();
+		int chargePoint= Integer.parseInt(req.getParameter("chargePoint"));
+		int userPoint=customer.getPoint1();
+		int result=chargePoint+userPoint;
+		PointCharge p=new PointCharge();
+		p.setChargePoint(chargePoint);
+		p.setCustomerId(customerId);
+		customer.setPoint1(result);
+		dao.customerCharge(conn,customerId,result);
+		dao.insertPoint(conn,p);
+		session.removeAttribute("customer");
+		session.setAttribute("customer", customer);
+		JdbcUtil.close(conn);
+		return null;
+	}
+	//직원 포인트 환급하기
+	public String employeeRefund(HttpServletRequest req) {
+		Connection conn=JdbcUtil.getConnection();
+		HttpSession session=req.getSession();
+		Employee employee=(Employee)session.getAttribute("employee");
+		String employeeId=employee.getEmployeeId();
+		int refundPoint= Integer.parseInt(req.getParameter("refunfPoint"));
+		int userPoint=employee.getPoint1();
+		int result=userPoint-refundPoint;
+		PointRefund p=new PointRefund();
+		p.setRefundPoint(refundPoint);
+		p.setEmployeeId(employeeId);
+		employee.setPoint1(result);
+		dao.employeeRefund(conn,employeeId,result);
+		dao.insertRefundPoint(conn,p);
+		session.removeAttribute("employee");
+		session.setAttribute("employee", employee);
+		JdbcUtil.close(conn);
+		return null;
+	}
 }
 
 

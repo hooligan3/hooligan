@@ -17,6 +17,8 @@ import com.icia.vo.InquiryBoard;
 import com.icia.vo.InquiryReple;
 import com.icia.vo.Notice;
 import com.icia.vo.Order;
+import com.icia.vo.PointCharge;
+import com.icia.vo.PointRefund;
 import com.icia.vo.Product;
 import com.icia.vo.Type;
 
@@ -299,8 +301,8 @@ public class HooliganDao {
 		PreparedStatement pstmt=null;
 		try {
 			pstmt=conn.prepareStatement(EmpSql.insertPreProduct);
-			pstmt.setInt(1,b.getProductNo());
-			pstmt.setInt(2, b.getBrandNo());
+			pstmt.setInt(1,b.getBrandNo());
+			pstmt.setInt(2, b.getProductNo());
 			pstmt.setString(3, b.getProductName());
 			pstmt.setString(4, b.getProductContent());
 			pstmt.setString(5, b.getImagePath());
@@ -1968,6 +1970,68 @@ public class HooliganDao {
 				}finally{
 					JdbcUtil.close(pstmt, rs);
 				}return -1;
+			}
+			public void customerCharge(Connection conn, String customerId, int result) {
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					try {
+						pstmt=conn.prepareStatement(CustomerSql.chargePoint);
+						pstmt.setInt(1, result);
+						pstmt.setString(2, customerId);
+						pstmt.executeUpdate();
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}finally {
+						JdbcUtil.close(pstmt, rs);
+					}
+			}
+			//충전내역 넣기
+			public void insertPoint(Connection conn, PointCharge p) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(CustomerSql.insertPoint);
+					pstmt.setString(1, p.getCustomerId());
+					pstmt.setInt(2, p.getChargePoint());
+					pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+			}
+			public void employeeRefund(Connection conn, String employeeId, int result) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(EmpSql.refundPoint1);
+					pstmt.setInt(1, result);
+					pstmt.setString(2, employeeId);
+					pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
+				
+			}
+			public void insertRefundPoint(Connection conn, PointRefund p) {
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				try {
+					pstmt=conn.prepareStatement(EmpSql.refundPoint2);
+					pstmt.setString(1, p.getEmployeeId());
+					pstmt.setInt(2, p.getRefundPoint());
+					pstmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}finally {
+					JdbcUtil.close(pstmt, rs);
+				}
 			}
 }
 

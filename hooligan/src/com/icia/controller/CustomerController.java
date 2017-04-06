@@ -185,5 +185,22 @@ public class CustomerController {
 		mav.setView("/CustomerOrder.jsp");
 		return mav;
 	}
+	//회원 포인트충전하기 폼으로
+	@RequestMapping(value="/customer/charge",method="GET")
+	public static ModelAndView customerChargeStart(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		mav.setView("/CustomerCharge.jsp");
+		return mav;
+	}
+	//포인트충전하기
+	@RequestMapping(value="/customer/charge",method="POST")
+	public static ModelAndView customerChargeEnd(HttpServletRequest req){
+		HooliganService service=(HooliganService)req.getServletContext().getAttribute("service");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("result", service.customerCharge(req));
+		mav.setView("/hooligan/main/index");
+		return mav;
+	}
 	
 }
