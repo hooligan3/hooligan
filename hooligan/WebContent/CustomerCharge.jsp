@@ -49,7 +49,14 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-	
+
+
+$(function(){
+	var st = $(":input:radio[name=search_type]:checked").val();
+	alert("선택된 값 : "+st);
+})
+
+
 </script>
 </head>
 <body>
@@ -101,7 +108,7 @@
 							
 							<div class="col-lg-10 col-md-10 col-sm-10">
 							
-							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    포인트 충전</h3>
+							<div class="well well-lg" style="padding-left: 50px; padding-right: 50px;padding-top: 20px;"><h3><i class="fa fa-money"></i>    &nbsp;충전금액 선택</h3>
 							
 							
 										<table class="table table-striped table-hover">
@@ -114,8 +121,9 @@
 									</tr>
                     </thead>
                     <tbody style="text-align: center;">
+                    
                     <tr>
-										<td><input type="checkbox"></td>
+										<td><input type="radio" value="4500" checked="checked" name="search_type"></td>
 										<td>5000</td>
 										<td>4500</td>
 										<td>5% 추가 적립 +250P</td>
@@ -123,28 +131,28 @@
 									</tr>
 									
 									<tr>
-										<td><input type="checkbox"></td>
+										<td><input type="radio"  value="9000"  name="search_type"></td>
 										<td>10000</td>
 										<td>9000</td>
 										<td>5% 추가 적립 +500P</td>
 								       
 									</tr>
 									<tr>
-										<td><input type="checkbox"></td>
+										<td><input type="radio" value="18000" name="search_type"></td>
 										<td>20000</td>
 										<td>18000</td>
 										<td>5% 추가 적립 +1000P</td>
 								       
 									</tr>
 									<tr>
-										<td><input type="checkbox"></td>
+										<td><input type="radio" value="27000" name="search_type"></td>
 										<td>30000</td>
 										<td>27000</td>
 										<td>5% 추가 적립 +1500P</td>
 								       
 									</tr>
 									<tr>
-										<td><input type="checkbox"></td>
+										<td><input type="radio" value="45000" name="search_type"></td>
 										<td>50000</td>
 										<td>45000</td>
 										<td>5% 추가 적립 +2500P</td>
@@ -177,22 +185,25 @@
             <br><br>
 							
 							
-							<div class="well well-lg"><h3><i class="fa fa-laptop"></i>    포인트 충전방식 선택</h3>
+							<div class="well well-lg" style="padding-left: 50px; padding-right: 50px; padding-top: 7px; height: 280px; margin-right: 20px; margin-left: 20px;"><h3><i class="fa fa-credit-card"></i>   &nbsp; 포인트 충전방식 선택</h3>
 									<br>
-									<a href="#"><img src="images/가상계좌.png"></a>								
-									<a href="#"><img src="images/스마트문상.png"></a>
-									<a href="#"><img src="images/도서상품권.png"></a>
-									<a href="#"><img src="images/모바일티머니.png"></a>
-									<a href="#"><img src="images/핸드폰.png"></a>
-									<a href="#"><img src="images/해피머니.png"></a><br><br><br>
-									
-									<a href="#"><img src="images/컬쳐랜드.png"></a>
-									<a href="#"><img src="images/틴캐시.png"></a>
-									<a href="#"><img src="images/비자.png"></a>
-									<a href="#"><img src="images/OK캐시백.png"></a>
-									<a href="#"><img src="images/캐시선물.png"></a>
-									<a href="#"><img src="images/신용카드.png"></a>
-									
+									<div style="text-align: center;">
+										<a href="#"><img src="images/가상계좌.png"></a>&nbsp;								
+										
+										<a href="#"><img src="images/도서상품권.png"></a>&nbsp;
+										<a href="#"><img src="images/모바일티머니.png"></a>&nbsp;
+										<a href="#"><img src="images/핸드폰.png"></a>&nbsp;
+										<a href="#"><img src="images/해피머니.png"></a><br><br><br>
+									</div>
+									<div style="text-align: center;">
+										<a href="#"><img src="images/컬쳐랜드.png"></a>&nbsp;
+										
+										<a href="#"><img src="images/비자.png"></a>&nbsp;
+										<a href="#"><img src="images/OK캐시백.png"></a>&nbsp;
+										<a href="#"><img src="images/캐시선물.png"></a>&nbsp;
+										<a href="#"><img src="images/신용카드.png"></a>
+									</div>
+										
 									
 									
 									
@@ -204,6 +215,16 @@
 							
 							
 							</div>
+							
+							<div class="col-lg-2 col-md-2 col-sm-2"></div>
+							
+							<div class="col-lg-8 col-md-8 col-sm-8" style="text-align: center;"><br>
+							
+								<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value=메인으로>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="submit" data-loading-text="Loading..." class="btn btn-default btn-lg" value="충전하기">
+							</div>
+							
+							<div class="col-lg-2 col-md-2 col-sm-2"><br><br><br><br><br><br><br><br></div>
 							
 							
 					

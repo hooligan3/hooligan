@@ -43,8 +43,11 @@
                			 <span class="hidden-sm" style="color:white"><%=c.getCustomerName()%> 회원님</a></span>
                			  <span class="hidden-sm"style="color:white"><%=c.getGradeName()%> 등급</a></span>
                			  <span class="hidden-sm"style="color:white">포인트:<%=c.getPoint1()%>P </a></span>
-                        <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
+                       
+                         <span class="hidden-sm"><a href="/hooligan/CustomerCharge.jsp" style="color:white">충전하기</a></span>
+                          <span class="hidden-sm"><a href="/hooligan/customer/update" style="color:white">마이페이지</a></span>
                         <span class="hidden-sm"><a href="/hooligan/customer/logout" style="color:white">로그아웃</a></span>
+                        
                     </div>
                     <div class="col-lg-5 col-sm-7 top-info clearfix">
                         <ul>

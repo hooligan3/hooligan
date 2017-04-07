@@ -121,7 +121,9 @@
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
 									<a href="/hooligan/customer/order" class="btn btn-block btn-default">주문 내역</a>
 								</div>
-								
+								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+									<a href="/hooligan/customer/chargeList" class="btn btn-block btn-default">포인트 충전내역</a>
+								</div>
 								<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
 									<a href="/hooligan/customer/delete" class="btn btn-block btn-default">회원 탈퇴</a>
 								</div>
